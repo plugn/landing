@@ -1,10 +1,12 @@
 <template>
   <nav class="navigation">
     <router-link
+      class="logo"
       to="/"
     >
       <img
-        class="d-inline-block align-top"
+        height="30"
+        class="logo__img"
         src="assets/svg/icons/alabom-logo-beta.svg"
         alt="logo"
       >
@@ -34,8 +36,16 @@ export default {
 </script>
 
 <style lang="scss">
- @import '~styles/mixins';
- .navigation {
-  @include flex();
- }
+  @import '~styles/mixins';
+  .navigation {
+    @include flex($justify-content: flex-start);
+    align-items: center;
+    height: 100%;
+  }
+  .logo {
+    width: (170 / 14) + rem;
+    @include element(img) {
+      width: 100%;
+    }
+  }
 </style>

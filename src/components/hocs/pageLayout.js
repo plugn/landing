@@ -12,7 +12,7 @@ export default function pageLayout(Component) {
   return Vue.component('pageLayout', {
     render(h) {
       return h('main', {
-        class: 'container layout',
+        class: 'container px-0 layout',
       },
       [
         h(Header),

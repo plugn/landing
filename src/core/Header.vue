@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <Navigation />
+    <div class="container px-0 h-100">
+      <Navigation />
+    </div>
   </header>
 </template>
 
@@ -18,10 +20,12 @@ export default {
 <style lang="scss">
 
   .header {
-    position: fixed;
-    width: 100%;
-    top: 0;
+    background: var(--white);
+    height: 5rem;
     left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
     z-index: 10;
   }
 

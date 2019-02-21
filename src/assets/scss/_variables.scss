@@ -16,6 +16,15 @@ $colors: map-merge(
 // Body
 $body-bg: #f0f1f7;
 
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1160px
+) !default;
+
 // breakpoints
 $xs: 0;
 $sm: 576px;
