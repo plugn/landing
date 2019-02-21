@@ -1,6 +1,8 @@
- // import Font-awesome's icons
- $fa-font-path: "~font-awesome/fonts";
- @import '~font-awesome/scss/font-awesome.scss';
+// Required in order to Bootstrap works
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
- // import bootstrap.scss file
- @import '~bootstrap/scss/bootstrap.scss';
+//
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
