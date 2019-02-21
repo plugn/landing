@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended"
+  ],
+  "plugins": [
+    "vue-a11y",
+    "vue"
+  ],
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  }
+}
