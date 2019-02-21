@@ -1,4 +1,18 @@
+
 $body-bg: #f0f1f7;
+
+$white:   #ffffff !default;
+$blue:    #0A5BF0 !default;
+
+$colors: () !default;
+
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "white":      $white,
+  ),
+  $colors
+);
 
 // breakpoints
 $xs: 0;
