@@ -1,4 +1,8 @@
-@import "variables";
 @import "root";
+@import "variables";
 
 @import "custom";
+
+html {
+  font-size: 0.875rem; // 1rem browser default, typically `16px` => (14 / 16) = 0.875 then 14px = 0.875rem
+}
