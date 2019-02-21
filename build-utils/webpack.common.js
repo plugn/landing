@@ -26,7 +26,7 @@ module.exports = (mode) => {
         assets: `${paths.src}/assets`,
         styles: `${paths.src}/assets/scss`,
         components: `${paths.src}/components`,
-        core: `${paths.src}/core`,
+        core: `${paths.src}/components/core`,
         pages: `${paths.src}/pages`,
         store: `${paths.src}/store`,
         Admin: `${paths.src}/pages/Admin`,
