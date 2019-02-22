@@ -24,17 +24,22 @@
         All categories
       </span>
     </div>
+    <div class="navigation__search">
+      <InputSearch />
+    </div>
     <Categories :is-open="isCategoriesOpen" />
   </nav>
 </template>
 
 <script>
+import InputSearch from 'components/base/InputSearch';
 import Categories from './Categories';
 
 export default {
   name: 'Navigation',
   components: {
     Categories,
+    InputSearch,
   },
   data() {
     return {
@@ -65,6 +70,9 @@ export default {
     @include flex($justify-content: flex-start);
     align-items: center;
     height: 100%;
+    @include element(search) {
+      width: 25%;
+    }
   }
   .logo {
     margin-right: px-to-rem(20);
@@ -80,6 +88,7 @@ export default {
     display: flex;
     cursor: pointer;
     height: px-to-rem(40);
+    margin-right: px-to-rem(10);
     padding: 10px 15px;
     transition: all .1s ease-in-out;
     @include element(icon) {
