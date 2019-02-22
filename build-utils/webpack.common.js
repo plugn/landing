@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -79,8 +80,18 @@ module.exports = (mode) => {
                 },
               },
             },
+            /**
+             * @link - https://www.npmjs.com/package/resolve-url-loader
+             */
+            {
+              loader: 'resolve-url-loader',
+            },
             {
               loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                sourceMapContents: false,
+              },
             },
           ],
         },
