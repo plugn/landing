@@ -28,18 +28,44 @@
       class="categories"
       :class="{ 'categories--open': isCategoriesOpen }"
     >
-      sisaasas
+      <div class="container p-0">
+        <div class="row">
+          <div
+            v-for="(group, idx) in categories"
+            :key="idx"
+            class="col"
+          >
+            <div
+              v-for="category in group"
+              :key="category.href"
+              class="categories__item"
+            >
+              <Icon :src="category.icon" />
+              <a
+                :href="category.href"
+                class="categories__link"
+              >
+                {{ category.text }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
   </nav>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
+import Icon from 'components/base/Icon';
 
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
 export default {
   name: 'Navigation',
+  components: {
+    Icon,
+  },
   data() {
     return {
       isActive: false,
@@ -54,9 +80,9 @@ export default {
       isCategoriesOpen: false,
     };
   },
-  computed: mapState(['catagories']),
+  computed: mapState(['categories']),
   created() {
-    this.fetchCategories();
+    this.fetchCategories(6);
   },
   methods: {
     handleCategoriesClick() {
@@ -104,6 +130,20 @@ export default {
     display: none;
     min-width: 100%;
     position: absolute;
+    @include element(item) {
+      padding-top: px-to-rem(10);
+      padding-bottom: px-to-rem(10);
+      &:hover {
+        opacity: .8;
+      }
+    }
+    @include element(link) {
+      color: var(--body-font);
+      text-decoration: none !important;
+      &:hover {
+        color: var(--body-font);
+      }
+    }
     @include modifier(open) {
       background-color: #fff;
       border-radius: 1px;
@@ -112,7 +152,6 @@ export default {
       display: block;
       left: 0;
       margin-top: 70px;
-      overflow: auto;
       padding: 20px 30px;
       right: 0;
       top: 0;

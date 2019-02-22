@@ -1,232 +1,117 @@
 [
   {
     "href": "assets/svg/categories/women_clothing_and_accessories/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/women_clothing_and_accessories.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Women's clothing and accessories"
+    "icon": "assets/svg/categories/women_clothing_and_accessories.svg",
+    "text": "Women's clothing and accessories"
   },
   {
     "href": "assets/svg/categories/men_clothing_and_accessories/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/men_clothing_and_accessories.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Men's Clothing &amp; Accessories"
+    "icon": "assets/svg/categories/men_clothing_and_accessories.svg",
+    "text": "Men's Clothing & Accessories"
   },
   {
     "href": "assets/svg/categories/footwear/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/footwear.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Footwear"
+    "icon": "assets/svg/categories/footwear.svg",
+    "text": "Footwear"
   },
   {
     "href": "assets/svg/categories/electronics/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/electronics.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Electronics"
+    "icon": "assets/svg/categories/electronics.svg",
+    "text": "Electronics"
   },
   {
     "href": "assets/svg/categories/phones_and_tablets/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/phones_and_tablets.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Phones and tablets"
+    "icon": "assets/svg/categories/phones_and_tablets.svg",
+    "text": "Phones and tablets"
   },
   {
     "href": "assets/svg/categories/computer_hardware_and_software/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/computer_hardware_and_software.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Computer hardware and software"
+    "icon": "assets/svg/categories/computer_hardware_and_software.svg",
+    "text": "Computer hardware and software"
   },
   {
     "href": "assets/svg/categories/household_appliances/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/household_appliances.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Household appliances"
+    "icon": "assets/svg/categories/household_appliances.svg",
+    "text": "Household appliances"
   },
   {
     "href": "assets/svg/categories/products_for_mother_and_children/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/products_for_mother_and_children.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Products for mothers and children"
+    "icon": "assets/svg/categories/products_for_mother_and_children.svg",
+    "text": "Products for mothers and children"
   },
   {
     "href": "assets/svg/categories/games_and_toys/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/games_and_toys.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Games and toys"
+    "icon": "assets/svg/categories/games_and_toys.svg",
+    "text": "Games and toys"
   },
   {
     "href": "assets/svg/categories/weddings_and_festivities/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/weddings_and_festivities.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Weddings and festivities"
+    "icon": "assets/svg/categories/weddings_and_festivities.svg",
+    "text": "Weddings and festivities"
   },
   {
     "href": "assets/svg/categories/jewelry/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/jewelry.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Jewelry &amp; bijouterie"
+    "icon": "assets/svg/categories/jewelry.svg",
+    "text": "Jewelry & bijouterie"
   },
   {
     "href": "assets/svg/categories/watches/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/watches.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Watches"
+    "icon": "assets/svg/categories/watches.svg",
+    "text": "Watches"
   },
   {
     "href": "assets/svg/categories/bags_and_suitcases/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/bags_and_suitcases.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Bags and suitcases"
+    "icon": "assets/svg/categories/bags_and_suitcases.svg",
+    "text": "Bags and suitcases"
   },
   {
     "href": "assets/svg/categories/home_and_design/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/home_and_design.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Home and design"
+    "icon": "assets/svg/categories/home_and_design.svg",
+    "text": "Home and design"
   },
   {
     "href": "assets/svg/categories/garden/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/garden.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Garden"
+    "icon": "assets/svg/categories/garden.svg",
+    "text": "Garden"
   },
   {
     "href": "assets/svg/categories/products_for_repair/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/products_for_repair.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Products for repair"
+    "icon": "assets/svg/categories/products_for_repair.svg",
+    "text": "Products for repair"
   },
   {
     "href": "assets/svg/categories/auto_and_moto/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/auto_and_moto.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Automobiles and Motorcylces"
+    "icon": "assets/svg/categories/auto_and_moto.svg",
+    "text": "Automobiles and Motorcylces"
   },
   {
     "href": "assets/svg/categories/sport_and_leisure/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/sport_and_leisure.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Sports &amp; Leisure"
+    "icon": "assets/svg/categories/sport_and_leisure.svg",
+    "text": "Sports & Leisure"
   },
   {
     "href": "assets/svg/categories/products_for_pets/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/products_for_pets.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Products for pets"
+    "icon": "assets/svg/categories/products_for_pets.svg",
+    "text": "Products for pets"
   },
   {
     "href": "assets/svg/categories/hobby/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/hobby.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Hobby"
+    "icon": "assets/svg/categories/hobby.svg",
+    "text": "Hobby"
   },
   {
     "href": "assets/svg/categories/stationery/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/stationery.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Stationery"
+    "icon": "assets/svg/categories/stationery.svg",
+    "text": "Stationery"
   },
   {
     "href": "assets/svg/categories/beauty_and_health/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/beauty_and_health.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Beauty and health"
+    "icon": "assets/svg/categories/beauty_and_health.svg",
+    "text": "Beauty and health"
   },
   {
     "href": "assets/svg/categories/tea/",
-    "class": "link-category w-inline-block",
-    "onclick": "categoryClick(event, true, true, true);",
-    "img": {
-      "src": "/images/categories/tea.svg",
-      "class": "link-category-icon"
-    },
-    "div": "Tea"
+    "icon": "assets/svg/categories/tea.svg",
+    "text": "Tea"
   }
 ]

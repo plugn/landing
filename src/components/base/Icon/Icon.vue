@@ -1,7 +1,7 @@
 <template functional>
   <img
     class="icon"
-    :src="`assets/svg/icons/${props.name}${props.selected ? '-selected' : ''}.svg`"
+    :src="props.src"
     :style="{
       height: props.height ? props.height : '1.5rem',
       width: props.width ? props.width : '1.5rem',
