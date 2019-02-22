@@ -8,7 +8,6 @@
         height="30"
         class="logo__img"
         src="assets/svg/icons/alabom-logo-beta.svg"
-        alt="logo"
       >
     </router-link>
     <div
@@ -17,12 +16,13 @@
       @click="handleCategoriesClick"
     >
       <img
+        class="button-categories__icon"
         src="assets/svg/icons/burger-black.svg"
         alt="burger-menu"
       >
-      <p class="button-categories__text">
+      <span class="button-categories__text">
         All categories
-      </p>
+      </span>
     </div>
     <Categories :is-open="isCategoriesOpen" />
   </nav>
@@ -56,7 +56,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style lang="scss">
@@ -78,15 +77,17 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
+    display: flex;
     cursor: pointer;
     height: px-to-rem(40);
     padding: 10px 15px;
     transition: all .1s ease-in-out;
-    width: px-to-rem(158);
-    @include flex();
+    @include element(icon) {
+      @include size(px-to-rem(24));
+      margin-right: px-to-rem(10);
+    }
     @include element(text) {
-      display: block;
-      margin: 0;
+      text-align: left;
     }
   }
 </style>
