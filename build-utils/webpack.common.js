@@ -99,7 +99,11 @@ module.exports = (mode) => {
           test: /\.(png|jpe?g|gif)$/,
           use: [
             {
-              loader: 'file-loader?name=assets/img/[name].[ext]',
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'assets/img/', // where the images will go
+              },
             },
           ],
         },
