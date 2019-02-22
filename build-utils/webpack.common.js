@@ -109,7 +109,7 @@ module.exports = (mode) => {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/', // where the fonts will go
+              outputPath: 'assets/fonts/', // where the fonts will go
             },
           }],
         },
