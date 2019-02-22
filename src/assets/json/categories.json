@@ -1,0 +1,232 @@
+[
+  {
+    "href": "assets/svg/categories/women_clothing_and_accessories/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/women_clothing_and_accessories.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Women's clothing and accessories"
+  },
+  {
+    "href": "assets/svg/categories/men_clothing_and_accessories/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/men_clothing_and_accessories.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Men's Clothing &amp; Accessories"
+  },
+  {
+    "href": "assets/svg/categories/footwear/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/footwear.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Footwear"
+  },
+  {
+    "href": "assets/svg/categories/electronics/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/electronics.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Electronics"
+  },
+  {
+    "href": "assets/svg/categories/phones_and_tablets/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/phones_and_tablets.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Phones and tablets"
+  },
+  {
+    "href": "assets/svg/categories/computer_hardware_and_software/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/computer_hardware_and_software.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Computer hardware and software"
+  },
+  {
+    "href": "assets/svg/categories/household_appliances/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/household_appliances.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Household appliances"
+  },
+  {
+    "href": "assets/svg/categories/products_for_mother_and_children/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/products_for_mother_and_children.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Products for mothers and children"
+  },
+  {
+    "href": "assets/svg/categories/games_and_toys/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/games_and_toys.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Games and toys"
+  },
+  {
+    "href": "assets/svg/categories/weddings_and_festivities/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/weddings_and_festivities.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Weddings and festivities"
+  },
+  {
+    "href": "assets/svg/categories/jewelry/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/jewelry.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Jewelry &amp; bijouterie"
+  },
+  {
+    "href": "assets/svg/categories/watches/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/watches.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Watches"
+  },
+  {
+    "href": "assets/svg/categories/bags_and_suitcases/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/bags_and_suitcases.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Bags and suitcases"
+  },
+  {
+    "href": "assets/svg/categories/home_and_design/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/home_and_design.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Home and design"
+  },
+  {
+    "href": "assets/svg/categories/garden/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/garden.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Garden"
+  },
+  {
+    "href": "assets/svg/categories/products_for_repair/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/products_for_repair.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Products for repair"
+  },
+  {
+    "href": "assets/svg/categories/auto_and_moto/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/auto_and_moto.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Automobiles and Motorcylces"
+  },
+  {
+    "href": "assets/svg/categories/sport_and_leisure/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/sport_and_leisure.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Sports &amp; Leisure"
+  },
+  {
+    "href": "assets/svg/categories/products_for_pets/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/products_for_pets.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Products for pets"
+  },
+  {
+    "href": "assets/svg/categories/hobby/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/hobby.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Hobby"
+  },
+  {
+    "href": "assets/svg/categories/stationery/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/stationery.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Stationery"
+  },
+  {
+    "href": "assets/svg/categories/beauty_and_health/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/beauty_and_health.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Beauty and health"
+  },
+  {
+    "href": "assets/svg/categories/tea/",
+    "class": "link-category w-inline-block",
+    "onclick": "categoryClick(event, true, true, true);",
+    "img": {
+      "src": "/images/categories/tea.svg",
+      "class": "link-category-icon"
+    },
+    "div": "Tea"
+  }
+]

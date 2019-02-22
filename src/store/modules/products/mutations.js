@@ -1,14 +1,14 @@
 import {
-  SET_PRODUCT,
-  SET_PRODUCTS,
+  SET_CATEGORY,
+  SET_CATEGORIES,
 } from './actionTypes';
 
 export default {
-  [SET_PRODUCT](state, product) {
+  [SET_CATEGORY](state, product) {
     // eslint-disable-next-line no-param-reassign
     state.product = product;
   },
-  [SET_PRODUCTS](state, products) {
+  [SET_CATEGORIES](state, products) {
     // eslint-disable-next-line no-param-reassign
     state.products = products;
   },

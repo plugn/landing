@@ -12,21 +12,31 @@
       >
     </router-link>
     <div
-      class="categories-button"
+      class="button-categories"
       role="button"
+      @click="handleCategoriesClick"
     >
       <img
         src="assets/svg/icons/burger-black.svg"
         alt="burger-menu"
       >
-      <p class="categories-button__text">
+      <p class="button-categories__text">
         All categories
       </p>
     </div>
+    <nav
+      class="categories"
+      :class="{ 'categories--open': isCategoriesOpen }"
+    >
+      sisaasas
+    </nav>
   </nav>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState, mapActions } = createNamespacedHelpers('categories');
 
 export default {
   name: 'Navigation',
@@ -41,7 +51,18 @@ export default {
           to: '/',
         },
       ],
+      isCategoriesOpen: false,
     };
+  },
+  computed: mapState(['catagories']),
+  created() {
+    this.fetchCategories();
+  },
+  methods: {
+    handleCategoriesClick() {
+      this.isCategoriesOpen = !this.isCategoriesOpen;
+    },
+    ...mapActions(['fetchCategories']),
   },
 };
 
@@ -62,7 +83,7 @@ export default {
       width: 100%;
     }
   }
-  .categories-button {
+  .button-categories {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
@@ -75,6 +96,26 @@ export default {
     @include element(text) {
       display: block;
       margin: 0;
+    }
+  }
+
+  .categories {
+    background: #ddd;
+    display: none;
+    min-width: 100%;
+    position: absolute;
+    @include modifier(open) {
+      background-color: #fff;
+      border-radius: 1px;
+      border-top: 1px solid rgba(24,25,32,.1);
+      box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
+      display: block;
+      left: 0;
+      margin-top: 70px;
+      overflow: auto;
+      padding: 20px 30px;
+      right: 0;
+      top: 0;
     }
   }
 </style>
