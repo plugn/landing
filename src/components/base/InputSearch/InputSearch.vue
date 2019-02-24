@@ -2,7 +2,6 @@
   <div class="input-search">
     <input
       type="text"
-      id="search-box-input-mobile"
       name="queryString"
       autocomplete="off"
       placeholder="Looking for something?"

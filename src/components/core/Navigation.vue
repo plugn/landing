@@ -1,31 +1,55 @@
 <template>
   <nav class="navigation">
-    <router-link
-      class="logo"
-      to="/"
-    >
-      <img
-        height="30"
-        class="logo__img"
-        src="assets/svg/icons/alabom-logo-beta.svg"
+    <div class="navigation__left-side">
+      <router-link
+        class="logo"
+        to="/"
       >
-    </router-link>
-    <div
-      class="button-categories"
-      role="button"
-      @click="handleCategoriesClick"
-    >
-      <img
-        class="button-categories__icon"
-        src="assets/svg/icons/burger-black.svg"
-        alt="burger-menu"
+        <img
+          height="30"
+          class="logo__img"
+          src="assets/svg/icons/alabom-logo-beta.svg"
+        >
+      </router-link>
+      <div
+        class="button-categories"
+        role="button"
+        @click="handleCategoriesClick"
       >
-      <span class="button-categories__text">
-        All categories
-      </span>
+        <img
+          class="button-categories__icon"
+          src="assets/svg/icons/burger-black.svg"
+          alt="burger-menu"
+        >
+        <span class="button-categories__text">
+          All categories
+        </span>
+      </div>
+      <div class="navigation__search">
+        <InputSearch />
+      </div>
     </div>
-    <div class="navigation__search">
-      <InputSearch />
+    <div class="navigation__right-side">
+      <Dropdown
+        icon="cart-black"
+        text="Shopping cart"
+      >
+      <div
+        class="cart-counter"
+        slot="count"
+      >
+        2
+      </div>
+      <div class="h4 h4-mb10">Your shopping cart is still empty</div>
+      <div class="text text-grey">
+        Choose a product and order it for a few
+        minutes
+      </div>
+      </Dropdown>
+      <Dropdown
+        icon="enter-black"
+        text="Sign In"
+      />
     </div>
     <Categories :is-open="isCategoriesOpen" />
   </nav>
@@ -33,11 +57,13 @@
 
 <script>
 import InputSearch from 'components/base/InputSearch';
+import Dropdown from 'components/base/Dropdown';
 import Categories from './Categories';
 
 export default {
   name: 'Navigation',
   components: {
+    Dropdown,
     Categories,
     InputSearch,
   },
@@ -66,21 +92,34 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+
   .navigation {
-    @include flex($justify-content: flex-start);
+    @include flex($justify-content: space-between);
     align-items: center;
     height: 100%;
     @include element(search) {
-      width: 25%;
+      width: 32.1%;
+    }
+    @include element(left-side) {
+      display: flex;
+      flex-grow: 1;
+    }
+    @include element(right-side) {
+      display: flex;
     }
   }
+
   .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-right: px-to-rem(20);
     width: px-to-rem(170);
     @include element(img) {
       width: 100%;
     }
   }
+
   .button-categories {
     align-items: center;
     background-color: #f7f8fa;
@@ -99,4 +138,5 @@ export default {
       text-align: left;
     }
   }
+
 </style>
