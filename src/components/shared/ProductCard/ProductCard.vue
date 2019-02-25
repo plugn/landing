@@ -5,33 +5,34 @@
   >
     <div class="product-card__wrapper">
       <div class="product-card__cover">
-        <div class="sale-sign-block">
-          <div class="sale-corner-2" />
-          <div class="sale-sign-bottom">
-            <div class="sale-sign">
+        <div class="product-card__sale">
+          <div class="product-card__corner-full" />
+          <div class="product-card__sale-bottom">
+            <div class="product-card__sale-sign">
               <div>–25%</div>
             </div>
             <img
               src="assets/svg/sale-corner.svg"
-              class="sale-corner"
+              class="product-card__corner"
             >
           </div>
         </div>
-        <div class="img-container">
+        <div class="product-card__image-container">
           <img
-            srcset="https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216.jpg 2x, https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216_non_retina.jpg 1x"
+            srcset="https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216.jpg 2x,
+            https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216_non_retina.jpg 1x"
             src="https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216.jpg"
-            class="cover-img"
+            class="product-card__image"
           >
         </div>
-        <div class="cover-img-preloader preloader-goods" />
+        <div class="product-card__image-preloader" />
       </div>
-      <InfoCard 
+      <InfoCard
         price="164"
-        oldPrice="219"
+        old-price="219"
       />
     </div>
-    <div class="bottom-card">
+    <div class="product-card__bottom">
       Zircon bowknot earrings can female ins g...
     </div>
   </div>
@@ -82,109 +83,111 @@ export default {
 
   .product-card {
     background-color: transparent;
-    border-radius: 5px;
+    border-radius: px-to-rem(5);
     color: var(--body-font);
     cursor: pointer;
     display: block;
     flex-direction: column;
     flex: 1;
     justify-content: flex-start;
-    margin-bottom: 10px;
-    margin-top: -10px;
-    padding: 10px;
+    margin-bottom: px-to-rem(10);
+    margin-top: px-to-rem(-10);
+    padding: px-to-rem(10);
     text-decoration: none;
     transition: all .15s ease-in-out;
     &:hover {
       background-color: var(--white);
       box-shadow: 0 4px 16px 0 rgba(24,25,32,.16);
 
-      .sale-corner {
+      .product-card__corner {
         transition: opacity .1s ease 0s;
         opacity: 0;
       }
-      .sale-corner-2 {
+
+      .product-card__corner-full {
         transition: opacity .1s ease 0s;
         opacity: 1;
       }
+
     }
 
     @include element(cover) {
-      border-radius: 5px;
-      margin-bottom: 10px;
+      border-radius: px-to-rem(5);
+      margin-bottom: px-to-rem(10);
       overflow: visible;
       position: relative;
     }
-  }
 
-  .sale-sign-block {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5px;
-    margin-top: -10px;
-    position: absolute;
-  }
+    @include element(sale) {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      margin-left: px-to-rem(5);
+      margin-top: px-to-rem(-10);
+      position: absolute;
+    }
 
-  .sale-corner-2 {
-    background-color: #e82b3b;
-    height: 5px;
-    left: 0;
-    margin-left: 3px;
-    margin-right: 2.5px;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: skew(-45deg, 0deg);
-  }
+    @include element(sale-bottom) {
+      align-items: flex-start;
+      display: flex;
+      margin-top: px-to-rem(5);
+    }
 
-  .sale-sign-bottom {
-    align-items: flex-start;
-    display: flex;
-    margin-top: 5px;
-  }
+    @include element(sale-sign) {
+      background-color: var(--red);
+      border-bottom-left-radius: px-to-rem(5);
+      border-bottom-right-radius: px-to-rem(5);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      font-weight: 900;
+      line-height: 24px;
+      padding: 6px!important;
+      text-align: center;
+      z-index: 3;
+    }
 
-  .sale-sign {
-    background-color: var(--red);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    font-weight: 900;
-    line-height: 24px;
-    padding: 6px!important;
-    text-align: center;
-    z-index: 3;
-  }
+    @include element(image-container) {
+      height: 0;
+      padding-bottom: 100%;
+      position: relative;
+    }
 
-  .img-container {
-    height: 0;
-    padding-bottom: 100%;
-    position: relative;
-  }
+    @include element(image) {
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,.1);
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+    }
 
-  .cover-img {
-    border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.1);
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-  }
+    @include element(image-preloader) {
+      left: 50%;
+      margin-left: px-to-rem(-10);
+      margin-top: px-to-rem(-10);
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+    }
 
-  .cover-img-preloader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -10px;
-    margin-top: -10px;
-    z-index: 1;
-  }
+    @include element(bottom) {
+      margin-top: px-to-rem(5);
+    }
 
-  .bottom-card {
-    margin-top: 5px;
+    @include element(corner-full) {
+      background-color: #e82b3b;
+      height: px-to-rem(5);
+      left: 0;
+      margin-left: 3px;
+      margin-right: px-to-rem(2.5);
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: skew(-45deg, 0deg);
+    }
   }
 
 </style>

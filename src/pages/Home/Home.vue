@@ -19,9 +19,9 @@
     </h3>
     <div class="row home__row">
       <div
-        class="col p-0"
-        v-for="(i, idx) in products"
+        v-for="(i, idx) in productsList"
         :key="idx"
+        class="col p-0"
       >
         <ProductCard />
       </div>
@@ -31,9 +31,9 @@
     </h3>
     <div class="row home__row">
       <div
-        class="col p-0"
-        v-for="(i, idx) in products"
+        v-for="(i, idx) in productsList"
         :key="idx"
+        class="col p-0"
       >
         <ProductCard />
       </div>
@@ -43,9 +43,9 @@
     </h3>
     <div class="row home__row">
       <div
-        class="col p-0"
-        v-for="(i, idx) in products"
+        v-for="(i, idx) in productsList"
         :key="idx"
+        class="col p-0"
       >
         <ProductCard />
       </div>
@@ -71,7 +71,7 @@ export default {
         'assets/img/banner1.png',
         'assets/img/banner2.png',
       ],
-      products: Array.from(Array(5)),
+      productsList: Array.from(Array(5)),
       newProducts: Array.from(Array(25)),
     };
   },

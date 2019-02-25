@@ -30,6 +30,7 @@
   .info-card {
     display: flex;
     justify-content: space-between;
+
     @include element(left) {
       display: flex;
       flex-direction: row;
@@ -89,4 +90,3 @@
   }
 
 </style>
-
