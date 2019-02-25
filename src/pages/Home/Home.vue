@@ -1,9 +1,19 @@
 <template>
-  <section>
-    <h1 class="display-3 text-center mt-3">
-      {{ heading }}
-    </h1>
-    <div class="row" />
+  <section class="home">
+    <div class="row">
+      <div
+        v-for="banner in banners"
+        :key="banner"
+        class="col-6"
+      >
+        <figure>
+          <img 
+            :src="banner"
+            :alt="banner"
+          >
+        </figure>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -17,6 +27,10 @@ export default {
   data() {
     return {
       heading: 'Alabom',
+      banners: [
+        'assets/img/banner1.png',           
+        'assets/img/banner2.png', 
+      ],
     };
   },
   computed: mapState(['products']),
@@ -26,3 +40,13 @@ export default {
   methods: mapActions(['fetchProducts']),
 };
 </script>
+
+<style lang="scss">
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
+
+  .home {
+    padding: px-to-rem(40) 0 0 0;
+  }
+</style>
+
