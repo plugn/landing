@@ -1,35 +1,47 @@
 <template>
   <section class="home">
-    <div class="row">
+    <div class="row home__banners">
       <div
         v-for="banner in banners"
         :key="banner"
         class="col-6"
       >
         <figure>
-          <img 
+          <img
             :src="banner"
             :alt="banner"
           >
         </figure>
       </div>
     </div>
+    <h3>
+      New Goods
+    </h3>
+    <div class="row">
+      <div class="col-3">
+        <ProductCard />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+import ProductCard from 'components/shared/ProductCard';
 import { createNamespacedHelpers } from 'vuex';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   name: 'Home',
+  components: {
+    ProductCard,
+  },
   data() {
     return {
       heading: 'Alabom',
       banners: [
-        'assets/img/banner1.png',           
-        'assets/img/banner2.png', 
+        'assets/img/banner1.png',
+        'assets/img/banner2.png',
       ],
     };
   },
@@ -46,7 +58,9 @@ export default {
   @import '~styles/mixins';
 
   .home {
-    padding: px-to-rem(40) 0 0 0;
+    padding-top: px-to-rem(40);
+    @include element(banners) {
+      margin-bottom: px-to-rem(40);
+    }
   }
 </style>
-

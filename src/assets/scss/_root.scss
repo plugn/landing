@@ -4,4 +4,5 @@
   @each $color, $value in $colors {
     --#{$color}: #{$value};
   }
+  --header-height: 5rem;
 }
