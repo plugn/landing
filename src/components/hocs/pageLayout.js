@@ -4,17 +4,14 @@ import Footer from 'core/Footer';
 
 export default function pageLayout(Component) {
   const content = h => h('div', {
-    class: 'layout__content',
+    class: 'layout container px-0 layou__content',
   },
   [
     h(Component),
   ]);
   return Vue.component('pageLayout', {
     render(h) {
-      return h('main', {
-        class: 'container px-0 layout',
-      },
-      [
+      return h('main', [
         h(Header),
         content(h),
         h(Footer),
