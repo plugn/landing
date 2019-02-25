@@ -4,7 +4,7 @@
       <div
         v-for="banner in banners"
         :key="banner"
-        class="col-6"
+        class="col-5"
       >
         <figure>
           <img
