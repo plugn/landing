@@ -26,32 +26,25 @@
         </div>
         <div class="cover-img-preloader preloader-goods" />
       </div>
-      <div class="info-card">
-        <div class="info-card-left">
-          <div class="p p-price p-red">
-            164 ₽
-          </div>
-          <div class="old-price">
-            <div class="techtext techtext-oldprice">
-              219 ₽
-            </div>
-            <div class="price-cross" />
-          </div>
-        </div>
-        <div class="info-rating info-rating-right" />
-      </div>
+      <InfoCard 
+        price="164"
+        oldPrice="219"
+      />
     </div>
     <div class="bottom-card">
-      <div class="techtext techtext-black">
-        Zircon bowknot earrings can female ins g...
-      </div>
+      Zircon bowknot earrings can female ins g...
     </div>
   </div>
 </template>
 
 <script>
+import InfoCard from './InfoCard';
+
 export default {
   name: 'ProductCard',
+  components: {
+    InfoCard,
+  },
   props: {
     product: {
       type: Object,
@@ -152,7 +145,7 @@ export default {
   }
 
   .sale-sign {
-    background-color: #f34;
+    background-color: var(--red);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #fff;
@@ -190,52 +183,8 @@ export default {
     z-index: 1;
   }
 
-  .info-card {
-    display: flex;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-
-  .info-card-left {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 1;
-    float: left;
-  }
-
-  .p.p-red {
-    color: #f34;
-  }
-
-  .p.p-price {
-    font-weight: 500;
-    line-height: 20px;
-    margin-right: 10px;
-  }
-
-  .old-price {
-    align-items: center;
-    display: flex;
-    float: none;
-    justify-content: center;
-    position: relative;
-  }
-
-  .price-cross {
-    background-color: #747579;
-    border-radius: 5px;
-    height: 1px;
-    position: absolute;
-    transform: rotate(-10deg);
-    width: 100%;
-  }
-
   .bottom-card {
     margin-top: 5px;
   }
 
-  .techtext.techtext-black {
-    color: #181920;
-  }
 </style>

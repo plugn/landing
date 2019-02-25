@@ -3,12 +3,16 @@
 $colors: () !default;
 
 $blue:      #0A5BF0 !default;
+$light-gray:#747579;
+$red:       #FF3344 !default;
 $white:     #ffffff !default;
 $body-font: #181920 !default;
 
 $colors: map-merge(
   (
     "blue":       $blue,
+    "light-gray": $light-gray,
+    "red":        $red,
     "body-font":  $body-font,
     "white":      $white,
   ),

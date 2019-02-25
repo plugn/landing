@@ -14,11 +14,39 @@
         </figure>
       </div>
     </div>
-    <h3>
+    <h3 class="home__row-title">
       New Goods
     </h3>
-    <div class="row">
-      <div class="col-3">
+    <div class="row home__row">
+      <div
+        class="col p-0"
+        v-for="(i, idx) in products"
+        :key="idx"
+      >
+        <ProductCard />
+      </div>
+    </div>
+    <h3 class="home__row-title">
+      New Goods
+    </h3>
+    <div class="row home__row">
+      <div
+        class="col p-0"
+        v-for="(i, idx) in products"
+        :key="idx"
+      >
+        <ProductCard />
+      </div>
+    </div>
+    <h3 class="home__row-title">
+      New Goods
+    </h3>
+    <div class="row home__row">
+      <div
+        class="col p-0"
+        v-for="(i, idx) in products"
+        :key="idx"
+      >
         <ProductCard />
       </div>
     </div>
@@ -43,6 +71,8 @@ export default {
         'assets/img/banner1.png',
         'assets/img/banner2.png',
       ],
+      products: Array.from(Array(5)),
+      newProducts: Array.from(Array(25)),
     };
   },
   computed: mapState(['products']),
@@ -61,6 +91,12 @@ export default {
     padding-top: px-to-rem(40);
     @include element(banners) {
       margin-bottom: px-to-rem(40);
+    }
+    @include element(row) {
+      margin-bottom: px-to-rem(50);
+    }
+    @include element(row-title) {
+      margin-bottom: px-to-rem(20);
     }
   }
 </style>
