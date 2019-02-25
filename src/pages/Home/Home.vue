@@ -4,10 +4,11 @@
       <div
         v-for="banner in banners"
         :key="banner"
-        class="col-5"
+        class="col-10 col-sm-10 col-md-10 col-lg-5 col-xl-5"
       >
         <figure>
           <img
+            class="img-fluid"
             :src="banner"
             :alt="banner"
           >
@@ -21,7 +22,7 @@
       <div
         v-for="(i, idx) in productsList"
         :key="idx"
-        class="col p-0"
+        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
         <ProductCard />
       </div>
@@ -33,7 +34,7 @@
       <div
         v-for="(i, idx) in productsList"
         :key="idx"
-        class="col p-0"
+        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
         <ProductCard />
       </div>
@@ -43,9 +44,9 @@
     </h3>
     <div class="row home__row">
       <div
-        v-for="(i, idx) in productsList"
+        v-for="(i, idx) in newProducts"
         :key="idx"
-        class="col p-0"
+        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
         <ProductCard />
       </div>
