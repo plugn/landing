@@ -34,17 +34,19 @@
         icon="cart-black"
         text="Shopping cart"
       >
-      <div
-        class="cart-counter"
-        slot="count"
-      >
-        2
-      </div>
-      <div class="h4 h4-mb10">Your shopping cart is still empty</div>
-      <div class="text text-grey">
-        Choose a product and order it for a few
-        minutes
-      </div>
+        <div
+          slot="count"
+          class="cart-counter"
+        >
+          2
+        </div>
+        <div class="h4 h4-mb10">
+          Your shopping cart is still empty
+        </div>
+        <div class="text text-grey">
+          Choose a product and order it for a few
+          minutes
+        </div>
       </Dropdown>
       <Dropdown
         icon="enter-black"

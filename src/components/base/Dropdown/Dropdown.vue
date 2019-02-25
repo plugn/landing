@@ -1,6 +1,7 @@
 <template>
   <div class="dropdown">
     <div
+      v-click-outside="handleOutsideClick"
       class="dropdown__toggle"
       @click="handleClick"
     >
@@ -24,8 +25,13 @@
 </template>
 
 <script>
+import clickOutside from 'directives/clickOutside';
+
 export default {
   name: 'Dropdown',
+  directives: {
+    clickOutside,
+  },
   props: {
     icon: {
       type: String,
@@ -45,6 +51,11 @@ export default {
     handleClick() {
       this.isOpen = !this.isOpen;
     },
+    handleOutsideClick() {
+      if (this.isOpen) {
+        this.isOpen = false;
+      }
+    },
   },
 };
 </script>
@@ -54,13 +65,13 @@ export default {
   @import '~styles/mixins';
 
   .dropdown {
-    display: flex;
-    padding-right: px-to-rem(15);
-    padding-left: px-to-rem(15);
-    float: right;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    justify-content: flex-start;
+    padding-left: px-to-rem(15);
+    padding-right: px-to-rem(15);
     position: relative;
 
     @include element(toggle) {
@@ -98,19 +109,18 @@ export default {
       display: none;
       margin-top: px-to-rem(70);
       min-width: px-to-rem(340);
-      opacity: 1; 
+      opacity: 1;
       overflow: auto;
       padding: px-to-rem(20);
       position: absolute;
       right: 0;
       top: 0;
-      transform: translateX(0px) translateY(5px) translateZ(0px); 
+      transform: translateX(0px) translateY(5px) translateZ(0px);
       @include modifier(open) {
         display: block;
-        opacity: 1; 
-        transform: translateX(0px) translateY(0px) translateZ(0px); 
-        transition: opacity 100ms ease-out 0s, 
-        transform 100ms ease-in-out 0s;
+        opacity: 1;
+        transform: translateX(0px) translateY(0px) translateZ(0px);
+        transition: opacity 100ms ease-out 0s transform 100ms ease-in-out 0s;
       }
     }
   }
