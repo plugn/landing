@@ -57,7 +57,7 @@
       </button>
     </div>
     <Modal>
-     
+      <LoginForm />
     </Modal>
     <Categories :is-open="isCategoriesOpen" />
   </nav>
@@ -69,11 +69,11 @@ import { createNamespacedHelpers } from 'vuex';
 import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
 import Modal from 'components/shared/Modal';
-// import LoginForm from 'components/shared/LoginForm';
+import LoginForm from 'components/shared/LoginForm';
 
 import Categories from './Categories';
 
-const { mapState, mapActions } = createNamespacedHelpers('modal');
+const { mapActions } = createNamespacedHelpers('modal');
 
 export default {
   name: 'Navigation',
@@ -81,7 +81,8 @@ export default {
     Dropdown,
     Categories,
     InputSearch,
-    Modal
+    Modal,
+    LoginForm,
   },
   data() {
     return {

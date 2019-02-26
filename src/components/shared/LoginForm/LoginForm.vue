@@ -2,8 +2,8 @@
   <div>
     <div v-show="!isForgetPassword">
       <img
-        src="/images/auth-img.png" 
-        width="200" 
+        src="/images/auth-img.png"
+        width="200"
         class="auth-img"
       >
       <slot name="header">
@@ -12,21 +12,24 @@
         </div>
       </slot>
       <div
-        class="loginrow w-row"
         v-if="isSocialLogInProgress"
         id="loader_container"
+        class="loginrow w-row"
       >
         <Loader :size="20" />
       </div>
-      <div class="loginrow w-row" v-else>
+      <div
+        v-else
+        class="loginrow w-row"
+      >
         <div class="w-clearfix w-col">
           <button
             class="socialbutton socialbutton-vk w-inline-block"
             @click="loginVK"
           >
             <img
-              src="/images/vk-white.svg" 
-              width="75" 
+              src="/images/vk-white.svg"
+              width="75"
               class="image-2"
             >
           </button>
@@ -36,29 +39,32 @@
         or use your e-mail
       </div>
       <div class="form-block">
-        <form method="post" @submit="submit" ref="form">
+        <form
+          ref="form"
+          @submit="submit"
+        >
           <div class="formcell-2">
             <input
-              type="email"
-              class="input-3 w-input"
-              name="email"
-              :placeholder="'Your e-mail'"
-              required
               v-model="email"
+              :placeholder="'Your e-mail'"
+              type="email"
+              name="email"
+              required
+              class="input-3 w-input"
             >
             <input
-              type="password"
-              class="input-3 w-input"
-              name="password"
-              :placeholder="'Password'"
-              required
               v-model="password"
+              :placeholder="'Password'"
+              type="password"
+              name="password"
+              required
+              class="input-3 w-input"
             >
           </div>
 
           <div
-            class="formmessage formmessage-error w-form-fail"
             v-if="error"
+            class="formmessage formmessage-error w-form-fail"
           >
             <div>
               {{ error }}
@@ -66,9 +72,9 @@
           </div>
           <input
             type="submit"
-            class="button button-stretch w-button"
             :value="isLoading ? 'Signing in...' : buttonMessage"
             :disabled="isLoading"
+            class="button button-stretch w-button"
           >
           <a
             id="forget-password"
@@ -83,31 +89,31 @@
     <div v-show="isForgetPassword">
       <div class="form-block">
         <form
+          v-show="!isForgetPasswordSent"
           id="email-form-4"
           name="email-form-4"
           data-name="Email Form 4"
           @submit="sendPasswordRecovery"
-          v-show="!isForgetPasswordSent"
         >
           <div class="h4 h4-mb10 h4-center">
             Enter your email for password recovery
           </div>
 
           <div
-            class="formmessage formmessage-error w-form-fail"
             v-if="error"
+            class="formmessage formmessage-error w-form-fail"
           >
             <div>
               {{ error }}
             </div>
           </div>
           <input
-            class="input-3 w-input"
-            name="email"
             v-model="email"
             :placeholder="'Your email'"
+            name="email"
             required
             type="email"
+            class="input-3 w-input"
           >
           <button
             class="button button-stretch w-button"
@@ -139,15 +145,18 @@
 <script>
 import {
   login,
-  resetPassword
+  resetPassword,
 } from 'services/auth';
-import { mapActions, mapState } from 'vuex';
-import { langUrl } from 'services/helpers';
+import {
+  mapActions,
+  mapState,
+} from 'vuex';
+import { langUrl } from 'utils/helpers';
 // import Loader from '../../../../../common/assets/js/components/Loader.vue';
 
 import {
   registerLoginMindbox,
-  registerSignUpMindbox
+  registerSignUpMindbox,
 } from 'utils/analytics/mindbox';
 import { notifyEmailAvailableLeadplan } from 'utils/analytics/leadplan';
 
@@ -156,18 +165,18 @@ export default {
   props: {
     buttonMessage: {
       type: String,
-      default: 'Go shopping'
+      default: 'Go shopping',
     },
     // выключает дополнение корзины с фронтенда (для игрового лендинга)
     disableCartAppend: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // выключает редирект для завершения регистрации (для игрового лендинга)
     disableSignUpComplete: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -178,23 +187,27 @@ export default {
       loggedIn: false,
       isForgetPassword: false,
       isForgetPasswordSent: false,
-      isSocialLogInProgress: false // флаг вывода индикатора загрузки входа через социальные сети
+      isSocialLogInProgress: false, // флаг вывода индикатора загрузки входа через социальные сети
     };
   },
-  components: { Loader },
+  // components: { Loader },
   computed: mapState({
-    cart: state => state.cart.goods
+    cart: state => state.cart.goods,
   }),
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log(this.disableCartAppend, this.signUpCompleteHostname);
+  },
   methods: {
     ...mapActions({
-      appendToCart: 'cart/appendToCart'
+      appendToCart: 'cart/appendToCart',
     }),
+    // eslint-disable-next-line consistent-return
     async submit(e) {
       if (this.loggedIn) {
         return true;
-      } else {
-        e.preventDefault();
       }
+      e.preventDefault();
       this.error = null;
       this.isLoading = true;
 
@@ -210,30 +223,34 @@ export default {
             id: res.data.user.id,
             email: this.email,
             firstName: res.data.user.first_name,
-            lastName: res.data.user.last_name
+            lastName: res.data.user.last_name,
           });
         } else {
           registerLoginMindbox(res.data.user.id);
         }
+        // eslint-disable-next-line no-console
         console.log(res.data.user);
+        // eslint-disable-next-line no-console
         console.log(this.email);
         notifyEmailAvailableLeadplan(res.data.user);
         if (res.data.is_new && !this.disableSignUpComplete) {
-          localStorage.setItem('after_login_redirect', location.href);
-          location.href = langUrl('/sign_up/complete/');
+          localStorage.setItem('after_login_redirect', window.location.href);
+          window.location.href = langUrl('/sign_up/complete/');
         } else {
-          location.reload();
+          window.location.reload();
         }
-      } catch (e) {
-        console.error(e);
-        if (e.response && e.response.data && e.response.data.error) {
-          this.error = e.response.data.error;
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error(err);
+        if (err.response && err.response.data && err.response.data.error) {
+          this.error = err.response.data.error;
         } else {
           this.error = 'Cannot authorize the user';
         }
         this.isLoading = false;
       }
     },
+    // eslint-disable-next-line consistent-return
     async sendPasswordRecovery(e) {
       e.preventDefault();
       this.error = null;
@@ -245,11 +262,12 @@ export default {
       }
 
       try {
+        // eslint-disable-next-line no-unused-vars
         const res = await resetPassword(this.email);
         this.isForgetPasswordSent = true;
-      } catch (e) {
-        if (e.response && e.response.data && e.response.data.error) {
-          this.error = e.response.data.error;
+      } catch (err) {
+        if (err.response && err.response.data && err.response.data.error) {
+          this.error = err.response.data.error;
         } else {
           this.error = 'Cannot authorize the user';
         }
@@ -259,14 +277,11 @@ export default {
     loginVK() {
       this.isSocialLogInProgress = true;
       localStorage.setItem('savedCart', JSON.stringify(this.cart));
-      window.location.href = `/authorize/vk/?redirect_to=${encodeURI(
-        window.location.href
+      window.window.location.href = `/authorize/vk/?redirect_to=${encodeURI(
+        window.window.location.href,
       )}`;
-    }
+    },
   },
-  mounted() {
-    console.log(this.disableCartAppend, this.signUpCompleteHostname);
-  }
 };
 </script>
 
