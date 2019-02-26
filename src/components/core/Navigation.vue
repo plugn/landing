@@ -52,15 +52,28 @@
         icon="enter-black"
         text="Sign In"
       />
+      <button @click="toggleModal">
+        text
+      </button>
     </div>
+    <Modal>
+     
+    </Modal>
     <Categories :is-open="isCategoriesOpen" />
   </nav>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
 import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
+import Modal from 'components/shared/Modal';
+// import LoginForm from 'components/shared/LoginForm';
+
 import Categories from './Categories';
+
+const { mapState, mapActions } = createNamespacedHelpers('modal');
 
 export default {
   name: 'Navigation',
@@ -68,6 +81,7 @@ export default {
     Dropdown,
     Categories,
     InputSearch,
+    Modal
   },
   data() {
     return {
@@ -87,6 +101,7 @@ export default {
     handleCategoriesClick() {
       this.isCategoriesOpen = !this.isCategoriesOpen;
     },
+    ...mapActions(['toggleModal']),
   },
 };
 </script>
