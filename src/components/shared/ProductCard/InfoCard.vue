@@ -84,7 +84,6 @@
 
     @include element(rate) {
       color: var(--light-gray);
-      font-size: 14px;
     }
 
   }
