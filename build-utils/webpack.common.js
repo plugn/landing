@@ -68,6 +68,9 @@ module.exports = (mode) => {
             },
             {
               loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
             },
             {
               loader: 'postcss-loader', // Run post css actions
