@@ -9,7 +9,7 @@
       <div
         v-for="(group, idx) in categories"
         :key="idx"
-        class="col-3"
+        class="footer-col"
       >
         <div
           v-for="category in group"
@@ -27,7 +27,14 @@
           </a>
         </div>
       </div>
+      <div class="sisa">
+        <h5 class="footer-bottom__right-title">
+          <strong>
+            Покупайте товары на Alabom.com
+          </strong>
+        </h5>
       </div>
+    </div>
   </div>
 </template>
 
@@ -53,6 +60,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "~bootstrap/scss/mixins";
+
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
 
@@ -61,5 +70,12 @@ export default {
     @include element(left-title) {
       margin-bottom: px-to-rem(25);
     }
+    @include element(right-title) {
+      margin-bottom: px-to-rem(25);
+    }
+  }
+
+  .footer-col {
+    @include make-col(3, 12);
   }
 </style>
