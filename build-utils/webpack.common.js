@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -27,11 +26,14 @@ module.exports = (mode) => {
         Admin: `${paths.src}/pages/Admin`,
         assets: `${paths.src}/assets`,
         components: `${paths.src}/components`,
+        constants: `${paths.src}/constants`,
         core: `${paths.src}/components/core`,
         directives: `${paths.src}/directives`,
         pages: `${paths.src}/pages`,
+        services: `${paths.src}/services`,
         store: `${paths.src}/store`,
         styles: `${paths.src}/assets/scss`,
+        utils: `${paths.src}/utils`,
       },
       extensions: ['.js', '.vue', '.json'],
     },
