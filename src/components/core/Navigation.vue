@@ -132,10 +132,12 @@ export default {
     margin-right: px-to-rem(10);
     padding: 10px 15px;
     transition: all .1s ease-in-out;
+
     @include element(icon) {
       @include size(px-to-rem(24));
       margin-right: px-to-rem(10);
     }
+
     @include element(text) {
       text-align: left;
     }
