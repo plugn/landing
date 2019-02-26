@@ -20,7 +20,7 @@
             Terms of Use
           </a>
           <a
-            href="/help/" 
+            href="/help/"
             class="footer__link"
           >
             FAQ
@@ -42,7 +42,16 @@
       </div>
       <div class="footer__divider" />
       <p class="footer__copyright m-0">
-        © {{ new Date().getFullYear() }} Alabom Shop Limited - Маркетплейс товаров из Китая и не только    All rights   reserved info@alabom.com
+        © {{ new Date().getFullYear() }}
+        <span class="m-2">
+          {{ text }}
+        </span>
+        <span class="m-2">
+          {{ rights }}
+        </span>
+        <span class="m-2">
+          {{ email }}
+        </span>
       </p>
     </div>
   </footer>
@@ -51,6 +60,13 @@
 <script>
 export default {
   name: 'Footer',
+  data() {
+    return {
+      text: 'Alabom Shop Limited - Маркетплейс товаров из Китая и не только',
+      rights: 'All rights reserved',
+      email: 'info@alabom.com',
+    };
+  },
 };
 </script>
 
