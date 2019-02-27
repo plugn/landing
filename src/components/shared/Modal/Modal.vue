@@ -12,12 +12,7 @@
           <div
             class="alm-modal-close"
             @click="handleClose()"
-          >
-            <img
-              src="assets/svg/icons/modal-close-btn.svg" 
-              alt="modal close"
-            >
-          </div>
+          />
           <slot />
         </div>
       </div>
@@ -82,5 +77,19 @@ export default {
   max-height: 580px;
   min-height: 200px;
   width: 340px;
+}
+
+.alm-modal-close {
+  position: absolute;
+  top: -16px;
+  right: -17px;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  background: url('../../../assets/svg/icons/modal-close-btn.svg') center no-repeat;
+}
+
+.alm-modal-close:hover {
+  // background-image: url('../../assets/svg/icons/modal-close-hover-btn.svh');
 }
 </style>

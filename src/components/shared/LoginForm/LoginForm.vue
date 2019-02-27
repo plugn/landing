@@ -35,28 +35,25 @@
           </span>
         </div>
         <div class="form-group">
-          <button
-            class="btn btn-primary btn-block login-form__button"
+          <input
+            class="form-control login-form__button--primary"
             type="button"
-          >
-            Войдите
-          </button>
+            value="Войти"
+          />
         </div>
-        <div class="form-group">
-          <div class="login-form__notice">
-            Вход через соцсети
-          </div>
+        <div class="login-form__notice">
+          Вход через соцсети
         </div>
         <div class="form-group m-0">
-          <button
-            class="btn btn-block login-form__button login-form__button--vk"
+          <input
+            class="form-control login-form__button--vk"
             type="button"
-          >
-            <img
+          />
+            <!-- <img
               src="assets/svg/icons/vk.svg"
               alt="vk"
             >
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -81,9 +78,18 @@ export default {
       height: 50px;
       padding: 14px;
 
+      @include modifier(primary) {
+        background: var(--blue);
+        // border-radius: px-to-rem(3);
+        border: 1px solid rgba(24, 25, 32, 0.1);
+        color: var(--white);
+        cursor: pointer;
+      }
+
       @include modifier(vk) {
-        background: #45668E !important;
-        border-radius: 3px;
+        background: #45668E url('../../../assets/svg/icons/vk.svg') no-repeat center !important;
+        // border-radius: px-to-rem(3);
+        border: 1px solid rgba(24, 25, 32, 0.1);
         cursor: pointer;
       }
 
@@ -91,6 +97,7 @@ export default {
 
     @include element(notice) {
       color: rgba(24, 25, 32, 0.6);
+      margin-bottom: px-to-rem(19);
       text-align: center;
       width: 100%
     }
@@ -130,76 +137,76 @@ export default {
     padding: 10px 20px 30px;
   }
 
-  .alm-text,
-  .alm-auth-form input,
-  .alm-auth-form span {
-    line-height: 20px;
-    font-size: 14px;
-  }
-
-  .alm-auth-form .form-row {
-    margin-top: 20px;
-  }
-
-  .alm-auth-form .alm-card-top-row {
-    margin-top: 10px;
-  }
-
-  .alm-auth-form .alm-card-title {
-    font-size: 19px;
-    line-height: 26px;
-    font-style: normal;
-    font-weight: bold;
-    color: #181920;
-  }
-
-  .alm-auth-form .alm-card-body {
-    text-align: left;
-    font-size: 14px;
-    line-height: 24px;
-    color: #181920;
-  }
-  .alm-auth-form .alm-card-body p {
-    margin: 12px 0;
-  }
-
-
-  .alm-auth-form .f-dark {
-    color: #181920;
-  }
-  .alm-auth-form .f-red {
-    color: #ea4d47;
-  }
-  .alm-auth-form .f-gray {
-    color: rgba(24, 25, 32, 0.6);
-  }
-  .alm-auth-form .f-lite {
-    color: rgba(24, 25, 32, 0.1);
-  }
-  .alm-auth-form .f-blue,
-  .alm-auth-form a {
-    color: #0A5BF0;
-    text-decoration: none;
-  }
-
-  /* input.form-input::-moz-placeholder, */
-  input.form-input::-webkit-input-placeholder {
-    color: rgba(24, 25, 32, 0.6);
-  }
-
-  input.form-input {
-    width: 100%;
-    height: 50px;
-    padding: 14px;
-    color: rgba(24, 25, 32, 1);
-    border-radius: 4px;
-    border: 1px solid rgba(24, 25, 32, 0.1);
-  }
-
-  // .alm-auth-form .form-notice {
-  //   width: 100%;
-  //   text-align: center;
+  // .alm-text,
+  // .alm-auth-form input,
+  // .alm-auth-form span {
+  //   line-height: 20px;
+  //   font-size: 14px;
   // }
+
+  // .alm-auth-form .form-row {
+  //   margin-top: 20px;
+  // }
+
+  // .alm-auth-form .alm-card-top-row {
+  //   margin-top: 10px;
+  // }
+
+  // .alm-auth-form .alm-card-title {
+  //   font-size: 19px;
+  //   line-height: 26px;
+  //   font-style: normal;
+  //   font-weight: bold;
+  //   color: #181920;
+  // }
+
+  // .alm-auth-form .alm-card-body {
+  //   text-align: left;
+  //   font-size: 14px;
+  //   line-height: 24px;
+  //   color: #181920;
+  // }
+  // .alm-auth-form .alm-card-body p {
+  //   margin: 12px 0;
+  // }
+
+
+  // .alm-auth-form .f-dark {
+  //   color: #181920;
+  // }
+  // .alm-auth-form .f-red {
+  //   color: #ea4d47;
+  // }
+  // .alm-auth-form .f-gray {
+  //   color: rgba(24, 25, 32, 0.6);
+  // }
+  // .alm-auth-form .f-lite {
+  //   color: rgba(24, 25, 32, 0.1);
+  // }
+  // .alm-auth-form .f-blue,
+  // .alm-auth-form a {
+  //   color: #0A5BF0;
+  //   text-decoration: none;
+  // }
+
+  // /* input.form-input::-moz-placeholder, */
+  // input.form-input::-webkit-input-placeholder {
+  //   color: rgba(24, 25, 32, 0.6);
+  // }
+
+  // input.form-input {
+  //   width: 100%;
+  //   height: 50px;
+  //   padding: 14px;
+  //   color: rgba(24, 25, 32, 1);
+  //   border-radius: 4px;
+  //   border: 1px solid rgba(24, 25, 32, 0.1);
+  // }
+
+  // // .alm-auth-form .form-notice {
+  // //   width: 100%;
+  // //   text-align: center;
+  // // }
 
   .alm-anchor {
     position: relative;
@@ -213,48 +220,35 @@ export default {
     cursor: pointer;
   }
 
-  .alm-input-eye {
-    position: absolute;
-    top: 0px;
-    right: 14px;
-    width: 24px;
-    height: 50px;
-    cursor: pointer;
-    background: url(/images/auth/eye-closed.svg) center center no-repeat;
-  }
-  .alm-input-eye.eye-open {
-    background: url(/images/auth/eye.svg) center center no-repeat;
-  }
+  // .alm-input-eye {
+  //   position: absolute;
+  //   top: 0px;
+  //   right: 14px;
+  //   width: 24px;
+  //   height: 50px;
+  //   cursor: pointer;
+  //   background: url(/images/auth/eye-closed.svg) center center no-repeat;
+  // }
+  // .alm-input-eye.eye-open {
+  //   background: url(/images/auth/eye.svg) center center no-repeat;
+  // }
 
-  .alm-modal-close {
-    position: absolute;
-    top: -16px;
-    right: -17px;
-    cursor: pointer;
-    width: 12px;
-    height: 12px;
-    background: url(/images/auth/modal-close-btn.svg) center no-repeat;
-  }
-  .alm-modal-close:hover {
-    background-image: url(/images/auth/modal-close-hover-btn.svg);
-  }
+  // .alm-auth-form .alm-subtext-eula {
+  //   width: 300px;
+  //   line-height: 18px;
+  //   font-size: 12px;
+  //   text-align: center;
+  // }
 
-  .alm-auth-form .alm-subtext-eula {
-    width: 300px;
-    line-height: 18px;
-    font-size: 12px;
-    text-align: center;
-  }
+  // .form-row {
+  //   margin-top: 20px;
+  // }
 
-  .form-row {
-    margin-top: 20px;
-  }
-
-  .auth-button-vk {
-    color: #fff;
-    background: #45668E;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+  // .auth-button-vk {
+  //   color: #fff;
+  //   background: #45668E;
+  //   border-radius: 3px;
+  //   cursor: pointer;
+  // }
 
 </style>
