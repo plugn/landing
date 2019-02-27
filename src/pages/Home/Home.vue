@@ -14,7 +14,9 @@
       –30% на новинки
     </h3>
     <p class="home__description">
-      9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет мастер-класс известного шеф-повара Константина Ивлева, посвященный главному масленичному лакомству
+      9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет
+      мастер-класс известного шеф-повара Константина Ивлева,
+      посвященный главному масленичному лакомству
     </p>
     <div class="row home__row">
       <CategoriesRow
@@ -132,7 +134,6 @@ export default {
       // background: -moz-linear-gradient(left, #585bff 0%, #8f25ff 100%);
       // background: -webkit-linear-gradient(left, #585bff 0%,#8f25ff 100%);
       // background: linear-gradient(to right, #585bff 0%,#8f25ff 100%);
-      // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585bff', endColorstr='#8f25ff',GradientType=1 );
 
       @include media($xl) {
         background: url('../../assets/img/main-banner-big.png') no-repeat center;
