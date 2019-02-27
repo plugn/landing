@@ -1,5 +1,5 @@
 <template>
-  <form class="login-form">
+  <div class="login-form">
     <div class="d-flex flex-column">
       <div class="d-flex flex-row no-stretch alm-auth-tabs">
         <div class="login-form__tab alm-auth-tab active">
@@ -16,7 +16,7 @@
       <div class="form-group" />
       <SignInForm />
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
