@@ -14,7 +14,8 @@ import {
 
 import get from 'lodash.get';
 
-import * as STATUS from './AuthConstants';
+// import * as STATUS from './AuthConstants';
+import * as STATUS from 'constants';
 
 export function notifyMindbox(data, isNewAccount = false) {
   if (!get(data, 'user.id')) {

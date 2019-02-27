@@ -14,55 +14,19 @@
         </div>
       </div>
       <div class="form-group" />
-      <div class="stretch alm-auth-form">
-        <div class="form-group">
-          <input
-            class="form-control"
-            name="alm-auth-email"
-            type="text"
-            placeholder="E-mail"
-          >
-        </div>
-        <div class="form-group alm-anchor">
-          <input
-            class="form-control"
-            name="alm-auth-password"
-            type="text"
-            placeholder="Пароль"
-          >
-          <span class="alm-notice-forgot">
-            Забыли пароль?
-          </span>
-        </div>
-        <div class="form-group">
-          <input
-            class="form-control login-form__button--primary"
-            type="button"
-            value="Войти"
-          />
-        </div>
-        <div class="login-form__notice">
-          Вход через соцсети
-        </div>
-        <div class="form-group m-0">
-          <input
-            class="form-control login-form__button--vk"
-            type="button"
-          />
-            <!-- <img
-              src="assets/svg/icons/vk.svg"
-              alt="vk"
-            >
-          </button> -->
-        </div>
-      </div>
+      <SignInForm />
     </div>
   </form>
 </template>
 
 <script>
+import SignInForm from './SignInForm';
+
 export default {
   name: 'LoginForm',
+  components: {
+    SignInForm,
+  },
 };
 </script>
 
