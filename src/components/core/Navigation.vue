@@ -69,7 +69,7 @@ import { createNamespacedHelpers } from 'vuex';
 import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
 import Modal from 'components/shared/Modal';
-import LoginForm from 'components/shared/LoginForm';
+import LoginForm from 'components/shared/LoginForm/_LoginForm';
 
 import Categories from './Categories';
 

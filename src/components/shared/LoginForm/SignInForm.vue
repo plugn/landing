@@ -12,7 +12,9 @@
     </div>
     <div class="form-group alm-anchor">
       <input class="form-control" name="alm-auth-password" type="text" placeholder="Пароль">
-      <span class="alm-notice-forgot">Забыли пароль?</span>
+      <span class="alm-notice-forgot">
+        Забыли пароль?
+      </span>
     </div>
     <div class="form-group">
       <input class="form-control login-form__button--primary" type="button" value="Войти">
