@@ -1,3 +1,4 @@
+@import './functions/px-to-rem';
 
 // Color system
 $colors: () !default;
@@ -38,6 +39,11 @@ $font-family-base:            $font-family-sans-serif !default;
 
 // Grid
 $grid-columns: 10;
+
+// Forms 
+$input-height: 3.5714285714285716rem;
+$form-group-margin-bottom: px-to-rem(20);
+$input-padding-x: 1rem;
 
 // breakpoints
 $xs: 0;

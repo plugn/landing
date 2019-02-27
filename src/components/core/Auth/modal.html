@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="./flex_layout.css">
+	<link rel="stylesheet" href="./modal.css">
+</head>
+<body>
+	<!-- <div class="alm-fader"></div> -->
+
+	<div class="alm-fader alm-modal-outer">
+		<div class="alm-modal-middle">
+			<div class="alm-modal-inner alm-auth-container alm-anchor">
+				<div class="alm-modal-close"></div>
+				<div class="flex-col">
+					<div class="flex-row no-stretch alm-auth-tabs">
+						<div class="flex-col alm-auth-tab active">
+							<span class="alm-auth-tab-label">вход</span>
+						</div>
+						<div class="flex-col alm-auth-tab">
+							<span class="alm-auth-tab-label">регистрация</span>
+						</div>
+					</div>
+					<div class="stretch form-row alm-auth-form">
+						<div class="flex-row form-row">
+							<input class="form-input" name="alm-auth-email" type="text" placeholder="E-mail">
+						</div>
+						<div class="flex-row form-row alm-anchor">
+							<input class="form-input" name="alm-auth-password" type="text" placeholder="Пароль">
+							<span class="alm-notice-forgot">Забыли пароль?</span>
+						</div>
+						<div class="flex-row form-row">
+							<input class="form-input auth-button" type="button" value="Войдите">
+						</div>
+						<div class="flex-row form-row">
+							<span class="form-notice">Вход через соцсети</span>
+						</div>
+						<div class="flex-row form-row">
+							<input class="form-input auth-button-vk" type="button">
+							<!-- <div class="form-input auth-button-vk"></div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

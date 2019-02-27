@@ -1,297 +1,260 @@
 <template>
-  <div>
-    <div v-show="!isForgetPassword">
-      <img
-        src="/images/auth-img.png"
-        width="200"
-        class="auth-img"
-      >
-      <slot name="header">
-        <div class="h4 h4-mb10 h4-center">
-          "Sign in or register"
+  <form class="login-form">
+    <div class="d-flex flex-column">
+      <div class="d-flex flex-row no-stretch alm-auth-tabs">
+        <div class="login-form__tab alm-auth-tab active">
+          <div class="alm-auth-tab-label">
+            вход
+          </div>
         </div>
-      </slot>
-      <div
-        v-if="isSocialLogInProgress"
-        id="loader_container"
-        class="loginrow w-row"
-      >
-        <Loader :size="20" />
+        <div class="login-form__tab alm-auth-tab">
+          <div class="alm-auth-tab-label">
+            регистрация
+          </div>
+        </div>
       </div>
-      <div
-        v-else
-        class="loginrow w-row"
-      >
-        <div class="w-clearfix w-col">
+      <div class="form-group" />
+      <div class="stretch alm-auth-form">
+        <div class="form-group">
+          <input
+            class="form-control"
+            name="alm-auth-email"
+            type="text"
+            placeholder="E-mail"
+          >
+        </div>
+        <div class="form-group alm-anchor">
+          <input
+            class="form-control"
+            name="alm-auth-password"
+            type="text"
+            placeholder="Пароль"
+          >
+          <span class="alm-notice-forgot">
+            Забыли пароль?
+          </span>
+        </div>
+        <div class="form-group">
           <button
-            class="socialbutton socialbutton-vk w-inline-block"
-            @click="loginVK"
+            class="btn btn-primary btn-block login-form__button"
+            type="button"
+          >
+            Войдите
+          </button>
+        </div>
+        <div class="form-group">
+          <div class="login-form__notice">
+            Вход через соцсети
+          </div>
+        </div>
+        <div class="form-group m-0">
+          <button
+            class="btn btn-block login-form__button login-form__button--vk"
+            type="button"
           >
             <img
-              src="/images/vk-white.svg"
-              width="75"
-              class="image-2"
+              src="assets/svg/icons/vk.svg"
+              alt="vk"
             >
           </button>
         </div>
       </div>
-      <div class="text text-grey text-mb10 text-center">
-        or use your e-mail
-      </div>
-      <div class="form-block">
-        <form
-          ref="form"
-          @submit="submit"
-        >
-          <div class="formcell-2">
-            <input
-              v-model="email"
-              :placeholder="'Your e-mail'"
-              type="email"
-              name="email"
-              required
-              class="input-3 w-input"
-            >
-            <input
-              v-model="password"
-              :placeholder="'Password'"
-              type="password"
-              name="password"
-              required
-              class="input-3 w-input"
-            >
-          </div>
-
-          <div
-            v-if="error"
-            class="formmessage formmessage-error w-form-fail"
-          >
-            <div>
-              {{ error }}
-            </div>
-          </div>
-          <input
-            type="submit"
-            :value="isLoading ? 'Signing in...' : buttonMessage"
-            :disabled="isLoading"
-            class="button button-stretch w-button"
-          >
-          <a
-            id="forget-password"
-            class="link link-center"
-            @click="isForgetPassword = true"
-          >
-            Forget password
-          </a>
-        </form>
-      </div>
     </div>
-    <div v-show="isForgetPassword">
-      <div class="form-block">
-        <form
-          v-show="!isForgetPasswordSent"
-          id="email-form-4"
-          name="email-form-4"
-          data-name="Email Form 4"
-          @submit="sendPasswordRecovery"
-        >
-          <div class="h4 h4-mb10 h4-center">
-            Enter your email for password recovery
-          </div>
-
-          <div
-            v-if="error"
-            class="formmessage formmessage-error w-form-fail"
-          >
-            <div>
-              {{ error }}
-            </div>
-          </div>
-          <input
-            v-model="email"
-            :placeholder="'Your email'"
-            name="email"
-            required
-            type="email"
-            class="input-3 w-input"
-          >
-          <button
-            class="button button-stretch w-button"
-            :disabled="isLoading"
-          >
-            {{ isLoading ? 'Loading...' : 'Send recovery link' }}
-          </button>
-        </form>
-        <div
-          v-if="isForgetPasswordSent"
-          id="forget-password-sent"
-        >
-          <div class="text text-grey text-mb10 text-center">
-            Мы отправили ссылку для восстановления пароля на
-            вашу почту.
-            <br>
-          </div>
-          <div class="text text-grey text-mb10 text-center">
-            Если письмо не приходит, проверьте папку
-            «Спам».
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </form>
 </template>
 
 <script>
-import {
-  login,
-  resetPassword,
-} from 'services/auth';
-import {
-  mapActions,
-  mapState,
-} from 'vuex';
-import { langUrl } from 'utils/helpers';
-// import Loader from '../../../../../common/assets/js/components/Loader.vue';
-
-import {
-  registerLoginMindbox,
-  registerSignUpMindbox,
-} from 'utils/analytics/mindbox';
-import { notifyEmailAvailableLeadplan } from 'utils/analytics/leadplan';
-
 export default {
   name: 'LoginForm',
-  props: {
-    buttonMessage: {
-      type: String,
-      default: 'Go shopping',
-    },
-    // выключает дополнение корзины с фронтенда (для игрового лендинга)
-    disableCartAppend: {
-      type: Boolean,
-      default: false,
-    },
-    // выключает редирект для завершения регистрации (для игрового лендинга)
-    disableSignUpComplete: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
-    return {
-      email: null,
-      password: null,
-      isLoading: false,
-      error: null,
-      loggedIn: false,
-      isForgetPassword: false,
-      isForgetPasswordSent: false,
-      isSocialLogInProgress: false, // флаг вывода индикатора загрузки входа через социальные сети
-    };
-  },
-  // components: { Loader },
-  computed: mapState({
-    cart: state => state.cart.goods,
-  }),
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.disableCartAppend, this.signUpCompleteHostname);
-  },
-  methods: {
-    ...mapActions({
-      appendToCart: 'cart/appendToCart',
-    }),
-    // eslint-disable-next-line consistent-return
-    async submit(e) {
-      if (this.loggedIn) {
-        return true;
-      }
-      e.preventDefault();
-      this.error = null;
-      this.isLoading = true;
-
-      try {
-        const res = await login(this.email, this.password);
-
-        if (!this.disableCartAppend) {
-          await this.appendToCart();
-        }
-        this.loggedIn = true;
-        if (res.data.is_new) {
-          registerSignUpMindbox({
-            id: res.data.user.id,
-            email: this.email,
-            firstName: res.data.user.first_name,
-            lastName: res.data.user.last_name,
-          });
-        } else {
-          registerLoginMindbox(res.data.user.id);
-        }
-        // eslint-disable-next-line no-console
-        console.log(res.data.user);
-        // eslint-disable-next-line no-console
-        console.log(this.email);
-        notifyEmailAvailableLeadplan(res.data.user);
-        if (res.data.is_new && !this.disableSignUpComplete) {
-          localStorage.setItem('after_login_redirect', window.location.href);
-          window.location.href = langUrl('/sign_up/complete/');
-        } else {
-          window.location.reload();
-        }
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(err);
-        if (err.response && err.response.data && err.response.data.error) {
-          this.error = err.response.data.error;
-        } else {
-          this.error = 'Cannot authorize the user';
-        }
-        this.isLoading = false;
-      }
-    },
-    // eslint-disable-next-line consistent-return
-    async sendPasswordRecovery(e) {
-      e.preventDefault();
-      this.error = null;
-      this.isLoading = true;
-      if (!this.email || !/^.+@.+.\w$/i.test(this.email)) {
-        this.isLoading = false;
-        this.error = 'Email is invalid';
-        return false;
-      }
-
-      try {
-        // eslint-disable-next-line no-unused-vars
-        const res = await resetPassword(this.email);
-        this.isForgetPasswordSent = true;
-      } catch (err) {
-        if (err.response && err.response.data && err.response.data.error) {
-          this.error = err.response.data.error;
-        } else {
-          this.error = 'Cannot authorize the user';
-        }
-        this.isLoading = false;
-      }
-    },
-    loginVK() {
-      this.isSocialLogInProgress = true;
-      localStorage.setItem('savedCart', JSON.stringify(this.cart));
-      window.window.location.href = `/authorize/vk/?redirect_to=${encodeURI(
-        window.window.location.href,
-      )}`;
-    },
-  },
 };
 </script>
 
-<style scoped>
-  .w-form-fail {
-    display: block;
-    margin: 0;
-    margin-bottom: 5px;
+<style lang="scss">
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
+
+  .login-form {
+
+    @include element(button) {
+      color: #fff;
+      cursor: pointer;
+      height: 50px;
+      padding: 14px;
+
+      @include modifier(vk) {
+        background: #45668E !important;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+    }
+
+    @include element(notice) {
+      color: rgba(24, 25, 32, 0.6);
+      text-align: center;
+      width: 100%
+    }
   }
-  #loader_container {
+
+  .login-form__tab {
+    flex: 1;
+  }
+  .alm-auth-tabs {
+    height: 48px;
+  }
+
+  .alm-auth-tab {
+    border-bottom: 1px solid rgba(24, 25, 32, 0.1);
+    padding: 16px 0;
+    cursor: pointer;
+  }
+  .alm-auth-tab.active {
+    border-bottom: 2px solid #2150F4;
+  }
+
+  .alm-auth-tab-label {
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    color: #181920;
+  }
+  .alm-auth-tab-label.auth-header {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .alm-auth-form {
+    padding: 10px 20px 30px;
+  }
+
+  .alm-text,
+  .alm-auth-form input,
+  .alm-auth-form span {
+    line-height: 20px;
+    font-size: 14px;
+  }
+
+  .alm-auth-form .form-row {
+    margin-top: 20px;
+  }
+
+  .alm-auth-form .alm-card-top-row {
+    margin-top: 10px;
+  }
+
+  .alm-auth-form .alm-card-title {
+    font-size: 19px;
+    line-height: 26px;
+    font-style: normal;
+    font-weight: bold;
+    color: #181920;
+  }
+
+  .alm-auth-form .alm-card-body {
+    text-align: left;
+    font-size: 14px;
+    line-height: 24px;
+    color: #181920;
+  }
+  .alm-auth-form .alm-card-body p {
+    margin: 12px 0;
+  }
+
+
+  .alm-auth-form .f-dark {
+    color: #181920;
+  }
+  .alm-auth-form .f-red {
+    color: #ea4d47;
+  }
+  .alm-auth-form .f-gray {
+    color: rgba(24, 25, 32, 0.6);
+  }
+  .alm-auth-form .f-lite {
+    color: rgba(24, 25, 32, 0.1);
+  }
+  .alm-auth-form .f-blue,
+  .alm-auth-form a {
+    color: #0A5BF0;
+    text-decoration: none;
+  }
+
+  /* input.form-input::-moz-placeholder, */
+  input.form-input::-webkit-input-placeholder {
+    color: rgba(24, 25, 32, 0.6);
+  }
+
+  input.form-input {
+    width: 100%;
+    height: 50px;
+    padding: 14px;
+    color: rgba(24, 25, 32, 1);
+    border-radius: 4px;
+    border: 1px solid rgba(24, 25, 32, 0.1);
+  }
+
+  // .alm-auth-form .form-notice {
+  //   width: 100%;
+  //   text-align: center;
+  // }
+
+  .alm-anchor {
+    position: relative;
+  }
+
+  .alm-notice-forgot {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    color: #0A5BF0;
+    cursor: pointer;
+  }
+
+  .alm-input-eye {
+    position: absolute;
+    top: 0px;
+    right: 14px;
+    width: 24px;
+    height: 50px;
+    cursor: pointer;
+    background: url(/images/auth/eye-closed.svg) center center no-repeat;
+  }
+  .alm-input-eye.eye-open {
+    background: url(/images/auth/eye.svg) center center no-repeat;
+  }
+
+  .alm-modal-close {
+    position: absolute;
+    top: -16px;
+    right: -17px;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    background: url(/images/auth/modal-close-btn.svg) center no-repeat;
+  }
+  .alm-modal-close:hover {
+    background-image: url(/images/auth/modal-close-hover-btn.svg);
+  }
+
+  .alm-auth-form .alm-subtext-eula {
+    width: 300px;
+    line-height: 18px;
+    font-size: 12px;
     text-align: center;
   }
+
+  .form-row {
+    margin-top: 20px;
+  }
+
+  .auth-button-vk {
+    color: #fff;
+    background: #45668E;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
 </style>
