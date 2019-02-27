@@ -13,7 +13,14 @@
         >
         <slot name="counter" />
       </div>
-      <div>{{ text }}</div>
+      <div
+        class="dropdown__text"
+        :class="{
+          'dropdown__text--mobile': hideTextMobile
+        }"
+      >
+        {{ text }}
+      </div>
     </div>
     <nav
       class="dropdown__list"
@@ -41,6 +48,10 @@ export default {
       type: String,
       default: '',
     },
+    hideTextMobile: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -63,6 +74,7 @@ export default {
 <style lang="scss" scoped>
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .dropdown {
     align-items: flex-end;
@@ -70,9 +82,16 @@ export default {
     flex-direction: column;
     float: right;
     justify-content: flex-start;
-    padding-left: px-to-rem(15);
-    padding-right: px-to-rem(15);
     position: relative;
+
+    @include element(text) {
+      @include modifier(mobile) {
+        display: none;
+        @include media($md) {
+          display: block;
+        }
+      }
+    }
 
     @include element(toggle) {
       align-items: center;
@@ -89,12 +108,18 @@ export default {
       text-decoration: none;
       transition: all 0.1s ease-in-out;
     }
+
     @include element(icon) {
-      margin-right: px-to-rem(10);
+      margin-right: 0;
       min-width: px-to-rem(24);
       opacity: 0.3;
       width: px-to-rem(24);
+
+      @include media($md) {
+        margin-right: px-to-rem(10);
+      }
     }
+
     @include element(toggle) {
       // margin-right: px-to-rem(10);
       position: relative;
@@ -116,6 +141,7 @@ export default {
       right: 0;
       top: 0;
       transform: translateX(0px) translateY(5px) translateZ(0px);
+
       @include modifier(open) {
         display: block;
         opacity: 1;

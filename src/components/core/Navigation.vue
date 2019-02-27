@@ -1,6 +1,13 @@
 <template>
   <nav class="navigation">
     <div class="navigation__left-side">
+      <!-- <div class="navigation__burger-menu">
+        <img
+          class="button-categories__icon"
+          src="assets/svg/icons/burger-black.svg"
+          alt="burger-menu"
+        >
+      </div> -->
       <router-link
         class="logo"
         to="/"
@@ -30,31 +37,41 @@
       </div>
     </div>
     <div class="navigation__right-side">
-      <Dropdown
-        icon="cart-black"
-        text="Shopping cart"
-      >
-        <div
-          slot="count"
-          class="cart-counter"
+      <div class="navigation__lupe">
+        <img
+          class=""
+          src="assets/svg/icons/search-black.svg"
         >
-          2
-        </div>
-        <div class="h4 h4-mb10">
-          Your shopping cart is still empty
-        </div>
-        <div class="text text-grey">
-          Choose a product and order it for a few
-          minutes
-        </div>
-      </Dropdown>
+      </div>
+      <div class="navigation__dropdowns">
+        <Dropdown
+          icon="cart-black"
+          text="Shopping cart"
+          hide-text-mobile
+        >
+          <div
+            slot="count"
+            class="cart-counter"
+          >
+            2
+          </div>
+          <div class="h4 h4-mb10">
+            Your shopping cart is still empty
+          </div>
+          <div class="text text-grey">
+            Choose a product and order it for a few
+            minutes
+          </div>
+        </Dropdown>
+      </div>
       <Dropdown
         icon="enter-black"
         text="Sign In"
+        hide-text-mobile
       />
-      <button @click="toggleModal">
+      <!-- <button @click="toggleModal">
         text
-      </button>
+      </button> -->
     </div>
     <Modal>
       <LoginForm />
@@ -110,31 +127,85 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .navigation {
     @include flex($justify-content: space-between);
     align-items: center;
     height: 100%;
-    @include element(search) {
-      width: 32.1%;
+
+    @include element(burger-menu) {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding-left: 1rem;
+
+      @include media($md) {
+        display: none;
+      }
+
     }
+
+    @include element(dropdowns) {
+      @include media($md) {
+        padding-left: px-to-rem(15);
+        padding-right: px-to-rem(15);
+      }
+
+    }
+
+    @include element(lupe) {
+      align-items: center;
+      display: flex;
+      opacity: .3;
+
+      @include media($md) {
+        display: none;
+      }
+
+    }
+
+    @include element(search) {
+      display: none;
+      width: 31.1%;
+
+      @include media($md) {
+       display: block;
+      }
+    }
+
     @include element(left-side) {
       display: flex;
       flex-grow: 1;
+      justify-content: center;
+      @include media($md) {
+        justify-content: initial;
+      }
     }
+
     @include element(right-side) {
-      display: flex;
+      display: none;
+      @include media($md) {
+        display: flex;
+      }
     }
+
   }
 
   .logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: px-to-rem(20);
-    width: px-to-rem(170);
+    margin-right: 0;
+    width: px-to-rem(132);
+
     @include element(img) {
       width: 100%;
+    }
+
+    @include media($md) {
+      margin-right: px-to-rem(20);
+      width: px-to-rem(170);
     }
   }
 
@@ -142,12 +213,16 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
-    display: flex;
+    display: none;
     cursor: pointer;
     height: px-to-rem(40);
     margin-right: px-to-rem(10);
     padding: 10px 15px;
     transition: all .1s ease-in-out;
+
+    @include media($md) {
+      display: flex;
+    }
 
     @include element(icon) {
       @include size(px-to-rem(24));
