@@ -12,7 +12,12 @@
           <div
             class="alm-modal-close"
             @click="handleClose()"
-          />
+          >
+            <img
+              src="assets/svg/icons/modal-close-btn.svg" 
+              alt="modal close"
+            >
+          </div>
           <slot />
         </div>
       </div>
