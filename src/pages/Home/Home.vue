@@ -18,7 +18,7 @@
       мастер-класс известного шеф-повара Константина Ивлева,
       посвященный главному масленичному лакомству
     </p>
-    <div class="row home__row">
+    <div class="home__row">
       <CategoriesRow
         :categories="categories"
       />
@@ -142,6 +142,7 @@ export default {
 
     @include element(row) {
       margin-bottom: px-to-rem(50);
+      overflow-x: scroll;
     }
 
     @include element(row-title) {

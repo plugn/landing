@@ -4,7 +4,7 @@ import Footer from 'core/Footer';
 
 export default function pageLayout(Component) {
   const content = h => h('div', {
-    class: 'layout container px-0 layou__content',
+    class: 'layout container px-lg-0 layou__content',
   },
   [
     h(Component),

@@ -34,9 +34,16 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .categories-row {
-    width: 100%;
+    overflow-x: scroll;
+    min-width: 500px;
+
+    @include media($md) {
+      overflow-x: initial;
+      width: 100%;
+    }
 
     @include element(category) {
       margin: 0;
