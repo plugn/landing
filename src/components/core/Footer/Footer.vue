@@ -73,12 +73,18 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .footer {
     background: var(--white);
     border-top: 1px solid rgba(0,0,0,.1);
+    display: none;
     padding-bottom: px-to-rem(20);
     padding-top: px-to-rem(40);
+
+    @include media($md) {
+      display: block;
+    }
 
     @include element(logo) {
       margin-right: px-to-rem(30);

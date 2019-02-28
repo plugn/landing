@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Header from 'core/Header';
 import Footer from 'core/Footer';
+import FooterMobile from 'core/FooterMobile';
 
 export default function pageLayout(Component) {
   const content = h => h('div', {
@@ -15,6 +16,7 @@ export default function pageLayout(Component) {
         h(Header),
         content(h),
         h(Footer),
+        h(FooterMobile),
       ]);
     },
   });
