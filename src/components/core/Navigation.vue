@@ -146,10 +146,14 @@ export default {
 
     @include element(burger) {
       align-items: center;
-      display: flex;
+      display: none;
       justify-content: center;
       padding: px-to-rem(5);
       @include size(px-to-rem(30));
+
+      @include media($md) {
+        display: flex;
+      }
 
       @include media($lg) {
         display: none;
