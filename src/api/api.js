@@ -15,7 +15,8 @@ const request = axios.create({
     return data;
   }],
 });
-console.log('axios reauest');
-console.dir(request);
+
+// console.log('axios reauest');
+// console.dir(request);
 
 export default request;
