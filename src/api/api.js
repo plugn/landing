@@ -1,7 +1,21 @@
 import axios from 'axios';
+// import { FRONTSITE_URL } from '@/constants';
+import { getAccessToken } from '@/services/auth';
 
-import { API_GATEWAY_URL } from 'constants';
-
-export default axios.create({
-  baseURL: API_GATEWAY_URL,
+const request = axios.create({
+  baseURL: 'http://racoon.local',
+  responseType: 'json',
+  withCredentials: true,
+  transformRequest: [function transformRequest(data, headers) {
+    const token = getAccessToken();
+    if (token) {
+      // eslint-disable-next-line no-param-reassign
+      headers.Authorization = `Bearer ${token}`;
+    }
+    return data;
+  }],
 });
+console.log('axios reauest');
+console.dir(request);
+
+export default request;

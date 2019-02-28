@@ -1,5 +1,6 @@
-import api from 'api';
-import { baseUrl, getcookie } from 'utils/helpers';
+import { api } from '@/api';
+import { baseUrl, getcookie } from '@/utils/helpers';
+// import { FRONTSITE_URL } from '@/constants';
 
 /**
  * Получает access token
@@ -21,7 +22,7 @@ export function signup(email, password, firstName) {
   fd.append('password', password.toString().trim());
   fd.append('first_name', firstName.toString().trim());
   return api.post('/signup/', fd, {
-    baseURL: baseUrl,
+    // baseURL: baseUrl,
   });
 }
 
@@ -30,7 +31,7 @@ export function login(email, password) {
   fd.append('email', email.toString().trim());
   fd.append('password', password.toString().trim());
   return api.post('/authorize/', fd, {
-    baseURL: baseUrl,
+    // baseURL: baseUrl,
   });
 }
 

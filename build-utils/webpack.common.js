@@ -21,8 +21,9 @@ module.exports = (mode) => {
 
     resolve: {
       alias: {
+        '@': `${paths.src}`,
         vue$: 'vue/dist/vue.esm.js',
-        api$: `${paths.src}/api/api.js`,
+        // api: `${paths.src}/api`,
         Admin: `${paths.src}/pages/Admin`,
         assets: `${paths.src}/assets`,
         components: `${paths.src}/components`,

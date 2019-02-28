@@ -73,6 +73,9 @@
         text="Sign In"
         hide-text-mobile
       />
+      <button @click="toggleModal">
+        text
+      </button>
     </div>
     <!-- <button @click="toggleModal">
       text
