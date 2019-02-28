@@ -18,26 +18,35 @@
       <h6 class="categories__title">
         All categories
       </h6>
-      <div class="row">
+      <div class="row mx-0">
         <div
           v-for="(group, idx) in categories"
           :key="idx"
-          class="col"
+          class="col categories__column"
         >
           <div
             v-for="category in group"
             :key="category.href"
-            class="categories__item"
+            class="categories__item-wrapper"
           >
-            <span class="categories__icon">
-              <Icon :src="category.icon" />
-            </span>
-            <a
-              :href="category.href"
-              class="categories__link"
+            <div
+              class="categories__item"
             >
-              {{ category.text }}
-            </a>
+              <span class="categories__icon">
+                <Icon :src="category.icon" />
+              </span>
+              <a
+                :href="category.href"
+                class="categories__link"
+              >
+                {{ category.text }}
+              </a>
+            </div>
+            <img
+              class="categories__chevron"
+              src="assets/svg/icons/chevron-right--black.svg"
+              alt="close categories menu"
+            >
           </div>
         </div>
       </div>
@@ -118,34 +127,82 @@ export default {
 
     }
 
+    @include element(column) {
+      padding: 0 px-to-rem(10);
+      width: 25%;
+
+      @include media($lg) {
+        // padding: initial;
+        // width: initial;
+      }
+    }
+
+    @include element(item-wrapper) {
+      display: flex;
+      justify-content: space-between;
+      padding: px-to-rem(8) 0;
+
+      @include media($lg) {
+        padding: px-to-rem(10) 0;
+      }
+
+    }
+
     @include element(item) {
       align-items: center;
+      border-bottom: 1px solid rgba(24, 25, 32, .1);
+      display: flex;
+      justify-content: flex-start;
+      padding: 16px 16px 16px 0;
+      line-height: 24px;
 
-      @include flex($justify-content: flex-start);
-      padding-top: px-to-rem(10);
-      padding-bottom: px-to-rem(10);
+      // @include flex($justify-content: flex-start);
       &:hover {
         opacity: .8;
       }
+
+      @include media($lg) {
+        border-bottom: none;
+        padding: 0;
+      }
+
     }
 
     @include element(link) {
       color: var(--body-font);
       text-decoration: none !important;
       font-size: 16px;
+      width: 5.9rem;
+
       &:hover {
         color: var(--body-font);
       }
 
       @include media($lg) {
         font-size: 1rem;
+        width: initial;
       }
 
     }
 
     @include element(icon) {
-      margin-right: px-to-rem(10);
+      margin-right: px-to-rem(16);
+      position: relative;
+      top: -1px;
       @include size(px-to-rem(24));
+
+      @include media($lg) {
+        margin-right: px-to-rem(10);
+      }
+    }
+
+    @include element(chevron) { 
+      display: block;
+     
+      @include media($lg) {
+        display: none;
+      }
+
     }
 
     @include modifier(open) {

@@ -208,7 +208,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    left: -5px;
     margin-right: 0;
+    position: relative;
     width: px-to-rem(132);
 
     @include element(img) {
