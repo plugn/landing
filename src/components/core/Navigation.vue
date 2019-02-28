@@ -73,9 +73,9 @@
         text="Sign In"
         hide-text-mobile
       />
-      <!-- <button @click="toggleModal">
+      <button @click="toggleModal">
         text
-      </button> -->
+      </button>
     </div>
     <Modal>
       <LoginForm />

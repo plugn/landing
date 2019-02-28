@@ -361,6 +361,9 @@ export default {
 
       @include modifier(primary) {
         background: var(--blue);
+        &:hover {
+          background-color: var(--blue);
+        }
         // border-radius: px-to-rem(3);
         border: 1px solid rgba(24, 25, 32, 0.1);
         color: var(--white);

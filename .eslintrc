@@ -20,6 +20,8 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "semi": ["error", "always"],
+    "no-param-reassign": "off",
+    "func-names": ["warn", "as-needed"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }

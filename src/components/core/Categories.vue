@@ -61,7 +61,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    onClose: Function,
   },
   computed: mapState(['categories']),
   created() {
