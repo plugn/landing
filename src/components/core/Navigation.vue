@@ -1,13 +1,17 @@
 <template>
   <nav class="navigation">
     <div class="navigation__left-side">
-      <!-- <div class="navigation__burger-menu">
+      <div
+        role="button"
+        class="navigation__burger"
+        @click="handleCategoriesClick"
+      >
         <img
-          class="button-categories__icon"
+          class="navigation__burger-icon"
           src="assets/svg/icons/burger-black.svg"
           alt="burger-menu"
         >
-      </div> -->
+      </div>
       <router-link
         class="logo"
         to="/"
@@ -76,7 +80,10 @@
     <Modal>
       <LoginForm />
     </Modal>
-    <Categories :is-open="isCategoriesOpen" />
+    <Categories
+      :is-open="isCategoriesOpen"
+      @onClose="handleCategoriesClick"
+    />
   </nav>
 </template>
 
@@ -134,16 +141,21 @@ export default {
     align-items: center;
     height: 100%;
 
-    @include element(burger-menu) {
+    @include element(burger) {
       align-items: center;
       display: flex;
       justify-content: center;
-      padding-left: 1rem;
+      padding: px-to-rem(5);
+      @include size(px-to-rem(30));
 
-      @include media($md) {
+      @include media($lg) {
         display: none;
       }
 
+    }
+
+    @include element(burger-icon) {
+      // @include size(px-to-rem(30));
     }
 
     @include element(dropdowns) {
@@ -159,7 +171,7 @@ export default {
       display: flex;
       opacity: .3;
 
-      @include media($md) {
+      @include media($lg) {
         display: none;
       }
 
@@ -169,7 +181,7 @@ export default {
       display: none;
       width: 31.1%;
 
-      @include media($md) {
+      @include media($lg) {
        display: block;
       }
     }
@@ -220,7 +232,7 @@ export default {
     padding: 10px 15px;
     transition: all .1s ease-in-out;
 
-    @include media($md) {
+    @include media($lg) {
       display: flex;
     }
 

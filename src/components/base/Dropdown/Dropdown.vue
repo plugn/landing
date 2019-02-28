@@ -87,7 +87,7 @@ export default {
     @include element(text) {
       @include modifier(mobile) {
         display: none;
-        @include media($md) {
+        @include media($lg) {
           display: block;
         }
       }

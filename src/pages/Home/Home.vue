@@ -106,8 +106,12 @@ export default {
   .home {
     padding-top: px-to-rem(40);
     @include element(main-separator) {
-      height: $main-banner-height;
+      height: px-to-rem(213);
       margin-bottom: px-to-rem(40);
+
+      @include media($xl) {
+        height: $main-banner-height;
+      }
     }
 
     @include element(discount-title) {
@@ -127,16 +131,28 @@ export default {
       left: 0;
       position: absolute;
       right: 0;
-      top: 8rem;
-      background: url('../../assets/img/main-banner.png') no-repeat center;
-      height: $main-banner-height;
+      top: 4rem;
+      background: url('../../assets/img/main-banner-mobile.png') no-repeat center;
+      height: px-to-rem(213);
       // background: #585bff;
       // background: -moz-linear-gradient(left, #585bff 0%, #8f25ff 100%);
       // background: -webkit-linear-gradient(left, #585bff 0%,#8f25ff 100%);
       // background: linear-gradient(to right, #585bff 0%,#8f25ff 100%);
 
+      @include media($sm) {
+        background: url('../../assets/img/main-banner.png') no-repeat center;
+        top: 8rem;
+      }
+
+      @include media($md) {
+        background: url('../../assets/img/main-banner.png') no-repeat center;
+        top: 8rem;
+      }
+
       @include media($xl) {
         background: url('../../assets/img/main-banner-big.png') no-repeat center;
+        height: $main-banner-height;
+        top: 8rem;
       }
     }
 

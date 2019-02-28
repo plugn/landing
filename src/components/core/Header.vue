@@ -24,7 +24,6 @@ export default {
 
   .header {
     background: var(--white);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .16);
     height: 4rem;
     left: 0;
     position: absolute;
@@ -33,7 +32,14 @@ export default {
     z-index: 10;
 
     @include media($md) {
-      box-shadow: none;
+      height: px-to-rem(60);
+    }
+
+    @include media($lg) {
+      height: px-to-rem(60);
+    }
+
+    @include media($xl) {
       height: 5rem;
     }
   }
