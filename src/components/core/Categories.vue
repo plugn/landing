@@ -70,7 +70,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    onClose: Function,
+    onClose: {
+      type: Function,
+      default: () => {},
+    },
   },
   computed: mapState(['categories']),
   created() {
@@ -196,9 +199,9 @@ export default {
       }
     }
 
-    @include element(chevron) { 
+    @include element(chevron) {
       display: block;
-     
+
       @include media($lg) {
         display: none;
       }

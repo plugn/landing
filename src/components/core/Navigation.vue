@@ -47,7 +47,7 @@
           src="assets/svg/icons/search-black.svg"
         >
       </div>
-      <div class="navigation__dropdowns">
+      <div class="navigation__cart">
         <Dropdown
           icon="cart-black"
           text="Shopping cart"
@@ -73,10 +73,10 @@
         text="Sign In"
         hide-text-mobile
       />
-      <!-- <button @click="toggleModal">
-        text
-      </button> -->
     </div>
+    <!-- <button @click="toggleModal">
+      text
+    </button> -->
     <Modal>
       <LoginForm />
     </Modal>
@@ -158,10 +158,11 @@ export default {
       // @include size(px-to-rem(30));
     }
 
-    @include element(dropdowns) {
+    @include element(cart) {
+
       @include media($md) {
-        padding-left: px-to-rem(15);
-        padding-right: px-to-rem(15);
+        // padding-left: px-to-rem(15);
+        margin-right: px-to-rem(45);
       }
 
     }
@@ -179,7 +180,7 @@ export default {
 
     @include element(search) {
       display: none;
-      width: 31.1%;
+      width: 31.6%;
 
       @include media($lg) {
        display: block;
@@ -208,7 +209,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    left: -5px;
+    left: -0.3rem;
     margin-right: 0;
     position: relative;
     width: px-to-rem(132);
