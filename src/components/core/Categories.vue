@@ -29,19 +29,20 @@
             :key="category.href"
             class="categories__item-wrapper"
           >
-            <div
-              class="categories__item"
+            <a
+              :href="category.href"
+              class="categories__link"
             >
               <span class="categories__icon">
                 <Icon :src="category.icon" />
               </span>
-              <a
-                :href="category.href"
-                class="categories__link"
+              <div
+                
+                class="categories__text"
               >
                 {{ category.text }}
-              </a>
-            </div>
+              </div>
+            </a>
             <img
               class="categories__chevron"
               src="assets/svg/icons/chevron-right--black.svg"
@@ -151,7 +152,7 @@ export default {
 
     }
 
-    @include element(item) {
+    @include element(link) {
       align-items: center;
       border-bottom: 1px solid rgba(24, 25, 32, .1);
       display: flex;
@@ -171,7 +172,7 @@ export default {
 
     }
 
-    @include element(link) {
+    @include element(text) {
       color: var(--body-font);
       text-decoration: none !important;
       font-size: 16px;
@@ -201,6 +202,7 @@ export default {
 
     @include element(chevron) {
       display: block;
+      opacity: .3;
 
       @include media($lg) {
         display: none;
