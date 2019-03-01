@@ -8,7 +8,7 @@
       <figure class="categories-row__category">
         <img
           class="img-fluid"
-          src="assets/img/ellipse.png"
+          src="assets/img/home/ellipse.png"
           alt="cat"
         >
         <figcaption class="categories-row__text">
@@ -38,7 +38,7 @@ export default {
 
   .categories-row {
     overflow-x: scroll;
-    min-width: 500px;
+    min-width: px-to-rem(500);
 
     @include media($md) {
       overflow-x: initial;

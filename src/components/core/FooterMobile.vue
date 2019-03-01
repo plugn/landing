@@ -2,7 +2,7 @@
   <footer>
     <nav class="footer-mobile">
       <h2 class="sr-only">
-        Footer Mobile Navigation
+        Mobile Navigation
       </h2>
       <button
         v-for="link in links"

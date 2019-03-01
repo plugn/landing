@@ -1,5 +1,8 @@
 <template>
   <section class="home">
+    <h2 class="sr-only">
+      Home
+    </h2>
     <div class="home__main-banner">
       <figure class="text-center m-0">
         <!-- <img
@@ -23,41 +26,96 @@
         :categories="categories"
       />
     </div>
-    <h3 class="home__row-title">
-      New Goods
-    </h3>
-    <div class="row home__row">
-      <div
-        v-for="(i, idx) in productsList"
-        :key="idx"
-        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-      >
-        <ProductCard />
-      </div>
+
+    <div
+      class="home__load-more"
+      role="button"
+    >
+      Load more
     </div>
-    <h3 class="home__row-title">
-      New Goods
-    </h3>
-    <div class="row home__row">
-      <div
-        v-for="(i, idx) in productsList"
-        :key="idx"
-        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
+
+    <div class="home__banner">
+      <img
+        class="img-fluid"
+        srcset="
+          assets/img/home/banner1-mobile.png 320w,
+          assets/img/home/banner1.png 1160w"
+        sizes="
+          (min-width: 576px) 100vw,
+          (min-width: 768px) 100vw,
+          (min-width: 992px) 100vw"
+        src="assets/img/home/banner1-mobile.png"
+        alt="banner1"
       >
-        <ProductCard />
-      </div>
     </div>
-    <h3 class="home__row-title">
-      New Goods
-    </h3>
-    <div class="row home__row">
-      <div
-        v-for="(i, idx) in newProducts"
-        :key="idx"
-        class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-      >
-        <ProductCard />
+
+    <section>
+      <h3 class="home__row-title">
+        New Goods
+      </h3>
+      <div class="row home__row">
+        <div
+          v-for="(i, idx) in productsList"
+          :key="idx"
+          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
+        >
+          <ProductCard />
+        </div>
       </div>
+    </section>
+
+    <div class="home__banner">
+      <img
+        class="img-fluid"
+        src="assets/img/home/banner2.png"
+        alt="banner1"
+      >
+    </div>
+
+    <section>
+      <h3 class="home__row-title">
+        New Goods
+      </h3>
+      <div class="row home__row">
+        <div
+          v-for="(i, idx) in productsList"
+          :key="idx"
+          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
+        >
+          <ProductCard />
+        </div>
+      </div>
+    </section>
+
+    <div class="home__banner">
+      <img
+        class="img-fluid"
+        src="assets/img/home/banner3.png"
+        alt="banner1"
+      >
+    </div>
+
+    <section>
+      <h3 class="home__row-title">
+        New Goods
+      </h3>
+      <div class="row home__row">
+        <div
+          v-for="(i, idx) in productsList"
+          :key="idx"
+          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
+        >
+          <ProductCard />
+        </div>
+      </div>
+    </section>
+
+    <div class="home__banner">
+      <img
+        class="img-fluid"
+        src="assets/img/home/banner4.png"
+        alt="banner1"
+      >
     </div>
   </section>
 </template>
@@ -84,7 +142,7 @@ export default {
         'assets/img/banner2.png',
       ],
       categories: Array.from(Array(4)),
-      productsList: Array.from(Array(5)),
+      productsList: Array.from(Array(10)),
       newProducts: Array.from(Array(25)),
     };
   },
@@ -127,12 +185,24 @@ export default {
       text-align: center;
     }
 
+    @include element(load-more) {
+      align-items: center;
+      background: #F7F9FA;
+      border-radius: px-to-rem(4);
+      cursor: pointer;
+      display: flex;
+      height: px-to-rem(50);
+      justify-content: center;
+      margin-bottom: px-to-rem(40);
+      width: 100%;
+    }
+
     @include element(main-banner) {
       left: 0;
       position: absolute;
       right: 0;
       top: 4rem;
-      background: url('../../assets/img/main-banner-mobile.png') no-repeat center;
+      background: url('../../assets/img/home/main-banner-mobile.png') no-repeat center;
       height: px-to-rem(213);
       // background: #585bff;
       // background: -moz-linear-gradient(left, #585bff 0%, #8f25ff 100%);
@@ -140,20 +210,24 @@ export default {
       // background: linear-gradient(to right, #585bff 0%,#8f25ff 100%);
 
       @include media($sm) {
-        background: url('../../assets/img/main-banner.png') no-repeat center;
-        top: 8rem;
+        background: url('../../assets/img/home/main-banner.png') no-repeat center;
+        top: 4.3rem;
       }
 
       @include media($md) {
-        background: url('../../assets/img/main-banner.png') no-repeat center;
-        top: 8rem;
+        background: url('../../assets/img/home/main-banner.png') no-repeat center;
+        top: 4.3rem;
       }
 
       @include media($xl) {
-        background: url('../../assets/img/main-banner-big.png') no-repeat center;
+        background: url('../../assets/img/home/main-banner-big.png') no-repeat center;
         height: $main-banner-height;
-        top: 8rem;
+        top: 5rem;
       }
+    }
+
+    @include element(banner) {
+      margin-bottom: px-to-rem(40);
     }
 
     @include element(row) {

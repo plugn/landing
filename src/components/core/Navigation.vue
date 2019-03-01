@@ -1,5 +1,8 @@
 <template>
   <nav class="navigation">
+    <h2 class="sr-only">
+      Main Navigation
+    </h2>
     <div class="navigation__left">
       <div
         role="button"
@@ -59,10 +62,10 @@
           >
             2
           </div>
-          <div class="h4 h4-mb10">
+          <div>
             Your shopping cart is still empty
           </div>
-          <div class="text text-grey">
+          <div>
             Choose a product and order it for a few
             minutes
           </div>

@@ -3,6 +3,9 @@
     class="categories"
     :class="{ 'categories--open': isOpen }"
   >
+    <h2 class="sr-only">
+      Categories Navigation
+    </h2>
     <div class="container p-0">
       <div
         tabindex="-1"
@@ -37,7 +40,6 @@
                 <Icon :src="category.icon" />
               </span>
               <div
-                
                 class="categories__text"
               >
                 {{ category.text }}
