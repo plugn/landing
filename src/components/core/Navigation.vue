@@ -176,6 +176,7 @@ export default {
 
     @include element(burger) {
       align-items: center;
+      display: none;
       float: left;
       justify-content: center;
       margin-right: px-to-rem(11);
