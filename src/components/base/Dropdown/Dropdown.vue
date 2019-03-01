@@ -5,11 +5,16 @@
       class="dropdown__toggle"
       @click="handleClick"
     >
-      <div class="dropdown__icon">
+      <div
+        class="dropdown__icon"
+        :class="{
+          'dropdown__icon--no-margin': hideTextMobile
+        }"
+      >
         <img
           v-if="icon !== ''"
           :src="`assets/svg/icons/${icon}.svg`"
-          class="dropdown-icon icondropheader-cart"
+          class="dropdown-icon"
         >
         <slot name="counter" />
       </div>
@@ -114,6 +119,12 @@ export default {
       min-width: px-to-rem(24);
       opacity: 0.3;
       width: px-to-rem(24);
+
+      @include modifier(no-margin) {
+        @include media($lg) {
+          margin-right: 0;
+        }
+      }
 
       @include media($md) {
         margin-right: px-to-rem(10);

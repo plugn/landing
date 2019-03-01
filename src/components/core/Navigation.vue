@@ -73,9 +73,6 @@
         text="Sign In"
         hide-text-mobile
       />
-      <button @click="toggleModal">
-        text
-      </button>
     </div>
     <!-- <button @click="toggleModal">
       text
@@ -142,6 +139,7 @@ export default {
   .navigation {
     @include flex($justify-content: space-between);
     align-items: center;
+    // padding: 0 0.5rem;
     height: 100%;
 
     @include element(burger) {
@@ -157,6 +155,7 @@ export default {
 
       @include media($lg) {
         display: none;
+        // padding: 0;
       }
 
     }
@@ -166,8 +165,8 @@ export default {
     }
 
     @include element(cart) {
-
-      @include media($md) {
+      margin-right: 0;
+      @include media($lg) {
         // padding-left: px-to-rem(15);
         margin-right: px-to-rem(45);
       }
@@ -178,6 +177,7 @@ export default {
       align-items: center;
       display: flex;
       opacity: .3;
+      width: px-to-rem(34);
 
       @include media($lg) {
         display: none;
