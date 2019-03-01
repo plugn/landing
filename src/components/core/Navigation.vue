@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation">
-    <div class="navigation__left-side">
+    <div class="navigation__left">
       <div
         role="button"
         class="navigation__burger"
@@ -40,14 +40,14 @@
         <InputSearch />
       </div>
     </div>
-    <div class="navigation__right-side">
-      <div class="navigation__lupe">
+    <div class="navigation__right">
+      <div class="navigation__lupe navigation__right-item">
         <img
           class=""
           src="assets/svg/icons/search-black.svg"
         >
       </div>
-      <div class="navigation__cart">
+      <div class="navigation__cart navigation__right-item">
         <Dropdown
           icon="cart-black"
           text="Shopping cart"
@@ -68,11 +68,13 @@
           </div>
         </Dropdown>
       </div>
-      <Dropdown
-        icon="enter-black"
-        text="Sign In"
-        hide-text-mobile
-      />
+      <div class="navigation__right-item">
+        <Dropdown
+          icon="enter-black"
+          text="Sign In"
+          hide-text-mobile
+        />
+      </div>
     </div>
     <!-- <button @click="toggleModal">
       text
@@ -139,13 +141,44 @@ export default {
   .navigation {
     @include flex($justify-content: space-between);
     align-items: center;
-    // padding: 0 0.5rem;
     height: 100%;
+    padding-left: 0.4rem;
+    padding-right: 0.2rem;
+
+    @include media($lg) {
+      padding: 0;
+    }
+
+    @include element(left) {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      @include media($md) {
+        justify-content: initial;
+      }
+    }
+
+    @include element(right) {
+      display: none;
+      @include media($md) {
+        display: flex;
+      }
+    }
+
+    @include element(right-item) {
+      margin-right: px-to-rem(6) !important;
+
+      @include media($lg) {
+        margin-right: 0;
+      }
+
+    }
 
     @include element(burger) {
       align-items: center;
-      display: none;
+      float: left;
       justify-content: center;
+      margin-right: px-to-rem(11);
       padding: px-to-rem(5);
       @include size(px-to-rem(30));
 
@@ -155,13 +188,12 @@ export default {
 
       @include media($lg) {
         display: none;
-        // padding: 0;
       }
 
     }
 
     @include element(burger-icon) {
-      // @include size(px-to-rem(30));
+      @include size(px-to-rem(20));
     }
 
     @include element(cart) {
@@ -191,22 +223,6 @@ export default {
 
       @include media($lg) {
        display: block;
-      }
-    }
-
-    @include element(left-side) {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center;
-      @include media($md) {
-        justify-content: initial;
-      }
-    }
-
-    @include element(right-side) {
-      display: none;
-      @include media($md) {
-        display: flex;
       }
     }
 
