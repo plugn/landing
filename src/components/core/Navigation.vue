@@ -47,7 +47,7 @@
           src="assets/svg/icons/search-black.svg"
         >
       </div>
-      <div class="navigation__cart navigation__right-item">
+      <div class="navigation__cart">
         <Dropdown
           icon="cart-black"
           text="Shopping cart"
@@ -166,7 +166,7 @@ export default {
     }
 
     @include element(right-item) {
-      margin-right: px-to-rem(6) !important;
+      margin-right: px-to-rem(6);
 
       @include media($lg) {
         margin-right: 0;
@@ -198,9 +198,8 @@ export default {
     }
 
     @include element(cart) {
-      margin-right: 0;
+      margin-right: px-to-rem(6);
       @include media($lg) {
-        // padding-left: px-to-rem(15);
         margin-right: px-to-rem(45);
       }
 
