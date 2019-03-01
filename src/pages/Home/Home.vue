@@ -27,14 +27,15 @@
       />
     </div>
 
-    <div
-      class="home__load-more"
-      role="button"
-    >
-      Load more
-    </div>
-
     <div class="home__banner">
+      <div class="home__banner-text">
+        <div class="home__banner-title">
+          Скидки до 30:
+        </div>
+        <div class="home__banner-description">
+          на модные платьешки от китайских кутюрье
+        </div>
+      </div>
       <img
         class="img-fluid"
         srcset="
@@ -64,7 +65,22 @@
       </div>
     </section>
 
+    <div
+      class="home__load-more"
+      role="button"
+    >
+      Load more
+    </div>
+
     <div class="home__banner">
+      <div class="home__banner-text">
+        <div class="home__banner-title">
+          Скидки до 30:
+        </div>
+        <div class="home__banner-description">
+          на модные платьешки от китайских кутюрье
+        </div>
+      </div>
       <img
         class="img-fluid"
         src="assets/img/home/banner2.png"
@@ -87,7 +103,22 @@
       </div>
     </section>
 
+    <div
+      class="home__load-more"
+      role="button"
+    >
+      Load more
+    </div>
+
     <div class="home__banner">
+      <div class="home__banner-text">
+        <div class="home__banner-title">
+          Налетай! Дешево!
+        </div>
+        <div class="home__banner-description">
+          Комбинзоны для активных мамочек!
+        </div>
+      </div>
       <img
         class="img-fluid"
         src="assets/img/home/banner3.png"
@@ -110,7 +141,22 @@
       </div>
     </section>
 
+    <div
+      class="home__load-more"
+      role="button"
+    >
+      Load more
+    </div>
+
     <div class="home__banner">
+      <div class="home__banner-text">
+        <div class="home__banner-title">
+          Одежка для матрешки
+        </div>
+        <div class="home__banner-description">
+          Как стать королевой панели? У нас есть ответ!
+        </div>
+      </div>
       <img
         class="img-fluid"
         src="assets/img/home/banner4.png"
@@ -189,6 +235,7 @@ export default {
       align-items: center;
       background: #F7F9FA;
       border-radius: px-to-rem(4);
+      color: rgba(24, 25, 32, 0.6);
       cursor: pointer;
       display: flex;
       height: px-to-rem(50);
@@ -228,6 +275,36 @@ export default {
 
     @include element(banner) {
       margin-bottom: px-to-rem(40);
+      position: relative;
+    }
+
+    @include element(banner-text) {
+      position: absolute;
+      top: px-to-rem(54);;
+      left: px-to-rem(74);;
+      color: var(--white);
+    }
+
+    @include element(banner-title) {
+      font-weight: 900;
+      line-height: 40px;
+      font-size: 26px;
+      @include media($md) {
+        line-height: 60px;
+        font-size: 40px;
+      }
+    }
+
+    @include element(banner-description) {
+      font-weight: 500;
+      line-height: 24px;
+      font-size: 16px;
+      max-width: px-to-rem(184);
+      @include media($md) {
+        line-height: 32px;
+        font-size: 22px;
+        max-width: 100%;
+      }
     }
 
     @include element(row) {
