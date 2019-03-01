@@ -8,7 +8,7 @@
       <figure class="categories-row__category">
         <img
           class="img-fluid"
-          src="assets/img/ellipse.png"
+          src="@/assets/img/ellipse.png"
           alt="cat"
         >
         <figcaption class="categories-row__text">

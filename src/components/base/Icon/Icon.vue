@@ -9,7 +9,6 @@
     :alt="props.name"
   >
 </template>
-
 <style lang="scss">
   .icon {
     cursor: pointer;

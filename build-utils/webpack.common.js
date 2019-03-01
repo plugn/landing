@@ -110,17 +110,20 @@ module.exports = (mode) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'assets/img/', // where the images will go
+                publicPath: '/landing-dist/assets/img/',
               },
             },
           ],
         },
         {
+          // test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
           test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
           use: [{
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              // name: '[name].[ext]',
               outputPath: 'assets/fonts/', // where the fonts will go
+              publicPath: '/landing-dist/assets/fonts/',
             },
           }],
         },
@@ -139,7 +142,7 @@ module.exports = (mode) => {
         template: setupPath('../src/index.html'),
       }),
       // copy files and folders to specific paths.
-      new CopyWebpackPlugin([{
+/*       new CopyWebpackPlugin([{
         // Copy `assets` contents to {output}/assets/
         from: 'src/assets',
         to: 'assets',
@@ -148,6 +151,7 @@ module.exports = (mode) => {
           '*.scss',
         ],
       }]),
+ */
     ],
   };
 };

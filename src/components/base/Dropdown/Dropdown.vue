@@ -8,7 +8,7 @@
       <div class="dropdown__icon">
         <img
           v-if="icon !== ''"
-          :src="`assets/svg/icons/${icon}.svg`"
+          :src="`@/assets/svg/icons/${icon}.svg`"
           class="dropdown-icon icondropheader-cart"
         >
         <slot name="counter" />

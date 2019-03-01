@@ -8,7 +8,7 @@
       >
         <img
           class="navigation__burger-icon"
-          src="assets/svg/icons/burger-black.svg"
+          src="@/assets/svg/icons/burger-black.svg"
           alt="burger-menu"
         >
       </div>
@@ -19,7 +19,7 @@
         <img
           height="30"
           class="logo__img"
-          src="assets/svg/icons/alabom-logo-beta.svg"
+          src="@/assets/svg/icons/alabom-logo-beta.svg"
         >
       </router-link>
       <div
@@ -29,7 +29,7 @@
       >
         <img
           class="button-categories__icon"
-          src="assets/svg/icons/burger-black.svg"
+          src="@/assets/svg/icons/burger-black.svg"
           alt="burger-menu"
         >
         <span class="button-categories__text">
@@ -44,7 +44,7 @@
       <div class="navigation__lupe">
         <img
           class=""
-          src="assets/svg/icons/search-black.svg"
+          src="@/assets/svg/icons/search-black.svg"
         >
       </div>
       <div class="navigation__dropdowns">

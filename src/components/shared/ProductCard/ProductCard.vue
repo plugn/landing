@@ -12,7 +12,7 @@
               <div>–25%</div>
             </div>
             <img
-              src="assets/svg/sale-corner.svg"
+              src="@/assets/svg/sale-corner.svg"
               class="product-card__corner"
             >
           </div>

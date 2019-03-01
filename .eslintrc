@@ -23,15 +23,5 @@
     "no-param-reassign": "off",
     "func-names": ["warn", "as-needed"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
-  },
-  "overrides": [
-    {
-      "files": ["*.vue"],
-      "rules": {
-        "indent": ["warn", 2, { "SwitchCase": 0 }],
-        "vue/script-indent": ["warn", 2, { "baseIndent": 0 }],
-        "vue/html-indent": ["warn", 2, { "baseIndent": 0 }]
-      }
-    }
-  ]
+  }
 }

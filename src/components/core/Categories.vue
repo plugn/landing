@@ -11,7 +11,7 @@
         @click="handleClick"
       >
         <img
-          src="assets/svg/icons/x-black.svg"
+          src="@/assets/svg/icons/x-black.svg"
           alt="close categories menu"
         >
       </div>
