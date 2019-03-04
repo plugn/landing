@@ -60,27 +60,9 @@
       </picture>
     </div>
 
-    <section id="dressess">
-      <h3 class="home__row-title">
-        Dressess
-      </h3>
-      <div class="row home__row">
-        <div
-          v-for="(i, idx) in productsList"
-          :key="idx"
-          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-        >
-          <ProductCard />
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="home__load-more"
-      role="button"
-    >
-      Load more
-    </div>
+    <Goods
+      :list="[]"
+    />
 
     <div class="home__banner">
       <div class="home__banner-text">
@@ -254,6 +236,7 @@ import { createNamespacedHelpers } from 'vuex';
 import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
+import Goods from './Goods';
 
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
@@ -262,6 +245,7 @@ export default {
   components: {
     ProductCard,
     CategoriesRow,
+    Goods,
   },
   data() {
     return {
@@ -298,6 +282,10 @@ export default {
       id: 2,
       name: 'suits'
     });
+  },
+  mounted() {
+    console.log('this.dresses', this.dresses);
+    
   },
   methods: mapActions(['fetchGoodsBlock']),
 };
