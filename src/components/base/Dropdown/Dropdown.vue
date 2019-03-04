@@ -1,7 +1,9 @@
 <template>
-  <div class="dropdown">
+  <div
+    v-click-outside="handleOutsideClick"
+    class="dropdown"
+  >
     <div
-      v-click-outside="handleOutsideClick"
       class="dropdown__toggle"
       @click="handleClick"
     >
