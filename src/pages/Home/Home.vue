@@ -255,7 +255,7 @@ import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 
-const { mapState, mapActions } = createNamespacedHelpers('products');
+const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Home',
@@ -288,11 +288,18 @@ export default {
       newProducts: Array.from(Array(25)),
     };
   },
-  computed: mapState(['products']),
+  computed: mapState(['dresses', 'suits']),
   created() {
-    this.fetchProducts();
+    this.fetchGoodsBlock({
+      id: 1,
+      name: 'dresses'
+    });
+    this.fetchGoodsBlock({
+      id: 2,
+      name: 'suits'
+    });
   },
-  methods: mapActions(['fetchProducts']),
+  methods: mapActions(['fetchGoodsBlock']),
 };
 </script>
 
