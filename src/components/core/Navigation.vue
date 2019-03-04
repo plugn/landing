@@ -26,18 +26,26 @@
         >
       </router-link>
       <div
+        v-click-outside="handleOutsideClick"
         class="button-categories"
-        role="button"
-        @click="handleCategoriesClick"
       >
-        <img
-          class="button-categories__icon"
-          src="assets/svg/icons/burger-black.svg"
-          alt="burger-menu"
+        <div
+          role="button"
+          @click="handleCategoriesClick"
         >
-        <span class="button-categories__text">
-          All categories
-        </span>
+          <img
+            class="button-categories__icon"
+            src="assets/svg/icons/burger-black.svg"
+            alt="burger-menu"
+          >
+          <span class="button-categories__text">
+            All categories
+          </span>
+        </div>
+        <Categories
+          :is-open="isCategoriesOpen"
+          @onClose="handleCategoriesClick"
+        />
       </div>
       <div class="navigation__search">
         <InputSearch />
@@ -85,10 +93,6 @@
     <Modal>
       <LoginForm />
     </Modal>
-    <Categories
-      :is-open="isCategoriesOpen"
-      @onClose="handleCategoriesClick"
-    />
   </nav>
 </template>
 
@@ -99,6 +103,7 @@ import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
 import Modal from 'components/shared/Modal';
 import LoginForm from 'components/shared/LoginForm/_LoginForm';
+import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
 
@@ -106,6 +111,9 @@ const { mapActions } = createNamespacedHelpers('modal');
 
 export default {
   name: 'Navigation',
+  directives: {
+    clickOutside,
+  },
   components: {
     Dropdown,
     Categories,
@@ -130,6 +138,11 @@ export default {
   methods: {
     handleCategoriesClick() {
       this.isCategoriesOpen = !this.isCategoriesOpen;
+    },
+    handleOutsideClick() {
+      if (this.isCategoriesOpen) {
+        this.isCategoriesOpen = false;
+      }
     },
     ...mapActions(['toggleModal']),
   },

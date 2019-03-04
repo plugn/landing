@@ -29,12 +29,12 @@
         {{ text }}
       </div>
     </div>
-    <nav
+    <div
       class="dropdown__list"
       :class="{'dropdown__list--open': isOpen}"
     >
       <slot />
-    </nav>
+    </div>
   </div>
 </template>
 
