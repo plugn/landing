@@ -1,8 +1,12 @@
 import Vue from 'vue';
+import vueSmoothScroll from 'vue2-smooth-scroll';
+
 import App from 'core/App';
 
 import store from 'store';
 import { router } from './router';
+
+Vue.use(vueSmoothScroll);
 
 // eslint-disable-next-line no-new
 new Vue({

@@ -5,16 +5,21 @@
       :key="idx"
       class="col text-center"
     >
-      <figure class="categories-row__category">
-        <img
-          class="img-fluid"
-          src="assets/img/home/ellipse.png"
-          alt="cat"
-        >
-        <figcaption class="categories-row__text">
-          lorem ipsum
-        </figcaption>
-      </figure>
+      <a
+        v-smooth-scroll
+        :href="cat.anchor"
+      >
+        <figure class="categories-row__category">
+          <img
+            class="img-fluid"
+            src="assets/img/home/ellipse.png"
+            alt="cat"
+          >
+          <figcaption class="categories-row__text">
+            lorem ipsum
+          </figcaption>
+        </figure>
+      </a>
     </div>
   </div>
 </template>

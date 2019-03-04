@@ -60,9 +60,9 @@
       </picture>
     </div>
 
-    <section>
+    <section id="dressess">
       <h3 class="home__row-title">
-        New Goods
+        Dressess
       </h3>
       <div class="row home__row">
         <div
@@ -115,9 +115,9 @@
       </picture>
     </div>
 
-    <section>
+    <section id="combinations">
       <h3 class="home__row-title">
-        New Goods
+        Combinations
       </h3>
       <div class="row home__row">
         <div
@@ -170,9 +170,9 @@
       </picture>
     </div>
 
-    <section>
+    <section id="accessories">
       <h3 class="home__row-title">
-        New Goods
+        Accessories
       </h3>
       <div class="row home__row">
         <div
@@ -224,6 +224,28 @@
         >
       </picture>
     </div>
+
+    <section id="electronics">
+      <h3 class="home__row-title">
+        Electronics
+      </h3>
+      <div class="row home__row">
+        <div
+          v-for="(i, idx) in productsList"
+          :key="idx"
+          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
+        >
+          <ProductCard />
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="home__load-more"
+      role="button"
+    >
+      Load more
+    </div>
   </section>
 </template>
 
@@ -248,7 +270,20 @@ export default {
         'assets/img/banner.png',
         'assets/img/banner2.png',
       ],
-      categories: Array.from(Array(4)),
+      categories: [
+        {
+          anchor: '#dressess',
+        },
+        {
+          anchor: '#combinations',
+        },
+        {
+          anchor: '#accessories',
+        },
+        {
+          anchor: '#electronics',
+        },
+      ],
       productsList: Array.from(Array(10)),
       newProducts: Array.from(Array(25)),
     };
