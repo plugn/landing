@@ -27,9 +27,9 @@
       </router-link>
       <div
         v-click-outside="handleOutsideClick"
-        class="button-categories"
       >
         <div
+          class="button-categories"
           role="button"
           @click="handleCategoriesClick"
         >
@@ -267,8 +267,9 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
-    display: none;
+    color: var(--light-black);
     cursor: pointer;
+    display: none;
     height: px-to-rem(40);
     margin-right: px-to-rem(10);
     padding: 10px 15px;
@@ -281,6 +282,7 @@ export default {
     @include element(icon) {
       @include size(px-to-rem(24));
       margin-right: px-to-rem(10);
+      opacity: .8;
     }
 
     @include element(text) {
