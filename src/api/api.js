@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { FRONTSITE_URL } from '@/constants';
+import { API_TOKEN } from '@/constants';
 import { getAccessToken } from '@/services/auth';
 
 const request = axios.create({
@@ -12,7 +12,7 @@ const request = axios.create({
       // eslint-disable-next-line no-param-reassign
       headers.Authorization = `Bearer ${token}`;
     }
-    headers.Authorization = 'Bearer 8pY3tTQ3H43zMVOwhzp7ks4pWIuhPP';
+    headers.Authorization = `Bearer ${API_TOKEN}`;
     return data;
   }],
 });
