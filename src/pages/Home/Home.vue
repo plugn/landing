@@ -40,23 +40,23 @@
         <source
           srcset="assets/img/home/banner1.png"
           media="(min-width: 1200px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner1.png"
           media="(min-width: 992px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner1.png"
           media="(min-width: 768px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner1-small.png"
           media="(min-width: 576px)"
-        />
+        >
         <img
           src="assets/img/home/banner1-small.png"
           alt="banner 1"
-        />
+        >
       </picture>
     </div>
 
@@ -91,27 +91,27 @@
           на модные платьешки от китайских кутюрье
         </div>
       </div>
-       <picture>
+      <picture>
         <source
           srcset="assets/img/home/banner2.png"
           media="(min-width: 1200px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner2.png"
           media="(min-width: 992px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner2.png"
           media="(min-width: 768px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner2-small.png"
           media="(min-width: 576px)"
-        />
+        >
         <img
           src="assets/img/home/banner2-small.png"
           alt="banner 1"
-        />
+        >
       </picture>
     </div>
 
@@ -150,23 +150,23 @@
         <source
           srcset="assets/img/home/banner3.png"
           media="(min-width: 1200px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner3.png"
           media="(min-width: 992px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner3.png"
           media="(min-width: 768px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner3-small.png"
           media="(min-width: 576px)"
-        />
+        >
         <img
           src="assets/img/home/banner1-small.png"
           alt="banner 1"
-        />
+        >
       </picture>
     </div>
 
@@ -205,23 +205,23 @@
         <source
           srcset="assets/img/home/banner4.png"
           media="(min-width: 1200px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner4.png"
           media="(min-width: 992px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner4.png"
           media="(min-width: 768px)"
-        />
+        >
         <source
           srcset="assets/img/home/banner1-small.png"
           media="(min-width: 576px)"
-        />
+        >
         <img
           src="assets/img/home/banner1-small.png"
           alt="banner 1"
-        />
+        >
       </picture>
     </div>
   </section>
