@@ -30,7 +30,7 @@
             class="categories__item"
           >
             <span class="categories__icon">
-              <Icon :src="category.icon" />
+              <Icon :src="dirtyAbsPath(category.icon)" />
             </span>
             <a
               :href="category.href"
@@ -69,6 +69,15 @@ export default {
   methods: {
     handleClick() {
       this.$emit('onClose');
+    },
+    // TODO: make smart or remove
+    dirtyAbsPath(path) {
+      // eslint-disable-next-line no-restricted-globals
+      const isInsideFront = /^\/landing\/\d+-\w+/.test(location.pathname);
+      if (isInsideFront) {
+        return String(path).replace(/^assets\/svg\/categories\//, '/images/categories/');
+      }
+      return path;
     },
     ...mapActions(['fetchCategories']),
   },

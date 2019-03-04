@@ -49,7 +49,7 @@
       </div>
       <div class="navigation__dropdowns">
         <Dropdown
-          icon="cart-black"
+          icon-url="/images/cart-black.svg"
           text="Shopping cart"
           hide-text-mobile
         >
@@ -69,7 +69,7 @@
         </Dropdown>
       </div>
       <Dropdown
-        icon="enter-black"
+        :icon-url="computedIconURL"
         text="Sign In"
         hide-text-mobile
       />
@@ -112,6 +112,7 @@ export default {
     return {
       isActive: false,
       isMenuToggled: false,
+      isLoggedIn: false,
       links: [
         {
           id: 'Home',
@@ -121,6 +122,11 @@ export default {
       ],
       isCategoriesOpen: false,
     };
+  },
+  computed: {
+    computedIconURL() {
+      return this.isLoggedIn ? '/images/user-black.svg' : '/images/enter-black.svg';
+    },
   },
   methods: {
     handleCategoriesClick() {

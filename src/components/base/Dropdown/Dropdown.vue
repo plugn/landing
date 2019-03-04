@@ -7,8 +7,8 @@
     >
       <div class="dropdown__icon">
         <img
-          v-if="icon !== ''"
-          :src="`@/assets/svg/icons/${icon}.svg`"
+          v-if="iconUrl !== ''"
+          :src="iconUrl"
           class="dropdown-icon icondropheader-cart"
         >
         <slot name="counter" />
@@ -41,6 +41,10 @@ export default {
   },
   props: {
     icon: {
+      type: String,
+      default: '',
+    },
+    iconUrl: {
       type: String,
       default: '',
     },
