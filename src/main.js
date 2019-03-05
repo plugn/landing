@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import vueSmoothScroll from 'vue2-smooth-scroll';
 
-import App from 'core/App';
+import App from './components/core/App';
 
-import store from 'store';
+import store from './store';
 import { router } from './router';
 
 Vue.use(vueSmoothScroll);

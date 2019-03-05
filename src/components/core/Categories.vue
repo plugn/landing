@@ -47,7 +47,7 @@
             </a>
             <img
               class="categories__chevron"
-              src="@assets/svg/icons/chevron-right--black.svg"
+              src="@/assets/svg/icons/chevron-right--black.svg"
               alt="close categories menu"
             >
           </div>

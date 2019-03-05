@@ -23,7 +23,7 @@ module.exports = (mode) => {
       alias: {
         '@': `${paths.src}`,
         vue$: 'vue/dist/vue.esm.js',
-        // api: `${paths.src}/api`,
+        api: `${paths.src}/api`,
         Admin: `${paths.src}/pages/Admin`,
         assets: `${paths.src}/assets`,
         components: `${paths.src}/components`,
