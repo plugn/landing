@@ -8,6 +8,9 @@ import { router } from './router';
 
 Vue.use(vueSmoothScroll);
 
+Vue.config.devtools = true;
+Vue.config.debug = true;
+
 // eslint-disable-next-line no-new
 new Vue({
   el: '#app',

@@ -7,7 +7,7 @@
       <figure class="text-center m-0">
         <!-- <img
           class="img-fluid"
-          src="assets/img/main-banner.png"
+          src="@/assets/img/main-banner.png"
           alt="main banner"
         > -->
       </figure>

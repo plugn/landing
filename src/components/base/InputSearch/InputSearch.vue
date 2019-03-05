@@ -9,7 +9,7 @@
     >
     <img
       class="input-search__icon"
-      src="assets/svg/icons/search-black.svg"
+      src="@/assets/svg/icons/search-black.svg"
     >
   </div>
 </template>

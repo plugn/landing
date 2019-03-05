@@ -14,7 +14,7 @@
         @click="handleClick"
       >
         <img
-          src="assets/svg/icons/x-black.svg"
+          src="@/assets/svg/icons/x-black.svg"
           alt="close categories menu"
         >
       </div>
@@ -37,7 +37,7 @@
               class="categories__link"
             >
               <span class="categories__icon">
-                <Icon :src="category.icon" />
+                <Icon :src="dirtyAbsPath(category.icon)" />
               </span>
               <div
                 class="categories__text"
@@ -47,7 +47,7 @@
             </a>
             <img
               class="categories__chevron"
-              src="assets/svg/icons/chevron-right--black.svg"
+              src="@assets/svg/icons/chevron-right--black.svg"
               alt="close categories menu"
             >
           </div>
@@ -73,10 +73,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    onClose: {
-      type: Function,
-      default: () => {},
-    },
   },
   computed: mapState(['categories']),
   created() {
@@ -85,6 +81,15 @@ export default {
   methods: {
     handleClick() {
       this.$emit('onClose');
+    },
+    // TODO: make smart or remove
+    dirtyAbsPath(path) {
+      // eslint-disable-next-line no-restricted-globals
+      const isInsideFront = /^\/landing\/\d+-\w+/.test(location.pathname);
+      if (isInsideFront) {
+        return String(path).replace(/^assets\/svg\/categories\//, '/images/categories/');
+      }
+      return path;
     },
     ...mapActions(['fetchCategories']),
   },

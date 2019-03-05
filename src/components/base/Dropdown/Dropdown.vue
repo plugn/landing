@@ -14,8 +14,8 @@
         }"
       >
         <img
-          v-if="icon !== ''"
-          :src="`assets/svg/icons/${icon}.svg`"
+          v-if="icon"
+          :src="iconUrl"
           class="dropdown-icon"
         >
         <slot name="counter" />
@@ -48,6 +48,10 @@ export default {
   },
   props: {
     icon: {
+      type: String,
+      default: '',
+    },
+    iconUrl: {
       type: String,
       default: '',
     },

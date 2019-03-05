@@ -11,7 +11,7 @@
       >
         <img
           class="navigation__burger-icon"
-          src="assets/svg/icons/burger-black.svg"
+          src="@/assets/svg/icons/burger-black.svg"
           alt="burger-menu"
         >
       </div>
@@ -22,7 +22,7 @@
         <img
           height="30"
           class="logo__img"
-          src="assets/svg/icons/alabom-logo-beta.svg"
+          src="@/assets/svg/icons/alabom-logo-beta.svg"
         >
       </router-link>
       <div
@@ -35,7 +35,7 @@
         >
           <img
             class="button-categories__icon"
-            src="assets/svg/icons/burger-black.svg"
+            src="@/assets/svg/icons/burger-black.svg"
             alt="burger-menu"
           >
           <span class="button-categories__text">
@@ -55,12 +55,12 @@
       <div class="navigation__lupe navigation__right-item">
         <img
           class=""
-          src="assets/svg/icons/search-black.svg"
+          src="@/assets/svg/icons/search-black.svg"
         >
       </div>
       <div class="navigation__cart">
         <Dropdown
-          icon="cart-black"
+          icon-url="/images/cart-black.svg"
           text="Shopping cart"
           hide-text-mobile
         >
@@ -93,6 +93,10 @@
     <Modal>
       <LoginForm />
     </Modal>
+    <Categories
+      :is-open="isCategoriesOpen"
+      @onClose="handleCategoriesClick"
+    />
   </nav>
 </template>
 
@@ -125,6 +129,7 @@ export default {
     return {
       isActive: false,
       isMenuToggled: false,
+      isLoggedIn: false,
       links: [
         {
           id: 'Home',
@@ -134,6 +139,11 @@ export default {
       ],
       isCategoriesOpen: false,
     };
+  },
+  computed: {
+    computedIconURL() {
+      return this.isLoggedIn ? '/images/user-black.svg' : '/images/enter-black.svg';
+    },
   },
   methods: {
     handleCategoriesClick() {
