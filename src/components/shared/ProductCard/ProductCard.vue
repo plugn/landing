@@ -4,7 +4,7 @@
     class="product-card"
   >
     <h2 class="sr-only">
-      Product Name
+      {{ product.brand }}
     </h2>
     <div class="product-card__wrapper">
       <div class="product-card__cover">
@@ -55,7 +55,7 @@ export default {
       default() {
         return {
           id: '0',
-          name: 'default name',
+          brand: 'some brand',
           img: '',
           imgHovered: '',
         };

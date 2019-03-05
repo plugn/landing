@@ -7,11 +7,13 @@
       class="row goods__row"
     >
       <div
-        v-for="(i, idx) in sections[name].good_list"
+        v-for="(good, idx) in sections[name].good_list"
         :key="idx"
         class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
-        <ProductCard />
+        <ProductCard
+          :product="good"
+        />
       </div>
     </div>
     <div
@@ -65,6 +67,7 @@ export default {
     @include element(row) {
       margin-bottom: px-to-rem(50);
       overflow-x: scroll;
+      padding-top: 1rem;
     }
 
     @include element(load-more) {
