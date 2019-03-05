@@ -2,12 +2,17 @@
   <router-view />
 </template>
 <style lang="scss">
+  @import '~styles/mixins';
+  @import '~styles/variables';
 
   .layout {
-    // height: 100vh;
     display: flex;
     flex-direction: column;
     padding-top: 4rem;
+    margin-bottom: 3rem;
+    @include media($md) {
+      margin-bottom: initial;
+    }
   }
 
   .layout__content {

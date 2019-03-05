@@ -1,6 +1,9 @@
 <template>
   <nav class="navigation">
-    <div class="navigation__left-side">
+    <h2 class="sr-only">
+      Main Navigation
+    </h2>
+    <div class="navigation__left">
       <div
         role="button"
         class="navigation__burger"
@@ -23,31 +26,39 @@
         >
       </router-link>
       <div
-        class="button-categories"
-        role="button"
-        @click="handleCategoriesClick"
+        v-click-outside="handleOutsideClick"
       >
-        <img
-          class="button-categories__icon"
-          src="@/assets/svg/icons/burger-black.svg"
-          alt="burger-menu"
+        <div
+          class="button-categories"
+          role="button"
+          @click="handleCategoriesClick"
         >
-        <span class="button-categories__text">
-          All categories
-        </span>
+          <img
+            class="button-categories__icon"
+            src="@/assets/svg/icons/burger-black.svg"
+            alt="burger-menu"
+          >
+          <span class="button-categories__text">
+            All categories
+          </span>
+        </div>
+        <Categories
+          :is-open="isCategoriesOpen"
+          @onClose="handleCategoriesClick"
+        />
       </div>
       <div class="navigation__search">
         <InputSearch />
       </div>
     </div>
-    <div class="navigation__right-side">
-      <div class="navigation__lupe">
+    <div class="navigation__right">
+      <div class="navigation__lupe navigation__right-item">
         <img
           class=""
           src="@/assets/svg/icons/search-black.svg"
         >
       </div>
-      <div class="navigation__dropdowns">
+      <div class="navigation__cart">
         <Dropdown
           icon-url="/images/cart-black.svg"
           text="Shopping cart"
@@ -59,24 +70,26 @@
           >
             2
           </div>
-          <div class="h4 h4-mb10">
+          <div>
             Your shopping cart is still empty
           </div>
-          <div class="text text-grey">
+          <div>
             Choose a product and order it for a few
             minutes
           </div>
         </Dropdown>
       </div>
-      <Dropdown
-        :icon-url="computedIconURL"
-        text="Sign In"
-        hide-text-mobile
-      />
-      <button @click="toggleModal">
-        text
-      </button>
+      <div class="navigation__right-item">
+        <Dropdown
+          icon="enter-black"
+          text="Sign In"
+          hide-text-mobile
+        />
+      </div>
     </div>
+    <!-- <button @click="toggleModal">
+      text
+    </button> -->
     <Modal>
       <LoginForm />
     </Modal>
@@ -94,6 +107,7 @@ import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
 import Modal from 'components/shared/Modal';
 import LoginForm from 'components/shared/LoginForm/_LoginForm';
+import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
 
@@ -101,6 +115,9 @@ const { mapActions } = createNamespacedHelpers('modal');
 
 export default {
   name: 'Navigation',
+  directives: {
+    clickOutside,
+  },
   components: {
     Dropdown,
     Categories,
@@ -132,6 +149,11 @@ export default {
     handleCategoriesClick() {
       this.isCategoriesOpen = !this.isCategoriesOpen;
     },
+    handleOutsideClick() {
+      if (this.isCategoriesOpen) {
+        this.isCategoriesOpen = false;
+      }
+    },
     ...mapActions(['toggleModal']),
   },
 };
@@ -146,13 +168,50 @@ export default {
     @include flex($justify-content: space-between);
     align-items: center;
     height: 100%;
+    padding-left: 0.4rem;
+    padding-right: 0.2rem;
+
+    @include media($lg) {
+      padding: 0;
+    }
+
+    @include element(left) {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      @include media($md) {
+        justify-content: initial;
+      }
+    }
+
+    @include element(right) {
+      display: none;
+      @include media($md) {
+        display: flex;
+      }
+    }
+
+    @include element(right-item) {
+      margin-right: px-to-rem(6);
+
+      @include media($lg) {
+        margin-right: 0;
+      }
+
+    }
 
     @include element(burger) {
       align-items: center;
-      display: flex;
+      display: none;
+      float: left;
       justify-content: center;
+      margin-right: px-to-rem(11);
       padding: px-to-rem(5);
       @include size(px-to-rem(30));
+
+      @include media($md) {
+        display: flex;
+      }
 
       @include media($lg) {
         display: none;
@@ -161,13 +220,13 @@ export default {
     }
 
     @include element(burger-icon) {
-      // @include size(px-to-rem(30));
+      @include size(px-to-rem(20));
     }
 
-    @include element(dropdowns) {
-      @include media($md) {
-        padding-left: px-to-rem(15);
-        padding-right: px-to-rem(15);
+    @include element(cart) {
+      margin-right: px-to-rem(6);
+      @include media($lg) {
+        margin-right: px-to-rem(45);
       }
 
     }
@@ -176,6 +235,7 @@ export default {
       align-items: center;
       display: flex;
       opacity: .3;
+      width: px-to-rem(34);
 
       @include media($lg) {
         display: none;
@@ -185,26 +245,10 @@ export default {
 
     @include element(search) {
       display: none;
-      width: 31.1%;
+      width: 31.6%;
 
       @include media($lg) {
        display: block;
-      }
-    }
-
-    @include element(left-side) {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center;
-      @include media($md) {
-        justify-content: initial;
-      }
-    }
-
-    @include element(right-side) {
-      display: none;
-      @include media($md) {
-        display: flex;
       }
     }
 
@@ -214,7 +258,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    left: -0.3rem;
     margin-right: 0;
+    position: relative;
     width: px-to-rem(132);
 
     @include element(img) {
@@ -231,8 +277,9 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
-    display: none;
+    color: var(--light-black);
     cursor: pointer;
+    display: none;
     height: px-to-rem(40);
     margin-right: px-to-rem(10);
     padding: 10px 15px;
@@ -245,6 +292,7 @@ export default {
     @include element(icon) {
       @include size(px-to-rem(24));
       margin-right: px-to-rem(10);
+      opacity: .8;
     }
 
     @include element(text) {

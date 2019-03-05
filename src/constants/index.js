@@ -1,5 +1,8 @@
 // Keys
+export const API_TOKEN = '8pY3tTQ3H43zMVOwhzp7ks4pWIuhPP';
+
 export const API_GATEWAY_URL = JSON.stringify(process.env.API_GATEWAY_URL || null);
+
 export const FRONTSITE_URL = JSON.stringify(process.env.FRONTSITE_URL || 'http://racoon.local');
 
 export const DADATA_API_KEY = JSON.stringify(process.env.DADATA_API_KEY || '3dec983b8bbd14cffe7bb1393ed363c64b03d0e0');

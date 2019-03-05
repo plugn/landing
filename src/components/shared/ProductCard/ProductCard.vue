@@ -1,8 +1,11 @@
 <template>
-  <div
+  <article
     href="/en/goods/796ebb9c-058d-40a6-af27-9c41aba61c69/"
     class="product-card"
   >
+    <h2 class="sr-only">
+      {{ product.brand }}
+    </h2>
     <div class="product-card__wrapper">
       <div class="product-card__cover">
         <div class="product-card__sale">
@@ -35,7 +38,7 @@
     <div class="product-card__bottom">
       Zircon bowknot earrings can female ins g...
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -52,7 +55,7 @@ export default {
       default() {
         return {
           id: '0',
-          name: 'default name',
+          brand: 'some brand',
           img: '',
           imgHovered: '',
         };

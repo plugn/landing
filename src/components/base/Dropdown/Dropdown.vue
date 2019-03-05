@@ -1,15 +1,22 @@
 <template>
-  <div class="dropdown">
+  <div
+    v-click-outside="handleOutsideClick"
+    class="dropdown"
+  >
     <div
-      v-click-outside="handleOutsideClick"
       class="dropdown__toggle"
       @click="handleClick"
     >
-      <div class="dropdown__icon">
+      <div
+        class="dropdown__icon"
+        :class="{
+          'dropdown__icon--no-margin': hideTextMobile
+        }"
+      >
         <img
-          v-if="iconUrl !== ''"
+          v-if="icon"
           :src="iconUrl"
-          class="dropdown-icon icondropheader-cart"
+          class="dropdown-icon"
         >
         <slot name="counter" />
       </div>
@@ -22,12 +29,12 @@
         {{ text }}
       </div>
     </div>
-    <nav
+    <div
       class="dropdown__list"
       :class="{'dropdown__list--open': isOpen}"
     >
       <slot />
-    </nav>
+    </div>
   </div>
 </template>
 
@@ -118,6 +125,12 @@ export default {
       min-width: px-to-rem(24);
       opacity: 0.3;
       width: px-to-rem(24);
+
+      @include modifier(no-margin) {
+        @include media($lg) {
+          margin-right: 0;
+        }
+      }
 
       @include media($md) {
         margin-right: px-to-rem(10);
