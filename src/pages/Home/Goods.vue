@@ -1,9 +1,10 @@
 <template>
   <section id="dressess">
     <h3 class="goods__row-title">
-      {{ sections[name].title.ru }}
+      {{ isLoaded ? sections[name].title.ru : '' }}
     </h3>
     <div
+      v-if="isLoaded"
       class="row goods__row"
     >
       <div
@@ -47,14 +48,14 @@ export default {
       default: '1',
     },
   },
-  computed: mapState(['sections']),
+  computed: mapState(['sections', 'isLoaded']),
   created() {
-    this.fetchGoodsBlock({
+    this.fetchGoods({
       id: this.urlId,
       name: this.name,
     });
   },
-  methods: mapActions(['fetchGoodsBlock']),
+  methods: mapActions(['fetchGoods']),
 };
 </script>
 

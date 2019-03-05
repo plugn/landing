@@ -1,2 +1,5 @@
-// eslint-disable-next-line import/prefer-default-export
-export const SET_GOODS_BLOCK = 'SET_GOODS_BLOCK';
+export const LANDING_GOODS_REQUEST = 'LANDING_GOODS_REQUEST';
+
+export const LANDING_GOODS_SUCCESS = 'LANDING_GOODS_SUCCESS';
+
+export const LANDING_GOODS_FAILURE = 'LANDING_GOODS_FAILURE';
