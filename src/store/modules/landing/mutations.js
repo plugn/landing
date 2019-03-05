@@ -3,11 +3,10 @@ import {
 } from './actionTypes';
 
 export default {
-  [SET_GOODS_BLOCK](state, { products, name }) {
+  [SET_GOODS_BLOCK](state, { sections, name }) {
     // eslint-disable-next-line no-param-reassign
-    state[name] = {
-      goods: products.good_list,
-      title: products.title,
+    state.sections = {
+      [name]: sections,
     };
   },
 };

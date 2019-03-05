@@ -61,7 +61,8 @@
     </div>
 
     <Goods
-      :list="[]"
+      url-id="1"
+      name="dresses"
     />
 
     <div class="home__banner">
@@ -97,27 +98,10 @@
       </picture>
     </div>
 
-    <section id="combinations">
-      <h3 class="home__row-title">
-        Combinations
-      </h3>
-      <div class="row home__row">
-        <div
-          v-for="(i, idx) in productsList"
-          :key="idx"
-          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-        >
-          <ProductCard />
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="home__load-more"
-      role="button"
-    >
-      Load more
-    </div>
+    <Goods
+      name="suits"
+      url-id="2"
+    />
 
     <div class="home__banner">
       <div class="home__banner-text">
@@ -232,13 +216,10 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
 import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 import Goods from './Goods';
-
-const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Home',
@@ -272,22 +253,6 @@ export default {
       newProducts: Array.from(Array(25)),
     };
   },
-  computed: mapState(['dresses', 'suits']),
-  created() {
-    this.fetchGoodsBlock({
-      id: 1,
-      name: 'dresses'
-    });
-    this.fetchGoodsBlock({
-      id: 2,
-      name: 'suits'
-    });
-  },
-  mounted() {
-    console.log('this.dresses', this.dresses);
-    
-  },
-  methods: mapActions(['fetchGoodsBlock']),
 };
 </script>
 

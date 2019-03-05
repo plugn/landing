@@ -1,13 +1,13 @@
 <template>
   <section id="dressess">
     <h3 class="goods__row-title">
-      Dressess
+      {{ sections[name].title.ru }}
     </h3>
     <div
       class="row goods__row"
     >
       <div
-        v-for="(i, idx) in list"
+        v-for="(i, idx) in sections[name].good_list"
         :key="idx"
         class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
@@ -24,7 +24,11 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
 import ProductCard from 'components/shared/ProductCard';
+
+const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Goods',
@@ -32,13 +36,23 @@ export default {
     ProductCard,
   },
   props: {
-    list: {
-      type: Array,
-      default() {
-        return [];
-      },
+    name: {
+      type: String,
+      default: 'goodsSection',
+    },
+    urlId: {
+      type: String,
+      default: '1',
     },
   },
+  computed: mapState(['sections']),
+  created() {
+    this.fetchGoodsBlock({
+      id: this.urlId,
+      name: this.name,
+    });
+  },
+  methods: mapActions(['fetchGoodsBlock']),
 };
 </script>
 

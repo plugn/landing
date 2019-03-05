@@ -2,16 +2,24 @@ import { api } from '@/api';
 import * as types from './actionTypes';
 
 export default {
-  fetchGoodsBlock({ commit }, {
+  fetchGoodsBlock({ commit, getters }, {
     id,
     name,
   }) {
-    api.get(`/goods/v1.0/landings/kit/${id}/`)
-      .then((response) => {
+    const section = getters.getSection(name);
+
+    if (section) {
+      commit(types.SET_GOODS_BLOCK, {
+        sections: section,
+        name,
+      });
+    } else {
+      api.get(`/goods/v1.0/landings/kit/${id}/`).then((response) => {
         commit(types.SET_GOODS_BLOCK, {
-          products: response.data,
+          sections: response.data,
           name,
         });
       });
+    }
   },
 };
