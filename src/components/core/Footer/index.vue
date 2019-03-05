@@ -1,5 +1,5 @@
 <script>
-import Footer from './Footer';
+import FooterBig from './FooterBig';
 
-export default Footer;
+export default FooterBig;
 </script>
