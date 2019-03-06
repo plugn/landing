@@ -17,7 +17,7 @@
           @click="handleBurgerClick"
         >
         <Categories
-          :is-open="isTabletCategoriesOpen"
+          :is-open="isTabletCategoriesOpened"
           @onClose="handleBurgerClick"
         />
       </div>
@@ -49,7 +49,7 @@
           </span>
         </div>
         <Categories
-          :is-open="isCategoriesOpen"
+          :is-open="isCategoriesOpened"
           @onClose="handleCategoriesClick"
         />
       </div>
@@ -58,11 +58,20 @@
       </div>
     </div>
     <div class="navigation__right">
-      <div class="navigation__lupe navigation__right-item">
+      <div class="navigation__tablet-search navigation__right-item">
         <img
-          class=""
+          class="navigation__lupe"
           src="assets/svg/icons/search-black.svg"
+          @click="handleTabletSearchClick"
         >
+        <Modal
+          :is-open="isTabletSearchOpened"
+          @on-close="handleTabletSearchClick"
+        >
+          <div class="navigation__tablet-search">
+            <InputSearch />
+          </div>
+        </Modal>
       </div>
       <div class="navigation__cart">
         <Dropdown
@@ -93,10 +102,13 @@
         />
       </div>
     </div>
-    <!-- <button @click="toggleModal">
+    <!-- <button @click="handleLoginClick">
       text
     </button> -->
-    <Modal>
+    <Modal
+      :is-open="isLoginFormOpened"
+      @on-close="handleLoginClick"
+    >
       <LoginForm />
     </Modal>
   </nav>
@@ -129,8 +141,8 @@ export default {
   },
   data() {
     return {
-      isActive: false,
-      isMenuToggled: false,
+      isTabletSearchOpened: false,
+      isLoginFormOpened: false,
       links: [
         {
           id: 'Home',
@@ -138,25 +150,31 @@ export default {
           to: '/',
         },
       ],
-      isCategoriesOpen: false,
-      isTabletCategoriesOpen: false,
+      isCategoriesOpened: false,
+      isTabletCategoriesOpened: false,
     };
   },
   methods: {
+    handleLoginClick() {
+      this.isLoginFormOpened = !this.isLoginFormOpened;
+    },
+    handleTabletSearchClick() {
+      this.isTabletSearchOpened = !this.isTabletSearchOpened;
+    },
     handleCategoriesClick() {
-      this.isCategoriesOpen = !this.isCategoriesOpen;
+      this.isCategoriesOpened = !this.isCategoriesOpened;
     },
     handleBurgerClick() {
-      this.isTabletCategoriesOpen = !this.isTabletCategoriesOpen;
+      this.isTabletCategoriesOpened = !this.isTabletCategoriesOpened;
     },
     handleOutsideClick() {
-      if (this.isCategoriesOpen) {
-        this.isCategoriesOpen = false;
+      if (this.isCategoriesOpened) {
+        this.isCategoriesOpened = false;
       }
     },
     handleBurgerOutsideClick() {
-      if (this.isTabletCategoriesOpen) {
-        this.isTabletCategoriesOpen = false;
+      if (this.isTabletCategoriesOpened) {
+        this.isTabletCategoriesOpened = false;
       }
     },
     ...mapActions(['toggleModal']),
@@ -237,16 +255,18 @@ export default {
 
     }
 
-    @include element(lupe) {
+    @include element(tablet-search) {
       align-items: center;
       display: flex;
-      opacity: .3;
-      width: px-to-rem(34);
+      // width: px-to-rem(34);
 
       @include media($lg) {
         display: none;
       }
+    }
 
+    @include element(lupe) {
+      opacity: .3;
     }
 
     @include element(search) {

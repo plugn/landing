@@ -1,7 +1,7 @@
 <template>
   <div
     class="alm-modal-root"
-    :hidden="!active"
+    :hidden="!isOpen"
   >
     <div class="alm-fader alm-modal-outer">
       <div
@@ -21,20 +21,19 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
-
-const { mapState, mapActions } = createNamespacedHelpers('modal');
 
 export default {
   name: 'Modal',
-  computed: {
-    ...mapState(['active']),
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     handleClose() {
-      this.toggleModal();
+      this.$emit('on-close');
     },
-    ...mapActions(['toggleModal']),
   },
 };
 </script>
