@@ -3,19 +3,6 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <!-- <div class="home__main-banner">
-      <figure class="text-center m-0">
-      </figure>
-    </div>
-    <div class="home__main-separator" />
-    <h3 class="home__row-title text-center">
-      –30% на новинки
-    </h3>
-    <p class="home__description">
-      9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет
-      мастер-класс известного шеф-повара Константина Ивлева,
-      посвященный главному масленичному лакомству
-    </p> -->
     <MainBanner />
     <div class="home__row">
       <CategoriesRow
@@ -23,38 +10,7 @@
       />
     </div>
 
-    <div class="home__banner">
-      <div class="home__banner-text">
-        <div class="home__banner-title">
-          Скидки до 30:
-        </div>
-        <div class="home__banner-description">
-          на модные платьешки от китайских кутюрье
-        </div>
-      </div>
-      <picture>
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 1200px)"
-        >
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 992px)"
-        >
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 768px)"
-        >
-        <source
-          srcset="assets/img/home/banner1-small.png"
-          media="(min-width: 576px)"
-        >
-        <img
-          src="assets/img/home/banner1-small.png"
-          alt="banner 1"
-        >
-      </picture>
-    </div>
+    <Banner />
 
     <Goods
       url-id="1"
@@ -216,11 +172,13 @@ import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 import Goods from './Goods';
+import Banner from './Banner';
 import MainBanner from './MainBanner';
 
 export default {
   name: 'Home',
   components: {
+    Banner,
     MainBanner,
     ProductCard,
     CategoriesRow,
