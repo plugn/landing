@@ -13,11 +13,7 @@
           'dropdown__icon--no-margin': hideTextMobile
         }"
       >
-        <img
-          v-if="icon"
-          :src="iconUrl"
-          class="dropdown-icon"
-        >
+        <slot name="icon" />
         <slot name="counter" />
       </div>
       <div
@@ -48,10 +44,6 @@ export default {
   },
   props: {
     icon: {
-      type: String,
-      default: '',
-    },
-    iconUrl: {
       type: String,
       default: '',
     },

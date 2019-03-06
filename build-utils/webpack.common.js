@@ -23,7 +23,7 @@ module.exports = (mode) => {
       alias: {
         '@': `${paths.src}`,
         vue$: 'vue/dist/vue.esm.js',
-        api: `${paths.src}/api`,
+        // api: `${paths.src}/api`,
         Admin: `${paths.src}/pages/Admin`,
         assets: `${paths.src}/assets`,
         components: `${paths.src}/components`,
@@ -110,20 +110,19 @@ module.exports = (mode) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'assets/img/', // where the images will go
-                publicPath: '/landing-dist/assets/img/',
+                publicPath: prodMode ? '/landing-dist/assets/img/' : '',
               },
             },
           ],
         },
         {
-          // test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
           test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
           use: [{
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/fonts/', // where the fonts will go
-              publicPath: '/landing-dist/assets/fonts/',
+              publicPath: prodMode ? '/landing-dist/assets/fonts/' : '',
             },
           }],
         },

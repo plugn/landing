@@ -37,7 +37,7 @@
               class="categories__link"
             >
               <span class="categories__icon">
-                <Icon :src="dirtyAbsPath(category.icon)" />
+                <Icon :src="imgSrc(category.icon)" />
               </span>
               <div
                 class="categories__text"
@@ -60,6 +60,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 import Icon from 'components/base/Icon';
+import imgSrc from 'components/base/Icon/imgSrc';
 
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
@@ -73,23 +74,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    onClose: {
+      type: Function,
+      default: () => {},
+    },
   },
   computed: mapState(['categories']),
   created() {
     this.fetchCategories(6);
   },
+
   methods: {
+    imgSrc,
     handleClick() {
       this.$emit('onClose');
-    },
-    // TODO: make smart or remove
-    dirtyAbsPath(path) {
-      // eslint-disable-next-line no-restricted-globals
-      const isInsideFront = /^\/landing\/\d+-\w+/.test(location.pathname);
-      if (isInsideFront) {
-        return String(path).replace(/^assets\/svg\/categories\//, '/images/categories/');
-      }
-      return path;
     },
     ...mapActions(['fetchCategories']),
   },
@@ -111,6 +109,12 @@ export default {
     position: fixed;
 
     @include media($lg) {
+      height: initial;
+      margin-top: 70px;
+      position: fixed;
+    }
+
+    @include media($xl) {
       height: initial;
       margin-top: 70px;
       position: absolute;

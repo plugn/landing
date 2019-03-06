@@ -3,62 +3,17 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <div class="home__main-banner">
-      <figure class="text-center m-0">
-        <!-- <img
-          class="img-fluid"
-          src="@/assets/img/main-banner.png"
-          alt="main banner"
-        > -->
-      </figure>
-    </div>
-    <div class="home__main-separator" />
-    <h3 class="home__row-title text-center">
-      –30% на новинки
-    </h3>
-    <p class="home__description">
-      9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет
-      мастер-класс известного шеф-повара Константина Ивлева,
-      посвященный главному масленичному лакомству
-    </p>
+    <MainBanner />
     <div class="home__row">
       <CategoriesRow
         :categories="categories"
       />
     </div>
 
-    <div class="home__banner">
-      <div class="home__banner-text">
-        <div class="home__banner-title">
-          Скидки до 30:
-        </div>
-        <div class="home__banner-description">
-          на модные платьешки от китайских кутюрье
-        </div>
-      </div>
-      <picture>
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 1200px)"
-        >
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 992px)"
-        >
-        <source
-          srcset="assets/img/home/banner1.png"
-          media="(min-width: 768px)"
-        >
-        <source
-          srcset="assets/img/home/banner1-small.png"
-          media="(min-width: 576px)"
-        >
-        <img
-          src="assets/img/home/banner1-small.png"
-          alt="banner 1"
-        >
-      </picture>
-    </div>
+    <Banner
+      title="Скидки до 30:"
+      description="на модные платьешки от китайских кутюрье"
+    />
 
     <Goods
       url-id="1"
@@ -76,23 +31,23 @@
       </div>
       <picture>
         <source
-          srcset="assets/img/home/banner2.png"
+          srcset="@/assets/img/home/banner2.png"
           media="(min-width: 1200px)"
         >
         <source
-          srcset="assets/img/home/banner2.png"
+          srcset="@/assets/img/home/banner2.png"
           media="(min-width: 992px)"
         >
         <source
-          srcset="assets/img/home/banner2.png"
+          srcset="@/assets/img/home/banner2.png"
           media="(min-width: 768px)"
         >
         <source
-          srcset="assets/img/home/banner2-small.png"
+          srcset="@/assets/img/home/banner2-small.png"
           media="(min-width: 576px)"
         >
         <img
-          src="assets/img/home/banner2-small.png"
+          src="@/assets/img/home/banner2-small.png"
           alt="banner 1"
         >
       </picture>
@@ -114,23 +69,23 @@
       </div>
       <picture>
         <source
-          srcset="assets/img/home/banner3.png"
+          srcset="@/assets/img/home/banner3.png"
           media="(min-width: 1200px)"
         >
         <source
-          srcset="assets/img/home/banner3.png"
+          srcset="@/assets/img/home/banner3.png"
           media="(min-width: 992px)"
         >
         <source
-          srcset="assets/img/home/banner3.png"
+          srcset="@/assets/img/home/banner3.png"
           media="(min-width: 768px)"
         >
-        <source
-          srcset="assets/img/home/banner3-small.png"
+        <!-- <source
+          srcset="@/assets/img/home/banner3-small.png"
           media="(min-width: 576px)"
-        >
+        > -->
         <img
-          src="assets/img/home/banner1-small.png"
+          src="@/assets/img/home/banner1-small.png"
           alt="banner 1"
         >
       </picture>
@@ -169,23 +124,23 @@
       </div>
       <picture>
         <source
-          srcset="assets/img/home/banner4.png"
+          srcset="@/assets/img/home/banner4.png"
           media="(min-width: 1200px)"
         >
         <source
-          srcset="assets/img/home/banner4.png"
+          srcset="@/assets/img/home/banner4.png"
           media="(min-width: 992px)"
         >
         <source
-          srcset="assets/img/home/banner4.png"
+          srcset="@/assets/img/home/banner4.png"
           media="(min-width: 768px)"
         >
         <source
-          srcset="assets/img/home/banner1-small.png"
+          srcset="@/assets/img/home/banner1-small.png"
           media="(min-width: 576px)"
         >
         <img
-          src="assets/img/home/banner1-small.png"
+          src="@/assets/img/home/banner1-small.png"
           alt="banner 1"
         >
       </picture>
@@ -220,10 +175,14 @@ import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 import Goods from './Goods';
+import Banner from './Banner';
+import MainBanner from './MainBanner';
 
 export default {
   name: 'Home',
   components: {
+    Banner,
+    MainBanner,
     ProductCard,
     CategoriesRow,
     Goods,
@@ -231,6 +190,7 @@ export default {
   data() {
     return {
       heading: 'Alabom',
+      // TODO: there are no such images
       banners: [
         'assets/img/banner.png',
         'assets/img/banner2.png',
@@ -264,27 +224,9 @@ export default {
   $main-banner-height: px-to-rem(300);
 
   .home {
-    padding-top: px-to-rem(40);
-    @include element(main-separator) {
-      height: px-to-rem(213);
-      margin-bottom: px-to-rem(40);
-
-      @include media($xl) {
-        height: $main-banner-height;
-      }
-    }
-
-    @include element(discount-title) {
-      height: $main-banner-height;
-      margin-bottom: px-to-rem(40);
-    }
-
-    @include element(description) {
-      color: #000;
-      font-size: 16px;
-      line-height: 24px;
-      margin-bottom: px-to-rem(40);
-      text-align: center;
+    padding-top: 0;
+    @include media($lg) {
+      padding-top: px-to-rem(40);
     }
 
     @include element(load-more) {
@@ -298,35 +240,6 @@ export default {
       justify-content: center;
       margin-bottom: px-to-rem(40);
       width: 100%;
-    }
-
-    @include element(main-banner) {
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 4rem;
-      background: url('../../assets/img/home/main-banner-mobile.png') no-repeat center;
-      height: px-to-rem(213);
-      // background: #585bff;
-      // background: -moz-linear-gradient(left, #585bff 0%, #8f25ff 100%);
-      // background: -webkit-linear-gradient(left, #585bff 0%,#8f25ff 100%);
-      // background: linear-gradient(to right, #585bff 0%,#8f25ff 100%);
-
-      @include media($sm) {
-        background: url('../../assets/img/home/main-banner.png') no-repeat center;
-        top: 4.3rem;
-      }
-
-      @include media($md) {
-        background: url('../../assets/img/home/main-banner.png') no-repeat center;
-        top: 4.3rem;
-      }
-
-      @include media($xl) {
-        background: url('../../assets/img/home/main-banner-big.png') no-repeat center;
-        height: $main-banner-height;
-        top: 5rem;
-      }
     }
 
     @include element(banner) {

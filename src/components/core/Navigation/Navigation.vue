@@ -5,15 +5,21 @@
     </h2>
     <div class="navigation__left">
       <div
+        v-click-outside="handleBurgerOutsideClick"
         role="button"
         class="navigation__burger"
-        @click="handleCategoriesClick"
       >
         <img
+          role="button"
           class="navigation__burger-icon"
           src="@/assets/svg/icons/burger-black.svg"
           alt="burger-menu"
+          @click="handleBurgerClick"
         >
+        <Categories
+          :is-open="isTabletCategoriesOpened"
+          @onClose="handleBurgerClick"
+        />
       </div>
       <router-link
         class="logo"
@@ -43,7 +49,7 @@
           </span>
         </div>
         <Categories
-          :is-open="isCategoriesOpen"
+          :is-open="isCategoriesOpened"
           @onClose="handleCategoriesClick"
         />
       </div>
@@ -52,18 +58,21 @@
       </div>
     </div>
     <div class="navigation__right">
-      <div class="navigation__lupe navigation__right-item">
-        <img
-          class=""
-          src="@/assets/svg/icons/search-black.svg"
-        >
+      <div class="navigation__tablet-search navigation__right-item">
+        <ModalSearch />
       </div>
       <div class="navigation__cart">
         <Dropdown
-          icon-url="/images/cart-black.svg"
+          icon="cart-black"
           text="Shopping cart"
           hide-text-mobile
         >
+          <img
+            slot="icon"
+            src="@/assets/svg/icons/cart-black.svg"
+            class="dropdown-icon"
+          >
+
           <div
             slot="count"
             class="cart-counter"
@@ -84,19 +93,24 @@
           icon="enter-black"
           text="Sign In"
           hide-text-mobile
-        />
+        >
+          <img
+            slot="icon"
+            src="@/assets/svg/icons/enter-black.svg"
+            class="dropdown-icon"
+          >
+        </Dropdown>
       </div>
     </div>
-    <!-- <button @click="toggleModal">
+    <!-- <button @click="handleLoginClick">
       text
     </button> -->
-    <Modal>
+    <Modal
+      :is-open="isLoginFormOpened"
+      @on-close="handleLoginClick"
+    >
       <LoginForm />
     </Modal>
-    <Categories
-      :is-open="isCategoriesOpen"
-      @onClose="handleCategoriesClick"
-    />
   </nav>
 </template>
 
@@ -110,6 +124,7 @@ import LoginForm from 'components/shared/LoginForm/_LoginForm';
 import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
+import ModalSearch from './ModalSearch';
 
 const { mapActions } = createNamespacedHelpers('modal');
 
@@ -124,12 +139,12 @@ export default {
     InputSearch,
     Modal,
     LoginForm,
+    ModalSearch,
   },
   data() {
     return {
-      isActive: false,
-      isMenuToggled: false,
-      isLoggedIn: false,
+      isTabletSearchOpened: false,
+      isLoginFormOpened: false,
       links: [
         {
           id: 'Home',
@@ -137,21 +152,31 @@ export default {
           to: '/',
         },
       ],
-      isCategoriesOpen: false,
+      isCategoriesOpened: false,
+      isTabletCategoriesOpened: false,
     };
   },
-  computed: {
-    computedIconURL() {
-      return this.isLoggedIn ? '/images/user-black.svg' : '/images/enter-black.svg';
-    },
-  },
   methods: {
+    handleLoginClick() {
+      this.isLoginFormOpened = !this.isLoginFormOpened;
+    },
+    handleTabletSearchClick() {
+      this.isTabletSearchOpened = !this.isTabletSearchOpened;
+    },
     handleCategoriesClick() {
-      this.isCategoriesOpen = !this.isCategoriesOpen;
+      this.isCategoriesOpened = !this.isCategoriesOpened;
+    },
+    handleBurgerClick() {
+      this.isTabletCategoriesOpened = !this.isTabletCategoriesOpened;
     },
     handleOutsideClick() {
-      if (this.isCategoriesOpen) {
-        this.isCategoriesOpen = false;
+      if (this.isCategoriesOpened) {
+        this.isCategoriesOpened = false;
+      }
+    },
+    handleBurgerOutsideClick() {
+      if (this.isTabletCategoriesOpened) {
+        this.isTabletCategoriesOpened = false;
       }
     },
     ...mapActions(['toggleModal']),
@@ -203,6 +228,7 @@ export default {
     @include element(burger) {
       align-items: center;
       display: none;
+      cursor: pointer;
       float: left;
       justify-content: center;
       margin-right: px-to-rem(11);
@@ -228,19 +254,11 @@ export default {
       @include media($lg) {
         margin-right: px-to-rem(45);
       }
-
     }
 
-    @include element(lupe) {
+    @include element(tablet-search) {
       align-items: center;
       display: flex;
-      opacity: .3;
-      width: px-to-rem(34);
-
-      @include media($lg) {
-        display: none;
-      }
-
     }
 
     @include element(search) {

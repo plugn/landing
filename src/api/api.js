@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_TOKEN } from '@/constants';
 import { getAccessToken } from '@/services/auth';
 
-const authRequest = axios.create({
+export const authRequest = axios.create({
   baseURL: 'http://racoon.local',
   responseType: 'json',
   withCredentials: true,
@@ -33,4 +33,4 @@ export const apiRequest = axios.create({
   }],
 });
 
-export default authRequest;
+export default apiRequest;

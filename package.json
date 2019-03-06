@@ -9,6 +9,7 @@
     "dev": "yarn webpack-dev-server --env.mode development",
     "build-dev": "rimraf dist && yarn webpack --env.mode development",
     "prod": "rimraf dist && yarn webpack --env.mode production",
+    "watch": "rimraf dist && yarn webpack --env.mode production --watch --progress --info-verbosity verbose",
     "prod:analyze": "yarn prod --env.presets analyze",
     "webpack": "node_modules/.bin/webpack"
   },
@@ -23,7 +24,9 @@
     "classnames": "2.2.6",
     "lodash.chunk": "4.2.0",
     "lodash.get": "4.4.2",
+    "lodash.has": "4.5.2",
     "qs": "6.6.0",
+    "v-suggestions": "1.1.1",
     "vue": "2.6.6",
     "vue-router": "3.0.2",
     "vue-smoothscroll": "0.2.0",

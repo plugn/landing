@@ -14,8 +14,7 @@ module.exports = (env) => {
 
     output: {
       path: paths.dist,
-      // publicPath: `http://localhost:${PORT}/`,
-      publicPath: 'http://racoon.local/landing-dist/',
+      publicPath: `http://localhost:${PORT}/`,
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',
     },
