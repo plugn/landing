@@ -1,3 +1,5 @@
+import has from 'lodash.has';
+
 import {
   LANDING_GOODS_REQUEST,
   LANDING_GOODS_SUCCESS,
@@ -10,10 +12,13 @@ export default {
   },
   [LANDING_GOODS_SUCCESS](state, { sections, name }) {
     // eslint-disable-next-line no-param-reassign
+    if (!has(state.sections, name)) {
+      state.sections = {
+        ...state.sections,
+        [name]: sections,
+      };
+    }
     state.isLoaded = true;
-    state.sections = {
-      [name]: sections,
-    };
   },
   [LANDING_GOODS_FAILURE](state, err) {
     state.isLoaded = false;
