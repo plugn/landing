@@ -1,13 +1,32 @@
 <template>
   <div class="main-banner">
-    <div class="main-banner__image">
-      <figure class="text-center m-0">
-        <!-- <img
-          class="img-fluid"
-          src="assets/img/main-banner.png"
-          alt="main banner"
-        > -->
-      </figure>
+    <div class="main-banner__wrapper">
+      <!-- <figure class="text-center m-0" /> -->
+      <picture
+        v-if="mainBanner.isLoaded"
+        class="main-banner__image"
+      >
+        <source
+          :srcset="mainBanner.banner.image.original"
+          :media="XL"
+        >
+        <source
+          :srcset="mainBanner.banner.image.original"
+          :media="LG"
+        >
+        <source
+          :srcset="mainBanner.banner.image.original"
+          :media="MD"
+        >
+        <source
+          :srcset="mainBanner.banner.mobile_image.original"
+          :media="SM"
+        >
+        <img
+          :src="mainBanner.banner.mobile_image.original"
+          alt="banner 1"
+        >
+      </picture>
     </div>
     <div class="main-banner__main-separator" />
     <h3 class="main-banner__row-title text-center">
@@ -24,10 +43,32 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
+import {
+  XL,
+  LG,
+  MD,
+  SM,
+} from 'constants';
+
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'MainBanner',
+  data() {
+    return {
+      XL,
+      LG,
+      MD,
+      SM,
+    };
+  },
+  computed: mapState(['mainBanner']),
+  created() {
+    this.fetchMainBanner({
+      id: 1,
+    });
+  },
+  methods: mapActions(['fetchMainBanner']),
 };
 </script>
 
@@ -39,43 +80,46 @@ export default {
   $main-banner-height: px-to-rem(300);
 
   .main-banner {
-    padding-top: px-to-rem(40);
 
     @include element(image) {
+      display: block;
+      height: 100%;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    @include element(wrapper) {
       left: 0;
       position: absolute;
       right: 0;
       top: 4rem;
-      background: url('../../assets/img/home/main-banner-mobile.png') no-repeat center;
-      height: px-to-rem(213);
-      // background: #585bff;
-      // background: -moz-linear-gradient(left, #585bff 0%, #8f25ff 100%);
-      // background: -webkit-linear-gradient(left, #585bff 0%,#8f25ff 100%);
-      // background: linear-gradient(to right, #585bff 0%,#8f25ff 100%);
 
       @include media($sm) {
-        background: url('../../assets/img/home/main-banner.png') no-repeat center;
         top: 4.3rem;
       }
 
       @include media($md) {
-        background: url('../../assets/img/home/main-banner.png') no-repeat center;
         top: 4.3rem;
       }
 
       @include media($xl) {
-        background: url('../../assets/img/home/main-banner-big.png') no-repeat center;
         height: $main-banner-height;
         top: 5rem;
       }
     }
 
     @include element(main-separator) {
-      height: px-to-rem(213);
-      margin-bottom: px-to-rem(40);
+      height: px-to-rem(214);
+      margin-bottom: px-to-rem(20);
+
+      @include media($md) {
+        height: $main-banner-height;
+        margin-bottom: px-to-rem(40);
+      }
 
       @include media($xl) {
         height: $main-banner-height;
+        margin-bottom: px-to-rem(40);
       }
     }
 
