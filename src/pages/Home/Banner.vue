@@ -16,23 +16,23 @@
     </div>
     <picture>
       <source
-        srcset="assets/img/home/banner1.png"
+        srcset="@/assets/img/home/banner1.png"
         media="(min-width: 1200px)"
       >
       <source
-        srcset="assets/img/home/banner1.png"
+        srcset="@/assets/img/home/banner1.png"
         media="(min-width: 992px)"
       >
       <source
-        srcset="assets/img/home/banner1.png"
+        srcset="@/assets/img/home/banner1.png"
         media="(min-width: 768px)"
       >
       <source
-        srcset="assets/img/home/banner1-small.png"
+        srcset="@/assets/img/home/banner1-small.png"
         media="(min-width: 576px)"
       >
       <img
-        src="assets/img/home/banner1-small.png"
+        src="@/assets/img/home/banner1-small.png"
         alt="banner 1"
       >
     </picture>

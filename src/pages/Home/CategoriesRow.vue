@@ -12,7 +12,7 @@
         <figure class="categories-row__category">
           <img
             class="img-fluid"
-            src="assets/img/home/ellipse.png"
+            src="@/assets/img/home/ellipse.png"
             alt="cat"
           >
           <figcaption class="categories-row__text">
