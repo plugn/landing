@@ -1,12 +1,28 @@
 <template>
   <div class="input-search">
-    <input
+    <!-- <input
       type="text"
       name="queryString"
       autocomplete="off"
       placeholder="Looking for something?"
       class="input-search__input"
+    > -->
+    <Suggestions
+      v-model="searchQuery"
+      :options="options"
+      :on-item-selected="onSearchItemSelected"
+      :on-input-change="onInputChange"
     >
+      <div
+        slot="item"
+        slot-scope="props"
+        class="single-item"
+      >
+        <span class="name">
+          {{ props.item.Text }}
+        </span>
+      </div>
+    </Suggestions>
     <img
       class="input-search__icon"
       src="assets/svg/icons/search-black.svg"
@@ -15,46 +31,96 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios';
+import Suggestions from 'v-suggestions';
+// eslint-disable-next-line
+import 'v-suggestions/dist/v-suggestions.css';
 
+export default {
+  name: 'InputSearch',
+  components: {
+    Suggestions,
+  },
+  data() {
+    return {
+      searchQuery: '',
+      selectedSearchItem: null,
+      options: {
+        inputClass: 'input-search__input',
+        placeholder: 'Looking for something?',
+      },
+    };
+  },
+  methods: {
+    onInputChange(query) {
+      if (query.trim().length === 0) {
+        return null;
+      }
+      const url = `http://api.duckduckgo.com/?q=${query}&format=json&pretty=1`;
+      return new Promise((resolve) => {
+        axios.get(url).then((response) => {
+          const items = [];
+          response.data.RelatedTopics.forEach((item) => {
+            if (item.Text) {
+              items.push(item);
+            } else if (item.Topics && item.Topics.length > 0) {
+              item.Topics.forEach(topic => (
+                items.push(topic)
+              ));
+            }
+          });
+          resolve(items);
+        });
+      });
+    },
+    onSearchItemSelected(item) {
+      this.selectedSearchItem = item;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-@import '~styles/functions/px-to-rem';
-@import '~styles/mixins';
-.input-search {
-  position: relative;
-  width: 100%;
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
 
-  @include element(input) {
-    align-items: center;
-    background-color: #fff;
-    border-radius: px-to-rem(4);
-    border: 1px solid rgba(24, 25, 32, .1);
-    display: flex;
-    height: px-to-rem(40);
-    outline: none !important;
-    padding: 9px 50px 9px 14px;
-    transition: all .1s ease-in-out;
+  .input-search {
+    position: relative;
     width: 100%;
-  }
 
-  @include element(icon) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    @include size(px-to-rem(24));
-    margin: 7px 9px 9px;
-    justify-content: center;
-    align-items: center;
-    opacity: .3;
-    color: #181920;
-    font-size: 24px;
-    line-height: 24px;
-  }
+    div.suggestions {
+      max-height: 30rem;
+      overflow-y: scroll;
+    }
 
-}
+    @include element(input) {
+      align-items: center;
+      background-color: #fff;
+      border-radius: px-to-rem(4);
+      border: 1px solid rgba(24, 25, 32, .1);
+      display: flex;
+      height: px-to-rem(40);
+      outline: none !important;
+      padding: 9px 50px 9px 14px;
+      transition: all .1s ease-in-out;
+      width: 100%;
+    }
+
+    @include element(icon) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      @include size(px-to-rem(24));
+      margin: 7px 9px 9px;
+      justify-content: center;
+      align-items: center;
+      opacity: .3;
+      color: #181920;
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+  }
 
 </style>
