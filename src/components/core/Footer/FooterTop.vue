@@ -9,7 +9,7 @@
           <img
             height="30"
             class="logo__img"
-            src="assets/svg/icons/alabom-logo-beta.svg"
+            src="@/assets/svg/icons/alabom-logo-beta.svg"
           >
         </router-link>
         <p class="footer-top__description">
