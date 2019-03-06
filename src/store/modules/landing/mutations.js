@@ -8,6 +8,10 @@ import {
   MAIN_BANNER_REQUEST,
   MAIN_BANNER_SUCCESS,
   MAIN_BANNER_FAILURE,
+  // Kits banner
+  GOODS_BANNER_REQUEST,
+  GOODS_BANNER_SUCCESS,
+  GOODS_BANNER_FAILURE,
 } from './actionTypes';
 
 export default {
@@ -43,5 +47,24 @@ export default {
   [MAIN_BANNER_FAILURE](state, err) {
     state.mainBanner.isLoaded = false;
     state.mainBanner.error = err;
+  },
+  // KitsBanner
+  [GOODS_BANNER_REQUEST](state) {
+    state.isLoaded = false;
+  },
+  [GOODS_BANNER_SUCCESS](state, { banners, name }) {
+    // eslint-disable-next-line no-param-reassign
+    if (!has(state.banners, name)) {
+      state.banners = {
+        ...state.banners,
+        [name]: banners,
+        isLoaded: true,
+        error: null,
+      };
+    }
+  },
+  [GOODS_BANNER_FAILURE](state, err) {
+    state.banners.isLoaded = false;
+    state.banners.error = err;
   },
 };

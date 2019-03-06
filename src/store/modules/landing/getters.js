@@ -5,4 +5,7 @@ export default {
   getMainBanner: state => id => (
     state.mainBanner[id]
   ),
+  getGoodsBanner: state => name => (
+    state.banners[name]
+  ),
 };

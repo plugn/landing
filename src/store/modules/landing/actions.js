@@ -40,4 +40,23 @@ export default {
       ));
     }
   },
+  fetchGoodsBanner({ commit, getters }, {
+    id,
+    name,
+  }) {
+    commit(types.GOODS_BANNER_REQUEST);
+    const banner = getters.getMainBanner(name);
+    if (banner) {
+      commit(types.GOODS_BANNER_SUCCESS, banner);
+    } else {
+      api.get(`/goods/v1.0/landings/kit-banner/${id}/`).then((response) => {
+        commit(types.GOODS_BANNER_SUCCESS, {
+          banners: response.data,
+          name,
+        });
+      }).catch(err => (
+        commit(types.GOODS_BANNER_FAILURE, err)
+      ));
+    }
+  },
 };
