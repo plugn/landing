@@ -91,27 +91,10 @@
       </picture>
     </div>
 
-    <section id="accessories">
-      <h3 class="home__row-title">
-        Accessories
-      </h3>
-      <div class="row home__row">
-        <div
-          v-for="(i, idx) in productsList"
-          :key="idx"
-          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-        >
-          <ProductCard />
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="home__load-more"
-      role="button"
-    >
-      Load more
-    </div>
+    <Goods
+      url-id="1"
+      name="dresses"
+    />
 
     <div class="home__banner">
       <div class="home__banner-text">
@@ -146,32 +129,14 @@
       </picture>
     </div>
 
-    <section id="electronics">
-      <h3 class="home__row-title">
-        Electronics
-      </h3>
-      <div class="row home__row">
-        <div
-          v-for="(i, idx) in productsList"
-          :key="idx"
-          class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
-        >
-          <ProductCard />
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="home__load-more"
-      role="button"
-    >
-      Load more
-    </div>
+    <Goods
+      url-id="2"
+      name="electronics"
+    />
   </section>
 </template>
 
 <script>
-import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 import Goods from './Goods';
@@ -183,7 +148,6 @@ export default {
   components: {
     Banner,
     MainBanner,
-    ProductCard,
     CategoriesRow,
     Goods,
   },
@@ -226,19 +190,6 @@ export default {
     padding-top: 0;
     @include media($lg) {
       padding-top: px-to-rem(40);
-    }
-
-    @include element(load-more) {
-      align-items: center;
-      background: #F7F9FA;
-      border-radius: px-to-rem(4);
-      color: rgba(24, 25, 32, 0.6);
-      cursor: pointer;
-      display: flex;
-      height: px-to-rem(50);
-      justify-content: center;
-      margin-bottom: px-to-rem(40);
-      width: 100%;
     }
 
     @include element(banner) {
