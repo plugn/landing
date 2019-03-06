@@ -59,19 +59,31 @@
     </div>
     <div class="navigation__right">
       <div class="navigation__tablet-search navigation__right-item">
-        <img
+        <!-- <img
           class="navigation__lupe"
           src="assets/svg/icons/search-black.svg"
           @click="handleTabletSearchClick"
         >
         <Modal
+          no-container
           :is-open="isTabletSearchOpened"
           @on-close="handleTabletSearchClick"
         >
-          <div class="navigation__tablet-search">
+          <div class="navigation__search-wrapper">
+            <div
+              class="navigation__search-close"
+              @click="handleTabletSearchClick"
+            >
+              <img
+                style="margin-right: 10px;"
+                src="assets/svg/icons/x-white.svg"
+              >
+              Close
+            </div>
             <InputSearch />
           </div>
-        </Modal>
+        </Modal> -->
+        <ModalSearch />
       </div>
       <div class="navigation__cart">
         <Dropdown
@@ -124,6 +136,7 @@ import LoginForm from 'components/shared/LoginForm/_LoginForm';
 import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
+import ModalSearch from './ModalSearch';
 
 const { mapActions } = createNamespacedHelpers('modal');
 
@@ -138,6 +151,7 @@ export default {
     InputSearch,
     Modal,
     LoginForm,
+    ModalSearch,
   },
   data() {
     return {
@@ -252,21 +266,11 @@ export default {
       @include media($lg) {
         margin-right: px-to-rem(45);
       }
-
     }
 
     @include element(tablet-search) {
       align-items: center;
       display: flex;
-      // width: px-to-rem(34);
-
-      @include media($lg) {
-        display: none;
-      }
-    }
-
-    @include element(lupe) {
-      opacity: .3;
     }
 
     @include element(search) {
