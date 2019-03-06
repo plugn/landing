@@ -72,7 +72,7 @@ export default {
   methods: {
     ...mapActions(['fetchCategories']),
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -83,7 +83,7 @@ export default {
 
   .footer-bottom {
     margin-top: px-to-rem(30);
-    
+
     @include element(column) {
       padding: 0 0.71429rem;
       width: 25%;
@@ -159,7 +159,6 @@ export default {
     @include element(signup) {
       border: 1px solid rgba(24, 25, 32, 0.1) !important;
       border-radius: 4px;
-    
     }
 
     @include element(button) {
