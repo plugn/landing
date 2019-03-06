@@ -60,7 +60,6 @@
         <div
           v-for="social in socialLinks"
           :key="social.id"
-          :style="{background: social.background}"
           class="footer-top__social"
         >
           <img
@@ -98,28 +97,23 @@ export default {
       socialLinks: [
         {
           id: 0,
-          icon: 'assets/img/brands/facebook.png',
-          background: '#414F91',
+          icon: 'assets/svg/brands/facebook.svg',
         },
         {
           id: 1,
-          icon: 'assets/img/brands/vk.png',
-          background: '#455C81',
+          icon: 'assets/svg/brands/vk.svg',
         },
         {
           id: 2,
-          icon: 'assets/img/brands/youtube.png',
-          background: '#DD2B22',
+          icon: 'assets/svg/brands/youtube.svg',
         },
         {
           id: 3,
-          icon: 'assets/img/brands/instagram.png',
-          background: '#8744C4',
+          icon: 'assets/svg/brands/instagram.svg',
         },
         {
           id: 4,
-          icon: 'assets/img/brands/ok.png',
-          background: '#F0931D',
+          icon: 'assets/svg/brands/ok.svg',
         },
       ],
     };
