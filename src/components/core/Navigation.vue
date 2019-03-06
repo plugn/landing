@@ -5,7 +5,7 @@
     </h2>
     <div class="navigation__left">
       <div
-        v-click-outside="handleOutsideClick"
+        v-click-outside="handleBurgerOutsideClick"
         role="button"
         class="navigation__burger"
       >
@@ -17,7 +17,7 @@
           @click="handleBurgerClick"
         >
         <Categories
-          :is-open="isTableCategoriesOpen"
+          :is-open="isTabletCategoriesOpen"
           @onClose="handleBurgerClick"
         />
       </div>
@@ -139,7 +139,7 @@ export default {
         },
       ],
       isCategoriesOpen: false,
-      isTableCategoriesOpen: false,
+      isTabletCategoriesOpen: false,
     };
   },
   methods: {
@@ -147,11 +147,16 @@ export default {
       this.isCategoriesOpen = !this.isCategoriesOpen;
     },
     handleBurgerClick() {
-      this.isTableCategoriesOpen = !this.isTableCategoriesOpen;
+      this.isTabletCategoriesOpen = !this.isTabletCategoriesOpen;
     },
     handleOutsideClick() {
       if (this.isCategoriesOpen) {
         this.isCategoriesOpen = false;
+      }
+    },
+    handleBurgerOutsideClick() {
+      if (this.isTabletCategoriesOpen) {
+        this.isTabletCategoriesOpen = false;
       }
     },
     ...mapActions(['toggleModal']),
