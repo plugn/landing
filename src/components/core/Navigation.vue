@@ -5,15 +5,21 @@
     </h2>
     <div class="navigation__left">
       <div
+        v-click-outside="handleOutsideClick"
         role="button"
         class="navigation__burger"
-        @click="handleCategoriesClick"
       >
         <img
+          role="button"
           class="navigation__burger-icon"
           src="assets/svg/icons/burger-black.svg"
           alt="burger-menu"
+          @click="handleBurgerClick"
         >
+        <Categories
+          :is-open="isTableCategoriesOpen"
+          @onClose="handleBurgerClick"
+        />
       </div>
       <router-link
         class="logo"
@@ -133,11 +139,15 @@ export default {
         },
       ],
       isCategoriesOpen: false,
+      isTableCategoriesOpen: false,
     };
   },
   methods: {
     handleCategoriesClick() {
       this.isCategoriesOpen = !this.isCategoriesOpen;
+    },
+    handleBurgerClick() {
+      this.isTableCategoriesOpen = !this.isTableCategoriesOpen;
     },
     handleOutsideClick() {
       if (this.isCategoriesOpen) {
@@ -193,6 +203,7 @@ export default {
     @include element(burger) {
       align-items: center;
       display: none;
+      cursor: pointer;
       float: left;
       justify-content: center;
       margin-right: px-to-rem(11);
