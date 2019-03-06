@@ -10,7 +10,10 @@
       />
     </div>
 
-    <Banner />
+    <Banner
+      title="Скидки до 30:"
+      description="на модные платьешки от китайских кутюрье"
+    />
 
     <Goods
       url-id="1"

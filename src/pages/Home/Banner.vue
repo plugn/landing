@@ -1,11 +1,17 @@
 <template>
   <div class="banner">
     <div class="banner__text">
-      <div class="banner__title">
-        Скидки до 30:
+      <div
+        v-if="title"
+        class="banner__title"
+      >
+        {{ title }}
       </div>
-      <div class="banner__description">
-        на модные платьешки от китайских кутюрье
+      <div
+        v-if="description"
+        class="banner__description"
+      >
+        {{ description }}
       </div>
     </div>
     <picture>
@@ -36,6 +42,16 @@
 <script>
 export default {
   name: 'Banner',
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    description: {
+      type: String,
+      default: '',
+    },
+  },
 };
 </script>
 
