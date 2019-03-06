@@ -227,7 +227,7 @@ export default {
     @include media($lg) {
       padding-top: px-to-rem(40);
     }
-    
+
     @include element(load-more) {
       align-items: center;
       background: #F7F9FA;

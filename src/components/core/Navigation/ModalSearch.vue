@@ -2,7 +2,7 @@
   <div class="modal-search">
     <img
       class="modal-search__icon"
-      src="assets/svg/icons/search-black.svg"
+      src="@/assets/svg/icons/search-black.svg"
       @click="handleClick"
     >
     <Modal
@@ -17,7 +17,7 @@
         >
           <img
             style="margin-right: 10px;"
-            src="assets/svg/icons/x-white.svg"
+            src="@/assets/svg/icons/x-white.svg"
           >
           Close
         </div>
