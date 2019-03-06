@@ -1,10 +1,10 @@
 <template>
   <section id="dressess">
     <h3 class="goods__row-title">
-      {{ isLoaded ? sections[name].title.ru : '' }}
+      {{ isLoaded && sections[name] ? sections[name].title.ru : '' }}
     </h3>
     <div
-      v-if="isLoaded"
+      v-if="isLoaded && sections[name]"
       class="row goods__row"
     >
       <div
