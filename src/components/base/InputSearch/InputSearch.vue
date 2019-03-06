@@ -89,6 +89,7 @@ export default {
     width: 100%;
 
     div.suggestions {
+      box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
       max-height: 30rem;
       overflow-y: scroll;
     }
