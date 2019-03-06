@@ -12,7 +12,7 @@
         <img
           role="button"
           class="navigation__burger-icon"
-          src="assets/svg/icons/burger-black.svg"
+          src="@/assets/svg/icons/burger-black.svg"
           alt="burger-menu"
           @click="handleBurgerClick"
         >
@@ -28,7 +28,7 @@
         <img
           height="30"
           class="logo__img"
-          src="assets/svg/icons/alabom-logo-beta.svg"
+          src="@/assets/svg/icons/alabom-logo-beta.svg"
         >
       </router-link>
       <div
@@ -41,7 +41,7 @@
         >
           <img
             class="button-categories__icon"
-            src="assets/svg/icons/burger-black.svg"
+            src="@/assets/svg/icons/burger-black.svg"
             alt="burger-menu"
           >
           <span class="button-categories__text">
@@ -61,7 +61,7 @@
       <div class="navigation__tablet-search navigation__right-item">
         <img
           class="navigation__lupe"
-          src="assets/svg/icons/search-black.svg"
+          src="@/assets/svg/icons/search-black.svg"
           @click="handleTabletSearchClick"
         >
         <Modal
@@ -79,6 +79,12 @@
           text="Shopping cart"
           hide-text-mobile
         >
+          <img
+            slot="icon"
+            src="@/assets/svg/icons/cart-black.svg"
+            class="dropdown-icon"
+          >
+
           <div
             slot="count"
             class="cart-counter"
@@ -96,10 +102,15 @@
       </div>
       <div class="navigation__right-item">
         <Dropdown
-          icon="enter-black"
           text="Sign In"
           hide-text-mobile
-        />
+        >
+          <img
+            slot="icon"
+            src="@/assets/svg/icons/enter-black.svg"
+            class="dropdown-icon"
+          >
+        </Dropdown>
       </div>
     </div>
     <!-- <button @click="handleLoginClick">

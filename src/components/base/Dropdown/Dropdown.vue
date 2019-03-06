@@ -13,11 +13,7 @@
           'dropdown__icon--no-margin': hideTextMobile
         }"
       >
-        <img
-          v-if="icon !== ''"
-          :src="`assets/svg/icons/${icon}.svg`"
-          class="dropdown-icon"
-        >
+        <slot name="icon" />
         <slot name="counter" />
       </div>
       <div

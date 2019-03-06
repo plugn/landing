@@ -110,7 +110,7 @@ module.exports = (mode) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'assets/img/', // where the images will go
-                publicPath: '/landing-dist/assets/img/',
+                publicPath: prodMode ? '/landing-dist/assets/img/' : '',
               },
             },
           ],
@@ -122,7 +122,7 @@ module.exports = (mode) => {
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/fonts/', // where the fonts will go
-              publicPath: '/landing-dist/assets/fonts/',
+              publicPath: prodMode ? '/landing-dist/assets/fonts/' : '',
             },
           }],
         },
