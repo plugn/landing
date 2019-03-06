@@ -86,6 +86,7 @@ export default {
 
     @include element(icon) {
       opacity: .3;
+      margin-right: 0.4rem;
       @include size(px-to-rem(24));
       width: px-to-rem(34);
     }

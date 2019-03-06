@@ -3,13 +3,8 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <div class="home__main-banner">
+    <!-- <div class="home__main-banner">
       <figure class="text-center m-0">
-        <!-- <img
-          class="img-fluid"
-          src="assets/img/main-banner.png"
-          alt="main banner"
-        > -->
       </figure>
     </div>
     <div class="home__main-separator" />
@@ -20,7 +15,8 @@
       9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет
       мастер-класс известного шеф-повара Константина Ивлева,
       посвященный главному масленичному лакомству
-    </p>
+    </p> -->
+    <MainBanner />
     <div class="home__row">
       <CategoriesRow
         :categories="categories"
@@ -220,10 +216,12 @@ import ProductCard from 'components/shared/ProductCard';
 
 import CategoriesRow from './CategoriesRow';
 import Goods from './Goods';
+import MainBanner from './MainBanner';
 
 export default {
   name: 'Home',
   components: {
+    MainBanner,
     ProductCard,
     CategoriesRow,
     Goods,
