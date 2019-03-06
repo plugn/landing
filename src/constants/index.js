@@ -17,3 +17,9 @@ export const WRONG_CREDENTIALS = 'Wrong credentials';
 export const ACCOUNT_UNKNOWN = 'Пользователь не найден.';
 
 export const VK_AUTH_TYPE = 'VKAuthType';
+
+// Screen sizes
+export const XL = '(min-width: 1200px)';
+export const LG = '(min-width: 992px)';
+export const MD = '(min-width: 768px)';
+export const SM = '(min-width: 768px)';

@@ -4,6 +4,10 @@ import {
   LANDING_GOODS_REQUEST,
   LANDING_GOODS_SUCCESS,
   LANDING_GOODS_FAILURE,
+  // Main banner
+  MAIN_BANNER_REQUEST,
+  MAIN_BANNER_SUCCESS,
+  MAIN_BANNER_FAILURE,
 } from './actionTypes';
 
 export default {
@@ -23,5 +27,21 @@ export default {
   [LANDING_GOODS_FAILURE](state, err) {
     state.isLoaded = false;
     state.error = err;
+  },
+  // Main banner
+  [MAIN_BANNER_REQUEST](state) {
+    state.mainBanner.isLoaded = false;
+  },
+  [MAIN_BANNER_SUCCESS](state, mainBanner) {
+    state.mainBanner = {
+      ...state.mainBanner,
+      ...mainBanner,
+      isLoaded: true,
+      error: null,
+    };
+  },
+  [MAIN_BANNER_FAILURE](state, err) {
+    state.mainBanner.isLoaded = false;
+    state.mainBanner.error = err;
   },
 };

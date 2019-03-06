@@ -3,12 +3,22 @@
     class="alm-modal-root"
     :hidden="!isOpen"
   >
-    <div class="alm-fader alm-modal-outer">
+    <div
+      class="alm-fader alm-modal-outer"
+      @click.self="handleClose()"
+    >
       <div
-        class="alm-modal-middle"
-        @click.self="handleClose()"
+        :class="{
+          'alm-modal-middle': !noContainer
+        }"
       >
-        <div class="alm-modal-inner alm-auth-container alm-anchor">
+        <div
+          class="alm-anchor"
+          :class="{
+            'alm-modal-inner': !noContainer,
+            'alm-auth-container': !noContainer,
+          }"
+        >
           <div
             class="alm-modal-close"
             @click="handleClose()"
@@ -26,6 +36,10 @@ export default {
   name: 'Modal',
   props: {
     isOpen: {
+      type: Boolean,
+      default: false,
+    },
+    noContainer: {
       type: Boolean,
       default: false,
     },
