@@ -8,10 +8,10 @@ const Home = () => import('pages/Home/Home');
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '*',
       name: 'home',
       component: pageLayout(Home),
     },

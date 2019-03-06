@@ -4,10 +4,10 @@ const loadPresets = (env = { presets: [] }) => {
   const presets = env.presets || [];
 
   const mergedPresets = [].concat(...[presets]);
-  const mergedConfigs = mergedPresets.map(presetName => (
+  const mergedConfigs = mergedPresets.map(presetName => {
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    require(`./presets/webpack.${presetName}`)(env)
-  ));
+    return require(`./presets/webpack.${presetName}`)(env);
+  });
 
   return webpackMerge({}, ...mergedConfigs);
 };
