@@ -59,30 +59,6 @@
     </div>
     <div class="navigation__right">
       <div class="navigation__tablet-search navigation__right-item">
-        <!-- <img
-          class="navigation__lupe"
-          src="assets/svg/icons/search-black.svg"
-          @click="handleTabletSearchClick"
-        >
-        <Modal
-          no-container
-          :is-open="isTabletSearchOpened"
-          @on-close="handleTabletSearchClick"
-        >
-          <div class="navigation__search-wrapper">
-            <div
-              class="navigation__search-close"
-              @click="handleTabletSearchClick"
-            >
-              <img
-                style="margin-right: 10px;"
-                src="assets/svg/icons/x-white.svg"
-              >
-              Close
-            </div>
-            <InputSearch />
-          </div>
-        </Modal> -->
         <ModalSearch />
       </div>
       <div class="navigation__cart">
