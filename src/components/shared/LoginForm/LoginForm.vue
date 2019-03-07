@@ -51,7 +51,7 @@ export default {
       }
 
       @include modifier(vk) {
-        background: #45668E url('../../../assets/svg/icons/vk.svg') no-repeat center !important;
+        background: #45668E url('/static/svg/icons/vk.svg') no-repeat center !important;
         // border-radius: px-to-rem(3);
         border: 1px solid rgba(24, 25, 32, 0.1);
         cursor: pointer;

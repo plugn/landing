@@ -21,7 +21,7 @@
             class="footer-bottom__link"
           >
             <span class="footer-bottom__icon">
-              <Icon :src="imgSrc(category.icon)" />
+              <Icon :src="category.icon" />
             </span>
             <div
               class="footer-bottom__text"

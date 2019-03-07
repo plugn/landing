@@ -99,7 +99,7 @@ export default {
   cursor: pointer;
   width: 12px;
   height: 12px;
-  background: url('../../../assets/svg/icons/modal-close-btn.svg') center no-repeat;
+  background: url('/static/svg/icons/modal-close-btn.svg') center no-repeat;
 }
 
 .alm-modal-close:hover {

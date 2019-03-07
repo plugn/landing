@@ -19,7 +19,7 @@
               <div>–{{ product.discount.amount }}%</div>
             </div>
             <img
-              src="@/assets/svg/sale-corner.svg"
+              src="/static/svg/sale-corner.svg"
               class="product-card__corner"
             >
           </div>

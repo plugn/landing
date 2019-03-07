@@ -23,7 +23,7 @@
       class="info-card__rating"
     >
       <img
-        src="@/assets/svg/icons/rating-star.svg"
+        src="/static/svg/icons/rating-star.svg"
         class="info-card__star"
       >
       <span class="info-card__rate">

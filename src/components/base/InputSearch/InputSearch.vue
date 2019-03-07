@@ -19,7 +19,7 @@
     </Suggestions>
     <img
       class="input-search__icon"
-      src="@/assets/svg/icons/search-black.svg"
+      src="/static/svg/icons/search-black.svg"
     >
   </div>
 </template>

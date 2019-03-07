@@ -1,117 +1,117 @@
 [
   {
     "href": "categories/women_clothing_and_accessories/",
-    "icon": "assets/svg/categories/women_clothing_and_accessories.svg",
+    "icon": "/static/svg/categories/women_clothing_and_accessories.svg",
     "text": "Women's clothing and accessories"
   },
   {
     "href": "categories/men_clothing_and_accessories/",
-    "icon": "assets/svg/categories/men_clothing_and_accessories.svg",
+    "icon": "/static/svg/categories/men_clothing_and_accessories.svg",
     "text": "Men's Clothing & Accessories"
   },
   {
     "href": "categories/footwear/",
-    "icon": "assets/svg/categories/footwear.svg",
+    "icon": "/static/svg/categories/footwear.svg",
     "text": "Footwear"
   },
   {
     "href": "categories/electronics/",
-    "icon": "assets/svg/categories/electronics.svg",
+    "icon": "/static/svg/categories/electronics.svg",
     "text": "Electronics"
   },
   {
     "href": "categories/phones_and_tablets/",
-    "icon": "assets/svg/categories/phones_and_tablets.svg",
+    "icon": "/static/svg/categories/phones_and_tablets.svg",
     "text": "Phones and tablets"
   },
   {
     "href": "categories/computer_hardware_and_software/",
-    "icon": "assets/svg/categories/computer_hardware_and_software.svg",
+    "icon": "/static/svg/categories/computer_hardware_and_software.svg",
     "text": "Computer hardware and software"
   },
   {
     "href": "categories/household_appliances/",
-    "icon": "assets/svg/categories/household_appliances.svg",
+    "icon": "/static/svg/categories/household_appliances.svg",
     "text": "Household appliances"
   },
   {
     "href": "categories/products_for_mother_and_children/",
-    "icon": "assets/svg/categories/products_for_mother_and_children.svg",
+    "icon": "/static/svg/categories/products_for_mother_and_children.svg",
     "text": "Products for mothers and children"
   },
   {
     "href": "categories/games_and_toys/",
-    "icon": "assets/svg/categories/games_and_toys.svg",
+    "icon": "/static/svg/categories/games_and_toys.svg",
     "text": "Games and toys"
   },
   {
     "href": "categories/weddings_and_festivities/",
-    "icon": "assets/svg/categories/weddings_and_festivities.svg",
+    "icon": "/static/svg/categories/weddings_and_festivities.svg",
     "text": "Weddings and festivities"
   },
   {
     "href": "categories/jewelry/",
-    "icon": "assets/svg/categories/jewelry.svg",
+    "icon": "/static/svg/categories/jewelry.svg",
     "text": "Jewelry & bijouterie"
   },
   {
     "href": "categories/watches/",
-    "icon": "assets/svg/categories/watches.svg",
+    "icon": "/static/svg/categories/watches.svg",
     "text": "Watches"
   },
   {
     "href": "categories/bags_and_suitcases/",
-    "icon": "assets/svg/categories/bags_and_suitcases.svg",
+    "icon": "/static/svg/categories/bags_and_suitcases.svg",
     "text": "Bags and suitcases"
   },
   {
     "href": "categories/home_and_design/",
-    "icon": "assets/svg/categories/home_and_design.svg",
+    "icon": "/static/svg/categories/home_and_design.svg",
     "text": "Home and design"
   },
   {
     "href": "categories/garden/",
-    "icon": "assets/svg/categories/garden.svg",
+    "icon": "/static/svg/categories/garden.svg",
     "text": "Garden"
   },
   {
     "href": "categories/products_for_repair/",
-    "icon": "assets/svg/categories/products_for_repair.svg",
+    "icon": "/static/svg/categories/products_for_repair.svg",
     "text": "Products for repair"
   },
   {
     "href": "categories/auto_and_moto/",
-    "icon": "assets/svg/categories/auto_and_moto.svg",
+    "icon": "/static/svg/categories/auto_and_moto.svg",
     "text": "Automobiles and Motorcylces"
   },
   {
     "href": "categories/sport_and_leisure/",
-    "icon": "assets/svg/categories/sport_and_leisure.svg",
+    "icon": "/static/svg/categories/sport_and_leisure.svg",
     "text": "Sports & Leisure"
   },
   {
     "href": "categories/products_for_pets/",
-    "icon": "assets/svg/categories/products_for_pets.svg",
+    "icon": "/static/svg/categories/products_for_pets.svg",
     "text": "Products for pets"
   },
   {
     "href": "categories/hobby/",
-    "icon": "assets/svg/categories/hobby.svg",
+    "icon": "/static/svg/categories/hobby.svg",
     "text": "Hobby"
   },
   {
     "href": "categories/stationery/",
-    "icon": "assets/svg/categories/stationery.svg",
+    "icon": "/static/svg/categories/stationery.svg",
     "text": "Stationery"
   },
   {
     "href": "categories/beauty_and_health/",
-    "icon": "assets/svg/categories/beauty_and_health.svg",
+    "icon": "/static/svg/categories/beauty_and_health.svg",
     "text": "Beauty and health"
   },
   {
     "href": "categories/tea/",
-    "icon": "assets/svg/categories/tea.svg",
+    "icon": "/static/svg/categories/tea.svg",
     "text": "Tea"
   }
 ]

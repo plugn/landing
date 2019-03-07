@@ -12,7 +12,7 @@
         <img
           role="button"
           class="navigation__burger-icon"
-          src="@/assets/svg/icons/burger-black.svg"
+          src="/static/svg/icons/burger-black.svg"
           alt="burger-menu"
           @click="handleBurgerClick"
         >
@@ -28,7 +28,7 @@
         <img
           height="30"
           class="logo__img"
-          src="@/assets/svg/icons/alabom-logo-beta.svg"
+          src="/static/svg/icons/alabom-logo-beta.svg"
         >
       </router-link>
       <div
@@ -41,7 +41,7 @@
         >
           <img
             class="button-categories__icon"
-            src="@/assets/svg/icons/burger-black.svg"
+            src="/static/svg/icons/burger-black.svg"
             alt="burger-menu"
           >
           <span class="button-categories__text">
@@ -69,7 +69,7 @@
         >
           <img
             slot="icon"
-            src="@/assets/svg/icons/cart-black.svg"
+            src="/static/svg/icons/cart-black.svg"
             class="dropdown-icon"
           >
 
@@ -96,7 +96,7 @@
         >
           <img
             slot="icon"
-            src="@/assets/svg/icons/enter-black.svg"
+            src="/static/svg/icons/enter-black.svg"
             class="dropdown-icon"
           >
         </Dropdown>

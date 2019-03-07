@@ -1,5 +1,7 @@
 const webpackMerge = require('webpack-merge');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 const paths = require('./paths');
 const { PORT } = require('./helpers');
@@ -33,6 +35,14 @@ module.exports = (env) => {
     },
 
     plugins: [
+      // copy custom static assets
+      new CopyWebpackPlugin([
+        {
+          from: path.resolve(__dirname, '../static'),
+          to: 'static',
+          ignore: ['*.scss', '.*'],
+        },
+      ]),
       new HardSourceWebpackPlugin(),
     ],
 

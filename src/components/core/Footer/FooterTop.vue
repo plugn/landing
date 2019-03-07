@@ -9,7 +9,7 @@
           <img
             height="30"
             class="logo__img"
-            src="@/assets/svg/icons/alabom-logo-beta.svg"
+            src="/static/svg/icons/alabom-logo-beta.svg"
           >
         </router-link>
         <p class="footer-top__description">
@@ -64,7 +64,7 @@
         >
           <img
             class="img-fluid"
-            :src="imgSrc(social.icon)"
+            :src="social.icon"
           >
         </div>
       </div>
@@ -100,23 +100,23 @@ export default {
       socialLinks: [
         {
           id: 0,
-          icon: 'assets/svg/brands/facebook.svg',
+          icon: '/static/svg/brands/fb.svg',
         },
         {
           id: 1,
-          icon: 'assets/svg/brands/vk.svg',
+          icon: '/static/svg/brands/vk.svg',
         },
         {
           id: 2,
-          icon: 'assets/svg/brands/youtube.svg',
+          icon: '/static/svg/brands/youtube.svg',
         },
         {
           id: 3,
-          icon: 'assets/svg/brands/instagram.svg',
+          icon: '/static/svg/brands/instagram.svg',
         },
         {
           id: 4,
-          icon: 'assets/svg/brands/ok.svg',
+          icon: '/static/svg/brands/ok.svg',
         },
       ],
     };

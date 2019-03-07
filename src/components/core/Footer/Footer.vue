@@ -9,7 +9,7 @@
           >
             <img
               height="30"
-              src="@/assets/svg/icons/alabom-logo-beta.svg"
+              src="/static/svg/icons/alabom-logo-beta.svg"
             >
           </router-link>
           <a
@@ -35,7 +35,7 @@
             <img
               height="30"
               class="logo__img"
-              src="@/assets/svg/icons/vk-black.svg"
+              src="/static/svg/icons/vk-black.svg"
             >
           </a>
         </div>
