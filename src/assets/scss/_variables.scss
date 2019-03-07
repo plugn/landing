@@ -3,6 +3,7 @@
 // Color system
 $colors: () !default;
 
+$black:      #000000 !default;
 $blue:      #0A5BF0 !default;
 $light-text:rgba(24,25,32,.6);
 $light-black:rgba(24,25,32,.8);
@@ -14,6 +15,7 @@ $body-background: #F0F1F7;
 
 $colors: map-merge(
   (
+    "black":        $black,
     "blue":        $blue,
     "light-black": $light-black,
     "light-text":  $light-text,

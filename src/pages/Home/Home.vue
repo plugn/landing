@@ -5,7 +5,7 @@
     </h2>
     <MainBanner />
     <div class="container px-lg-0">
-      
+
       <div class="home__row">
         <CategoriesRow
           :categories="categories"
@@ -109,13 +109,7 @@ export default {
   @import '~styles/mixins';
   @import '~styles/variables';
 
-  $main-banner-height: px-to-rem(300);
-
   .home {
-    padding-top: 0;
-    @include media($lg) {
-      padding-top: px-to-rem(40);
-    }
 
     @include element(row) {
       margin-bottom: px-to-rem(50);

@@ -1,7 +1,6 @@
 <template>
   <div class="main-banner">
     <div class="main-banner__wrapper">
-      <!-- <figure class="text-center m-0" /> -->
       <picture
         v-if="mainBanner.isLoaded"
         class="main-banner__image"
@@ -28,7 +27,6 @@
         >
       </picture>
     </div>
-    <div class="main-banner__main-separator" />
     <h3 class="main-banner__row-title text-center">
       –30% на новинки
     </h3>
@@ -89,38 +87,12 @@ export default {
     }
 
     @include element(wrapper) {
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 4rem;
-
-      @include media($sm) {
-        top: 4.3rem;
-      }
-
-      @include media($md) {
-        top: 4.3rem;
-      }
-
-      @include media($xl) {
-        height: $main-banner-height;
-        top: 5rem;
-      }
-    }
-
-    @include element(main-separator) {
-      height: px-to-rem(214);
       margin-bottom: px-to-rem(20);
 
       @include media($md) {
-        height: $main-banner-height;
         margin-bottom: px-to-rem(40);
       }
 
-      @include media($xl) {
-        height: $main-banner-height;
-        margin-bottom: px-to-rem(40);
-      }
     }
 
     @include element(discount-title) {
@@ -129,10 +101,12 @@ export default {
     }
 
     @include element(description) {
-      color: #000;
+      color: var(--black);
       font-size: 16px;
       line-height: 24px;
+      margin: 0 auto;
       margin-bottom: px-to-rem(40);
+      max-width: px-to-rem(924);
       text-align: center;
     }
   }
