@@ -5,7 +5,7 @@
     </h2>
     <MainBanner />
     <div class="container px-lg-0">
-      <div class="home__row">
+      <div class="home__row overflow-auto">
         <CategoriesRow />
       </div>
       <div
