@@ -13,6 +13,10 @@
     @include media($md) {
       margin-bottom: initial;
     }
+
+    @include media($lg) {
+      padding-top: 5rem;
+    }
   }
 
   .layout__content {

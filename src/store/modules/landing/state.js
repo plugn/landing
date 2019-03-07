@@ -6,4 +6,8 @@ export default {
     isLoaded: null,
     error: null,
   },
+  banners: {
+    isLoaded: null,
+    error: null,
+  },
 };

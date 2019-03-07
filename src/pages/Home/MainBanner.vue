@@ -1,10 +1,9 @@
 <template>
   <div class="main-banner">
-    <div class="main-banner__wrapper">
-      <!-- <figure class="text-center m-0" /> -->
+    <div class="main-banner__content">
       <picture
         v-if="mainBanner.isLoaded"
-        class="main-banner__image"
+        class="main-banner__image-wrapper"
       >
         <source
           :srcset="mainBanner.banner.image.original"
@@ -23,12 +22,12 @@
           :media="SM"
         >
         <img
+          class="main-banner__image"
           :src="mainBanner.banner.mobile_image.original"
           alt="banner 1"
         >
       </picture>
     </div>
-    <div class="main-banner__main-separator" />
     <h3 class="main-banner__row-title text-center">
       –30% на новинки
     </h3>
@@ -81,46 +80,39 @@ export default {
 
   .main-banner {
 
-    @include element(image) {
-      display: block;
-      height: 100%;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    @include element(wrapper) {
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 4rem;
-
-      @include media($sm) {
-        top: 4.3rem;
-      }
-
-      @include media($md) {
-        top: 4.3rem;
-      }
-
-      @include media($xl) {
-        height: $main-banner-height;
-        top: 5rem;
-      }
-    }
-
-    @include element(main-separator) {
-      height: px-to-rem(214);
+    @include element(content) {
       margin-bottom: px-to-rem(20);
 
       @include media($md) {
-        height: $main-banner-height;
         margin-bottom: px-to-rem(40);
       }
 
-      @include media($xl) {
-        height: $main-banner-height;
-        margin-bottom: px-to-rem(40);
+    }
+
+    @include element(image-wrapper) {
+      display: block;
+      height: initial;
+      max-width: 100%;
+      overflow: hidden;
+
+      @include media($md) {
+        height: px-to-rem(300);
+        max-width: px-to-rem(1920);
       }
+
+    }
+
+    @include element(image) {
+      height: initial;
+      object-fit: initial;
+      width: initial;
+
+      @include media($md) {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
     }
 
     @include element(discount-title) {
@@ -129,10 +121,12 @@ export default {
     }
 
     @include element(description) {
-      color: #000;
+      color: var(--black);
       font-size: 16px;
       line-height: 24px;
+      margin: 0 auto;
       margin-bottom: px-to-rem(40);
+      max-width: px-to-rem(924);
       text-align: center;
     }
   }

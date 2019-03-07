@@ -1,5 +1,7 @@
 <template>
-  <section id="dressess">
+  <section
+    :id="name"
+  >
     <h3 class="goods__row-title">
       {{ isLoaded && sections[name] ? sections[name].title.ru : '' }}
     </h3>
@@ -66,8 +68,7 @@ export default {
 
   .goods {
     @include element(row) {
-      margin-bottom: px-to-rem(50);
-      overflow-x: scroll;
+      // overflow-x: scroll;
       padding-top: 1rem;
     }
 

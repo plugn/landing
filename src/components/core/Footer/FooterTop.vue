@@ -76,6 +76,7 @@
 </template>
 
 <script>
+
 import imgSrc from 'components/base/Icon/imgSrc';
 
 export default {

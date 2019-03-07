@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="col footer-bottom__column">
-        <h5 class="footer-bottom__right-title">
+        <!-- <h5 class="footer-bottom__right-title">
           <strong>
             Подписаться на обновления
           </strong>
@@ -48,7 +48,7 @@
           <button class="btn btn-primary btn-block btn-lg">
             Подписаться
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

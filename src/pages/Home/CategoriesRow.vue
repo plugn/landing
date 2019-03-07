@@ -12,11 +12,11 @@
         <figure class="categories-row__category">
           <img
             class="img-fluid"
-            src="@/assets/img/home/ellipse.png"
-            alt="cat"
+            :src="imgSrc(cat.img)"
+            :alt="cat.text"
           >
           <figcaption class="categories-row__text">
-            lorem ipsum
+            {{ cat.text }}
           </figcaption>
         </figure>
       </a>
@@ -25,13 +25,38 @@
 </template>
 
 <script>
+import imgSrc from '@/components/base/Icon/imgSrc';
+
 export default {
   name: 'CategoriesRow',
-  props: {
-    categories: {
-      type: Array,
-      required: true,
-    },
+  data() {
+    return {
+      categories: [
+        {
+          anchor: '#dresses',
+          img: 'assets/img/home/navigation-dresses.png',
+          text: 'Dresses',
+        },
+        {
+          anchor: '#suits',
+          img: 'assets/img/home/navigation-suits.png',
+          text: 'Combinations',
+        },
+        {
+          anchor: '#womansClothesAndAccessories',
+          img: 'assets/img/home/navigation-woman-clothes-and-accessories.png',
+          text: 'Womans Clothes and Accessories',
+        },
+        {
+          anchor: '#electronics',
+          img: 'assets/img/home/navigation-electronic.png',
+          text: 'Electronics',
+        },
+      ],
+    };
+  },
+  methods: {
+    imgSrc,
   },
 };
 </script>

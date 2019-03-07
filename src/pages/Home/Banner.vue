@@ -14,32 +14,46 @@
         {{ description }}
       </div>
     </div>
-    <picture>
+    <picture
+      v-if="banners[name]"
+    >
       <source
-        srcset="@/assets/img/home/banner1.png"
-        media="(min-width: 1200px)"
+        :srcset="banners[name].image.original"
+        :media="XL"
       >
       <source
-        srcset="@/assets/img/home/banner1.png"
-        media="(min-width: 992px)"
+        :srcset="banners[name].image.original"
+        :media="LG"
       >
       <source
-        srcset="@/assets/img/home/banner1.png"
-        media="(min-width: 768px)"
+        :srcset="banners[name].image.original"
+        :media="MD"
       >
       <source
-        srcset="@/assets/img/home/banner1-small.png"
-        media="(min-width: 576px)"
+        :srcset="banners[name].mobile_image.original"
+        :media="SM"
       >
       <img
-        src="@/assets/img/home/banner1-small.png"
-        alt="banner 1"
+        class="img-fluid"
+        :src="banners[name].mobile_image.original"
+        :alt="banners[name].mobile_image"
       >
     </picture>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+import {
+  XL,
+  LG,
+  MD,
+  SM,
+} from 'constants';
+
+const { mapState, mapActions } = createNamespacedHelpers('landing');
+
 export default {
   name: 'Banner',
   props: {
@@ -51,7 +65,31 @@ export default {
       type: String,
       default: '',
     },
+    name: {
+      type: String,
+      default: 'bannersSection',
+    },
+    urlId: {
+      type: String,
+      default: '1',
+    },
   },
+  data() {
+    return {
+      XL,
+      LG,
+      MD,
+      SM,
+    };
+  },
+  computed: mapState(['banners']),
+  created() {
+    this.fetchGoodsBanner({
+      id: this.urlId,
+      name: this.name,
+    });
+  },
+  methods: mapActions(['fetchGoodsBanner']),
 };
 </script>
 
