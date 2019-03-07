@@ -24,7 +24,7 @@ export default {
       ));
     }
   },
-  fetchMainBanner({ commit, getters }, {
+  async fetchMainBanner({ commit, getters }, {
     id,
     name,
   }) {
@@ -33,11 +33,12 @@ export default {
     if (mainBanner) {
       commit(types.MAIN_BANNER_SUCCESS, mainBanner);
     } else {
-      api.get(`/goods/v1.0/landings/${id}/`).then((response) => {
+      try {
+        const response = await api.get(`/goods/v1.0/landings/${id}/`);
         commit(types.MAIN_BANNER_SUCCESS, response.data);
-      }).catch(err => (
-        commit(types.MAIN_BANNER_FAILURE, err)
-      ));
+      } catch (err) {
+        commit(types.MAIN_BANNER_FAILURE, err);
+      }
     }
   },
   async fetchGoodsBanner({ commit, getters }, {
