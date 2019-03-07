@@ -93,7 +93,7 @@ export default {
     flex-direction: column;
     flex: 1;
     justify-content: flex-start;
-    margin-bottom: px-to-rem(10);
+    margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
     padding: px-to-rem(10);
     text-decoration: none;

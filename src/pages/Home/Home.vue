@@ -8,38 +8,20 @@
       <div class="home__row">
         <CategoriesRow />
       </div>
-      <Banner
-        url-id="1"
-        name="dresses"
-      />
-      <Goods
-        url-id="1"
-        name="dresses"
-      />
-      <Banner
-        url-id="2"
-        name="suits"
-      />
-      <Goods
-        name="suits"
-        url-id="2"
-      />
-      <Banner
-        url-id="3"
-        name="womansClothesAndAccessories"
-      />
-      <Goods
-        url-id="3"
-        name="womansClothesAndAccessories"
-      />
-      <Banner
-        url-id="4"
-        name="electronics"
-      />
-      <Goods
-        url-id="4"
-        name="electronics"
-      />
+      <div
+        v-for="content in contents"
+        :key="content.urlId"
+        class="home__row"
+      >
+        <Banner
+          :url-id="content.urlId"
+          :name="content.name"
+        />
+        <Goods
+          :url-id="content.urlId"
+          :name="content.name"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -93,7 +75,7 @@ export default {
 
     @include element(row) {
       margin-bottom: px-to-rem(50);
-      overflow-x: scroll;
+      // overflow-x: scroll;
     }
 
     @include element(row-title) {

@@ -66,8 +66,7 @@ export default {
 
   .goods {
     @include element(row) {
-      margin-bottom: px-to-rem(50);
-      overflow-x: scroll;
+      // overflow-x: scroll;
       padding-top: 1rem;
     }
 
