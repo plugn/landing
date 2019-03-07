@@ -65,6 +65,6 @@ export default {
   },
   [GOODS_BANNER_FAILURE](state, err) {
     state.banners.isLoaded = false;
-    state.banners.error = err;
+    state.banners.error = err.toString();
   },
 };
