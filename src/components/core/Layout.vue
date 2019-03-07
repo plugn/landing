@@ -8,7 +8,7 @@
   .layout {
     display: flex;
     flex-direction: column;
-    padding-top: 4rem;
+    padding-top: 5rem;
     margin-bottom: 3rem;
     @include media($md) {
       margin-bottom: initial;
