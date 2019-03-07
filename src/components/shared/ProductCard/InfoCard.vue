@@ -6,7 +6,7 @@
         class="info-card__price"
         :class="{ 'info-card__price--red': props.hasDiscount}"
       >
-        {{props.hasDiscount ? 'ot' : '' }} {{ props.price }} ₽
+        {{ props.hasDiscount ? 'ot' : '' }} {{ props.price }} ₽
       </div>
       <div
         v-if="props.oldPrice && props.hasDiscount"
