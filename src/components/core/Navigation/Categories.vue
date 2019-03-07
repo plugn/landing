@@ -11,7 +11,7 @@
         tabindex="-1"
         role="button"
         class="categories__close"
-        @click="handleClick"
+        @click="handleClose"
       >
         <img
           src="/static/svg/icons/x-black.svg"
@@ -32,9 +32,9 @@
             :key="category.href"
             class="categories__item-wrapper"
           >
-            <a
-              :href="category.href"
+            <div
               class="categories__link"
+              @click="handleClick(category.href)"
             >
               <span class="categories__icon">
                 <Icon :src="category.icon" />
@@ -44,7 +44,7 @@
               >
                 {{ category.text }}
               </div>
-            </a>
+            </div>
             <img
               class="categories__chevron"
               src="/static/svg/icons/chevron-right--black.svg"
@@ -59,8 +59,10 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
-import Icon from 'components/base/Icon';
-import imgSrc from 'components/base/Icon/imgSrc';
+
+import { LANG } from '@/constants';
+import Icon from '@/components/base/Icon';
+import imgSrc from '@/components/base/Icon/imgSrc';
 
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
@@ -86,7 +88,12 @@ export default {
 
   methods: {
     imgSrc,
-    handleClick() {
+    handleClose() {
+      this.$emit('onClose');
+    },
+    handleClick(endpoint) {
+      const url = `https://alabom.com/${LANG}/${endpoint}`;
+      window.location.href = url;
       this.$emit('onClose');
     },
     ...mapActions(['fetchCategories']),
@@ -140,10 +147,10 @@ export default {
       padding: 0 px-to-rem(10);
       width: 25%;
 
-      @include media($lg) {
-        // padding: initial;
-        // width: initial;
-      }
+      // @include media($lg) {
+      //   padding: initial;
+      //   width: initial;
+      // }
     }
 
     @include element(item-wrapper) {
@@ -160,6 +167,7 @@ export default {
     @include element(link) {
       align-items: center;
       border-bottom: 1px solid rgba(24, 25, 32, .1);
+      cursor: pointer;
       display: flex;
       justify-content: flex-start;
       padding: 16px 16px 16px 0;

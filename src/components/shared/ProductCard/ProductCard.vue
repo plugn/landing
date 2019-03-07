@@ -2,17 +2,21 @@
   <article
     href="/en/goods/796ebb9c-058d-40a6-af27-9c41aba61c69/"
     class="product-card"
+    @click="handleClick"
   >
     <h2 class="sr-only">
       {{ product.brand }}
     </h2>
     <div class="product-card__wrapper">
       <div class="product-card__cover">
-        <div class="product-card__sale">
+        <div
+          v-if="product.discount"
+          class="product-card__sale"
+        >
           <div class="product-card__corner-full" />
           <div class="product-card__sale-bottom">
             <div class="product-card__sale-sign">
-              <div>–25%</div>
+              <div>–{{ product.discount.amount }}%</div>
             </div>
             <img
               src="/static/svg/sale-corner.svg"
@@ -31,8 +35,10 @@
         <div class="product-card__image-preloader" />
       </div>
       <InfoCard
-        price="164"
-        old-price="219"
+        :has-discount="product.discount"
+        :price="product.min_price"
+        :old-price="product.min_price_before_discount"
+        :rating="product.rating"
       />
     </div>
     <div class="product-card__bottom">
@@ -42,6 +48,8 @@
 </template>
 
 <script>
+import { LANG } from '@/constants';
+
 import InfoCard from './InfoCard';
 
 export default {
@@ -73,8 +81,9 @@ export default {
   },
   methods: {
     handleClick() {
-      // const { id } = this.product;
-      // this.$router.push(`/product/${id}`);
+      const { id } = this.product;
+      const url = `https://alabom.com/${LANG}/goods/${id}`;
+      window.location.href = url;
     },
   },
 };
