@@ -3,9 +3,10 @@ import Header from 'core/Header';
 import Footer from 'core/Footer';
 import FooterMobile from 'core/FooterMobile';
 
-export default function pageLayout(Component) {
+export default function pageLayout(Component,
+  { container } = { container: true }) {
   const content = h => h('div', {
-    class: 'layout container px-lg-0 layou__content',
+    class: `layout ${container ? 'container px-lg-0' : ''} layout__content`,
   },
   [
     h(Component),
