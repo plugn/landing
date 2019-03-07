@@ -111,12 +111,6 @@ export default {
     @include media($lg) {
       height: initial;
       margin-top: 70px;
-      position: fixed;
-    }
-
-    @include media($xl) {
-      height: initial;
-      margin-top: 70px;
       position: absolute;
     }
 
