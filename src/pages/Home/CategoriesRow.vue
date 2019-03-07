@@ -12,7 +12,7 @@
         <figure class="categories-row__category">
           <img
             class="img-fluid"
-            :src="cat.img"
+            :src="imgSrc(cat.img)"
             :alt="cat.text"
           >
           <figcaption class="categories-row__text">
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import imgSrc from '@/components/base/Icon/imgSrc';
+
 export default {
   name: 'CategoriesRow',
   data() {
@@ -52,6 +54,9 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    imgSrc,
   },
 };
 </script>

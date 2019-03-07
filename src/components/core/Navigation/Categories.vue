@@ -14,7 +14,7 @@
         @click="handleClick"
       >
         <img
-          src="assets/svg/icons/x-black.svg"
+          src="@/assets/svg/icons/x-black.svg"
           alt="close categories menu"
         >
       </div>
@@ -37,7 +37,7 @@
               class="categories__link"
             >
               <span class="categories__icon">
-                <Icon :src="category.icon" />
+                <Icon :src="imgSrc(category.icon)" />
               </span>
               <div
                 class="categories__text"
@@ -47,7 +47,7 @@
             </a>
             <img
               class="categories__chevron"
-              src="assets/svg/icons/chevron-right--black.svg"
+              src="@/assets/svg/icons/chevron-right--black.svg"
               alt="close categories menu"
             >
           </div>
@@ -60,6 +60,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 import Icon from 'components/base/Icon';
+import imgSrc from 'components/base/Icon/imgSrc';
 
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
@@ -82,7 +83,9 @@ export default {
   created() {
     this.fetchCategories(6);
   },
+
   methods: {
+    imgSrc,
     handleClick() {
       this.$emit('onClose');
     },

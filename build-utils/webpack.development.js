@@ -13,7 +13,7 @@ module.exports = (env) => {
     devtool: 'source-map',
 
     output: {
-      path: paths.src,
+      path: paths.dist,
       publicPath: `http://localhost:${PORT}/`,
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',

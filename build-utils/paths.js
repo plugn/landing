@@ -8,6 +8,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const paths = {
   src: resolveApp('src'),
   dist: resolveApp('dist'),
+  debug: resolveApp('dist'),
 };
 
 paths.resolveModules = [

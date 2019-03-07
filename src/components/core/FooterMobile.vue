@@ -15,13 +15,13 @@
         <img
           v-if="selected !== link.id"
 
-          :src="`assets/svg/icons/${link.icon}.svg`"
+          :src="imgSrc(`assets/svg/icons/${link.icon}.svg`)"
           :alt="link.name"
           class="tabbar-icon"
         >
         <img
           v-if="selected === link.id"
-          :src="`assets/svg/icons/${link.iconActive}.svg`"
+          :src="imgSrc(`assets/svg/icons/${link.iconActive}.svg`)"
           :alt="link.name"
           class="tabbar-icon"
         >
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import imgSrc from 'components/base/Icon/imgSrc';
+
 export default {
   name: 'FooterMobile',
   data() {
@@ -68,6 +70,7 @@ export default {
     };
   },
   methods: {
+    imgSrc,
     handleClick(id) {
       this.selected = id;
     },

@@ -7,7 +7,9 @@
   "scripts": {
     "commit": "git-cz",
     "dev": "yarn webpack-dev-server --env.mode development",
+    "build-dev": "rimraf dist && yarn webpack --env.mode development",
     "prod": "rimraf dist && yarn webpack --env.mode production",
+    "watch": "rimraf dist && yarn webpack --env.mode production --watch --progress --info-verbosity verbose",
     "prod:analyze": "yarn prod --env.presets analyze",
     "webpack": "node_modules/.bin/webpack"
   },

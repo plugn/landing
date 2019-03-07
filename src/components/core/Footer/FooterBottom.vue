@@ -21,7 +21,7 @@
             class="footer-bottom__link"
           >
             <span class="footer-bottom__icon">
-              <Icon :src="category.icon" />
+              <Icon :src="imgSrc(category.icon)" />
             </span>
             <div
               class="footer-bottom__text"
@@ -57,6 +57,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 import Icon from 'components/base/Icon';
+import imgSrc from 'components/base/Icon/imgSrc';
 
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
@@ -70,6 +71,7 @@ export default {
     this.fetchCategories(8);
   },
   methods: {
+    imgSrc,
     ...mapActions(['fetchCategories']),
   },
 };
