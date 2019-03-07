@@ -25,8 +25,9 @@
 
 <script>
 import Suggestions from 'v-suggestions';
-
 import { api } from '@/api';
+import { LANG } from '@/constants';
+
 // eslint-disable-next-line
 import 'v-suggestions/dist/v-suggestions.css';
 
@@ -54,7 +55,6 @@ export default {
       return new Promise((resolve) => {
         api.get(url).then((response) => {
           const items = [];
-          // response.data.RelatedTopics.forEach((item) => {
           response.data.hints.forEach((item) => {
             if (item.value) {
               items.push(item);
@@ -69,7 +69,9 @@ export default {
       });
     },
     onSearchItemSelected(item) {
-      this.selectedSearchItem = item;
+      this.searchQuery = item.value;
+      const query = encodeURI(item.value);
+      window.open(`https://alabom.com/${LANG}/search/?q=${query}`);
     },
   },
 };
