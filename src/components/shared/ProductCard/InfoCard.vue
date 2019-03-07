@@ -1,23 +1,33 @@
 <template functional>
   <div class="info-card">
     <div class="info-card__left">
-      <div class="info-card__price info-card__price--red">
-        ot {{ props.price }} ₽
+      <div
+        v-if="props.price"
+        class="info-card__price"
+        :class="{ 'info-card__price--red': props.hasDiscount}"
+      >
+        {{ props.hasDiscount ? 'ot' : '' }} {{ props.price }} ₽
       </div>
-      <div class="info-card__old-price">
+      <div
+        v-if="props.oldPrice && props.hasDiscount"
+        class="info-card__old-price"
+      >
         <div class="info-card__text">
           {{ props.oldPrice }} ₽
         </div>
         <div class="info-card__price-cross" />
       </div>
     </div>
-    <div class="info-card__rating">
+    <div
+      v-if="props.rating"
+      class="info-card__rating"
+    >
       <img
         src="@/assets/svg/icons/rating-star.svg"
         class="info-card__star"
       >
       <span class="info-card__rate">
-        4.3
+        {{ props.rating }}
       </span>
     </div>
   </div>
