@@ -1,5 +1,7 @@
 <template>
-  <section id="dressess">
+  <section
+    :id="name"
+  >
     <h3 class="goods__row-title">
       {{ isLoaded && sections[name] ? sections[name].title.ru : '' }}
     </h3>

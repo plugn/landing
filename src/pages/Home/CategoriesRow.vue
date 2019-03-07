@@ -31,12 +31,12 @@ export default {
     return {
       categories: [
         {
-          anchor: '#dressess',
+          anchor: '#dresses',
           img: 'assets/img/home/navigation-dresses.png',
           text: 'Dresses',
         },
         {
-          anchor: '#combinations',
+          anchor: '#suits',
           img: 'assets/img/home/navigation-suits.png',
           text: 'Combinations',
         },
