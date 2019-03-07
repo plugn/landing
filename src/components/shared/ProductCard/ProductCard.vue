@@ -33,6 +33,7 @@
       <InfoCard
         price="164"
         old-price="219"
+        :rating="product.rating"
       />
     </div>
     <div class="product-card__bottom">

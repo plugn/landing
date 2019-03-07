@@ -11,13 +11,16 @@
         <div class="info-card__price-cross" />
       </div>
     </div>
-    <div class="info-card__rating">
+    <div
+      v-if="props.rating"
+      class="info-card__rating"
+    >
       <img
         src="@/assets/svg/icons/rating-star.svg"
         class="info-card__star"
       >
       <span class="info-card__rate">
-        4.3
+        {{ props.rating }}
       </span>
     </div>
   </div>
