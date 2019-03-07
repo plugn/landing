@@ -64,7 +64,7 @@
         >
           <img
             class="img-fluid"
-            :src="social.icon"
+            :src="imgSrc(social.icon)"
           >
         </div>
       </div>
@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import imgSrc from 'components/base/Icon/imgSrc';
+
 export default {
   name: 'FooterTop',
   data() {
@@ -117,6 +119,9 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    imgSrc,
   },
 };
 </script>
