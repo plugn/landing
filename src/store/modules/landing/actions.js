@@ -2,7 +2,7 @@ import { api } from '@/api';
 import * as types from './actionTypes';
 
 export default {
-  fetchGoods({ commit, getters }, {
+  async fetchGoods({ commit, getters }, {
     id,
     name,
   }) {
@@ -14,14 +14,15 @@ export default {
         name,
       });
     } else {
-      api.get(`/goods/v1.0/landings/kit/${id}/`).then((response) => {
+      try {
+        const response = await api.get(`/goods/v1.0/landings/kit/${id}/`);
         commit(types.LANDING_GOODS_SUCCESS, {
           sections: response.data,
           name,
         });
-      }).catch(err => (
-        commit(types.LANDING_GOODS_FAILURE, err)
-      ));
+      } catch (err) {
+        commit(types.LANDING_GOODS_FAILURE, err);
+      }
     }
   },
   async fetchMainBanner({ commit, getters }, {
