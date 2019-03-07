@@ -2,6 +2,7 @@
   <article
     href="/en/goods/796ebb9c-058d-40a6-af27-9c41aba61c69/"
     class="product-card"
+    @click="handleClick"
   >
     <h2 class="sr-only">
       {{ product.brand }}
@@ -47,6 +48,8 @@
 </template>
 
 <script>
+import { LANG } from '@/constants';
+
 import InfoCard from './InfoCard';
 
 export default {
@@ -78,8 +81,9 @@ export default {
   },
   methods: {
     handleClick() {
-      // const { id } = this.product;
-      // this.$router.push(`/product/${id}`);
+      const { id } = this.product;
+      const url = `https://alabom.com/${LANG}/goods/${id}`;
+      window.location.href = url;
     },
   },
 };
