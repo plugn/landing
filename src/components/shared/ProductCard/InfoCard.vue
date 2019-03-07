@@ -1,10 +1,17 @@
 <template functional>
   <div class="info-card">
     <div class="info-card__left">
-      <div class="info-card__price info-card__price--red">
-        ot {{ props.price }} ₽
+      <div
+        v-if="props.price"
+        class="info-card__price"
+        :class="{ 'info-card__price--red': props.hasDiscount}"
+      >
+        {{props.hasDiscount ? 'ot' : '' }} {{ props.price }} ₽
       </div>
-      <div class="info-card__old-price">
+      <div
+        v-if="props.oldPrice && props.hasDiscount"
+        class="info-card__old-price"
+      >
         <div class="info-card__text">
           {{ props.oldPrice }} ₽
         </div>
