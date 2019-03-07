@@ -5,56 +5,39 @@
     </h2>
     <MainBanner />
     <div class="container px-lg-0">
-
       <div class="home__row">
         <CategoriesRow
           :categories="categories"
         />
       </div>
-
       <Banner
         url-id="1"
         name="dresses"
-        title="Скидки до 30:"
-        description="на модные платьешки от китайских кутюрье"
       />
-
       <Goods
         url-id="1"
         name="dresses"
       />
-
       <Banner
         url-id="2"
         name="suits"
-        title="Скидки до 30:"
-        description="на модные платьешки от китайских кутюрье"
       />
-
       <Goods
         name="suits"
         url-id="2"
       />
-
       <Banner
         url-id="3"
         name="womansClothesAndAccessories"
-        title="Налетай! Дешево!"
-        description="Комбинзоны для активных мамочек!"
       />
-
       <Goods
         url-id="3"
         name="womansClothesAndAccessories"
       />
-
       <Banner
         url-id="4"
         name="electronics"
-        title="Одежка для матрешки"
-        description=" Как стать королевой панели? У нас есть ответ!"
       />
-
       <Goods
         url-id="4"
         name="electronics"

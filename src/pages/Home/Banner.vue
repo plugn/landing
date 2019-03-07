@@ -36,7 +36,7 @@
       <img
         class="img-fluid"
         :src="banners[name].mobile_image.original"
-        alt="banner 1"
+        :alt="banners[name].mobile_image"
       >
     </picture>
   </div>
