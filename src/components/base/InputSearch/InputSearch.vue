@@ -2,6 +2,7 @@
   <div class="input-search">
     <Suggestions
       v-model="searchQuery"
+      v-select-on-enter="search"
       :options="options"
       :on-item-selected="onSearchItemSelected"
       :on-input-change="onInputChange"
@@ -27,6 +28,7 @@
 import Suggestions from 'v-suggestions';
 import { api } from '@/api';
 import { LANG } from '@/constants';
+import selectOnEnter from '@/directives/selectOnEnter';
 
 // eslint-disable-next-line
 import 'v-suggestions/dist/v-suggestions.css';
@@ -35,6 +37,9 @@ export default {
   name: 'InputSearch',
   components: {
     Suggestions,
+  },
+  directives: {
+    selectOnEnter,
   },
   data() {
     return {
@@ -71,7 +76,11 @@ export default {
     onSearchItemSelected(item) {
       this.searchQuery = item.value;
       const query = encodeURI(item.value);
-      window.open(`https://alabom.com/${LANG}/search/?q=${query}`);
+      this.search(query);
+    },
+    search(query = '') {
+      const url = `https://alabom.com/${LANG}/search/?q=${query}`;
+      window.location.href = url;
     },
   },
 };
