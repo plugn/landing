@@ -6,9 +6,7 @@
     <MainBanner />
     <div class="container px-lg-0">
       <div class="home__row">
-        <CategoriesRow
-          :categories="categories"
-        />
+        <CategoriesRow />
       </div>
       <Banner
         url-id="1"
@@ -63,23 +61,22 @@ export default {
   },
   data() {
     return {
-      heading: 'Alabom',
-      banners: [
-        'assets/img/banner.png',
-        'assets/img/banner2.png',
-      ],
-      categories: [
+      contents: [
         {
-          anchor: '#dressess',
+          urlId: '1',
+          name: 'dresses',
         },
         {
-          anchor: '#combinations',
+          urlId: '2',
+          name: 'suits',
         },
         {
-          anchor: '#accessories',
+          urlId: '3',
+          name: 'womansClothesAndAccessories',
         },
         {
-          anchor: '#electronics',
+          urlId: '4',
+          name: 'electronics',
         },
       ],
     };
