@@ -1,4 +1,9 @@
+import getLang from '@/utils/getLang';
+
 const isProd = process.env.NODE_ENV === 'production';
+
+// Main
+export const LANG = getLang();
 
 // Keys
 export const API_TOKEN = '8pY3tTQ3H43zMVOwhzp7ks4pWIuhPP';
