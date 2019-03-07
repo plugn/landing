@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_TOKEN } from '@/constants';
+import { API_TOKEN, API_URL } from '@/constants';
 import { getAccessToken } from '@/services/auth';
 
 export const authRequest = axios.create({
@@ -17,7 +17,7 @@ export const authRequest = axios.create({
 });
 
 export const apiRequest = axios.create({
-  baseURL: 'http://api.racoon.local',
+  baseURL: API_URL,
   responseType: 'json',
   withCredentials: true,
   transformRequest: [function transformRequest(data, headers) {
