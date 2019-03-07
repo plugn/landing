@@ -1,117 +1,117 @@
 [
   {
-    "href": "assets/svg/categories/women_clothing_and_accessories/",
-    "icon": "assets/svg/categories/women_clothing_and_accessories.svg",
+    "href": "/static/svg/categories/women_clothing_and_accessories/",
+    "icon": "/static/svg/categories/women_clothing_and_accessories.svg",
     "text": "Women's clothing and accessories"
   },
   {
-    "href": "assets/svg/categories/men_clothing_and_accessories/",
-    "icon": "assets/svg/categories/men_clothing_and_accessories.svg",
+    "href": "/static/svg/categories/men_clothing_and_accessories/",
+    "icon": "/static/svg/categories/men_clothing_and_accessories.svg",
     "text": "Men's Clothing & Accessories"
   },
   {
-    "href": "assets/svg/categories/footwear/",
-    "icon": "assets/svg/categories/footwear.svg",
+    "href": "/static/svg/categories/footwear/",
+    "icon": "/static/svg/categories/footwear.svg",
     "text": "Footwear"
   },
   {
-    "href": "assets/svg/categories/electronics/",
-    "icon": "assets/svg/categories/electronics.svg",
+    "href": "/static/svg/categories/electronics/",
+    "icon": "/static/svg/categories/electronics.svg",
     "text": "Electronics"
   },
   {
-    "href": "assets/svg/categories/phones_and_tablets/",
-    "icon": "assets/svg/categories/phones_and_tablets.svg",
+    "href": "/static/svg/categories/phones_and_tablets/",
+    "icon": "/static/svg/categories/phones_and_tablets.svg",
     "text": "Phones and tablets"
   },
   {
-    "href": "assets/svg/categories/computer_hardware_and_software/",
-    "icon": "assets/svg/categories/computer_hardware_and_software.svg",
+    "href": "/static/svg/categories/computer_hardware_and_software/",
+    "icon": "/static/svg/categories/computer_hardware_and_software.svg",
     "text": "Computer hardware and software"
   },
   {
-    "href": "assets/svg/categories/household_appliances/",
-    "icon": "assets/svg/categories/household_appliances.svg",
+    "href": "/static/svg/categories/household_appliances/",
+    "icon": "/static/svg/categories/household_appliances.svg",
     "text": "Household appliances"
   },
   {
-    "href": "assets/svg/categories/products_for_mother_and_children/",
-    "icon": "assets/svg/categories/products_for_mother_and_children.svg",
+    "href": "/static/svg/categories/products_for_mother_and_children/",
+    "icon": "/static/svg/categories/products_for_mother_and_children.svg",
     "text": "Products for mothers and children"
   },
   {
-    "href": "assets/svg/categories/games_and_toys/",
-    "icon": "assets/svg/categories/games_and_toys.svg",
+    "href": "/static/svg/categories/games_and_toys/",
+    "icon": "/static/svg/categories/games_and_toys.svg",
     "text": "Games and toys"
   },
   {
-    "href": "assets/svg/categories/weddings_and_festivities/",
-    "icon": "assets/svg/categories/weddings_and_festivities.svg",
+    "href": "/static/svg/categories/weddings_and_festivities/",
+    "icon": "/static/svg/categories/weddings_and_festivities.svg",
     "text": "Weddings and festivities"
   },
   {
-    "href": "assets/svg/categories/jewelry/",
-    "icon": "assets/svg/categories/jewelry.svg",
+    "href": "/static/svg/categories/jewelry/",
+    "icon": "/static/svg/categories/jewelry.svg",
     "text": "Jewelry & bijouterie"
   },
   {
-    "href": "assets/svg/categories/watches/",
-    "icon": "assets/svg/categories/watches.svg",
+    "href": "/static/svg/categories/watches/",
+    "icon": "/static/svg/categories/watches.svg",
     "text": "Watches"
   },
   {
-    "href": "assets/svg/categories/bags_and_suitcases/",
-    "icon": "assets/svg/categories/bags_and_suitcases.svg",
+    "href": "/static/svg/categories/bags_and_suitcases/",
+    "icon": "/static/svg/categories/bags_and_suitcases.svg",
     "text": "Bags and suitcases"
   },
   {
-    "href": "assets/svg/categories/home_and_design/",
-    "icon": "assets/svg/categories/home_and_design.svg",
+    "href": "/static/svg/categories/home_and_design/",
+    "icon": "/static/svg/categories/home_and_design.svg",
     "text": "Home and design"
   },
   {
-    "href": "assets/svg/categories/garden/",
-    "icon": "assets/svg/categories/garden.svg",
+    "href": "/static/svg/categories/garden/",
+    "icon": "/static/svg/categories/garden.svg",
     "text": "Garden"
   },
   {
-    "href": "assets/svg/categories/products_for_repair/",
-    "icon": "assets/svg/categories/products_for_repair.svg",
+    "href": "/static/svg/categories/products_for_repair/",
+    "icon": "/static/svg/categories/products_for_repair.svg",
     "text": "Products for repair"
   },
   {
-    "href": "assets/svg/categories/auto_and_moto/",
-    "icon": "assets/svg/categories/auto_and_moto.svg",
+    "href": "/static/svg/categories/auto_and_moto/",
+    "icon": "/static/svg/categories/auto_and_moto.svg",
     "text": "Automobiles and Motorcylces"
   },
   {
-    "href": "assets/svg/categories/sport_and_leisure/",
-    "icon": "assets/svg/categories/sport_and_leisure.svg",
+    "href": "/static/svg/categories/sport_and_leisure/",
+    "icon": "/static/svg/categories/sport_and_leisure.svg",
     "text": "Sports & Leisure"
   },
   {
-    "href": "assets/svg/categories/products_for_pets/",
-    "icon": "assets/svg/categories/products_for_pets.svg",
+    "href": "/static/svg/categories/products_for_pets/",
+    "icon": "/static/svg/categories/products_for_pets.svg",
     "text": "Products for pets"
   },
   {
-    "href": "assets/svg/categories/hobby/",
-    "icon": "assets/svg/categories/hobby.svg",
+    "href": "/static/svg/categories/hobby/",
+    "icon": "/static/svg/categories/hobby.svg",
     "text": "Hobby"
   },
   {
-    "href": "assets/svg/categories/stationery/",
-    "icon": "assets/svg/categories/stationery.svg",
+    "href": "/static/svg/categories/stationery/",
+    "icon": "/static/svg/categories/stationery.svg",
     "text": "Stationery"
   },
   {
-    "href": "assets/svg/categories/beauty_and_health/",
-    "icon": "assets/svg/categories/beauty_and_health.svg",
+    "href": "/static/svg/categories/beauty_and_health/",
+    "icon": "/static/svg/categories/beauty_and_health.svg",
     "text": "Beauty and health"
   },
   {
-    "href": "assets/svg/categories/tea/",
-    "icon": "assets/svg/categories/tea.svg",
+    "href": "/static/svg/categories/tea/",
+    "icon": "/static/svg/categories/tea.svg",
     "text": "Tea"
   }
 ]

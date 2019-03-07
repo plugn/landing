@@ -12,7 +12,7 @@
         <figure class="categories-row__category">
           <img
             class="img-fluid"
-            :src="imgSrc(cat.img)"
+            :src="cat.img"
             :alt="cat.text"
           >
           <figcaption class="categories-row__text">
@@ -34,22 +34,22 @@ export default {
       categories: [
         {
           anchor: '#dresses',
-          img: 'assets/img/home/navigation-dresses.png',
+          img: '/static/img/home/navigation-dresses.png',
           text: 'Dresses',
         },
         {
           anchor: '#suits',
-          img: 'assets/img/home/navigation-suits.png',
+          img: '/static/img/home/navigation-suits.png',
           text: 'Combinations',
         },
         {
           anchor: '#womansClothesAndAccessories',
-          img: 'assets/img/home/navigation-woman-clothes-and-accessories.png',
+          img: '/static/img/home/navigation-woman-clothes-and-accessories.png',
           text: 'Womans Clothes and Accessories',
         },
         {
           anchor: '#electronics',
-          img: 'assets/img/home/navigation-electronic.png',
+          img: '/static/img/home/navigation-electronic.png',
           text: 'Electronics',
         },
       ],

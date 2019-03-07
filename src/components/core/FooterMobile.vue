@@ -15,13 +15,13 @@
         <img
           v-if="selected !== link.id"
 
-          :src="imgSrc(`assets/svg/icons/${link.icon}.svg`)"
+          :src="`/static/svg/icons/${link.icon}.svg`"
           :alt="link.name"
           class="tabbar-icon"
         >
         <img
           v-if="selected === link.id"
-          :src="imgSrc(`assets/svg/icons/${link.iconActive}.svg`)"
+          :src="`/static/svg/icons/${link.iconActive}.svg`"
           :alt="link.name"
           class="tabbar-icon"
         >

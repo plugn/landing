@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const postcssPresetEnv = require('postcss-preset-env');
@@ -102,30 +102,6 @@ module.exports = (mode) => {
             },
           ],
         },
-        {
-          test: /\.(png|jpe?g|gif)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]',
-                outputPath: 'assets/img/', // where the images will go
-                publicPath: prodMode ? '/landing-dist/assets/img/' : '',
-              },
-            },
-          ],
-        },
-        {
-          test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-          use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/fonts/', // where the fonts will go
-              publicPath: prodMode ? '/landing-dist/assets/fonts/' : '',
-            },
-          }],
-        },
       ],
     },
     plugins: [
@@ -141,15 +117,15 @@ module.exports = (mode) => {
         template: setupPath('../src/index.html'),
       }),
       // copy files and folders to specific paths.
-      new CopyWebpackPlugin([{
-        // Copy `assets` contents to {output}/assets/
-        from: 'src/assets',
-        to: 'assets',
-        ignore: [
-          // Doesn't copy any files with a scss extension
-          '*.scss',
-        ],
-      }]),
+      // new CopyWebpackPlugin([{
+      //   // Copy `assets` contents to {output}/assets/
+      //   from: 'src/assets',
+      //   to: 'assets',
+      //   ignore: [
+      //     // Doesn't copy any files with a scss extension
+      //     '*.scss',
+      //   ],
+      // }]),
     ],
   };
 };

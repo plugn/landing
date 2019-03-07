@@ -14,7 +14,7 @@
         @click="handleClick"
       >
         <img
-          src="@/assets/svg/icons/x-black.svg"
+          src="/static/svg/icons/x-black.svg"
           alt="close categories menu"
         >
       </div>
@@ -37,7 +37,7 @@
               class="categories__link"
             >
               <span class="categories__icon">
-                <Icon :src="imgSrc(category.icon)" />
+                <Icon :src="category.icon" />
               </span>
               <div
                 class="categories__text"
@@ -47,7 +47,7 @@
             </a>
             <img
               class="categories__chevron"
-              src="@/assets/svg/icons/chevron-right--black.svg"
+              src="/static/svg/icons/chevron-right--black.svg"
               alt="close categories menu"
             >
           </div>
