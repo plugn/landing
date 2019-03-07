@@ -1,3 +1,10 @@
+import getLang from '@/utils/getLang';
+
+const isProd = process.env.NODE_ENV === 'production';
+
+// Main
+export const LANG = getLang();
+
 // Keys
 export const API_TOKEN = '8pY3tTQ3H43zMVOwhzp7ks4pWIuhPP';
 
@@ -8,6 +15,9 @@ export const FRONTSITE_URL = JSON.stringify(process.env.FRONTSITE_URL || 'http:/
 export const DADATA_API_KEY = JSON.stringify(process.env.DADATA_API_KEY || '3dec983b8bbd14cffe7bb1393ed363c64b03d0e0');
 
 export const SENTRY_DSN = JSON.stringify(process.env.SENTRY_FRONTEND_DSN);
+
+// API
+export const API_URL = isProd ? 'https://api.alabom.com' : 'http://api.racoon.local';
 
 // Auth
 export const IS_NEW_LOGIN = 'Is new login';

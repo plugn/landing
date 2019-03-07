@@ -10,7 +10,7 @@
         class="footer-mobile__link"
         :class="{'footer-mobile__link--active': selected === link.id}"
         type="button"
-        @click="handleClick(link.id)"
+        @click="handleClick(link)"
       >
         <img
           v-if="selected !== link.id"
@@ -36,6 +36,10 @@
 <script>
 import imgSrc from 'components/base/Icon/imgSrc';
 
+import { LANG } from '@/constants';
+
+const alabomUrl = 'https://alabom.com';
+
 export default {
   name: 'FooterMobile',
   data() {
@@ -47,32 +51,37 @@ export default {
           name: 'Main',
           icon: 'home-disabled',
           iconActive: 'home-filled',
+          href: `${alabomUrl}/${LANG}/`,
         },
         {
           id: 1,
           name: 'Catalog',
           icon: 'search-grey',
           iconActive: 'search-blue',
+          href: `${alabomUrl}/${LANG}/search/`,
         },
         {
           id: 2,
           name: 'Cart',
           icon: 'cart-disabled',
           iconActive: 'cart-filled',
+          href: `${alabomUrl}/${LANG}/cart/`,
         },
         {
           id: 3,
           name: 'Login',
           icon: 'enter-disabled',
           iconActive: 'enter-filled',
+          href: `${alabomUrl}/${LANG}/auth/`,
         },
       ],
     };
   },
   methods: {
     imgSrc,
-    handleClick(id) {
-      this.selected = id;
+    handleClick(link) {
+      this.selected = link.id;
+      window.location.href = link.href;
     },
   },
 };
