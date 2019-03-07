@@ -1,9 +1,9 @@
 <template>
   <div class="main-banner">
-    <div class="main-banner__wrapper">
+    <div class="main-banner__content">
       <picture
         v-if="mainBanner.isLoaded"
-        class="main-banner__image"
+        class="main-banner__image-wrapper"
       >
         <source
           :srcset="mainBanner.banner.image.original"
@@ -22,6 +22,7 @@
           :media="SM"
         >
         <img
+          class="main-banner__image"
           :src="mainBanner.banner.mobile_image.original"
           alt="banner 1"
         >
@@ -79,18 +80,37 @@ export default {
 
   .main-banner {
 
-    @include element(image) {
-      display: block;
-      height: 100%;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    @include element(wrapper) {
+    @include element(content) {
       margin-bottom: px-to-rem(20);
 
       @include media($md) {
         margin-bottom: px-to-rem(40);
+      }
+
+    }
+
+    @include element(image-wrapper) {
+      display: block;
+      height: initial;
+      max-width: 100%;
+      overflow: hidden;
+
+      @include media($md) {
+        height: px-to-rem(300);
+        max-width: px-to-rem(1920);
+      }
+
+    }
+
+    @include element(image) {
+      height: initial;
+      object-fit: initial;
+      width: initial;
+
+      @include media($md) {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
       }
 
     }
