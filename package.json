@@ -6,7 +6,8 @@
   "author": "Alabom",
   "scripts": {
     "commit": "git-cz",
-    "dev": "yarn webpack-dev-server --env.mode development",
+    "dev": "webpack-dev-server --env.mode development",
+    "hotdev": "webpack-dev-server --progress --hotOnly --env.mode development",
     "build-dev": "rimraf dist && yarn webpack --env.mode development",
     "prod": "rimraf dist && yarn webpack --env.mode production",
     "watch": "rimraf dist && yarn webpack --env.mode production --watch --progress --info-verbosity verbose",

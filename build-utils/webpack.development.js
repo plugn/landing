@@ -2,6 +2,7 @@ const webpackMerge = require('webpack-merge');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 const paths = require('./paths');
 const { PORT } = require('./helpers');
@@ -32,6 +33,7 @@ module.exports = (env) => {
        * the browser probable would know what to do with it"
        */
       historyApiFallback: true,
+      hot: true,
     },
 
     plugins: [
@@ -44,6 +46,9 @@ module.exports = (env) => {
         },
       ]),
       new HardSourceWebpackPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+      new webpack.NoEmitOnErrorsPlugin(),
     ],
 
   });
