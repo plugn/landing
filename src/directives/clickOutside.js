@@ -1,13 +1,13 @@
 import Vue from 'vue';
 
-const HANDLER = '_vue_click-outside_handler';
+const HANDLER = 'CLICK_OUTSIDE';
 
 export default {
   bind(el, binding, vNode) {
     // Provided expression must evaluate to a function.
     if (typeof binding.value !== 'function') {
       const compName = vNode.context.name;
-      let warn = `[Vue-click-outside:] provided expression '${
+      let warn = `[${HANDLER}:] provided expression '${
         binding.expression
       }' is not a function, but has to be`;
       if (compName) {

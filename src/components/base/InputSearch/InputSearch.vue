@@ -1,14 +1,8 @@
 <template>
   <div class="input-search">
-    <!-- <input
-      type="text"
-      name="queryString"
-      autocomplete="off"
-      placeholder="Looking for something?"
-      class="input-search__input"
-    > -->
     <Suggestions
       v-model="searchQuery"
+      v-select-on-enter="search"
       :options="options"
       :on-item-selected="onSearchItemSelected"
       :on-input-change="onInputChange"
@@ -19,7 +13,7 @@
         class="single-item"
       >
         <span class="name">
-          {{ props.item.Text }}
+          {{ props.item.value }}
         </span>
       </div>
     </Suggestions>
@@ -31,8 +25,11 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Suggestions from 'v-suggestions';
+import { api } from '@/api';
+import { LANG } from '@/constants';
+import selectOnEnter from '@/directives/selectOnEnter';
+
 // eslint-disable-next-line
 import 'v-suggestions/dist/v-suggestions.css';
 
@@ -40,6 +37,9 @@ export default {
   name: 'InputSearch',
   components: {
     Suggestions,
+  },
+  directives: {
+    selectOnEnter,
   },
   data() {
     return {
@@ -56,25 +56,31 @@ export default {
       if (query.trim().length === 0) {
         return null;
       }
-      const url = `http://api.duckduckgo.com/?q=${query}&format=json&pretty=1`;
+      const url = `goods/v1.0/search/autocomplete/?q=${query}`;
       return new Promise((resolve) => {
-        axios.get(url).then((response) => {
+        api.get(url).then((response) => {
           const items = [];
-          response.data.RelatedTopics.forEach((item) => {
-            if (item.Text) {
+          response.data.hints.forEach((item) => {
+            if (item.value) {
               items.push(item);
-            } else if (item.Topics && item.Topics.length > 0) {
+            } /* else if (item.Topics && item.Topics.length > 0) {
               item.Topics.forEach(topic => (
                 items.push(topic)
               ));
-            }
+            } */
           });
           resolve(items);
         });
       });
     },
     onSearchItemSelected(item) {
-      this.selectedSearchItem = item;
+      this.searchQuery = item.value;
+      const query = encodeURI(item.value);
+      this.search(query);
+    },
+    search(query = '') {
+      const url = `https://alabom.com/${LANG}/search/?q=${query}`;
+      window.location.href = url;
     },
   },
 };
