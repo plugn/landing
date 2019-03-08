@@ -1,3 +1,5 @@
+<i18n src="./footerTop.i18n.json"></i18n>
+
 <template>
   <div class="row">
     <div class="col footer-top__column">
@@ -12,49 +14,47 @@
             src="/static/svg/icons/alabom-logo-beta.svg"
           >
         </router-link>
-        <p class="footer-top__description">
-          Alabom – это маркетплейс выгодных покупок. Экономьте, заказывая товары напрямую
-          у производителей,а мы гарантируем качество и скорость доставки. Покупайте уверенно!
-        </p>
+        <p
+          v-t="'description'"
+          class="footer-top__description"
+        />
       </div>
     </div>
     <div class="col footer-top__column">
       <h5 class="footer-top__title">
-        <strong>
-          Полезные ссылки
-        </strong>
+        <strong
+          v-t="'usefulLinks'"
+        />
       </h5>
       <div class="footer-top__links">
         <div
           v-for="link in firstLinks"
-          :key="link"
+          :key="link.name"
+          v-t="link.name"
           class="footer-top__link"
-        >
-          {{ link }}
-        </div>
+        />
       </div>
     </div>
     <div class="col footer-top__column">
       <h5 class="footer-top__title invisible">
-        <strong>
-          Полезные ссылки
-        </strong>
+        <strong
+          v-t="'usefulLinks'"
+        />
       </h5>
       <div class="footer-top__links">
         <div
           v-for="link in secondLinks"
-          :key="link"
+          :key="link.name"
+          v-t="link.name"
           class="footer-top__link"
-        >
-          {{ link }}
-        </div>
+        />
       </div>
     </div>
     <div class="col footer-top__column">
       <h5 class="footer-top__title">
-        <strong>
-          Контакты
-        </strong>
+        <strong
+          v-t="'contacts'"
+        />
       </h5>
       <div class="footer-top__social-links">
         <div
@@ -68,8 +68,10 @@
           >
         </div>
       </div>
-      <span class="footer-top__email">
-        Общие вопросы:
+      <span
+        v-t="'generalQuestions'"
+        class="footer-top__email"
+      >
       </span> info@alabom.com
     </div>
   </div>
@@ -84,18 +86,44 @@ export default {
   data() {
     return {
       firstLinks: [
-        'FAQ',
-        'Пользовательское соглашение',
-        'Акции',
-        'Доставка',
-        'Отзывы',
+        {
+          name: 'faq',
+        },
+        {
+          name: 'termsOfUse',
+        },
+        {
+          name: 'promotions',
+        },
+        {
+          name: 'delivery',
+        },
+        {
+          name: 'reviews',
+        },
+        {
+          name: 'privacyPolicy',
+        },
+        {
+          name: 'news',
+        },
       ],
       secondLinks: [
-        'Политика конфиденциальности',
-        'Журнал',
-        'Скидки',
-        'Гарантии',
-        'ОтзСтать продавцом',
+        {
+          name: 'privacyPolicy',
+        },
+        {
+          name: 'news',
+        },
+        {
+          name: 'discounts',
+        },
+        {
+          name: 'guarantees',
+        },
+        {
+          name: 'becomeSeller',
+        },
       ],
       socialLinks: [
         {
