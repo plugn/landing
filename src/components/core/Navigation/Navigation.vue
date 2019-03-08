@@ -46,9 +46,10 @@
             src="/static/svg/icons/burger-black.svg"
             alt="burger-menu"
           >
-          <span class="button-categories__text">
-            {{ $t('allCategories') }}
-          </span>
+          <span
+            v-t="'allCategories'"
+            class="button-categories__text"
+          />
         </div>
         <Categories
           :is-open="isCategoriesOpened"

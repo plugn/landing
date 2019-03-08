@@ -1,9 +1,12 @@
+<i18n src="./footerMobile.i18n.json"></i18n>
+
 <template>
   <footer>
     <nav class="footer-mobile">
-      <h2 class="sr-only">
-        Mobile Navigation
-      </h2>
+      <h2
+        v-t="'screenReaderTitle'"
+        class="sr-only"
+      />
       <button
         v-for="link in links"
         :key="link.id"
@@ -25,9 +28,7 @@
           :alt="link.name"
           class="tabbar-icon"
         >
-        <div>
-          {{ link.name }}
-        </div>
+        <div v-t="link.name" />
       </button>
     </nav>
   </footer>
@@ -48,28 +49,28 @@ export default {
       links: [
         {
           id: 0,
-          name: 'Main',
+          name: 'main',
           icon: 'home-disabled',
           iconActive: 'home-filled',
           href: `${alabomUrl}/${LANG}/`,
         },
         {
           id: 1,
-          name: 'Catalog',
+          name: 'catalog',
           icon: 'search-grey',
           iconActive: 'search-blue',
           href: `${alabomUrl}/${LANG}/search/`,
         },
         {
           id: 2,
-          name: 'Cart',
+          name: 'cart',
           icon: 'cart-disabled',
           iconActive: 'cart-filled',
           href: `${alabomUrl}/${LANG}/cart/`,
         },
         {
           id: 3,
-          name: 'Login',
+          name: 'signIn',
           icon: 'enter-disabled',
           iconActive: 'enter-filled',
           href: `${alabomUrl}/${LANG}/auth/`,
