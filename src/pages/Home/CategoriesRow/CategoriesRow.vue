@@ -1,3 +1,5 @@
+<i18n src="./categoriesRow.i18n.json"></i18n>
+
 <template>
   <div class="row categories-row">
     <div
@@ -13,11 +15,12 @@
           <img
             class="img-fluid"
             :src="cat.img"
-            :alt="cat.text"
+            :alt="cat.name"
           >
-          <figcaption class="categories-row__text">
-            {{ cat.text }}
-          </figcaption>
+          <figcaption
+            v-t="cat.name"
+            class="categories-row__text"
+          />
         </figure>
       </a>
     </div>
@@ -35,22 +38,22 @@ export default {
         {
           anchor: '#dresses',
           img: '/static/img/home/navigation-dresses.png',
-          text: 'Dresses',
+          name: 'dresses',
         },
         {
           anchor: '#suits',
           img: '/static/img/home/navigation-suits.png',
-          text: 'Combinations',
+          name: 'suits',
         },
         {
           anchor: '#womansClothesAndAccessories',
           img: '/static/img/home/navigation-woman-clothes-and-accessories.png',
-          text: 'Womans Clothes and Accessories',
+          name: 'womansClothesAndAccessories',
         },
         {
           anchor: '#electronics',
           img: '/static/img/home/navigation-electronic.png',
-          text: 'Electronics',
+          name: 'electronic',
         },
       ],
     };
