@@ -1,0 +1,16 @@
+{
+  "en": {
+    "screenReaderTitle": "Mobile Navigation",
+    "main": "Main",
+    "catalog": "Catalog",
+    "cart": "Cart",
+    "signIn": "Sign"
+  },
+  "ru": {
+    "screenReaderTitle": "Мобильная навигацияn",
+    "main": "Главная",
+    "catalog": "Каталог",
+    "cart": "Корзина",
+    "signIn": "Вход"
+  }
+}

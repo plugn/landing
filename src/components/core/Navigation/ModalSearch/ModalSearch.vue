@@ -1,3 +1,5 @@
+<i18n src="./modalSearch.i18n.json"></i18n>
+
 <template>
   <div class="modal-search">
     <img
@@ -19,7 +21,7 @@
             style="margin-right: 10px;"
             src="/static/svg/icons/x-white.svg"
           >
-          Close
+          {{ $t('close') }}
         </div>
         <div class="modal-search__wrapper">
           <InputSearch />
