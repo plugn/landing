@@ -1,15 +1,12 @@
 import Vue from 'vue';
-import i18next from 'i18next';
-import VueI18Next from '@panter/vue-i18next';
+import VueI18n from 'vue-i18n';
 
 import { LANG } from '@/constants';
 
-Vue.use(VueI18Next);
+Vue.use(VueI18n);
 
-i18next.init({
-  lng: LANG,
+const i18n = new VueI18n({
+  locale: LANG,
 });
-
-const i18n = new VueI18Next(i18next);
 
 export default i18n;

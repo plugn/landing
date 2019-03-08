@@ -1,3 +1,5 @@
+<i18n src="./navigation.i18n.json"></i18n>
+
 <template>
   <nav class="navigation">
     <h2 class="sr-only">
@@ -45,7 +47,7 @@
             alt="burger-menu"
           >
           <span class="button-categories__text">
-            All categories
+            {{ $t('allCategories') }}
           </span>
         </div>
         <Categories
@@ -64,7 +66,7 @@
       <div class="navigation__cart">
         <Dropdown
           icon="cart-black"
-          text="Shopping cart"
+          :text="$t('shoppingCart')"
           hide-text-mobile
         >
           <img
@@ -91,7 +93,7 @@
       <div class="navigation__right-item">
         <Dropdown
           icon="enter-black"
-          text="Sign In"
+          :text="$t('signIn')"
           hide-text-mobile
         >
           <img

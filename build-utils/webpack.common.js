@@ -62,6 +62,11 @@ module.exports = (mode) => {
           ],
         },
         {
+          resourceQuery: /blockType=i18n/,
+          type: 'javascript/auto',
+          loader: '@kazupon/vue-i18n-loader',
+        },
+        {
           test: /\.(sa|sc|c)ss$/,
           use: [
             {
