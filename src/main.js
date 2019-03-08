@@ -5,6 +5,7 @@ import App from 'core/App';
 
 import store from 'store';
 import { router } from './router';
+import i18n from './i18n';
 
 Vue.config.devtools = true;
 // Vue.config.debug = true;
@@ -20,4 +21,5 @@ new Vue({
   template: `<App />`,
   router,
   store,
+  i18n,
 });
