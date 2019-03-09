@@ -2,116 +2,139 @@
   {
     "href": "categories/women_clothing_and_accessories/",
     "icon": "/static/svg/categories/women_clothing_and_accessories.svg",
-    "text": "Women's clothing and accessories"
+    "text": "Women's clothing and accessories",
+    "name": "womensClothingAndAccessories"
   },
   {
     "href": "categories/men_clothing_and_accessories/",
     "icon": "/static/svg/categories/men_clothing_and_accessories.svg",
-    "text": "Men's Clothing & Accessories"
+    "text": "Men's Clothing & Accessories",
+    "name": "mensClothingAndAccessories"
   },
   {
     "href": "categories/footwear/",
     "icon": "/static/svg/categories/footwear.svg",
-    "text": "Footwear"
+    "text": "Footwear",
+    "name": "footwear"
   },
   {
     "href": "categories/electronics/",
     "icon": "/static/svg/categories/electronics.svg",
-    "text": "Electronics"
+    "text": "Electronics",
+    "name": "electronics"
   },
   {
     "href": "categories/phones_and_tablets/",
     "icon": "/static/svg/categories/phones_and_tablets.svg",
-    "text": "Phones and tablets"
+    "text": "Phones and tablets",
+    "name": "phoneAndTables"
   },
   {
     "href": "categories/computer_hardware_and_software/",
     "icon": "/static/svg/categories/computer_hardware_and_software.svg",
-    "text": "Computer hardware and software"
+    "text": "Computer hardware and software",
+    "name": "computerHardwareAndSoftware"
   },
   {
     "href": "categories/household_appliances/",
     "icon": "/static/svg/categories/household_appliances.svg",
-    "text": "Household appliances"
+    "text": "Household appliances",
+    "name": "householdAppliances"
   },
   {
     "href": "categories/products_for_mother_and_children/",
     "icon": "/static/svg/categories/products_for_mother_and_children.svg",
-    "text": "Products for mothers and children"
+    "text": "Products for mothers and children",
+    "name": "productsForMothersAndChildren"
   },
   {
     "href": "categories/games_and_toys/",
     "icon": "/static/svg/categories/games_and_toys.svg",
-    "text": "Games and toys"
+    "text": "Games and toys",
+    "name": "gamesAndToys"
   },
   {
     "href": "categories/weddings_and_festivities/",
     "icon": "/static/svg/categories/weddings_and_festivities.svg",
-    "text": "Weddings and festivities"
+    "text": "Weddings and festivities",
+    "name": "weddingsAndFestivities"
   },
   {
     "href": "categories/jewelry/",
     "icon": "/static/svg/categories/jewelry.svg",
-    "text": "Jewelry & bijouterie"
+    "text": "Jewelry & bijouterie",
+    "name": "jewerlyAndBijouterie"
   },
   {
     "href": "categories/watches/",
     "icon": "/static/svg/categories/watches.svg",
-    "text": "Watches"
+    "text": "Watches",
+    "name": "watches"
   },
   {
     "href": "categories/bags_and_suitcases/",
     "icon": "/static/svg/categories/bags_and_suitcases.svg",
-    "text": "Bags and suitcases"
+    "text": "Bags and suitcases",
+    "name": "bagsAndSuitcases"
   },
   {
     "href": "categories/home_and_design/",
     "icon": "/static/svg/categories/home_and_design.svg",
-    "text": "Home and design"
+    "text": "Home and design",
+    "name": "homeAndDesign"
   },
   {
     "href": "categories/garden/",
     "icon": "/static/svg/categories/garden.svg",
-    "text": "Garden"
+    "text": "Garden",
+    "name": "garden"
   },
   {
     "href": "categories/products_for_repair/",
     "icon": "/static/svg/categories/products_for_repair.svg",
-    "text": "Products for repair"
+    "text": "Products for repair",
+    "name": "productsForRepair"
   },
   {
     "href": "categories/auto_and_moto/",
     "icon": "/static/svg/categories/auto_and_moto.svg",
-    "text": "Automobiles and Motorcylces"
+    "text": "Automobiles and Motorcylces",
+    "name": "automobilesAndMotorcycles"
   },
   {
     "href": "categories/sport_and_leisure/",
     "icon": "/static/svg/categories/sport_and_leisure.svg",
-    "text": "Sports & Leisure"
+    "text": "Sports & Leisure",
+    "name": "sportsAndLeisure"
   },
   {
     "href": "categories/products_for_pets/",
     "icon": "/static/svg/categories/products_for_pets.svg",
-    "text": "Products for pets"
+    "text": "Products for pets",
+    "name": "productsForPets"
   },
   {
     "href": "categories/hobby/",
     "icon": "/static/svg/categories/hobby.svg",
-    "text": "Hobby"
+    "text": "Hobby",
+    "name": "hobby"
   },
   {
     "href": "categories/stationery/",
     "icon": "/static/svg/categories/stationery.svg",
-    "text": "Stationery"
+    "text": "Stationery",
+    "name": "stationery"
   },
   {
     "href": "categories/beauty_and_health/",
     "icon": "/static/svg/categories/beauty_and_health.svg",
-    "text": "Beauty and health"
+    "text": "Beauty and health",
+    "name": "beautyAndHealth"
   },
   {
     "href": "categories/tea/",
     "icon": "/static/svg/categories/tea.svg",
-    "text": "Tea"
+    "text": "Tea",
+    "name": "tea"
   }
 ]
