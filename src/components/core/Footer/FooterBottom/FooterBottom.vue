@@ -1,9 +1,12 @@
+<i18n src="../../../../assets/json/categories.i18n.json"></i18n>
+<i18n src="./footerBottom.i18n.json"></i18n>
+
 <template>
   <div class="footer-bottom">
     <h5 class="footer-bottom__left-title">
-      <strong>
-        Покупайте товары на Alabom.com
-      </strong>
+      <strong
+        v-t="'buyGoodsOnAlabom'"
+      />
     </h5>
     <div class="row">
       <div
@@ -24,10 +27,9 @@
               <Icon :src="category.icon" />
             </span>
             <div
+              v-t="category.name"
               class="footer-bottom__text"
-            >
-              {{ category.text }}
-            </div>
+            />
           </a>
         </div>
       </div>
