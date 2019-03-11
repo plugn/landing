@@ -1,9 +1,11 @@
+<i18n src="./goods.i18n.json"></i18n>
+
 <template>
   <section
     :id="name"
   >
     <h3 class="goods__row-title">
-      {{ isLoaded && sections[name] ? sections[name].title.ru : '' }}
+      {{ isLoaded && sections[name] ? sections[name].title : '' }}
     </h3>
     <div
       v-if="isLoaded && sections[name]"
@@ -20,11 +22,10 @@
       </div>
     </div>
     <div
+      v-t="'loadMore'"
       class="goods__load-more"
       role="button"
-    >
-      Load more
-    </div>
+    />
   </section>
 </template>
 

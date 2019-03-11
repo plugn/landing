@@ -29,12 +29,10 @@
       </picture>
     </div>
     <h3 class="main-banner__row-title text-center">
-      –30% на новинки
+      {{ mainBanner.title }}
     </h3>
     <p class="main-banner__description">
-      9 и 14 февраля в кулинарной студии Юлии Высоцкой пройдет
-      мастер-класс известного шеф-повара Константина Ивлева,
-      посвященный главному масленичному лакомству
+      {{ mainBanner.text }}
     </p>
   </div>
 </template>

@@ -1,3 +1,5 @@
+<i18n src="./inputSearch.i18n.json"></i18n>
+
 <template>
   <div class="input-search">
     <Suggestions
@@ -47,7 +49,7 @@ export default {
       selectedSearchItem: null,
       options: {
         inputClass: 'input-search__input',
-        placeholder: 'Looking for something?',
+        placeholder: this.$t('placeholder'),
       },
     };
   },

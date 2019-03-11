@@ -71,8 +71,8 @@
       <span
         v-t="'generalQuestions'"
         class="footer-top__email"
-      >
-      </span> info@alabom.com
+      />
+      <span> info@alabom.com </span>
     </div>
   </div>
 </template>
