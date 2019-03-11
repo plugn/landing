@@ -32,7 +32,7 @@
       {{ mainBanner.title }}
     </h3>
     <p class="main-banner__description">
-     {{ mainBanner.text }}
+      {{ mainBanner.text }}
     </p>
   </div>
 </template>
