@@ -1,6 +1,5 @@
 <template>
   <article
-    href="/en/goods/796ebb9c-058d-40a6-af27-9c41aba61c69/"
     class="product-card"
     @click="handleClick"
   >
@@ -26,9 +25,18 @@
         </div>
         <div class="product-card__image-container">
           <img
-            srcset="https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216.jpg 2x,
-            https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216_non_retina.jpg 1x"
-            src="https://good-s.alabom.com/goods_image/38/8c/cdc3a05515af48229ff153419f2b3b33_953956507_kd3raCE.image_216x216.jpg"
+            v-if="isNil(product.image)"
+            src="/static/img/product-placeholder.jpg"
+            alt="product placeholder"
+            class="product-card__image"
+          >
+          <img
+            v-if="!isNil(product.image)"
+            :srcset="`
+              ${product.image.image_216x216_url} 2x,
+              ${product.image.image_216x216_non_retina_url} 1x,
+            `"
+            :src="product.image_216x216_url"
             class="product-card__image"
           >
         </div>
@@ -42,13 +50,16 @@
       />
     </div>
     <div class="product-card__bottom">
-      Zircon bowknot earrings can female ins g...
+      {{ title }}
     </div>
   </article>
 </template>
 
 <script>
+import isNil from 'lodash.isnil';
+
 import { LANG } from '@/constants';
+import tFrom from '@/utils/tFrom';
 
 import InfoCard from './InfoCard';
 
@@ -76,10 +87,16 @@ export default {
   },
   data() {
     return {
-      image: this.product.img,
+      title: '',
     };
   },
+  mounted() {
+    const { title } = tFrom(['title'], this.product);
+    this.title = title;
+  },
   methods: {
+    isNil,
+    tFrom,
     handleClick() {
       const { id } = this.product;
       const url = `https://alabom.com/${LANG}/goods/${id}`;
