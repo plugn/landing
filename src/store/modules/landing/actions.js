@@ -8,7 +8,7 @@ export default {
     limit = 10,
     offset = 0,
   }) {
-    commit(types.LANDING_GOODS_REQUEST);
+    commit(types.LANDING_GOODS_REQUEST, name);
     // const section = getters.getSection(name);
     try {
       const response = await api.get(

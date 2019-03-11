@@ -17,8 +17,10 @@ import {
 } from './actionTypes';
 
 export default {
-  [LANDING_GOODS_REQUEST](state) {
-    state.isLoaded = false;
+  [LANDING_GOODS_REQUEST](state, name) {
+    if (!has(state.sections, name)) {
+      state.isLoaded = false;
+    }
   },
   [LANDING_GOODS_SUCCESS](state, { kit, name }) {
     // eslint-disable-next-line no-param-reassign
