@@ -20,14 +20,12 @@ export default {
   [LANDING_GOODS_REQUEST](state) {
     state.isLoaded = false;
   },
-  [LANDING_GOODS_SUCCESS](state, { sections, name }) {
+  [LANDING_GOODS_SUCCESS](state, { kit, name }) {
     // eslint-disable-next-line no-param-reassign
-    if (!has(state.sections, name)) {
-      state.sections = {
-        ...state.sections,
-        [name]: tFrom(['title'], sections),
-      };
-    }
+    state.sections = {
+      ...state.sections,
+      [name]: tFrom(['title'], kit),
+    };
     state.isLoaded = true;
   },
   [LANDING_GOODS_FAILURE](state, err) {
