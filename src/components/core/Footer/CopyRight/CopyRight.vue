@@ -1,13 +1,25 @@
-<template functional>
+<i18n src="./copyRight.i18n.json"></i18n>
+
+<template>
   <div class="copyright">
     <div>
-      © {{ new Date().getFullYear() }} Alabom Shop Limited
+      © {{ year }} Alabom Shop Limited
     </div>
-    <div>
-      Маркетплейс товаров из Китая и не только
-    </div>
+    <div v-t="'marketplaceGoodsFromChina'" />
   </div>
 </template>
+
+<script>
+export default {
+  name: 'CopyRight',
+  data() {
+    return {
+      year: new Date().getFullYear(),
+    };
+  },
+};
+</script>
+
 
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
