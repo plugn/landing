@@ -25,7 +25,7 @@ export default {
     if (!has(state.sections, name)) {
       state.sections = {
         ...state.sections,
-        [name]: sections,
+        [name]: tFrom(['title'], sections),
       };
     }
     state.isLoaded = true;

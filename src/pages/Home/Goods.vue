@@ -3,7 +3,7 @@
     :id="name"
   >
     <h3 class="goods__row-title">
-      {{ isLoaded && sections[name] ? sections[name].title.ru : '' }}
+      {{ isLoaded && sections[name] ? sections[name].title : '' }}
     </h3>
     <div
       v-if="isLoaded && sections[name]"
