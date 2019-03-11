@@ -32,7 +32,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/shared/ProductCard';
+import ProductCard from '@/components/shared/ProductCard';
 
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
@@ -58,7 +58,9 @@ export default {
       name: this.name,
     });
   },
-  methods: mapActions(['fetchGoods']),
+  methods: {
+    ...mapActions(['fetchGoods']),
+  },
 };
 </script>
 

@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="product-card__image-container">
-           <img
+          <img
             v-if="isNil(product.image)"
             src="/static/img/product-placeholder.jpg"
             alt="product placeholder"
@@ -50,7 +50,7 @@
       />
     </div>
     <div class="product-card__bottom">
-      Zircon bowknot earrings can female ins g...
+      {{ title }}
     </div>
   </article>
 </template>
@@ -59,6 +59,7 @@
 import isNil from 'lodash.isnil';
 
 import { LANG } from '@/constants';
+import tFrom from '@/utils/tFrom';
 
 import InfoCard from './InfoCard';
 
@@ -86,11 +87,16 @@ export default {
   },
   data() {
     return {
-      image: this.product.img,
+      title: '',
     };
+  },
+  mounted() {
+    const { title } = tFrom(['title'], this.product);
+    this.title = title;
   },
   methods: {
     isNil,
+    tFrom,
     handleClick() {
       const { id } = this.product;
       const url = `https://alabom.com/${LANG}/goods/${id}`;
