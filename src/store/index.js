@@ -26,13 +26,14 @@ if (module.hot) {
   ], () => {
     // require the updated modules
     // have to add .default here due to babel 6 module output
-    // eslint-disable-next-line
+
+    // eslint-disable-next-line no-underscore-dangle, global-require
     const _categories = require('./modules/categories').default;
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-underscore-dangle, global-require
     const _modal = require('./modules/modal').default;
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-underscore-dangle, global-require
     const _landing = require('./modules/landing').default;
-    // swap in the new modules and mutations
+
     store.hotUpdate({
       modules: {
         categories: _categories,

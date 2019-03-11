@@ -1,5 +1,7 @@
 import has from 'lodash.has';
 
+import tFrom from '@/utils/tFrom';
+
 import {
   LANDING_GOODS_REQUEST,
   LANDING_GOODS_SUCCESS,
@@ -39,7 +41,7 @@ export default {
   [MAIN_BANNER_SUCCESS](state, mainBanner) {
     state.mainBanner = {
       ...state.mainBanner,
-      ...mainBanner,
+      ...tFrom(['title', 'text'], mainBanner),
       isLoaded: true,
       error: null,
     };
