@@ -17,17 +17,24 @@ import {
 } from './actionTypes';
 
 export default {
-  [LANDING_GOODS_REQUEST](state) {
-    state.isLoaded = false;
-  },
-  [LANDING_GOODS_SUCCESS](state, { sections, name }) {
-    // eslint-disable-next-line no-param-reassign
+  [LANDING_GOODS_REQUEST](state, name) {
     if (!has(state.sections, name)) {
-      state.sections = {
-        ...state.sections,
-        [name]: tFrom(['title'], sections),
-      };
+      state.isLoaded = false;
     }
+  },
+  [LANDING_GOODS_SUCCESS](state, { kit, name, loadMore }) {
+    if (loadMore) {
+      state.sections[name].good_list = [
+        ...state.sections[name].good_list,
+        ...kit.good_list,
+      ];
+      return;
+    }
+    state.sections = {
+      ...state.sections,
+      [name]: tFrom(['title'], kit),
+    };
+
     state.isLoaded = true;
   },
   [LANDING_GOODS_FAILURE](state, err) {

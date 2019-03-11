@@ -25,6 +25,7 @@
       v-t="'loadMore'"
       class="goods__load-more"
       role="button"
+      @click="handleLoadMore"
     />
   </section>
 </template>
@@ -51,14 +52,31 @@ export default {
       default: '1',
     },
   },
+  data() {
+    return {
+      limit: 10,
+      offset: 0,
+    };
+  },
   computed: mapState(['sections', 'isLoaded']),
   created() {
-    this.fetchGoods({
-      id: this.urlId,
-      name: this.name,
-    });
+    this.startFetch();
   },
   methods: {
+    startFetch({ loadMore } = { loadMore: false }) {
+      this.fetchGoods({
+        id: this.urlId,
+        name: this.name,
+        limit: this.limit,
+        offset: this.offset,
+        loadMore,
+      });
+    },
+    handleLoadMore() {
+      this.limit = 10;
+      this.offset += 10;
+      this.startFetch({ loadMore: true });
+    },
     ...mapActions(['fetchGoods']),
   },
 };

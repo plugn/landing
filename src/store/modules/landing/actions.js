@@ -2,27 +2,26 @@ import { api } from '@/api';
 import * as types from './actionTypes';
 
 export default {
-  async fetchGoods({ commit, getters }, {
+  async fetchGoods({ commit/* getters */ }, {
     id,
     name,
+    limit = 10,
+    offset = 0,
+    loadMore,
   }) {
-    commit(types.LANDING_GOODS_REQUEST);
-    const section = getters.getSection(name);
-    if (section) {
+    commit(types.LANDING_GOODS_REQUEST, name);
+    // const section = getters.getSection(name);
+    try {
+      const response = await api.get(
+        `/goods/v1.0/landings/kit/${id}/?goods_limit=${limit}&goods_offset=${offset}`,
+      );
       commit(types.LANDING_GOODS_SUCCESS, {
-        sections: section,
+        kit: response.data,
         name,
+        loadMore,
       });
-    } else {
-      try {
-        const response = await api.get(`/goods/v1.0/landings/kit/${id}/`);
-        commit(types.LANDING_GOODS_SUCCESS, {
-          sections: response.data,
-          name,
-        });
-      } catch (err) {
-        commit(types.LANDING_GOODS_FAILURE, err);
-      }
+    } catch (err) {
+      commit(types.LANDING_GOODS_FAILURE, err);
     }
   },
   async fetchMainBanner({ commit, getters }, {
