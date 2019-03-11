@@ -1,3 +1,5 @@
+<i18n src="./goods.i18n.json"></i18n>
+
 <template>
   <section
     :id="name"
@@ -20,11 +22,10 @@
       </div>
     </div>
     <div
+      v-t="'loadMore'"
       class="goods__load-more"
       role="button"
-    >
-      Load more
-    </div>
+    />
   </section>
 </template>
 
