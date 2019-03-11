@@ -63,18 +63,19 @@ export default {
     this.startFetch();
   },
   methods: {
-    startFetch() {
+    startFetch({ loadMore } = { loadMore: false }) {
       this.fetchGoods({
         id: this.urlId,
         name: this.name,
         limit: this.limit,
         offset: this.offset,
+        loadMore,
       });
     },
     handleLoadMore() {
       this.limit = 10;
-      this.offset = 10;
-      this.startFetch();
+      this.offset += 10;
+      this.startFetch({ loadMore: true });
     },
     ...mapActions(['fetchGoods']),
   },

@@ -7,6 +7,7 @@ export default {
     name,
     limit = 10,
     offset = 0,
+    loadMore,
   }) {
     commit(types.LANDING_GOODS_REQUEST, name);
     // const section = getters.getSection(name);
@@ -17,6 +18,7 @@ export default {
       commit(types.LANDING_GOODS_SUCCESS, {
         kit: response.data,
         name,
+        loadMore,
       });
     } catch (err) {
       commit(types.LANDING_GOODS_FAILURE, err);
