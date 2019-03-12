@@ -130,6 +130,8 @@ import Categories from './Categories';
 import ModalSearch from './ModalSearch';
 
 const { mapActions } = createNamespacedHelpers('modal');
+const profileJson = localStorage.getItem('LANDING_PROFILE');
+const userProfile = profileJson ? JSON.parse(profileJson) : null;
 
 export default {
   name: 'Navigation',
@@ -157,6 +159,7 @@ export default {
       ],
       isCategoriesOpened: false,
       isTabletCategoriesOpened: false,
+      profile: userProfile
     };
   },
   methods: {
