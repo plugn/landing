@@ -13,7 +13,7 @@
         :key="content.urlId"
         class="home__row"
       >
-        <Goods
+        <GoodsKit
           :url-id="content.urlId"
           :name="content.name"
         />
@@ -25,7 +25,7 @@
 <script>
 
 import NavigationElements from './NavigationElements';
-import Goods from './Goods';
+import GoodsKit from './GoodsKit';
 import MainBanner from './MainBanner';
 
 export default {
@@ -33,7 +33,7 @@ export default {
   components: {
     MainBanner,
     NavigationElements,
-    Goods,
+    GoodsKit,
   },
   data() {
     return {

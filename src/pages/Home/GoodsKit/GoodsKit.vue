@@ -1,19 +1,19 @@
-<i18n src="./goods.i18n.json"></i18n>
+<i18n src="./goodsKit.i18n.json"></i18n>
 
 <template>
   <section
     :id="name"
   >
-   <Banner
+    <Banner
       :url-id="urlId"
       :name="name"
     />
-    <h3 class="goods__row-title">
+    <h3 class="goods-kit__row-title">
       {{ isLoaded && sections[name] ? sections[name].title : '' }}
     </h3>
     <div
       v-if="isLoaded && sections[name]"
-      class="row goods__row"
+      class="row goods-kit__row"
     >
       <div
         v-for="(good, idx) in sections[name].good_list"
@@ -27,7 +27,7 @@
     </div>
     <div
       v-t="'loadMore'"
-      class="goods__load-more"
+      class="goods-kit__load-more"
       role="button"
       @click="handleLoadMore"
     />
@@ -43,7 +43,7 @@ import Banner from '@/pages/Home/Banner';
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
-  name: 'Goods',
+  name: 'GoodsKit',
   components: {
     ProductCard,
     Banner,
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     startFetch({ loadMore } = { loadMore: false }) {
-      this.fetchGoods({
+      this.fetchGoodsKit({
         id: this.urlId,
         name: this.name,
         limit: this.limit,
@@ -83,7 +83,7 @@ export default {
       this.offset += 10;
       this.startFetch({ loadMore: true });
     },
-    ...mapActions(['fetchGoods']),
+    ...mapActions(['fetchGoodsKit']),
   },
 };
 </script>
@@ -93,7 +93,7 @@ export default {
   @import '~styles/mixins';
   @import '~styles/variables';
 
-  .goods {
+  .goods-kit {
     @include element(row) {
       // overflow-x: scroll;
       padding-top: 1rem;

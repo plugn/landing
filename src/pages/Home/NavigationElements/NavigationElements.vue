@@ -92,6 +92,9 @@ export default {
   @import '~styles/variables';
 
   .navigation-elements {
+    ::-webkit-scrollbar {
+      display: none;
+    }
     overflow-x: scroll;
     min-width: px-to-rem(500);
 

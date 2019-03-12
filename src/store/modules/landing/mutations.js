@@ -9,9 +9,9 @@ import {
   NAVIGATION_ELEMENTS_SUCCESS,
   NAVIGATION_ELEMENTS_FAILURE,
   //
-  LANDING_GOODS_REQUEST,
-  LANDING_GOODS_SUCCESS,
-  LANDING_GOODS_FAILURE,
+  GOODS_KIT_REQUEST,
+  GOODS_KIT_SUCCESS,
+  GOODS_KIT_FAILURE,
   // Main banner
   MAIN_BANNER_REQUEST,
   MAIN_BANNER_SUCCESS,
@@ -40,12 +40,12 @@ export default {
     state.navigationElements.error = err;
   },
   // Kits
-  [LANDING_GOODS_REQUEST](state, name) {
+  [GOODS_KIT_REQUEST](state, name) {
     if (!has(state.sections, name)) {
       state.isLoaded = false;
     }
   },
-  [LANDING_GOODS_SUCCESS](state, { kit, name, loadMore }) {
+  [GOODS_KIT_SUCCESS](state, { kit, name, loadMore }) {
     if (loadMore) {
       state.sections[name].good_list = [
         ...state.sections[name].good_list,
@@ -60,7 +60,7 @@ export default {
 
     state.isLoaded = true;
   },
-  [LANDING_GOODS_FAILURE](state, err) {
+  [GOODS_KIT_FAILURE](state, err) {
     state.isLoaded = false;
     state.error = err;
   },

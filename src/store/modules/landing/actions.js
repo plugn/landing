@@ -22,26 +22,26 @@ export default {
     }
   },
   //
-  async fetchGoods({ commit/* getters */ }, {
+  async fetchGoodsKit({ commit/* getters */ }, {
     id,
     name,
     limit = 10,
     offset = 0,
     loadMore,
   }) {
-    commit(types.LANDING_GOODS_REQUEST, name);
+    commit(types.GOODS_KIT_REQUEST, name);
     // const section = getters.getSection(name);
     try {
       const response = await api.get(
         `/goods/v1.0/landings/kit/${id}/?goods_limit=${limit}&goods_offset=${offset}`,
       );
-      commit(types.LANDING_GOODS_SUCCESS, {
+      commit(types.GOODS_KIT_SUCCESS, {
         kit: response.data,
         name,
         loadMore,
       });
     } catch (err) {
-      commit(types.LANDING_GOODS_FAILURE, err);
+      commit(types.GOODS_KIT_FAILURE, err);
     }
   },
   async fetchMainBanner({ commit, getters }, {
