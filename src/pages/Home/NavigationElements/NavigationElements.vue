@@ -1,7 +1,7 @@
-<i18n src="./categoriesRow.i18n.json"></i18n>
+<i18n src="./navigationElements.i18n.json"></i18n>
 
 <template>
-  <div class="row categories-row">
+  <div class="row navigation-elements">
     <div
       v-for="(cat, idx) in categories"
       :key="idx"
@@ -11,7 +11,7 @@
         v-smooth-scroll
         :href="cat.anchor"
       >
-        <figure class="categories-row__category">
+        <figure class="navigation-elements__image">
           <img
             class="img-fluid"
             :src="cat.img"
@@ -19,7 +19,7 @@
           >
           <figcaption
             v-t="cat.name"
-            class="categories-row__text"
+            class="navigation-elements__text"
           />
         </figure>
       </a>
@@ -69,7 +69,7 @@ export default {
   @import '~styles/mixins';
   @import '~styles/variables';
 
-  .categories-row {
+  .navigation-elements {
     overflow-x: scroll;
     min-width: px-to-rem(500);
 
@@ -78,7 +78,7 @@ export default {
       width: 100%;
     }
 
-    @include element(category) {
+    @include element(image) {
       margin: 0;
     }
 

@@ -6,7 +6,7 @@
     <MainBanner />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
-        <CategoriesRow />
+        <NavigationElements />
       </div>
       <div
         v-for="content in contents"
@@ -28,7 +28,7 @@
 
 <script>
 
-import CategoriesRow from './CategoriesRow';
+import NavigationElements from './NavigationElements';
 import Goods from './Goods';
 import Banner from './Banner';
 import MainBanner from './MainBanner';
@@ -38,7 +38,7 @@ export default {
   components: {
     Banner,
     MainBanner,
-    CategoriesRow,
+    NavigationElements,
     Goods,
   },
   data() {
