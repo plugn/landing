@@ -26,6 +26,7 @@
       </div>
     </div>
     <div
+      v-if="hasMoreItems"
       v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
@@ -40,7 +41,7 @@ import { createNamespacedHelpers } from 'vuex';
 import ProductCard from '@/components/shared/ProductCard';
 import Banner from '@/pages/Home/Banner';
 
-const { mapState, mapActions } = createNamespacedHelpers('landing');
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers('landing');
 
 export default {
   name: 'GoodsKit',
@@ -62,19 +63,22 @@ export default {
     return {
       limit: 10,
       offset: 0,
+      hasMoreItems: true,
     };
   },
-  computed: mapState(['kits']),
+  computed: {
+    ...mapState(['kits']),
+    ...mapGetters(['getKits']),
+  },
   created() {
     this.startFetch();
   },
   methods: {
-    startFetch({ loadMore } = { loadMore: false }) {
+    startFetch() {
       this.fetchGoodsKit({
         id: this.kitId,
         limit: this.limit,
         offset: this.offset,
-        loadMore,
       });
     },
     handleLoadMore() {
@@ -82,6 +86,7 @@ export default {
         id: this.kitId,
         offset: this.offset += this.limit,
       });
+      this.hasMoreItems = this.kits[this.kitId].hasMoreItems;
     },
     ...mapActions(['fetchGoodsKit', 'loadMoreGoodsKit']),
   },

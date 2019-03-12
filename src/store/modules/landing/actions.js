@@ -26,7 +26,6 @@ export default {
     id,
     limit = 10,
     offset = 0,
-    loadMore,
   }) {
     commit(types.GOODS_KIT_REQUEST, id);
     try {
@@ -36,7 +35,6 @@ export default {
       commit(types.GOODS_KIT_SUCCESS, {
         kit: response.data,
         id,
-        loadMore,
       });
     } catch (err) {
       commit(types.GOODS_KIT_FAILURE, err);

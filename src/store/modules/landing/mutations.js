@@ -53,7 +53,7 @@ export default {
       ...state.kits,
       [id]: tFrom(['title'], kit),
     };
-
+    state.kits[id].hasMoreItems = true;
     state.kits.isLoaded = true;
   },
   [GOODS_KIT_FAILURE](state, err) {
@@ -66,6 +66,9 @@ export default {
     // }
   },
   [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
+    if (goodsKit.items.length === 0) {
+      state.kits[id].hasMoreItems = false;
+    }
     if (goodsKit.items.length) {
       state.kits[id].good_list = [
         ...state.kits[id].good_list,
