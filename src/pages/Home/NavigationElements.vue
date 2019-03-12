@@ -11,7 +11,7 @@
       >
         <a
           v-smooth-scroll
-          :href="cat.kit"
+          :href="`#kit-${cat.kit}`"
         >
           <figure class="navigation-elements__image">
             <img
