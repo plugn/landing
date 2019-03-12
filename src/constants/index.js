@@ -16,7 +16,7 @@ export const SENTRY_DSN = JSON.stringify(process.env.SENTRY_FRONTEND_DSN);
 
 // API
 export const getApiUrl = location => `${location.protocol}//api.${String(location.hostname).replace(/^m\./, '')}`;
-export const API_URL = getApiUrl(window.location);
+export const API_URL = window.location.hostname === 'localhost' ? '//api.racoon.local' : getApiUrl(window.location);
 
 // Auth
 export const IS_NEW_LOGIN = 'Is new login';
