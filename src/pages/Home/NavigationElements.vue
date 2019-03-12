@@ -16,7 +16,7 @@
           <figure class="navigation-elements__image">
             <img
               class="img-fluid"
-              :src="cat.image.original"
+              :src="cat.image.image_98x98"
               :alt="cat.kit"
             >
             <figcaption
