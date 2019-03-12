@@ -79,10 +79,9 @@ export default {
       });
     },
     handleLoadMore() {
-      // this.limit = 10;
-      // this.offset += 10;
       this.loadMoreGoodsKit({
         id: this.kitId,
+        offset: this.offset += this.limit,
       });
     },
     ...mapActions(['fetchGoodsKit', 'loadMoreGoodsKit']),

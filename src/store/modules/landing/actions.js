@@ -54,7 +54,8 @@ export default {
         `/goods/v1.0/items/?goodskit_id=${id}&limit=${limit}&offset=${offset}`,
       );
       commit(types.LOAD_MORE_GOODS_KIT_SUCCESS, {
-        goodskit: response.data,
+        id,
+        goodsKit: response.data,
       });
     } catch (err) {
       commit(types.LOAD_MORE_GOODS_KIT_FAILURE, err);

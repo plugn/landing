@@ -48,14 +48,7 @@ export default {
       state.isLoaded = false;
     }
   },
-  [GOODS_KIT_SUCCESS](state, { kit, name, loadMore }) {
-    if (loadMore) {
-      state.sections[name].good_list = [
-        ...state.sections[name].good_list,
-        ...kit.good_list,
-      ];
-      return;
-    }
+  [GOODS_KIT_SUCCESS](state, { kit, name }) {
     state.sections = {
       ...state.sections,
       [name]: tFrom(['title'], kit),
@@ -72,20 +65,13 @@ export default {
     //   state.isLoaded = false;
     // }
   },
-  [LOAD_MORE_GOODS_KIT_SUCCESS]() {
-    // if (loadMore) {
-    //   state.sections[name].good_list = [
-    //     ...state.sections[name].good_list,
-    //     ...kit.good_list,
-    //   ];
-    //   return;
-    // }
-    // state.sections = {
-    //   ...state.sections,
-    //   [name]: tFrom(['title'], kit),
-    // };
-
-    // state.isLoaded = true;
+  [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
+    if (goodsKit.items.length) {
+      state.sections[id].good_list = [
+        ...state.sections[id].good_list,
+        ...goodsKit.items,
+      ];
+    }
   },
   [LOAD_MORE_GOODS_KIT_FAILURE](/* state, err */) {
     // state.isLoaded = false;
