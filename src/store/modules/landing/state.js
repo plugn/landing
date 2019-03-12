@@ -1,5 +1,6 @@
 export default {
   navigationElements: {
+    navigationElementsList: [],
     isLoaded: null,
     error: null,
   },

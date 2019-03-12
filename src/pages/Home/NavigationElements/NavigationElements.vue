@@ -1,37 +1,52 @@
 <i18n src="./navigationElements.i18n.json"></i18n>
 
 <template>
-  <div class="row navigation-elements">
+  <div class="navigation-elements">
     <div
-      v-for="(cat, idx) in categories"
-      :key="idx"
-      class="col text-center"
+      v-if="navigationElements.isLoaded"
+      class="row"
     >
-      <a
-        v-smooth-scroll
-        :href="cat.anchor"
+      <div
+        v-for="(cat, idx) in navigationElements.navigationElementsList"
+        :key="idx"
+        class="col text-center"
       >
-        <figure class="navigation-elements__image">
-          <img
-            class="img-fluid"
-            :src="cat.img"
-            :alt="cat.name"
-          >
-          <figcaption
-            v-t="cat.name"
-            class="navigation-elements__text"
-          />
-        </figure>
-      </a>
+        <a
+          v-smooth-scroll
+          :href="cat.kit"
+        >
+          <figure class="navigation-elements__image">
+            <img
+              class="img-fluid"
+              :src="cat.image.original"
+              :alt="cat.kit"
+            >
+            <figcaption
+              v-t="cat.title"
+              class="navigation-elements__text"
+            />
+          </figure>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
 import imgSrc from '@/components/base/Icon/imgSrc';
 
+const { mapState, mapActions } = createNamespacedHelpers('landing');
+
 export default {
-  name: 'CategoriesRow',
+  name: 'NavigationElements',
+  props: {
+    landingId: {
+      type: [Number, String],
+      default: '1',
+    },
+  },
   data() {
     return {
       categories: [
@@ -58,8 +73,15 @@ export default {
       ],
     };
   },
+  computed: mapState(['navigationElements']),
+  created() {
+    this.fetchNavigationElements({
+      landingId: this.landingId,
+    });
+  },
   methods: {
     imgSrc,
+    ...mapActions(['fetchNavigationElements']),
   },
 };
 </script>

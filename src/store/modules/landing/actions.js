@@ -3,24 +3,25 @@ import * as types from './actionTypes';
 
 export default {
   async fetchNavigationElements({ commit, getters }, {
-    id,
+    landingId,
     name,
   }) {
     commit(types.NAVIGATION_ELEMENTS_REQUEST);
-    const mainBanner = getters.getNavigationElements(name);
-    if (mainBanner) {
-      commit(types.NAVIGATION_ELEMENTS_REQUEST, mainBanner);
+    const navigationElements = getters.getNavigationElements(name);
+    if (navigationElements) {
+      commit(types.NAVIGATION_ELEMENTS_REQUEST, navigationElements);
     } else {
       try {
         const response = await api.get(
-          `/goods/v1.0/landings/navigation-elem/?lang_id=${id}/`,
+          `/goods/v1.0/landings/navigation-elem/?lang_id=${landingId}/`,
         );
-        commit(types.NAVIGATION_ELEMENTS_REQUEST, response.data);
+        commit(types.NAVIGATION_ELEMENTS_SUCCESS, response.data);
       } catch (err) {
-        commit(types.NAVIGATION_ELEMENTS_REQUEST, err);
+        commit(types.NAVIGATION_ELEMENTS_FAILURE, err);
       }
     }
   },
+  //
   async fetchGoods({ commit/* getters */ }, {
     id,
     name,

@@ -1,6 +1,7 @@
 import has from 'lodash.has';
 
 import tFrom from '@/utils/tFrom';
+import translateList from '@/utils/translateList';
 
 import {
   // Navigation Elements
@@ -29,7 +30,7 @@ export default {
   [NAVIGATION_ELEMENTS_SUCCESS](state, navigationElements) {
     state.navigationElements = {
       ...state.navigationElements,
-      navigationElements,
+      navigationElementsList: translateList(['title'], navigationElements),
       isLoaded: true,
       error: null,
     };
@@ -84,7 +85,6 @@ export default {
     state.isLoaded = false;
   },
   [GOODS_BANNER_SUCCESS](state, { banners, name }) {
-    // eslint-disable-next-line no-param-reassign
     if (!has(state.banners, name)) {
       state.banners = {
         ...state.banners,
