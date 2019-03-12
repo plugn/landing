@@ -4,9 +4,10 @@ export default {
     isLoaded: null,
     error: null,
   },
-  isLoaded: null,
-  error: null,
-  sections: {},
+  kits: {
+    isLoaded: null,
+    error: null,
+  },
   landingPage: {
     isLoaded: null,
     error: null,

@@ -9,14 +9,14 @@
       :name="name"
     />
     <h3 class="goods-kit__row-title">
-      {{ isLoaded && sections[name] ? sections[name].title : '' }}
+      {{ kits.isLoaded && kits[name] ? kits[name].title : '' }}
     </h3>
     <div
-      v-if="isLoaded && sections[name]"
+      v-if="kits.isLoaded && kits[name]"
       class="row goods-kit__row"
     >
       <div
-        v-for="(good, idx) in sections[name].good_list"
+        v-for="(good, idx) in kits[name].good_list"
         :key="idx"
         class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
@@ -26,6 +26,7 @@
       </div>
     </div>
     <div
+      v-if="hasMoreItems"
       v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
@@ -40,7 +41,7 @@ import { createNamespacedHelpers } from 'vuex';
 import ProductCard from '@/components/shared/ProductCard';
 import Banner from '@/pages/Home/Banner';
 
-const { mapState, mapActions } = createNamespacedHelpers('landing');
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers('landing');
 
 export default {
   name: 'GoodsKit',
@@ -62,28 +63,32 @@ export default {
     return {
       limit: 10,
       offset: 0,
+      hasMoreItems: true,
     };
   },
-  computed: mapState(['sections', 'isLoaded']),
+  computed: {
+    ...mapState(['kits']),
+    ...mapGetters(['getKits']),
+  },
   created() {
     this.startFetch();
   },
   methods: {
-    startFetch({ loadMore } = { loadMore: false }) {
+    startFetch() {
       this.fetchGoodsKit({
         id: this.kitId,
-        name: this.name,
         limit: this.limit,
         offset: this.offset,
-        loadMore,
       });
     },
     handleLoadMore() {
-      this.limit = 10;
-      this.offset += 10;
-      this.startFetch({ loadMore: true });
+      this.loadMoreGoodsKit({
+        id: this.kitId,
+        offset: this.offset += this.limit,
+      });
+      this.hasMoreItems = this.kits[this.kitId].hasMoreItems;
     },
-    ...mapActions(['fetchGoodsKit']),
+    ...mapActions(['fetchGoodsKit', 'loadMoreGoodsKit']),
   },
 };
 </script>
