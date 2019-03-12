@@ -1,8 +1,13 @@
 export default {
+  navigationElements: {
+    navigationElementsList: [],
+    isLoaded: null,
+    error: null,
+  },
   isLoaded: null,
   error: null,
   sections: {},
-  mainBanner: {
+  landingPage: {
     isLoaded: null,
     error: null,
   },

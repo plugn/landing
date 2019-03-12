@@ -1,15 +1,21 @@
 import has from 'lodash.has';
 
 import tFrom from '@/utils/tFrom';
+import translateList from '@/utils/translateList';
 
 import {
-  LANDING_GOODS_REQUEST,
-  LANDING_GOODS_SUCCESS,
-  LANDING_GOODS_FAILURE,
+  // Navigation Elements
+  NAVIGATION_ELEMENTS_REQUEST,
+  NAVIGATION_ELEMENTS_SUCCESS,
+  NAVIGATION_ELEMENTS_FAILURE,
+  //
+  GOODS_KIT_REQUEST,
+  GOODS_KIT_SUCCESS,
+  GOODS_KIT_FAILURE,
   // Main banner
-  MAIN_BANNER_REQUEST,
-  MAIN_BANNER_SUCCESS,
-  MAIN_BANNER_FAILURE,
+  LANDING_PAGE_REQUEST,
+  LANDING_PAGE_SUCCESS,
+  LANDING_PAGE_FAILURE,
   // Kits banner
   GOODS_BANNER_REQUEST,
   GOODS_BANNER_SUCCESS,
@@ -17,12 +23,29 @@ import {
 } from './actionTypes';
 
 export default {
-  [LANDING_GOODS_REQUEST](state, name) {
+  // Navigation Elements
+  [NAVIGATION_ELEMENTS_REQUEST](state) {
+    state.navigationElements.isLoaded = false;
+  },
+  [NAVIGATION_ELEMENTS_SUCCESS](state, navigationElements) {
+    state.navigationElements = {
+      ...state.navigationElements,
+      navigationElementsList: translateList(['title'], navigationElements),
+      isLoaded: true,
+      error: null,
+    };
+  },
+  [NAVIGATION_ELEMENTS_FAILURE](state, err) {
+    state.navigationElements.isLoaded = false;
+    state.navigationElements.error = err;
+  },
+  // Kits
+  [GOODS_KIT_REQUEST](state, name) {
     if (!has(state.sections, name)) {
       state.isLoaded = false;
     }
   },
-  [LANDING_GOODS_SUCCESS](state, { kit, name, loadMore }) {
+  [GOODS_KIT_SUCCESS](state, { kit, name, loadMore }) {
     if (loadMore) {
       state.sections[name].good_list = [
         ...state.sections[name].good_list,
@@ -37,32 +60,31 @@ export default {
 
     state.isLoaded = true;
   },
-  [LANDING_GOODS_FAILURE](state, err) {
+  [GOODS_KIT_FAILURE](state, err) {
     state.isLoaded = false;
     state.error = err;
   },
-  // Main banner
-  [MAIN_BANNER_REQUEST](state) {
-    state.mainBanner.isLoaded = false;
+  // Landing
+  [LANDING_PAGE_REQUEST](state) {
+    state.landingPage.isLoaded = false;
   },
-  [MAIN_BANNER_SUCCESS](state, mainBanner) {
-    state.mainBanner = {
-      ...state.mainBanner,
-      ...tFrom(['title', 'text'], mainBanner),
+  [LANDING_PAGE_SUCCESS](state, landingPage) {
+    state.landingPage = {
+      ...state.landingPage,
+      ...tFrom(['title', 'text'], landingPage),
       isLoaded: true,
       error: null,
     };
   },
-  [MAIN_BANNER_FAILURE](state, err) {
-    state.mainBanner.isLoaded = false;
-    state.mainBanner.error = err;
+  [LANDING_PAGE_FAILURE](state, err) {
+    state.landingPage.isLoaded = false;
+    state.landingPage.error = err;
   },
   // KitsBanner
   [GOODS_BANNER_REQUEST](state) {
     state.isLoaded = false;
   },
   [GOODS_BANNER_SUCCESS](state, { banners, name }) {
-    // eslint-disable-next-line no-param-reassign
     if (!has(state.banners, name)) {
       state.banners = {
         ...state.banners,

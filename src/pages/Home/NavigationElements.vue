@@ -1,37 +1,51 @@
-<i18n src="./categoriesRow.i18n.json"></i18n>
-
 <template>
-  <div class="row categories-row">
+  <div class="navigation-elements">
     <div
-      v-for="(cat, idx) in categories"
-      :key="idx"
-      class="col text-center"
+      v-if="navigationElements.isLoaded"
+      class="row"
     >
-      <a
-        v-smooth-scroll
-        :href="cat.anchor"
+      <div
+        v-for="(cat, idx) in navigationElements.navigationElementsList"
+        :key="idx"
+        class="col text-center"
       >
-        <figure class="categories-row__category">
-          <img
-            class="img-fluid"
-            :src="cat.img"
-            :alt="cat.name"
-          >
-          <figcaption
-            v-t="cat.name"
-            class="categories-row__text"
-          />
-        </figure>
-      </a>
+        <a
+          v-smooth-scroll
+          :href="cat.kit"
+        >
+          <figure class="navigation-elements__image">
+            <img
+              class="img-fluid"
+              :src="cat.image.original"
+              :alt="cat.kit"
+            >
+            <figcaption
+              class="navigation-elements__text"
+            >
+              {{ cat.title }}
+            </figcaption>
+          </figure>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
 import imgSrc from '@/components/base/Icon/imgSrc';
 
+const { mapState, mapActions } = createNamespacedHelpers('landing');
+
 export default {
-  name: 'CategoriesRow',
+  name: 'NavigationElements',
+  props: {
+    landingId: {
+      type: [Number, String],
+      default: '1',
+    },
+  },
   data() {
     return {
       categories: [
@@ -58,8 +72,15 @@ export default {
       ],
     };
   },
+  computed: mapState(['navigationElements']),
+  created() {
+    this.fetchNavigationElements({
+      landingId: this.landingId,
+    });
+  },
   methods: {
     imgSrc,
+    ...mapActions(['fetchNavigationElements']),
   },
 };
 </script>
@@ -69,7 +90,10 @@ export default {
   @import '~styles/mixins';
   @import '~styles/variables';
 
-  .categories-row {
+  .navigation-elements {
+    ::-webkit-scrollbar {
+      display: none;
+    }
     overflow-x: scroll;
     min-width: px-to-rem(500);
 
@@ -78,7 +102,7 @@ export default {
       width: 100%;
     }
 
-    @include element(category) {
+    @include element(image) {
       margin: 0;
     }
 
