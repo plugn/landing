@@ -13,7 +13,7 @@ export default {
     } else {
       try {
         const response = await api.get(
-          `/goods/v1.0/landings/navigation-elem/?landing_id=${landingId}/`,
+          `/goods/v1.0/landings/navigation-elem/?landing_id=${landingId}`,
         );
         commit(types.NAVIGATION_ELEMENTS_SUCCESS, response.data);
       } catch (err) {
