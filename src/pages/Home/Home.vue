@@ -36,6 +36,13 @@ import MainBanner from './MainBanner';
 
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
+// eslint-disable-next-line
+const landingId = String(/^\/landing\/\d+/.test(location.pathname) ? location.pathname : '/landing/1-a/' )
+  .split('/')
+  .filter(Boolean)
+  .pop()
+  .split('-')[0];
+
 export default {
   name: 'Home',
   components: {
@@ -46,7 +53,7 @@ export default {
   computed: mapState(['landingPage']),
   created() {
     this.fetchLandingPage({
-      id: 1,
+      id: landingId,
     });
   },
   methods: mapActions(['fetchLandingPage']),

@@ -64,7 +64,10 @@
       <div class="navigation__tablet-search navigation__right-item">
         <ModalSearch />
       </div>
-      <div class="navigation__cart">
+      <div
+        v-if="false"
+        class="navigation__cart"
+      >
         <Dropdown
           icon="cart-black"
           :text="$t('shoppingCart')"
@@ -91,7 +94,10 @@
           </div>
         </Dropdown>
       </div>
-      <div class="navigation__right-item">
+      <div
+        v-if="false"
+        class="navigation__right-item"
+      >
         <Dropdown
           icon="enter-black"
           :text="$t('signIn')"
@@ -159,7 +165,7 @@ export default {
       ],
       isCategoriesOpened: false,
       isTabletCategoriesOpened: false,
-      profile: userProfile
+      profile: userProfile,
     };
   },
   methods: {
