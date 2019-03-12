@@ -43,15 +43,15 @@ export default {
     state.navigationElements.error = err;
   },
   // Kits
-  [GOODS_KIT_REQUEST](state, name) {
-    if (!has(state.kits, name)) {
+  [GOODS_KIT_REQUEST](state, id) {
+    if (!has(state.kits, id)) {
       state.isLoaded = false;
     }
   },
-  [GOODS_KIT_SUCCESS](state, { kit, name }) {
+  [GOODS_KIT_SUCCESS](state, { kit, id }) {
     state.kits = {
       ...state.kits,
-      [name]: tFrom(['title'], kit),
+      [id]: tFrom(['title'], kit),
     };
 
     state.isLoaded = true;

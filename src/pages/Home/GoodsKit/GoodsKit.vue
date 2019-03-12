@@ -72,7 +72,6 @@ export default {
     startFetch({ loadMore } = { loadMore: false }) {
       this.fetchGoodsKit({
         id: this.kitId,
-        name: this.name,
         limit: this.limit,
         offset: this.offset,
         loadMore,
