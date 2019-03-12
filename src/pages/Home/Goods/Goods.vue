@@ -4,6 +4,10 @@
   <section
     :id="name"
   >
+   <Banner
+      :url-id="urlId"
+      :name="name"
+    />
     <h3 class="goods__row-title">
       {{ isLoaded && sections[name] ? sections[name].title : '' }}
     </h3>
@@ -34,6 +38,7 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import ProductCard from '@/components/shared/ProductCard';
+import Banner from '@/pages/Home/Banner';
 
 const { mapState, mapActions } = createNamespacedHelpers('landing');
 
@@ -41,6 +46,7 @@ export default {
   name: 'Goods',
   components: {
     ProductCard,
+    Banner,
   },
   props: {
     name: {

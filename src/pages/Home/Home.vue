@@ -13,10 +13,6 @@
         :key="content.urlId"
         class="home__row"
       >
-        <Banner
-          :url-id="content.urlId"
-          :name="content.name"
-        />
         <Goods
           :url-id="content.urlId"
           :name="content.name"
@@ -30,13 +26,11 @@
 
 import NavigationElements from './NavigationElements';
 import Goods from './Goods';
-import Banner from './Banner';
 import MainBanner from './MainBanner';
 
 export default {
   name: 'Home',
   components: {
-    Banner,
     MainBanner,
     NavigationElements,
     Goods,
