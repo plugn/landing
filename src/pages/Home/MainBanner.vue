@@ -2,7 +2,6 @@
   <div class="main-banner">
     <div class="main-banner__content">
       <picture
-        v-if="mainBanner.isLoaded"
         class="main-banner__image-wrapper"
       >
         <source

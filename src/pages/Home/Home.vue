@@ -3,7 +3,10 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <MainBanner :main-banner="landingPage" />
+    <MainBanner
+      v-if="landingPage.isLoaded"
+      :main-banner="landingPage"
+    />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
         <NavigationElements />
