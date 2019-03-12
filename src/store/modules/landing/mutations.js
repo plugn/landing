@@ -13,9 +13,9 @@ import {
   GOODS_KIT_SUCCESS,
   GOODS_KIT_FAILURE,
   // Main banner
-  MAIN_BANNER_REQUEST,
-  MAIN_BANNER_SUCCESS,
-  MAIN_BANNER_FAILURE,
+  LANDING_PAGE_REQUEST,
+  LANDING_PAGE_SUCCESS,
+  LANDING_PAGE_FAILURE,
   // Kits banner
   GOODS_BANNER_REQUEST,
   GOODS_BANNER_SUCCESS,
@@ -65,20 +65,20 @@ export default {
     state.error = err;
   },
   // Landing
-  [MAIN_BANNER_REQUEST](state) {
-    state.mainBanner.isLoaded = false;
+  [LANDING_PAGE_REQUEST](state) {
+    state.landingPage.isLoaded = false;
   },
-  [MAIN_BANNER_SUCCESS](state, mainBanner) {
-    state.mainBanner = {
-      ...state.mainBanner,
-      ...tFrom(['title', 'text'], mainBanner),
+  [LANDING_PAGE_SUCCESS](state, landingPage) {
+    state.landingPage = {
+      ...state.landingPage,
+      ...tFrom(['title', 'text'], landingPage),
       isLoaded: true,
       error: null,
     };
   },
-  [MAIN_BANNER_FAILURE](state, err) {
-    state.mainBanner.isLoaded = false;
-    state.mainBanner.error = err;
+  [LANDING_PAGE_FAILURE](state, err) {
+    state.landingPage.isLoaded = false;
+    state.landingPage.error = err;
   },
   // KitsBanner
   [GOODS_BANNER_REQUEST](state) {

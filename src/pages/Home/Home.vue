@@ -3,14 +3,14 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <MainBanner :mainBanner="mainBanner" />
+    <MainBanner :mainBanner="landingPage" />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
         <NavigationElements />
       </div>
-      <div v-if="mainBanner.isLoaded">
+      <div v-if="landingPage.isLoaded">
         <div
-          v-for="kit in mainBanner.kits"
+          v-for="kit in landingPage.kits"
           :key="kit"
           class="home__row"
         >
@@ -40,13 +40,13 @@ export default {
     NavigationElements,
     GoodsKit,
   },
-  computed: mapState(['mainBanner']),
+  computed: mapState(['landingPage']),
   created() {
-    this.fetchMainBanner({
+    this.fetchLandingPage({
       id: 1,
     });
   },
-  methods: mapActions(['fetchMainBanner']),
+  methods: mapActions(['fetchLandingPage']),
 };
 </script>
 

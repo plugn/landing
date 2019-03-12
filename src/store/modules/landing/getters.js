@@ -1,12 +1,12 @@
 export default {
   getNavigationElements: state => id => (
-    state.mainBanner[id]
+    state.navigationElements[id]
   ),
   getSection: state => name => (
     state.sections[name]
   ),
-  getMainBanner: state => id => (
-    state.mainBanner[id]
+  getLandingPage: state => id => (
+    state.landingPage[id]
   ),
   getGoodsBanner: state => name => (
     state.banners[name]

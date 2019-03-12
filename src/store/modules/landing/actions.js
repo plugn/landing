@@ -44,20 +44,20 @@ export default {
       commit(types.GOODS_KIT_FAILURE, err);
     }
   },
-  async fetchMainBanner({ commit, getters }, {
+  async fetchLandingPage({ commit, getters }, {
     id,
     name,
   }) {
-    commit(types.MAIN_BANNER_REQUEST);
-    const mainBanner = getters.getMainBanner(name);
-    if (mainBanner) {
-      commit(types.MAIN_BANNER_SUCCESS, mainBanner);
+    commit(types.LANDING_PAGE_REQUEST);
+    const landingPage = getters.getLandingPage(name);
+    if (landingPage) {
+      commit(types.LANDING_PAGE_SUCCESS, landingPage);
     } else {
       try {
         const response = await api.get(`/goods/v1.0/landings/${id}/`);
-        commit(types.MAIN_BANNER_SUCCESS, response.data);
+        commit(types.LANDING_PAGE_SUCCESS, response.data);
       } catch (err) {
-        commit(types.MAIN_BANNER_FAILURE, err);
+        commit(types.LANDING_PAGE_FAILURE, err);
       }
     }
   },
@@ -66,7 +66,7 @@ export default {
     name,
   }) {
     commit(types.GOODS_BANNER_REQUEST);
-    const banner = getters.getMainBanner(name);
+    const banner = getters.getGoodsBanner(name);
     if (banner) {
       commit(types.GOODS_BANNER_SUCCESS, banner);
     } else {

@@ -7,7 +7,7 @@ export default {
   isLoaded: null,
   error: null,
   sections: {},
-  mainBanner: {
+  landingPage: {
     isLoaded: null,
     error: null,
   },
