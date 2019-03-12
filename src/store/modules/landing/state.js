@@ -6,7 +6,7 @@ export default {
   },
   isLoaded: null,
   error: null,
-  sections: {},
+  kits: {},
   landingPage: {
     isLoaded: null,
     error: null,

@@ -44,13 +44,13 @@ export default {
   },
   // Kits
   [GOODS_KIT_REQUEST](state, name) {
-    if (!has(state.sections, name)) {
+    if (!has(state.kits, name)) {
       state.isLoaded = false;
     }
   },
   [GOODS_KIT_SUCCESS](state, { kit, name }) {
-    state.sections = {
-      ...state.sections,
+    state.kits = {
+      ...state.kits,
       [name]: tFrom(['title'], kit),
     };
 
@@ -61,14 +61,14 @@ export default {
     state.error = err;
   },
   [LOAD_MORE_GOODS_KIT_REQUEST](/* state, name */) {
-    // if (!has(state.sections, name)) {
+    // if (!has(state.kits, name)) {
     //   state.isLoaded = false;
     // }
   },
   [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
     if (goodsKit.items.length) {
-      state.sections[id].good_list = [
-        ...state.sections[id].good_list,
+      state.kits[id].good_list = [
+        ...state.kits[id].good_list,
         ...goodsKit.items,
       ];
     }

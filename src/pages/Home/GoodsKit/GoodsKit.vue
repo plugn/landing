@@ -9,14 +9,14 @@
       :name="name"
     />
     <h3 class="goods-kit__row-title">
-      {{ isLoaded && sections[name] ? sections[name].title : '' }}
+      {{ isLoaded && kits[name] ? kits[name].title : '' }}
     </h3>
     <div
-      v-if="isLoaded && sections[name]"
+      v-if="isLoaded && kits[name]"
       class="row goods-kit__row"
     >
       <div
-        v-for="(good, idx) in sections[name].good_list"
+        v-for="(good, idx) in kits[name].good_list"
         :key="idx"
         class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
@@ -64,7 +64,7 @@ export default {
       offset: 0,
     };
   },
-  computed: mapState(['sections', 'isLoaded']),
+  computed: mapState(['kits', 'isLoaded']),
   created() {
     this.startFetch();
   },
