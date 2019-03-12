@@ -45,7 +45,7 @@ export default {
   // Kits
   [GOODS_KIT_REQUEST](state, id) {
     if (!has(state.kits, id)) {
-      state.isLoaded = false;
+      state.kits.isLoaded = false;
     }
   },
   [GOODS_KIT_SUCCESS](state, { kit, id }) {
@@ -54,11 +54,11 @@ export default {
       [id]: tFrom(['title'], kit),
     };
 
-    state.isLoaded = true;
+    state.kits.isLoaded = true;
   },
   [GOODS_KIT_FAILURE](state, err) {
-    state.isLoaded = false;
-    state.error = err;
+    state.kits.isLoaded = false;
+    state.kits.error = err;
   },
   [LOAD_MORE_GOODS_KIT_REQUEST](/* state, name */) {
     // if (!has(state.kits, name)) {
