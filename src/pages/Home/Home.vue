@@ -3,7 +3,7 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <MainBanner :mainBanner="landingPage" />
+    <MainBanner :main-banner="landingPage" />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
         <NavigationElements />

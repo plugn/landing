@@ -1,5 +1,3 @@
-<i18n src="./navigationElements.i18n.json"></i18n>
-
 <template>
   <div class="navigation-elements">
     <div
@@ -22,9 +20,10 @@
               :alt="cat.kit"
             >
             <figcaption
-              v-t="cat.title"
               class="navigation-elements__text"
-            />
+            >
+              {{ cat.title }}
+            </figcaption>
           </figure>
         </a>
       </div>
