@@ -2,10 +2,10 @@
 
 <template>
   <section
-    :id="name"
+    :id="`kit-${kitId}`"
   >
     <Banner
-      :url-id="urlId"
+      :url-id="kitId"
       :name="name"
     />
     <h3 class="goods-kit__row-title">
@@ -50,11 +50,11 @@ export default {
   },
   props: {
     name: {
-      type: String,
+      type: [String, Number],
       default: 'goodsSection',
     },
-    urlId: {
-      type: String,
+    kitId: {
+      type: [String, Number],
       default: '1',
     },
   },
@@ -71,7 +71,7 @@ export default {
   methods: {
     startFetch({ loadMore } = { loadMore: false }) {
       this.fetchGoodsKit({
-        id: this.urlId,
+        id: this.kitId,
         name: this.name,
         limit: this.limit,
         offset: this.offset,

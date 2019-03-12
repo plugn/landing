@@ -3,30 +3,35 @@
     <h2 class="sr-only">
       Home
     </h2>
-    <MainBanner />
+    <MainBanner :mainBanner="mainBanner" />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
         <NavigationElements />
       </div>
-      <div
-        v-for="content in contents"
-        :key="content.urlId"
-        class="home__row"
-      >
-        <GoodsKit
-          :url-id="content.urlId"
-          :name="content.name"
-        />
+      <div v-if="mainBanner.isLoaded">
+        <div
+          v-for="kit in mainBanner.kits"
+          :key="kit"
+          class="home__row"
+        >
+          <GoodsKit
+            :kit-id="`${kit}`"
+            :name="`${kit}`"
+          />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
 
 import NavigationElements from './NavigationElements';
 import GoodsKit from './GoodsKit';
 import MainBanner from './MainBanner';
+
+const { mapState, mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Home',
@@ -35,28 +40,13 @@ export default {
     NavigationElements,
     GoodsKit,
   },
-  data() {
-    return {
-      contents: [
-        {
-          urlId: '1',
-          name: 'dresses',
-        },
-        {
-          urlId: '2',
-          name: 'suits',
-        },
-        {
-          urlId: '3',
-          name: 'womansClothesAndAccessories',
-        },
-        {
-          urlId: '4',
-          name: 'electronics',
-        },
-      ],
-    };
+  computed: mapState(['mainBanner']),
+  created() {
+    this.fetchMainBanner({
+      id: 1,
+    });
   },
+  methods: mapActions(['fetchMainBanner']),
 };
 </script>
 

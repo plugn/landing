@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
 
 import {
   XL,
@@ -47,10 +46,18 @@ import {
   SM,
 } from 'constants';
 
-const { mapState, mapActions } = createNamespacedHelpers('landing');
-
 export default {
   name: 'MainBanner',
+  props: {
+    mainBanner: {
+      type: Object,
+      default() {
+        return {
+          isLoaded: false,
+        };
+      },
+    },
+  },
   data() {
     return {
       XL,
@@ -59,13 +66,6 @@ export default {
       SM,
     };
   },
-  computed: mapState(['mainBanner']),
-  created() {
-    this.fetchMainBanner({
-      id: 1,
-    });
-  },
-  methods: mapActions(['fetchMainBanner']),
 };
 </script>
 
