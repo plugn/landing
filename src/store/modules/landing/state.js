@@ -1,4 +1,8 @@
 export default {
+  navigationElements: {
+    isLoaded: null,
+    error: null,
+  },
   isLoaded: null,
   error: null,
   sections: {},

@@ -3,6 +3,11 @@ import has from 'lodash.has';
 import tFrom from '@/utils/tFrom';
 
 import {
+  // Navigation Elements
+  NAVIGATION_ELEMENTS_REQUEST,
+  NAVIGATION_ELEMENTS_SUCCESS,
+  NAVIGATION_ELEMENTS_FAILURE,
+  //
   LANDING_GOODS_REQUEST,
   LANDING_GOODS_SUCCESS,
   LANDING_GOODS_FAILURE,
@@ -17,6 +22,23 @@ import {
 } from './actionTypes';
 
 export default {
+  // Navigation Elements
+  [NAVIGATION_ELEMENTS_REQUEST](state) {
+    state.navigationElements.isLoaded = false;
+  },
+  [NAVIGATION_ELEMENTS_SUCCESS](state, navigationElements) {
+    state.navigationElements = {
+      ...state.navigationElements,
+      navigationElements,
+      isLoaded: true,
+      error: null,
+    };
+  },
+  [NAVIGATION_ELEMENTS_FAILURE](state, err) {
+    state.navigationElements.isLoaded = false;
+    state.navigationElements.error = err;
+  },
+  // Kits
   [LANDING_GOODS_REQUEST](state, name) {
     if (!has(state.sections, name)) {
       state.isLoaded = false;
@@ -41,7 +63,7 @@ export default {
     state.isLoaded = false;
     state.error = err;
   },
-  // Main banner
+  // Landing
   [MAIN_BANNER_REQUEST](state) {
     state.mainBanner.isLoaded = false;
   },

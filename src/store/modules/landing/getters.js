@@ -1,4 +1,7 @@
 export default {
+  getNavigationElements: state => id => (
+    state.mainBanner[id]
+  ),
   getSection: state => name => (
     state.sections[name]
   ),

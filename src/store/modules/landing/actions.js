@@ -2,6 +2,25 @@ import { api } from '@/api';
 import * as types from './actionTypes';
 
 export default {
+  async fetchNavigationElements({ commit, getters }, {
+    id,
+    name,
+  }) {
+    commit(types.NAVIGATION_ELEMENTS_REQUEST);
+    const mainBanner = getters.getNavigationElements(name);
+    if (mainBanner) {
+      commit(types.NAVIGATION_ELEMENTS_REQUEST, mainBanner);
+    } else {
+      try {
+        const response = await api.get(
+          `/goods/v1.0/landings/navigation-elem/?lang_id=${id}/`,
+        );
+        commit(types.NAVIGATION_ELEMENTS_REQUEST, response.data);
+      } catch (err) {
+        commit(types.NAVIGATION_ELEMENTS_REQUEST, err);
+      }
+    }
+  },
   async fetchGoods({ commit/* getters */ }, {
     id,
     name,
