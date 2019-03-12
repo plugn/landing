@@ -12,7 +12,10 @@ import {
   GOODS_KIT_REQUEST,
   GOODS_KIT_SUCCESS,
   GOODS_KIT_FAILURE,
-  // Main banner
+  LOAD_MORE_GOODS_KIT_REQUEST,
+  LOAD_MORE_GOODS_KIT_SUCCESS,
+  LOAD_MORE_GOODS_KIT_FAILURE,
+  // Landing page
   LANDING_PAGE_REQUEST,
   LANDING_PAGE_SUCCESS,
   LANDING_PAGE_FAILURE,
@@ -63,6 +66,30 @@ export default {
   [GOODS_KIT_FAILURE](state, err) {
     state.isLoaded = false;
     state.error = err;
+  },
+  [LOAD_MORE_GOODS_KIT_REQUEST](/* state, name */) {
+    // if (!has(state.sections, name)) {
+    //   state.isLoaded = false;
+    // }
+  },
+  [LOAD_MORE_GOODS_KIT_SUCCESS]() {
+    // if (loadMore) {
+    //   state.sections[name].good_list = [
+    //     ...state.sections[name].good_list,
+    //     ...kit.good_list,
+    //   ];
+    //   return;
+    // }
+    // state.sections = {
+    //   ...state.sections,
+    //   [name]: tFrom(['title'], kit),
+    // };
+
+    // state.isLoaded = true;
+  },
+  [LOAD_MORE_GOODS_KIT_FAILURE](/* state, err */) {
+    // state.isLoaded = false;
+    // state.error = err;
   },
   // Landing
   [LANDING_PAGE_REQUEST](state) {

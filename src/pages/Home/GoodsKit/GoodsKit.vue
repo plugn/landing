@@ -79,11 +79,13 @@ export default {
       });
     },
     handleLoadMore() {
-      this.limit = 10;
-      this.offset += 10;
-      this.startFetch({ loadMore: true });
+      // this.limit = 10;
+      // this.offset += 10;
+      this.loadMoreGoodsKit({
+        id: this.kitId,
+      });
     },
-    ...mapActions(['fetchGoodsKit']),
+    ...mapActions(['fetchGoodsKit', 'loadMoreGoodsKit']),
   },
 };
 </script>

@@ -21,7 +21,7 @@ export default {
       }
     }
   },
-  //
+  // goods kit
   async fetchGoodsKit({ commit/* getters */ }, {
     id,
     name,
@@ -30,7 +30,6 @@ export default {
     loadMore,
   }) {
     commit(types.GOODS_KIT_REQUEST, name);
-    // const section = getters.getSection(name);
     try {
       const response = await api.get(
         `/goods/v1.0/landings/kit/${id}/?goods_limit=${limit}&goods_offset=${offset}`,
@@ -44,6 +43,24 @@ export default {
       commit(types.GOODS_KIT_FAILURE, err);
     }
   },
+  async loadMoreGoodsKit({ commit/* getters */ }, {
+    id,
+    limit = 10,
+    offset = 0,
+  }) {
+    commit(types.LOAD_MORE_GOODS_KIT_REQUEST);
+    try {
+      const response = await api.get(
+        `/goods/v1.0/items/?goodskit_id=${id}&limit=${limit}&offset=${offset}`,
+      );
+      commit(types.LOAD_MORE_GOODS_KIT_SUCCESS, {
+        goodskit: response.data,
+      });
+    } catch (err) {
+      commit(types.LOAD_MORE_GOODS_KIT_FAILURE, err);
+    }
+  },
+  // landing page
   async fetchLandingPage({ commit, getters }, {
     id,
     name,
