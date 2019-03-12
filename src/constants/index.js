@@ -1,7 +1,5 @@
 import getLang from '@/utils/getLang';
 
-const isProd = process.env.NODE_ENV === 'production';
-
 // Main
 export const LANG = getLang();
 
@@ -17,7 +15,8 @@ export const DADATA_API_KEY = JSON.stringify(process.env.DADATA_API_KEY || '3dec
 export const SENTRY_DSN = JSON.stringify(process.env.SENTRY_FRONTEND_DSN);
 
 // API
-export const API_URL = isProd ? 'https://api.alabom.com' : 'http://api.racoon.local';
+export const getApiUrl = location => `${location.protocol}//api.${String(location.hostname).replace(/^m\./, '')}`;
+export const API_URL = getApiUrl(window.location);
 
 // Auth
 export const IS_NEW_LOGIN = 'Is new login';
