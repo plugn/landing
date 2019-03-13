@@ -1,3 +1,5 @@
+<i18n src="./productCard.i18n.json"></i18n>
+
 <template>
   <div class="info-card">
     <div class="info-card__left">
@@ -6,7 +8,7 @@
         class="info-card__price"
         :class="{ 'info-card__price--red': hasDiscount}"
       >
-        {{ hasDiscount ? 'ot' : '' }} {{ roundPrice(price) }} ₽
+        {{ hasDiscount ? this.$t('from') : '' }} {{ roundPrice(price) }} ₽
       </div>
       <div
         v-if="oldPrice && hasDiscount"
