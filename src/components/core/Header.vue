@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container px-0 h-100">
+    <div class="container h-100">
       <Navigation />
     </div>
   </header>
