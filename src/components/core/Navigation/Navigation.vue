@@ -65,7 +65,7 @@
         <ModalSearch />
       </div>
       <div
-        v-if="true"
+        v-if="false"
         class="navigation__cart"
       >
         <DropdownCart />
