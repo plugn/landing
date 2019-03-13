@@ -2,7 +2,7 @@
   <div class="navigation-elements">
     <div
       v-if="navigationElements.isLoaded"
-      class="row"
+      class="row m-0 flex-nowrap"
     >
       <div
         v-for="(cat, idx) in navigationElements.navigationElementsList"
