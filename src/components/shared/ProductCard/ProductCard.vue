@@ -212,7 +212,7 @@ export default {
       margin-top: px-to-rem(5);
       // text-overflow: ellipsis;
       // /* Needed to make it work */
-      // overflow: hidden;
+      overflow: hidden;
       // white-space: nowrap;
     }
 
