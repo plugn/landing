@@ -26,7 +26,7 @@
       </div>
     </div>
     <div
-      v-if="kit.hasMore"
+      v-if="kit.count > kit.good_list.length"
       v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
@@ -84,7 +84,6 @@ export default {
 
   .goods-kit {
     @include element(row) {
-      // overflow-x: scroll;
       padding-top: 1rem;
     }
 
@@ -92,7 +91,7 @@ export default {
       align-items: center;
       background: #F7F9FA;
       border-radius: px-to-rem(4);
-      color: rgba(24, 25, 32, 0.6);
+      color: var(--light-text);
       cursor: pointer;
       display: flex;
       height: px-to-rem(50);
