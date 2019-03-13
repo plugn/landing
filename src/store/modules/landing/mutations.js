@@ -88,8 +88,7 @@ export default {
     const index = findIndex(state.kits.goodsKit, k => k.id === id);
     const kit = state.kits.goodsKit[index];
     if (goodsKit.items.length === 0) {
-      // state.kits[id].hasMoreItems = false;
-      Object.assign(kit, { hasMoreItems: false });
+      set(kit, 'hasMore', false);
     }
     if (goodsKit.items.length) {
       kit.good_list = [
