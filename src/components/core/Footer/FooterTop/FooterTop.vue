@@ -92,29 +92,29 @@ export default {
         {
           name: 'termsOfUse',
         },
-        {
-          name: 'promotions',
-        },
+        // {
+        //   name: 'promotions',
+        // },
         {
           name: 'delivery',
         },
-        {
-          name: 'reviews',
-        },
+        // {
+        //   name: 'reviews',
+        // },
       ],
       secondLinks: [
-        {
-          name: 'privacyPolicy',
-        },
-        {
-          name: 'news',
-        },
+        // {
+        //   name: 'privacyPolicy',
+        // },
+        // {
+        //   name: 'news',
+        // },
         {
           name: 'discounts',
         },
-        {
-          name: 'guarantees',
-        },
+        // {
+        //   name: 'guarantees',
+        // },
         {
           name: 'becomeSeller',
         },
