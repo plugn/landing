@@ -25,7 +25,7 @@
       </h6>
       <div class="row mx-0">
         <div
-          v-for="(group, idx) in categories"
+          v-for="(group, idx) in chunks(categories, 6)"
           :key="idx"
           class="col categories__column"
         >
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import chunks from 'lodash.chunk';
 import { createNamespacedHelpers } from 'vuex';
 
 import { LANG } from '@/constants';
@@ -86,8 +87,8 @@ export default {
   created() {
     this.fetchCategories(6);
   },
-
   methods: {
+    chunks,
     imgSrc,
     handleClose() {
       this.$emit('onClose');

@@ -10,7 +10,7 @@
     </h5>
     <div class="row">
       <div
-        v-for="(group, idx) in categories"
+        v-for="(group, idx) in chunks(categories, 8)"
         :key="idx"
         class="col footer-bottom__column"
       >
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import chunks from 'lodash.chunk';
 import { createNamespacedHelpers } from 'vuex';
 import Icon from 'components/base/Icon';
 import imgSrc from 'components/base/Icon/imgSrc';
@@ -73,9 +74,10 @@ export default {
   },
   computed: mapState(['categories']),
   created() {
-    this.fetchCategories(8);
+    this.fetchCategories();
   },
   methods: {
+    chunks,
     imgSrc,
     handleClick(endpoint) {
       const url = `https://alabom.com/${LANG}/${endpoint}`;
