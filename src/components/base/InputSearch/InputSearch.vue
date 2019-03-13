@@ -43,6 +43,12 @@ export default {
   directives: {
     selectOnEnter,
   },
+  props: {
+    maxNumResults: {
+      type: [String, Number],
+      default: 5,
+    },
+  },
   data() {
     return {
       searchQuery: '',
@@ -71,7 +77,7 @@ export default {
               ));
             } */
           });
-          resolve(items);
+          resolve(items.slice(0, this.maxNumResults));
         });
       });
     },
@@ -99,8 +105,6 @@ export default {
     div.suggestions {
       // box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
       max-height: 30rem;
-      overflow-y: scroll;
-      top: 39px;
     }
 
     ul.items {

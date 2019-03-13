@@ -50,7 +50,10 @@
       />
     </div>
     <div class="product-card__bottom">
-      {{ title }}
+      There are, of course, Javascript alternatives and, like all things code,
+      there are 9 ways to skin this cat.
+      You can see an example of a way I use to code an ellipsis that works in all browsers
+      and could potentially be expanded to include better support for other languages as well.
     </div>
   </article>
 </template>
