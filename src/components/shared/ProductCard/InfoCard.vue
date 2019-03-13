@@ -1,25 +1,25 @@
-<template functional>
+<template>
   <div class="info-card">
     <div class="info-card__left">
       <div
-        v-if="props.price"
+        v-if="price"
         class="info-card__price"
-        :class="{ 'info-card__price--red': props.hasDiscount}"
+        :class="{ 'info-card__price--red': hasDiscount}"
       >
-        {{ props.hasDiscount ? 'ot' : '' }} {{ props.price }} ₽
+        {{ hasDiscount ? 'ot' : '' }} {{ price }} ₽
       </div>
       <div
-        v-if="props.oldPrice && props.hasDiscount"
+        v-if="oldPrice && hasDiscount"
         class="info-card__old-price"
       >
         <div class="info-card__text">
-          {{ props.oldPrice }} ₽
+          {{ oldPrice }} ₽
         </div>
         <div class="info-card__price-cross" />
       </div>
     </div>
     <div
-      v-if="props.rating"
+      v-if="rating"
       class="info-card__rating"
     >
       <img
@@ -27,11 +27,41 @@
         class="info-card__star"
       >
       <span class="info-card__rate">
-        {{ props.rating }}
+        {{ calcRating(rating) }}
       </span>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'InfoCard',
+  props: {
+    hasDiscount: {
+      type: Boolean,
+      default: false,
+    },
+    price: {
+      type: [Number, String],
+      default: 0,
+    },
+    oldPrice: {
+      type: [Number, String],
+      default: 0,
+    },
+    rating: {
+      type: [Number, String],
+      default: 0,
+    },
+  },
+  methods: {
+    calcRating(rate) {
+      return Number.parseFloat(rate).toFixed(1);
+    },
+  },
+};
+</script>
+
 
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
