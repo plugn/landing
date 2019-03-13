@@ -101,12 +101,6 @@ export default {
         {
           name: 'reviews',
         },
-        {
-          name: 'privacyPolicy',
-        },
-        {
-          name: 'news',
-        },
       ],
       secondLinks: [
         {
@@ -162,14 +156,14 @@ export default {
 
   .footer-top {
     @include element(column) {
-      padding: 0 0.71429rem;
+      padding: 0 px-to-rem(10);
       width: 25%;
     }
 
     @include element(title) {
       font-size: 18px;
-      margin-bottom: 2.5rem;
-      margin-top: 1rem;
+      margin-bottom: px-to-rem(25);
+      margin-top: 0.8rem;
     }
 
     @include element(link) {
@@ -180,13 +174,14 @@ export default {
 
     @include element(logo) {
       display: inline-block;
-      margin-bottom: px-to-rem(35);
+      margin-bottom: px-to-rem(25);
       margin-left: -2rem;
     }
 
     @include element(description) {
       color: var(--light-gray);
       font-size: 12px;
+      line-height: 20px;
     }
 
     @include element(social-links) {
