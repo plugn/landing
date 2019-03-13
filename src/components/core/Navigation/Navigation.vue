@@ -95,18 +95,26 @@
         </Dropdown>
       </div>
       <div
-        v-if="false"
+        v-if="true"
         class="navigation__right-item"
       >
         <Dropdown
           icon="enter-black"
-          :text="$t('signIn')"
+          :text="profile ? userName : $t('signIn')"
           hide-text-mobile
         >
           <img
+            v-if="profile"
+            slot="icon"
+            src="/static/svg/icons/user-black.svg"
+            class="dropdown-icon"
+          >
+          <img
+            v-if="!profile"
             slot="icon"
             src="/static/svg/icons/enter-black.svg"
             class="dropdown-icon"
+            @click="goAuth"
           >
         </Dropdown>
       </div>
@@ -168,7 +176,19 @@ export default {
       profile: userProfile,
     };
   },
+  computed: {
+    userName() {
+      return this.profile ? (this.profile.first_name || this.profile.last_name || this.profile.email || 'Гость') : 'Гость';
+    },
+  },
   methods: {
+    goAuth() {
+      // eslint-disable-next-line
+      localStorage.setItem('LANDING_URL', location.href);
+      localStorage.setItem('LANDING_ACTION', 'auth');
+      // eslint-disable-next-line
+      location.href = '/';
+    },
     handleLoginClick() {
       this.isLoginFormOpened = !this.isLoginFormOpened;
     },
