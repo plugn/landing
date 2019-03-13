@@ -1,4 +1,5 @@
 import has from 'lodash.has';
+import findIndex from 'lodash.findindex';
 
 import tFrom from '@/utils/tFrom';
 import translateList from '@/utils/translateList';
@@ -63,11 +64,12 @@ export default {
   },
   [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
     if (goodsKit.items.length === 0) {
-      state.kits[id].hasMoreItems = false;
+      // state.kits[id].hasMoreItems = false;
     }
     if (goodsKit.items.length) {
-      state.kits[id].good_list = [
-        ...state.kits[id].good_list,
+      const index = findIndex(state.kits.goodsKit, k => k.id === id);
+      state.kits.goodsKit[index].good_list = [
+        ...state.kits.goodsKit[index].good_list,
         ...goodsKit.items,
       ];
     }
