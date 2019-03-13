@@ -50,7 +50,7 @@
       />
     </div>
     <div
-      ref="productCardBottom"
+      v-line-clamp:21="2"
       class="product-card__bottom"
     >
       {{ title }}
@@ -59,8 +59,6 @@
 </template>
 
 <script>
-import lineClamp from 'line-clamp';
-
 import isNil from 'lodash.isnil';
 
 import { LANG } from '@/constants';
@@ -98,7 +96,6 @@ export default {
   mounted() {
     const { title } = tFrom(['title'], this.product);
     this.title = title;
-    lineClamp(this.$refs.productCardBottom, 2);
   },
   methods: {
     isNil,
@@ -124,7 +121,7 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
-    height: px-to-rem(290);
+    // height: px-to-rem(290);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
@@ -184,9 +181,11 @@ export default {
     }
 
     @include element(image-container) {
-      height: 0;
-      padding-bottom: 100%;
-      position: relative;
+      // height: 0;
+      // padding-bottom: 100%;
+      // position: relative;
+      height: 214px;
+      width: 214px;
     }
 
     @include element(image) {
@@ -194,7 +193,7 @@ export default {
       border: 1px solid rgba(0,0,0,.1);
       display: block;
       height: 100%;
-      position: absolute;
+      // position: absolute;
       width: 100%;
       z-index: 2;
     }
