@@ -27,10 +27,12 @@
         />
       </h5>
       <div class="footer-top__links">
-        <div
+        <a
           v-for="link in firstLinks"
           :key="link.name"
+          :href="link.href"
           v-t="link.name"
+          target="_blank"
           class="footer-top__link"
         />
       </div>
@@ -42,10 +44,12 @@
         />
       </h5>
       <div class="footer-top__links">
-        <div
+        <a
           v-for="link in secondLinks"
           :key="link.name"
+          :href="link.href"
           v-t="link.name"
+          target="_blank"
           class="footer-top__link"
         />
       </div>
@@ -57,16 +61,18 @@
         />
       </h5>
       <div class="footer-top__social-links">
-        <div
+        <a
           v-for="social in socialLinks"
           :key="social.id"
+          :href="social.href"
+          target="_blank"
           class="footer-top__social"
         >
           <img
             class="img-fluid"
             :src="social.icon"
           >
-        </div>
+        </a>
       </div>
       <span
         v-t="'generalQuestions'"
@@ -88,63 +94,66 @@ export default {
       firstLinks: [
         {
           name: 'faq',
+          href: 'https://alabom.com/help/',
         },
         {
           name: 'termsOfUse',
+          href: 'https://alabom.com/documents/alabom-terms.pdf ',
         },
-        {
-          name: 'promotions',
-        },
+        // {
+        //   name: 'promotions',
+        // },
         {
           name: 'delivery',
+          href: 'https://alabom.com/help/',
         },
-        {
-          name: 'reviews',
-        },
-        {
-          name: 'privacyPolicy',
-        },
-        {
-          name: 'news',
-        },
+        // {
+        //   name: 'reviews',
+        // },
       ],
       secondLinks: [
-        {
-          name: 'privacyPolicy',
-        },
-        {
-          name: 'news',
-        },
+        // {
+        //   name: 'privacyPolicy',
+        // },
+        // {
+        //   name: 'news',
+        // },
         {
           name: 'discounts',
+          href: 'https://alabom.com/categories/?has_active_discount=true&page=1',
         },
-        {
-          name: 'guarantees',
-        },
+        // {
+        //   name: 'guarantees',
+        // },
         {
           name: 'becomeSeller',
+          href: 'https://merchant.alabom.com',
         },
       ],
       socialLinks: [
         {
           id: 0,
           icon: '/static/svg/brands/fb.svg',
+          href: 'https://www.facebook.com/alabom.official/',
         },
         {
           id: 1,
           icon: '/static/svg/brands/vk.svg',
+          href: 'https://vk.com/alabom.official',
         },
-        {
-          id: 2,
-          icon: '/static/svg/brands/youtube.svg',
-        },
+        // {
+        //   id: 2,
+        //   icon: '/static/svg/brands/youtube.svg',
+        // },
         {
           id: 3,
           icon: '/static/svg/brands/instagram.svg',
+          href: 'https://www.instagram.com/alabom.official/',
         },
         {
           id: 4,
           icon: '/static/svg/brands/ok.svg',
+          href: 'https://www.ok.ru/group/54217230647493 ',
         },
       ],
     };
@@ -162,28 +171,34 @@ export default {
 
   .footer-top {
     @include element(column) {
-      padding: 0 0.71429rem;
+      padding: 0 px-to-rem(10);
       width: 25%;
     }
 
     @include element(title) {
-      margin-bottom: 2.5rem;
+      font-size: 18px;
+      margin-bottom: px-to-rem(25);
+      margin-top: 0.8rem;
     }
 
     @include element(link) {
+      color: var(--body-font);
+      display: block;
       line-height: 24px;
+      margin-bottom: px-to-rem(12);
       text-decoration-line: underline;
     }
 
     @include element(logo) {
       display: inline-block;
-      margin-bottom: px-to-rem(35);
+      margin-bottom: px-to-rem(25);
       margin-left: -2rem;
     }
 
     @include element(description) {
       color: var(--light-gray);
       font-size: 12px;
+      line-height: 20px;
     }
 
     @include element(social-links) {

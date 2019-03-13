@@ -1,0 +1,12 @@
+{
+  "en": {
+    "shoppingCart": "Shopping cart",
+    "yourShoppingCartIsStillEmpty": "Your shopping cart is still empty",
+    "chooseAProductAndOrderIt": "Choose a product and order it for a few minutes"
+  },
+  "ru": {
+    "shoppingCart": "Корзина",
+    "yourShoppingCartIsStillEmpty": "Ваша корзина по-прежнему пуста",
+    "chooseAProductAndOrderIt": "Выберите продукт и закажите его за несколько минут"
+  }
+}

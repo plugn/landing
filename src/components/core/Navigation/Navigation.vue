@@ -65,34 +65,10 @@
         <ModalSearch />
       </div>
       <div
-        v-if="false"
+        v-if="true"
         class="navigation__cart"
       >
-        <Dropdown
-          icon="cart-black"
-          :text="$t('shoppingCart')"
-          hide-text-mobile
-        >
-          <img
-            slot="icon"
-            src="/static/svg/icons/cart-black.svg"
-            class="dropdown-icon"
-          >
-
-          <div
-            slot="count"
-            class="cart-counter"
-          >
-            2
-          </div>
-          <div>
-            Your shopping cart is still empty
-          </div>
-          <div>
-            Choose a product and order it for a few
-            minutes
-          </div>
-        </Dropdown>
+        <DropdownCart />
       </div>
       <div
         v-if="false"
@@ -126,14 +102,15 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import InputSearch from 'components/base/InputSearch';
-import Dropdown from 'components/base/Dropdown';
-import Modal from 'components/shared/Modal';
-import LoginForm from 'components/shared/LoginForm/_LoginForm';
-import clickOutside from 'directives/clickOutside';
+import InputSearch from '@/components/base/InputSearch';
+import Dropdown from '@/components/base/Dropdown';
+import Modal from '@/components/shared/Modal';
+import LoginForm from '@/components/shared/LoginForm/_LoginForm';
+import clickOutside from '@/directives/clickOutside';
 
 import Categories from './Categories';
 import ModalSearch from './ModalSearch';
+import DropdownCart from './DropdownCart';
 
 const { mapActions } = createNamespacedHelpers('modal');
 const profileJson = localStorage.getItem('LANDING_PROFILE');
@@ -151,6 +128,7 @@ export default {
     Modal,
     LoginForm,
     ModalSearch,
+    DropdownCart,
   },
   data() {
     return {

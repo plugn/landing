@@ -49,13 +49,18 @@
         :rating="product.rating"
       />
     </div>
-    <div class="product-card__bottom">
+    <div
+      ref="productCardBottom"
+      class="product-card__bottom"
+    >
       {{ title }}
     </div>
   </article>
 </template>
 
 <script>
+import lineClamp from 'line-clamp';
+
 import isNil from 'lodash.isnil';
 
 import { LANG } from '@/constants';
@@ -93,6 +98,7 @@ export default {
   mounted() {
     const { title } = tFrom(['title'], this.product);
     this.title = title;
+    lineClamp(this.$refs.productCardBottom, 2);
   },
   methods: {
     isNil,
@@ -204,10 +210,10 @@ export default {
 
     @include element(bottom) {
       margin-top: px-to-rem(5);
-      text-overflow: ellipsis;
-      /* Needed to make it work */
+      // text-overflow: ellipsis;
+      // /* Needed to make it work */
       overflow: hidden;
-      white-space: nowrap;
+      // white-space: nowrap;
     }
 
     @include element(corner-full) {

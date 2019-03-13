@@ -1,12 +1,10 @@
 {
   "en": {
     "allCategories": "All categories",
-    "shoppingCart": "Shopping cart",
     "signIn": "Sign In"
   },
   "ru": {
     "allCategories": "Все категории",
-    "shoppingCart": "Корзина",
     "signIn": "Вход"
   }
 }
