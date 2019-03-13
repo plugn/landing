@@ -1,7 +1,5 @@
 import has from 'lodash.has';
 import findIndex from 'lodash.findindex';
-import flowRight from 'lodash.flowright';
-import curry from 'lodash.curry';
 
 import tFrom from '@/utils/tFrom';
 import translateList from '@/utils/translateList';
@@ -52,20 +50,8 @@ export default {
     }
   },
   [GOODS_KIT_SUCCESS](state, { kits }) {
-    /**
-     * @description curryfied version of 'translateList
-     * @param {Array<String>} props
-     * @returns {(kits) => Array<{ title: String, *}>} translated kits
-     */
-    const translateBy = curry(translateList);
-    /**
-     * @description translates and sets each item a 'hasMore' proerty by
-     * applying transformation functions from right-to-left
-     * @param {Array<Object<any>>} kits
-     * @returns {(kits) => Array<{ title: String, hasMore: true, *}>} kits
-     */
-    const transformKits = flowRight([translateBy(['title'])]);
-    state.kits.goodsKit = transformKits(kits);
+    const goodsKit = translateList(['title'], kits);
+    state.kits.goodsKit = goodsKit;
     state.kits.isLoaded = true;
   },
   [GOODS_KIT_FAILURE](state, err) {

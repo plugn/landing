@@ -118,6 +118,7 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
+    height: px-to-rem(290);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
@@ -203,6 +204,10 @@ export default {
 
     @include element(bottom) {
       margin-top: px-to-rem(5);
+      text-overflow: ellipsis;
+      /* Needed to make it work */
+      overflow: hidden;
+      white-space: nowrap;
     }
 
     @include element(corner-full) {
