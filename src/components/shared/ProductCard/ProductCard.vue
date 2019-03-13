@@ -49,16 +49,18 @@
         :rating="product.rating"
       />
     </div>
-    <div class="product-card__bottom">
-      There are, of course, Javascript alternatives and, like all things code,
-      there are 9 ways to skin this cat.
-      You can see an example of a way I use to code an ellipsis that works in all browsers
-      and could potentially be expanded to include better support for other languages as well.
+    <div
+      ref="productCardBottom"
+      class="product-card__bottom"
+    >
+      {{ title }}
     </div>
   </article>
 </template>
 
 <script>
+import lineClamp from 'line-clamp';
+
 import isNil from 'lodash.isnil';
 
 import { LANG } from '@/constants';
@@ -96,6 +98,7 @@ export default {
   mounted() {
     const { title } = tFrom(['title'], this.product);
     this.title = title;
+    lineClamp(this.$refs.productCardBottom, 2);
   },
   methods: {
     isNil,
@@ -207,10 +210,10 @@ export default {
 
     @include element(bottom) {
       margin-top: px-to-rem(5);
-      text-overflow: ellipsis;
-      /* Needed to make it work */
-      overflow: hidden;
-      white-space: nowrap;
+      // text-overflow: ellipsis;
+      // /* Needed to make it work */
+      // overflow: hidden;
+      // white-space: nowrap;
     }
 
     @include element(corner-full) {
