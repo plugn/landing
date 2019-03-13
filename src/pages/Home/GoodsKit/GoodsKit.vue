@@ -26,7 +26,7 @@
       </div>
     </div>
     <div
-      v-if="hasMoreItems"
+      v-if="kit.hasMore"
       v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
@@ -63,7 +63,6 @@ export default {
     return {
       limit: 10,
       offset: 0,
-      hasMoreItems: true,
     };
   },
   methods: {
