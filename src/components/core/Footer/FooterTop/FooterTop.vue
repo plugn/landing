@@ -27,10 +27,12 @@
         />
       </h5>
       <div class="footer-top__links">
-        <div
+        <a
           v-for="link in firstLinks"
           :key="link.name"
+          :href="link.href"
           v-t="link.name"
+          target="_blank"
           class="footer-top__link"
         />
       </div>
@@ -42,10 +44,12 @@
         />
       </h5>
       <div class="footer-top__links">
-        <div
+        <a
           v-for="link in secondLinks"
           :key="link.name"
+          :href="link.href"
           v-t="link.name"
+          target="_blank"
           class="footer-top__link"
         />
       </div>
@@ -88,15 +92,18 @@ export default {
       firstLinks: [
         {
           name: 'faq',
+          href: 'https://alabom.com/help/',
         },
         {
           name: 'termsOfUse',
+          href: 'https://alabom.com/documents/alabom-terms.pdf ',
         },
         // {
         //   name: 'promotions',
         // },
         {
           name: 'delivery',
+          href: 'https://alabom.com/help/',
         },
         // {
         //   name: 'reviews',
@@ -111,12 +118,14 @@ export default {
         // },
         {
           name: 'discounts',
+          href: 'https://alabom.com/categories/?has_active_discount=true&page=1',
         },
         // {
         //   name: 'guarantees',
         // },
         {
           name: 'becomeSeller',
+          href: 'https://merchant.alabom.com',
         },
       ],
       socialLinks: [
@@ -128,10 +137,10 @@ export default {
           id: 1,
           icon: '/static/svg/brands/vk.svg',
         },
-        {
-          id: 2,
-          icon: '/static/svg/brands/youtube.svg',
-        },
+        // {
+        //   id: 2,
+        //   icon: '/static/svg/brands/youtube.svg',
+        // },
         {
           id: 3,
           icon: '/static/svg/brands/instagram.svg',
@@ -167,6 +176,8 @@ export default {
     }
 
     @include element(link) {
+      color: var(--body-font);
+      display: block;
       line-height: 24px;
       margin-bottom: px-to-rem(12);
       text-decoration-line: underline;
