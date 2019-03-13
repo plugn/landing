@@ -1,3 +1,5 @@
+<i18n src="./categories.i18n.json"></i18n>
+
 <template>
   <nav
     class="categories"
@@ -40,10 +42,9 @@
                 <Icon :src="category.icon" />
               </span>
               <div
+                v-t="category.name"
                 class="categories__text"
-              >
-                {{ category.text }}
-              </div>
+              />
             </div>
             <img
               class="categories__chevron"
