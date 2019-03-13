@@ -167,11 +167,14 @@ export default {
     }
 
     @include element(title) {
+      font-size: 18px;
       margin-bottom: 2.5rem;
+      margin-top: 1rem;
     }
 
     @include element(link) {
       line-height: 24px;
+      margin-bottom: px-to-rem(12);
       text-decoration-line: underline;
     }
 
