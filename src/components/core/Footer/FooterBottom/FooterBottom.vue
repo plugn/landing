@@ -1,4 +1,4 @@
-<i18n src="../../../../assets/json/categories.i18n.json"></i18n>
+<i18n src="@/components/core/Navigation/Categories/categories.i18n.json"></i18n>
 <i18n src="./footerBottom.i18n.json"></i18n>
 
 <template>
