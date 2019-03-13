@@ -19,9 +19,10 @@
           :key="category.href"
           class="footer-bottom__item-wrapper"
         >
-          <a
-            :href="category.href"
+          <div
             class="footer-bottom__link"
+            role="link"
+            @click="handleClick(category.href)"
           >
             <span class="footer-bottom__icon">
               <Icon :src="category.icon" />
@@ -30,7 +31,7 @@
               v-t="category.name"
               class="footer-bottom__text"
             />
-          </a>
+          </div>
         </div>
       </div>
       <div class="col footer-bottom__column">
@@ -61,6 +62,8 @@ import { createNamespacedHelpers } from 'vuex';
 import Icon from 'components/base/Icon';
 import imgSrc from 'components/base/Icon/imgSrc';
 
+import { LANG } from '@/constants';
+
 const { mapState, mapActions } = createNamespacedHelpers('categories');
 
 export default {
@@ -74,6 +77,10 @@ export default {
   },
   methods: {
     imgSrc,
+    handleClick(endpoint) {
+      const url = `https://alabom.com/${LANG}/${endpoint}`;
+      window.location.href = url;
+    },
     ...mapActions(['fetchCategories']),
   },
 };
@@ -113,6 +120,7 @@ export default {
     @include element(link) {
       align-items: center;
       border-bottom: 1px solid rgba(24, 25, 32, .1);
+      cursor: pointer;
       display: flex;
       justify-content: flex-start;
       padding: 16px 16px 16px 0;
