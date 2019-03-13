@@ -60,18 +60,12 @@ export default {
      */
     const translateBy = curry(translateList);
     /**
-     * @description sets 'hasMore' to each item
-     * @param {Array<Object<any>>} items
-     * @returns {Array<{ hasMore: true, *}>} items
-     */
-    const setHasMore = items => items.map(item => set(item, 'hasMore', true));
-    /**
      * @description translates and sets each item a 'hasMore' proerty by
      * applying transformation functions from right-to-left
      * @param {Array<Object<any>>} kits
      * @returns {(kits) => Array<{ title: String, hasMore: true, *}>} kits
      */
-    const transformKits = flowRight([setHasMore, translateBy(['title'])]);
+    const transformKits = flowRight([translateBy(['title'])]);
     state.kits.goodsKit = transformKits(kits);
     state.kits.isLoaded = true;
   },
@@ -87,9 +81,6 @@ export default {
   [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
     const index = findIndex(state.kits.goodsKit, k => k.id === id);
     const kit = state.kits.goodsKit[index];
-    if (goodsKit.items.length === 0) {
-      set(kit, 'hasMore', false);
-    }
     if (goodsKit.items.length) {
       kit.good_list = [
         ...kit.good_list,
