@@ -23,18 +23,15 @@ export default {
   },
   // goods kit
   async fetchGoodsKit({ commit/* getters */ }, {
-    id,
-    limit = 10,
-    offset = 0,
+    landingId,
   }) {
-    commit(types.GOODS_KIT_REQUEST, id);
+    commit(types.GOODS_KIT_REQUEST, landingId);
     try {
       const response = await api.get(
-        `/goods/v1.0/landings/kit/${id}/?goods_limit=${limit}&goods_offset=${offset}`,
+        `/goods/v1.0/landings/kit/?landing_id=${landingId}`,
       );
       commit(types.GOODS_KIT_SUCCESS, {
-        kit: response.data,
-        id,
+        kits: response.data,
       });
     } catch (err) {
       commit(types.GOODS_KIT_FAILURE, err);

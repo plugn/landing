@@ -2,21 +2,21 @@
 
 <template>
   <section
-    :id="`kit-${kitId}`"
+    :id="`kit-${kit.id}`"
   >
     <Banner
-      :url-id="kitId"
-      :name="name"
+      :url-id="`${kit.id}`"
+      :name="`${kit.id}`"
     />
     <h3 class="goods-kit__row-title">
-      {{ kits.isLoaded && kits[name] ? kits[name].title : '' }}
+      {{ kit.title }}
     </h3>
     <div
-      v-if="kits.isLoaded && kits[name]"
+      v-if="kit.good_list.length"
       class="row goods-kit__row"
     >
       <div
-        v-for="(good, idx) in kits[name].good_list"
+        v-for="(good, idx) in kit.good_list"
         :key="idx"
         class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2 p-0"
       >
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div
-      v-if="hasMoreItems"
+      v-if="kit.hasMore"
       v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
@@ -41,7 +41,7 @@ import { createNamespacedHelpers } from 'vuex';
 import ProductCard from '@/components/shared/ProductCard';
 import Banner from '@/pages/Home/Banner';
 
-const { mapState, mapActions, mapGetters } = createNamespacedHelpers('landing');
+const { mapActions } = createNamespacedHelpers('landing');
 
 export default {
   name: 'GoodsKit',
@@ -50,45 +50,29 @@ export default {
     Banner,
   },
   props: {
-    name: {
-      type: [String, Number],
-      default: 'goodsSection',
-    },
-    kitId: {
-      type: [String, Number],
-      default: '1',
+    kit: {
+      type: Object,
+      default() {
+        return {
+          good_list: [],
+        };
+      },
     },
   },
   data() {
     return {
       limit: 10,
       offset: 0,
-      hasMoreItems: true,
     };
   },
-  computed: {
-    ...mapState(['kits']),
-    ...mapGetters(['getKits']),
-  },
-  created() {
-    this.startFetch();
-  },
   methods: {
-    startFetch() {
-      this.fetchGoodsKit({
-        id: this.kitId,
-        limit: this.limit,
-        offset: this.offset,
-      });
-    },
     handleLoadMore() {
       this.loadMoreGoodsKit({
-        id: this.kitId,
+        id: this.kit.id,
         offset: this.offset += this.limit,
       });
-      this.hasMoreItems = this.kits[this.kitId].hasMoreItems;
     },
-    ...mapActions(['fetchGoodsKit', 'loadMoreGoodsKit']),
+    ...mapActions(['loadMoreGoodsKit']),
   },
 };
 </script>

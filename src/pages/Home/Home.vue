@@ -11,15 +11,14 @@
       <div class="home__row overflow-auto">
         <NavigationElements />
       </div>
-      <div v-if="landingPage.isLoaded">
+      <div v-if="kits.isLoaded">
         <div
-          v-for="kit in landingPage.kits"
-          :key="kit"
+          v-for="kit in kits.goodsKit"
+          :key="kit.id"
           class="home__row"
         >
           <GoodsKit
-            :kit-id="`${kit}`"
-            :name="`${kit}`"
+            :kit="kit"
           />
         </div>
       </div>
@@ -50,13 +49,16 @@ export default {
     NavigationElements,
     GoodsKit,
   },
-  computed: mapState(['landingPage']),
+  computed: mapState(['landingPage', 'kits']),
   created() {
     this.fetchLandingPage({
       id: landingId,
     });
+    this.fetchGoodsKit({
+      landingId,
+    });
   },
-  methods: mapActions(['fetchLandingPage']),
+  methods: mapActions(['fetchLandingPage', 'fetchGoodsKit']),
 };
 </script>
 
