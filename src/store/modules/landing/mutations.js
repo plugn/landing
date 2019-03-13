@@ -1,5 +1,4 @@
 import has from 'lodash.has';
-import set from 'lodash.set';
 import findIndex from 'lodash.findindex';
 import flowRight from 'lodash.flowright';
 import curry from 'lodash.curry';
