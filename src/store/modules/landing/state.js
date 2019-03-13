@@ -5,6 +5,7 @@ export default {
     error: null,
   },
   kits: {
+    goodsKit: [],
     isLoaded: null,
     error: null,
   },

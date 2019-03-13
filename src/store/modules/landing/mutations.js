@@ -48,12 +48,8 @@ export default {
       state.kits.isLoaded = false;
     }
   },
-  [GOODS_KIT_SUCCESS](state, { kit, id }) {
-    state.kits = {
-      ...state.kits,
-      [id]: tFrom(['title'], kit),
-    };
-    state.kits[id].hasMoreItems = true;
+  [GOODS_KIT_SUCCESS](state, { kits }) {
+    state.kits.goodsKit = translateList(['title'], kits);
     state.kits.isLoaded = true;
   },
   [GOODS_KIT_FAILURE](state, err) {
