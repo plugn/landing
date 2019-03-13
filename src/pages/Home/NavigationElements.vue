@@ -13,9 +13,9 @@
           v-smooth-scroll
           :href="`#kit-${cat.kit}`"
         >
-          <figure class="navigation-elements__image">
+          <figure class="navigation-elements__image-wrapper">
             <img
-              class="img-fluid"
+              class="navigation-elements__image"
               :src="cat.image.image_98x98"
               :alt="cat.kit"
             >
@@ -102,8 +102,14 @@ export default {
       width: 100%;
     }
 
-    @include element(image) {
+    @include element(image-wrapper) {
       margin: 0;
+    }
+
+    @include element(image) {
+      border: 1px solid rgba(24, 25, 32, 0.1);
+      border-radius: 50%;
+      width: px-to-rem(98);
     }
 
     @include element(text) {
