@@ -70,8 +70,10 @@ export default {
   .home {
 
     @include element(row) {
+      ::-webkit-scrollbar{
+        display: none !important;
+      }
       margin-bottom: px-to-rem(50);
-      // overflow-x: scroll;
     }
 
     @include element(row-title) {
