@@ -123,6 +123,10 @@ export default {
       padding: 9px 50px 9px 14px;
       transition: all .1s ease-in-out;
       width: 100%;
+      &:focus {
+        border-color: var(--input-focus) !important;
+      }
+
     }
 
     @include element(icon) {
