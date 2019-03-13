@@ -61,16 +61,18 @@
         />
       </h5>
       <div class="footer-top__social-links">
-        <div
+        <a
           v-for="social in socialLinks"
           :key="social.id"
+          :href="social.href"
+          target="_blank"
           class="footer-top__social"
         >
           <img
             class="img-fluid"
             :src="social.icon"
           >
-        </div>
+        </a>
       </div>
       <span
         v-t="'generalQuestions'"
@@ -132,10 +134,12 @@ export default {
         {
           id: 0,
           icon: '/static/svg/brands/fb.svg',
+          href: 'https://www.facebook.com/alabom.official/',
         },
         {
           id: 1,
           icon: '/static/svg/brands/vk.svg',
+          href: 'https://vk.com/alabom.official',
         },
         // {
         //   id: 2,
@@ -144,10 +148,12 @@ export default {
         {
           id: 3,
           icon: '/static/svg/brands/instagram.svg',
+          href: 'https://www.instagram.com/alabom.official/',
         },
         {
           id: 4,
           icon: '/static/svg/brands/ok.svg',
+          href: 'https://www.ok.ru/group/54217230647493 ',
         },
       ],
     };
