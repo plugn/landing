@@ -71,7 +71,6 @@ export default {
         id: this.kit.id,
         offset: this.offset += this.limit,
       });
-      // this.hasMoreItems = this.kits[this.kitId].hasMoreItems;
     },
     ...mapActions(['loadMoreGoodsKit']),
   },

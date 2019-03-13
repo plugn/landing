@@ -28,7 +28,7 @@ export default {
     commit(types.GOODS_KIT_REQUEST, landingId);
     try {
       const response = await api.get(
-        `http://api.racoon.local/goods/v1.0/landings/kit/?landing_id=${landingId}`,
+        `/goods/v1.0/landings/kit/?landing_id=${landingId}`,
       );
       commit(types.GOODS_KIT_SUCCESS, {
         kits: response.data,
