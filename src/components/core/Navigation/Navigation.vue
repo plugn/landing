@@ -71,20 +71,10 @@
         <DropdownCart />
       </div>
       <div
-        v-if="false"
+        v-if="true"
         class="navigation__right-item"
       >
-        <Dropdown
-          icon="enter-black"
-          :text="$t('signIn')"
-          hide-text-mobile
-        >
-          <img
-            slot="icon"
-            src="/static/svg/icons/enter-black.svg"
-            class="dropdown-icon"
-          >
-        </Dropdown>
+        <DropdownAuth />
       </div>
     </div>
     <!-- <button @click="handleLoginClick">
@@ -103,7 +93,6 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import InputSearch from '@/components/base/InputSearch';
-import Dropdown from '@/components/base/Dropdown';
 import Modal from '@/components/shared/Modal';
 import LoginForm from '@/components/shared/LoginForm/_LoginForm';
 import clickOutside from '@/directives/clickOutside';
@@ -111,6 +100,7 @@ import clickOutside from '@/directives/clickOutside';
 import Categories from './Categories';
 import ModalSearch from './ModalSearch';
 import DropdownCart from './DropdownCart';
+import DropdownAuth from './DropdownAuth';
 
 const { mapActions } = createNamespacedHelpers('modal');
 const profileJson = localStorage.getItem('LANDING_PROFILE');
@@ -122,13 +112,13 @@ export default {
     clickOutside,
   },
   components: {
-    Dropdown,
     Categories,
     InputSearch,
     Modal,
     LoginForm,
     ModalSearch,
     DropdownCart,
+    DropdownAuth,
   },
   data() {
     return {
