@@ -25,7 +25,7 @@ export default {
   .header {
     background: var(--white);
     border-bottom: 1px solid var(--black-01);
-    height: 4rem;
+    height: px-to-rem(55.98);
     left: 0;
     position: absolute;
     top: 0;
@@ -37,12 +37,9 @@ export default {
     }
 
     @include media($lg) {
-      height: px-to-rem(60);
+      height: px-to-rem(70);
     }
 
-    @include media($xl) {
-      height: 5rem;
-    }
   }
 
 </style>
