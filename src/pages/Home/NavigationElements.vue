@@ -12,6 +12,7 @@
         <a
           v-smooth-scroll
           :href="`#kit-${cat.kit}`"
+          class="navigation-elements__link"
         >
           <figure class="navigation-elements__image-wrapper">
             <img
@@ -100,6 +101,12 @@ export default {
     @include media($md) {
       overflow-x: initial;
       width: 100%;
+    }
+
+    @include element(link) {
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     @include element(image-wrapper) {
