@@ -20,8 +20,16 @@
       </div>
     </Suggestions>
     <img
+      v-if="searchQuery === ''"
       class="input-search__icon"
       src="/static/svg/icons/search-black.svg"
+    >
+    <img
+      v-if="searchQuery !== ''"
+      role="button"
+      class="input-search__icon input-search__icon--cancel"
+      src="/static/svg/icons/cancel-black.svg"
+      @click="handleClickCancel"
     >
   </div>
 </template>
@@ -90,6 +98,9 @@ export default {
       const url = `https://alabom.com/${LANG}/search/?q=${query}`;
       window.location.href = url;
     },
+    handleClickCancel() {
+      this.searchQuery = '';
+    },
   },
 };
 </script>
@@ -98,18 +109,39 @@ export default {
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
 
+  .single-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .input-search {
     position: relative;
     width: 100%;
 
     div.suggestions {
       // box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
-      max-height: 30rem;
+      top: 3.9rem;
+      // border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 px-to-rem(4) px-to-rem(4);
     }
 
     ul.items {
-      border-bottom: none;
-      border-top: 1px solid var(--black-01);
+      border: 1px solid rgba(24, 25, 32, 0.1);
+      padding: 10px 0;
+    }
+
+    li.item {
+      border: none;
+      padding: 5px 15px;
+    }
+
+    .searchlink {
+      display: block;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 80ms ease;
+      text-decoration: none;
     }
 
     @include element(input) {
@@ -142,6 +174,10 @@ export default {
       color: #181920;
       font-size: 24px;
       line-height: 24px;
+
+      @include modifier(cancel) {
+        cursor: pointer;
+      }
     }
 
   }

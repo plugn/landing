@@ -28,7 +28,7 @@
         to="/"
       >
         <img
-          height="30"
+          style="height: 30px"
           class="logo__img"
           src="/static/svg/icons/alabom-logo-beta.svg"
         >
@@ -288,7 +288,7 @@ export default {
     color: var(--black-08);
     cursor: pointer;
     display: none;
-    height: px-to-rem(40);
+    height: 40px;
     margin-right: px-to-rem(10);
     padding: 10px 15px;
     transition: all .1s ease-in-out;

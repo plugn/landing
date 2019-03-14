@@ -125,7 +125,8 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
-    height: px-to-rem(235);
+    height: auto;
+    min-height: px-to-rem(235);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
@@ -150,6 +151,7 @@ export default {
 
     @include media($md) {
       height: px-to-rem(310);
+      min-height: initial;
     }
 
     @include element(cover) {
