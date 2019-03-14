@@ -1,8 +1,14 @@
 {
   "en": {
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "myOrders": "My orders",
+    "myProfile": "My profile",
+    "logOut": "Log out"
   },
   "ru": {
-    "signIn": "Вход"
+    "signIn": "Вход",
+    "myOrders": "Мои заказы",
+    "myProfile": "Мой профиль",
+    "logOut": "Выход"
   }
 }

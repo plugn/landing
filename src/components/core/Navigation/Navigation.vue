@@ -71,7 +71,7 @@
         <DropdownCart />
       </div>
       <div
-        v-if="true"
+        v-if="false"
         class="navigation__right-item"
       >
         <DropdownAuth />
