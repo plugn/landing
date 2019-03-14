@@ -52,8 +52,13 @@
     <div
       v-line-clamp:21="2"
       class="product-card__bottom"
+      style="word-break: break-word !important"
     >
-      {{ title }}
+      the argument passed to the directive must be a number,
+      and its used as the line-height value for non-webkit
+      browsers, as part of the fallback method.
+      In some upcoming version it may be able to detect
+      this value automatically.
     </div>
   </article>
 </template>
@@ -114,6 +119,7 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .product-card {
     background-color: transparent;
@@ -123,7 +129,7 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
-    height: px-to-rem(310);
+    height: px-to-rem(235);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
@@ -144,6 +150,10 @@ export default {
         opacity: 1;
       }
 
+    }
+
+    @include media($md) {
+      height: px-to-rem(310);
     }
 
     @include element(cover) {
