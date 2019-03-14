@@ -54,11 +54,7 @@
       class="product-card__bottom"
       style="word-break: break-word !important"
     >
-      the argument passed to the directive must be a number,
-      and its used as the line-height value for non-webkit
-      browsers, as part of the fallback method.
-      In some upcoming version it may be able to detect
-      this value automatically.
+      {{ title }}
     </div>
   </article>
 </template>
