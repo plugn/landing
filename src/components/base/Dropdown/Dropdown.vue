@@ -137,8 +137,8 @@ export default {
     @include element(list) {
       background-color: #fff;
       border-radius: px-to-rem(4);
-      border: 1px none rgba(24, 25, 32, 0.1);
-      box-shadow: 0 5px 20px 0 rgba(24, 25, 32, 0.1), 0 0 0 1px hsla(0, 0%, 100%, 0.5);
+      border: 1px none var(--black-01);
+      box-shadow: 0 5px 20px 0 var(--black-01), 0 0 0 1px hsla(0, 0%, 100%, 0.5);
       color: #181920;
       display: none;
       margin-top: px-to-rem(70);

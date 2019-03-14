@@ -107,7 +107,7 @@ export default {
     }
 
     @include element(image) {
-      border: 1px solid rgba(24, 25, 32, 0.1);
+      border: 1px solid var(--black-01);
       border-radius: 50%;
       width: px-to-rem(98);
     }
