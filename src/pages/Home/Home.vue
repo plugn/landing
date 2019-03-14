@@ -54,11 +54,18 @@ export default {
     this.fetchLandingPage({
       id: landingId,
     });
+    this.fetchKitBanners({
+      landingId,
+    });
     this.fetchGoodsKit({
       landingId,
     });
   },
-  methods: mapActions(['fetchLandingPage', 'fetchGoodsKit']),
+  methods: mapActions([
+    'fetchLandingPage',
+    'fetchGoodsKit',
+    'fetchKitBanners',
+  ]),
 };
 </script>
 

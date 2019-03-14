@@ -5,8 +5,7 @@
     :id="`kit-${kit.id}`"
   >
     <Banner
-      :url-id="`${kit.id}`"
-      :name="`${kit.id}`"
+      :kit-id="`${kit.id}`"
     />
     <h3 class="goods-kit__row-title">
       {{ kit.title }}

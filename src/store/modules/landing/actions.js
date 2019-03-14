@@ -73,24 +73,18 @@ export default {
       }
     }
   },
-  async fetchGoodsBanner({ commit, getters }, {
-    id,
-    name,
+  async fetchKitBanners({ commit }, {
+    landingId,
   }) {
-    commit(types.GOODS_BANNER_REQUEST);
-    const banner = getters.getGoodsBanner(name);
-    if (banner) {
-      commit(types.GOODS_BANNER_SUCCESS, banner);
-    } else {
-      try {
-        const response = await api.get(`/goods/v1.0/landings/kit-banner/${id}/`);
-        commit(types.GOODS_BANNER_SUCCESS, {
-          banners: response.data,
-          name,
-        });
-      } catch (err) {
-        commit(types.GOODS_BANNER_FAILURE, err);
-      }
+    try {
+      const response = await api.get(
+        `/goods/v1.0/landings/kit-banner/?landing_id=${landingId}`,
+      );
+      commit(types.KITS_BANNERS_SUCCESS, {
+        banners: response.data,
+      });
+    } catch (err) {
+      commit(types.KITS_BANNERS_FAILURE, err);
     }
   },
 };

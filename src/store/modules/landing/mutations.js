@@ -21,9 +21,9 @@ import {
   LANDING_PAGE_SUCCESS,
   LANDING_PAGE_FAILURE,
   // Kits banner
-  GOODS_BANNER_REQUEST,
-  GOODS_BANNER_SUCCESS,
-  GOODS_BANNER_FAILURE,
+  KITS_BANNERS_REQUEST,
+  KITS_BANNERS_SUCCESS,
+  KITS_BANNERS_FAILURE,
 } from './actionTypes';
 
 export default {
@@ -94,21 +94,18 @@ export default {
     state.landingPage.error = err;
   },
   // KitsBanner
-  [GOODS_BANNER_REQUEST](state) {
-    state.isLoaded = false;
+  [KITS_BANNERS_REQUEST](state) {
+    state.kitBanners.isLoaded = false;
   },
-  [GOODS_BANNER_SUCCESS](state, { banners, name }) {
-    if (!has(state.banners, name)) {
-      state.banners = {
-        ...state.banners,
-        [name]: banners,
-        isLoaded: true,
-        error: null,
-      };
-    }
+  [KITS_BANNERS_SUCCESS](state, { banners }) {
+    state.kitBanners = {
+      banners,
+      isLoaded: true,
+      error: null,
+    };
   },
-  [GOODS_BANNER_FAILURE](state, err) {
-    state.banners.isLoaded = false;
-    state.banners.error = err.toString();
+  [KITS_BANNERS_FAILURE](state, err) {
+    state.kitBanners.isLoaded = false;
+    state.kitBanners.error = err.toString();
   },
 };
