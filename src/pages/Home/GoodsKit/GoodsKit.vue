@@ -4,10 +4,9 @@
   <section
     :id="`kit-${kit.id}`"
   >
-    <!-- <Banner
-      :url-id="`${kit.id}`"
-      :name="`${kit.id}`"
-    /> -->
+    <Banner
+      :kit-id="`${kit.id}`"
+    />
     <h3 class="goods-kit__row-title">
       {{ kit.title }}
     </h3>
@@ -39,7 +38,7 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import ProductCard from '@/components/shared/ProductCard';
-// import Banner from '@/pages/Home/Banner';
+import Banner from '@/pages/Home/Banner';
 
 const { mapActions } = createNamespacedHelpers('landing');
 
@@ -47,7 +46,7 @@ export default {
   name: 'GoodsKit',
   components: {
     ProductCard,
-    // Banner,
+    Banner,
   },
   props: {
     kit: {
