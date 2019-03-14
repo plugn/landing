@@ -20,8 +20,16 @@
       </div>
     </Suggestions>
     <img
+      v-if="searchQuery === ''"
       class="input-search__icon"
       src="/static/svg/icons/search-black.svg"
+    >
+    <img
+      v-if="searchQuery !== ''"
+      role="button"
+      class="input-search__icon input-search__icon--cancel"
+      src="/static/svg/icons/cancel-black.svg"
+      @click="handleClickCancel"
     >
   </div>
 </template>
@@ -90,6 +98,9 @@ export default {
       const url = `https://alabom.com/${LANG}/search/?q=${query}`;
       window.location.href = url;
     },
+    handleClickCancel() {
+      this.searchQuery = '';
+    },
   },
 };
 </script>
@@ -110,6 +121,14 @@ export default {
     ul.items {
       border-bottom: none;
       border-top: 1px solid rgba(24, 25, 32, 0.1);
+    }
+
+    .searchlink {
+      display: block;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 80ms ease;
+      text-decoration: none;
     }
 
     @include element(input) {
@@ -142,6 +161,10 @@ export default {
       color: #181920;
       font-size: 24px;
       line-height: 24px;
+
+      @include modifier(cancel) {
+        cursor: pointer;
+      }
     }
 
   }
