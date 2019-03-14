@@ -8,14 +8,14 @@
         class="info-card__price"
         :class="{ 'info-card__price--red': hasDiscount}"
       >
-        {{ hasDiscount ? this.$t('from') : '' }} {{ roundPrice(price) }} ₽
+        {{ hasDiscount ? this.$t('from') : '' }} {{ roundPrice(price) }} {{ currencySymbol }}
       </div>
       <div
         v-if="oldPrice && hasDiscount"
         class="info-card__old-price"
       >
         <div class="info-card__text">
-          {{ roundPrice(oldPrice) }} ₽
+          {{ roundPrice(oldPrice) }} {{ currencySymbol }}
         </div>
         <div class="info-card__price-cross" />
       </div>
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { CURRENCY_SYMBOL } from '@/constants';
+
 export default {
   name: 'InfoCard',
   props: {
@@ -55,6 +57,11 @@ export default {
       type: [Number, String],
       default: 0,
     },
+  },
+  data() {
+    return {
+      currencySymbol: CURRENCY_SYMBOL,
+    };
   },
   methods: {
     calcRating(rate) {
