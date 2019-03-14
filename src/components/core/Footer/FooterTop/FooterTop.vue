@@ -30,8 +30,8 @@
         <a
           v-for="link in firstLinks"
           :key="link.name"
-          :href="link.href"
           v-t="link.name"
+          :href="link.href"
           target="_blank"
           class="footer-top__link"
         />
@@ -47,8 +47,8 @@
         <a
           v-for="link in secondLinks"
           :key="link.name"
-          :href="link.href"
           v-t="link.name"
+          :href="link.href"
           target="_blank"
           class="footer-top__link"
         />

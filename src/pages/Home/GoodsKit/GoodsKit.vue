@@ -91,7 +91,7 @@ export default {
       align-items: center;
       background: #F7F9FA;
       border-radius: px-to-rem(4);
-      color: var(--light-text);
+      color: var(--black-06);
       cursor: pointer;
       display: flex;
       height: px-to-rem(50);

@@ -109,7 +109,7 @@ export default {
 
     ul.items {
       border-bottom: none;
-      border-top: 1px solid rgba(24, 25, 32, 0.1);
+      border-top: 1px solid var(--black-01);
     }
 
     @include element(input) {

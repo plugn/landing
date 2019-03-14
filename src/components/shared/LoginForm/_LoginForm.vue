@@ -365,7 +365,7 @@ export default {
           background-color: var(--blue);
         }
         // border-radius: px-to-rem(3);
-        border: 1px solid rgba(24, 25, 32, 0.1);
+        border: 1px solid var(--black-01);
         color: var(--white);
         cursor: pointer;
       }
@@ -373,7 +373,7 @@ export default {
       @include modifier(vk) {
         background: #45668E url('/static/svg/icons/vk.svg') no-repeat center !important;
         // border-radius: px-to-rem(3);
-        border: 1px solid rgba(24, 25, 32, 0.1);
+        border: 1px solid var(--black-01);
         cursor: pointer;
       }
 
@@ -395,7 +395,7 @@ export default {
   }
 
   .alm-auth-tab {
-    border-bottom: 1px solid rgba(24, 25, 32, 0.1);
+    border-bottom: 1px solid var(--black-01);
     padding: 16px 0;
     cursor: pointer;
   }
@@ -465,7 +465,7 @@ export default {
     color: rgba(24, 25, 32, 0.6);
   }
   // .alm-auth-form .f-lite {
-  //   color: rgba(24, 25, 32, 0.1);
+  //   color: var(--black-01);
   // }
   // .alm-auth-form .f-blue,
   // .alm-auth-form a {
@@ -484,7 +484,7 @@ export default {
   //   padding: 14px;
   //   color: rgba(24, 25, 32, 1);
   //   border-radius: 4px;
-  //   border: 1px solid rgba(24, 25, 32, 0.1);
+  //   border: 1px solid var(--black-01);
   // }
 
   // // .alm-auth-form .form-notice {

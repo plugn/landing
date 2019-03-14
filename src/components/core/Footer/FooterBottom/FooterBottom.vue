@@ -171,7 +171,7 @@ export default {
     }
 
     @include element(signup) {
-      border: 1px solid rgba(24, 25, 32, 0.1) !important;
+      border: 1px solid var(--black-01) !important;
       border-radius: 4px;
     }
 

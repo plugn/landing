@@ -27,7 +27,7 @@ export default {
   .copyright {
     align-items: center;
     background: var(--body-background);
-    color: var(--light-text);
+    color: var(--black-06);
     display: flex;
     flex-direction: column;
     height: px-to-rem(60);
