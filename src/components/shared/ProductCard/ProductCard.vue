@@ -121,7 +121,7 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
-    // height: px-to-rem(290);
+    height: px-to-rem(310);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
