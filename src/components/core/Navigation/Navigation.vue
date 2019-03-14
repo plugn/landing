@@ -285,7 +285,7 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
-    color: var(--light-black);
+    color: var(--black-08);
     cursor: pointer;
     display: none;
     height: px-to-rem(40);

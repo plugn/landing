@@ -52,6 +52,7 @@
     <div
       v-line-clamp:21="2"
       class="product-card__bottom"
+      style="word-break: break-word !important"
     >
       {{ title }}
     </div>
@@ -64,12 +65,14 @@ import isNil from 'lodash.isnil';
 import { LANG } from '@/constants';
 import tFrom from '@/utils/tFrom';
 
+// import Loader from '@/components/shared/Loader';
 import InfoCard from './InfoCard';
 
 export default {
   name: 'ProductCard',
   components: {
     InfoCard,
+    // Loader,
   },
   props: {
     product: {
@@ -112,6 +115,7 @@ export default {
 <style lang="scss">
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+  @import '~styles/variables';
 
   .product-card {
     background-color: transparent;
@@ -121,7 +125,7 @@ export default {
     display: block;
     flex-direction: column;
     flex: 1;
-    // height: px-to-rem(290);
+    height: px-to-rem(235);
     justify-content: flex-start;
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
@@ -142,6 +146,10 @@ export default {
         opacity: 1;
       }
 
+    }
+
+    @include media($md) {
+      height: px-to-rem(310);
     }
 
     @include element(cover) {
@@ -181,11 +189,11 @@ export default {
     }
 
     @include element(image-container) {
-      // height: 0;
-      // padding-bottom: 100%;
-      // position: relative;
-      height: 214px;
-      width: 214px;
+      height: 0;
+      padding-bottom: calc(214 / 214 * 100%);
+      position: relative;
+      // height: 214px;
+      // width: 214px;
     }
 
     @include element(image) {
@@ -193,7 +201,9 @@ export default {
       border: 1px solid rgba(0,0,0,.1);
       display: block;
       height: 100%;
-      // position: absolute;
+      left: 0;
+      position: absolute;
+      top: 0;
       width: 100%;
       z-index: 2;
     }

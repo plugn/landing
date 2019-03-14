@@ -12,6 +12,7 @@
         <a
           v-smooth-scroll
           :href="`#kit-${cat.kit}`"
+          class="navigation-elements__link"
         >
           <figure class="navigation-elements__image-wrapper">
             <img
@@ -102,12 +103,18 @@ export default {
       width: 100%;
     }
 
+    @include element(link) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     @include element(image-wrapper) {
       margin: 0;
     }
 
     @include element(image) {
-      border: 1px solid rgba(24, 25, 32, 0.1);
+      border: 1px solid var(--black-01);
       border-radius: 50%;
       width: px-to-rem(98);
     }

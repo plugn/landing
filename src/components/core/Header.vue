@@ -24,6 +24,7 @@ export default {
 
   .header {
     background: var(--white);
+    border-bottom: 1px solid var(--black-01);
     height: 4rem;
     left: 0;
     position: absolute;

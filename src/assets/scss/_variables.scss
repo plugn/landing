@@ -4,9 +4,10 @@
 $colors: () !default;
 
 $black:      #000000 !default;
-$blue:      #0A5BF0 !default;
-$light-text:rgba(24,25,32,.6);
-$light-black:rgba(24,25,32,.8);
+$blue:       #0A5BF0 !default;
+$black-01:   rgba(24, 25, 32, .1);
+$black-06:   rgba(24, 25, 32, .6);
+$black-08:   rgba(24, 25, 32, .8);
 $light-gray:#747579;
 $input-focus: #0055f4;
 $red:       #FF3344 !default;
@@ -17,11 +18,12 @@ $body-background: #F0F1F7;
 $colors: map-merge(
   (
     "black":       $black,
+    "black-01":    $black-01,
+    "black-06":    $black-06,
+    "black-08":    $black-08,
     "blue":        $blue,
-    "light-black": $light-black,
-    "light-text":  $light-text,
     "light-gray":  $light-gray,
-    "input-focus":  $input-focus,
+    "input-focus": $input-focus,
     "red":         $red,
     "body-font":   $body-font,
     "body-background":   $body-background,

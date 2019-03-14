@@ -15,34 +15,36 @@
       </div>
     </div>
     <picture
-      v-if="banners[name]"
+      v-if="kitBanners.isLoaded && !isEmpty(banner)"
     >
       <source
-        :srcset="banners[name].image.original"
+        :srcset="banner.image.original"
         :media="XL"
       >
       <source
-        :srcset="banners[name].image.original"
+        :srcset="banner.image.original"
         :media="LG"
       >
       <source
-        :srcset="banners[name].image.original"
+        :srcset="banner.image.original"
         :media="MD"
       >
       <source
-        :srcset="banners[name].mobile_image.original"
+        :srcset="banner.mobile_image.original"
         :media="SM"
       >
       <img
         class="img-fluid"
-        :src="banners[name].mobile_image.original"
-        :alt="banners[name].mobile_image"
+        :src="banner.mobile_image.original"
+        :alt="banner.mobile_image"
       >
     </picture>
   </div>
 </template>
 
 <script>
+import isEmpty from 'lodash.isempty';
+import isNil from 'lodash.isnil';
 import { createNamespacedHelpers } from 'vuex';
 
 import {
@@ -52,7 +54,7 @@ import {
   SM,
 } from 'constants';
 
-const { mapState, mapActions } = createNamespacedHelpers('landing');
+const { mapState } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Banner',
@@ -69,7 +71,7 @@ export default {
       type: String,
       default: 'bannersSection',
     },
-    urlId: {
+    kitId: {
       type: String,
       default: '1',
     },
@@ -80,16 +82,23 @@ export default {
       LG,
       MD,
       SM,
+      banner: {},
     };
   },
-  computed: mapState(['banners']),
+  computed: mapState(['kitBanners']),
   created() {
-    this.fetchGoodsBanner({
-      id: this.urlId,
-      name: this.name,
-    });
+    const { banners } = this.kitBanners;
+    if (banners.length) {
+      const banner = banners.find(b => `${b.kit}` === this.kitId);
+      if (!this.isNil(banner)) {
+        this.banner = banner;
+      }
+    }
   },
-  methods: mapActions(['fetchGoodsBanner']),
+  methods: {
+    isEmpty,
+    isNil,
+  },
 };
 </script>
 
