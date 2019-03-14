@@ -1,6 +1,8 @@
 import { api } from '@/api';
 import * as types from './actionTypes';
 
+import { CURRENCY } from '@/constants';
+
 export default {
   async fetchNavigationElements({ commit, getters }, {
     landingId,
@@ -28,7 +30,7 @@ export default {
     commit(types.GOODS_KIT_REQUEST, landingId);
     try {
       const response = await api.get(
-        `/goods/v1.0/landings/kit/?landing_id=${landingId}`,
+        `/goods/v1.0/landings/kit/?landing_id=${landingId}&currency=${CURRENCY}`,
       );
       commit(types.GOODS_KIT_SUCCESS, {
         kits: response.data,
@@ -45,7 +47,7 @@ export default {
     commit(types.LOAD_MORE_GOODS_KIT_REQUEST);
     try {
       const response = await api.get(
-        `/goods/v1.0/items/?goodskit_id=${id}&limit=${limit}&offset=${offset}`,
+        `/goods/v1.0/items/?goodskit_id=${id}&limit=${limit}&offset=${offset}&currency=${CURRENCY}`,
       );
       commit(types.LOAD_MORE_GOODS_KIT_SUCCESS, {
         id,
