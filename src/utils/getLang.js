@@ -1,5 +1,8 @@
 const lang = (window.navigator.userLanguage || window.navigator.language);
 
+const langs = ['en', 'ru'];
+
 export default function getLang() {
-  return lang.split('-')[0] || 'en';
+  const browserLang = lang.split('-')[0];
+  return langs.includes(browserLang) ? browserLang : 'en';
 }
