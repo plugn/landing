@@ -13,7 +13,8 @@ export default {
     isLoaded: null,
     error: null,
   },
-  banners: {
+  kitBanners: {
+    banners: [],
     isLoaded: null,
     error: null,
   },
