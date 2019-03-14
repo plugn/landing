@@ -64,12 +64,14 @@ import isNil from 'lodash.isnil';
 import { LANG } from '@/constants';
 import tFrom from '@/utils/tFrom';
 
+// import Loader from '@/components/shared/Loader';
 import InfoCard from './InfoCard';
 
 export default {
   name: 'ProductCard',
   components: {
     InfoCard,
+    // Loader,
   },
   props: {
     product: {
