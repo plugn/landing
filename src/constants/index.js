@@ -1,7 +1,10 @@
 import getLang from '@/utils/getLang';
+import getCurrency from '@/utils/getCurrency';
 
 // Main
 export const LANG = getLang();
+
+export const CURRENCY = getCurrency();
 
 // Keys
 export const API_TOKEN = '8pY3tTQ3H43zMVOwhzp7ks4pWIuhPP';
