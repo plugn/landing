@@ -183,11 +183,11 @@ export default {
     }
 
     @include element(image-container) {
-      // height: 0;
-      // padding-bottom: 100%;
-      // position: relative;
-      height: 214px;
-      width: 214px;
+      height: 0;
+      padding-bottom: calc(214 / 214 * 100%);
+      position: relative;
+      // height: 214px;
+      // width: 214px;
     }
 
     @include element(image) {
@@ -195,7 +195,9 @@ export default {
       border: 1px solid rgba(0,0,0,.1);
       display: block;
       height: 100%;
-      // position: absolute;
+      left: 0;
+      position: absolute;
+      top: 0;
       width: 100%;
       z-index: 2;
     }
