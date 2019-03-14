@@ -115,12 +115,18 @@ export default {
 
     div.suggestions {
       // box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
-      max-height: 30rem;
+      top: 3.9rem;
+      // border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 px-to-rem(4) px-to-rem(4);
     }
 
     ul.items {
-      border-bottom: none;
-      border-top: 1px solid rgba(24, 25, 32, 0.1);
+      border: 1px solid rgba(24, 25, 32, 0.1);
+    }
+
+    li.item {
+      border: none;
+      padding: 5px 15px;
     }
 
     .searchlink {
