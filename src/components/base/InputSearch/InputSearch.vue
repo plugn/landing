@@ -109,6 +109,12 @@ export default {
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
 
+  .single-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .input-search {
     position: relative;
     width: 100%;
@@ -122,6 +128,7 @@ export default {
 
     ul.items {
       border: 1px solid rgba(24, 25, 32, 0.1);
+      padding: 10px 0;
     }
 
     li.item {
