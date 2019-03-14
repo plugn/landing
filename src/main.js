@@ -12,7 +12,9 @@ Vue.config.devtools = true;
 // Vue.config.debug = true;
 
 Vue.use(vueSmoothScroll);
-Vue.use(vueLineClamp);
+Vue.use(vueLineClamp, {
+  importCss: true,
+});
 
 // eslint-disable-next-line no-new
 new Vue({
