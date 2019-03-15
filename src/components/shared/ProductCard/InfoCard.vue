@@ -92,12 +92,14 @@ export default {
     }
 
     @include element(price) {
+      color: var(--body-font);
       font-size: 16px;
       font-weight: 500;
       line-height: px-to-rem(20);
       margin-right: px-to-rem(10);
+      text-decoration: none;
       @include modifier(red) {
-        color: var(--red);
+        color: var(--red) !important;
       }
     }
 

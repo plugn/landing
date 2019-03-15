@@ -6,7 +6,10 @@
     <h2 class="sr-only">
       {{ product.brand }}
     </h2>
-    <div class="product-card__wrapper">
+    <a
+      :href="`https://alabom.com/${LANG}/goods/${product.id}`"
+      class="product-card__wrapper"
+    >
       <div class="product-card__cover">
         <div
           v-if="product.discount"
@@ -57,7 +60,7 @@
         :old-price="product.min_price_before_discount"
         :rating="product.rating"
       />
-    </div>
+    </a>
     <div
       v-line-clamp:21="2"
       class="product-card__bottom"
@@ -104,6 +107,7 @@ export default {
     return {
       title: '',
       isImageLoaded: false,
+      LANG,
     };
   },
   created() {
@@ -153,7 +157,6 @@ export default {
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
     padding: px-to-rem(10);
-    text-decoration: none;
     transition: all .15s ease-in-out;
     &:hover {
       background-color: var(--white);
@@ -174,6 +177,10 @@ export default {
     @include media($md) {
       height: px-to-rem(310);
       min-height: initial;
+    }
+
+    @include element(wrapper) {
+      text-decoration: none !important;
     }
 
     @include element(cover) {
