@@ -9,7 +9,9 @@
     />
     <div class="container px-lg-0">
       <div class="home__row overflow-auto">
-        <NavigationElements />
+        <NavigationElements
+          :landingId="landingId"
+        />
       </div>
       <div v-if="kits.isLoaded">
         <div
