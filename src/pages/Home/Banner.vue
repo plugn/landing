@@ -14,30 +14,29 @@
         {{ description }}
       </div>
     </div>
-    <picture
-      v-if="kitBanners.isLoaded && !isEmpty(banner)"
-    >
-      <source
-        :srcset="banner.image.original"
-        :media="XL"
-      >
-      <source
-        :srcset="banner.image.original"
-        :media="LG"
-      >
-      <source
-        :srcset="banner.image.original"
-        :media="MD"
-      >
-      <source
-        :srcset="banner.mobile_image.original"
-        :media="SM"
-      >
+    <picture>
       <img
-        class="img-fluid"
+        v-show="isImageLoaded"
+        :srcset="`
+          ${banner.image.image_1160x200} 1160w,
+          ${banner.mobile_image.image_360x240} 360w,
+        `"
+        :sizes="`
+          ${LG} 100vw
+          ${SM} 100vw
+          `
+        "
         :src="banner.mobile_image.original"
-        :alt="banner.mobile_image"
+        class="img-fluid"
+        @load="handleImageLoad"
+        @error="handleImageError"
       >
+      <div
+        v-if="!isImageLoaded"
+        class="banner__loader"
+      >
+        <Loader />
+      </div>
     </picture>
   </div>
 </template>
@@ -54,10 +53,15 @@ import {
   SM,
 } from 'constants';
 
+import Loader from '@/components/shared/Loader';
+
 const { mapState } = createNamespacedHelpers('landing');
 
 export default {
   name: 'Banner',
+  components: {
+    Loader,
+  },
   props: {
     title: {
       type: String,
@@ -83,6 +87,7 @@ export default {
       MD,
       SM,
       banner: {},
+      isImageLoaded: false,
     };
   },
   computed: mapState(['kitBanners']),
@@ -91,6 +96,7 @@ export default {
     if (banners.length) {
       const banner = banners.find(b => `${b.kit}` === this.kitId);
       if (!this.isNil(banner)) {
+        this.loadImg();
         this.banner = banner;
       }
     }
@@ -98,6 +104,15 @@ export default {
   methods: {
     isEmpty,
     isNil,
+    loadImg() {
+      this.isImageLoaded = false;
+    },
+    handleImageLoad() {
+      this.isImageLoaded = true;
+    },
+    handleImageError() {
+      this.isImageLoaded = false;
+    },
   },
 };
 </script>
@@ -153,6 +168,10 @@ export default {
         font-size: 22px;
         max-width: 100%;
       }
+    }
+
+    @include element(loader) {
+      text-align: center;
     }
   }
 
