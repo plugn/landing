@@ -51,6 +51,11 @@ export default {
     NavigationElements,
     GoodsKit,
   },
+  data() {
+    return {
+      landingId,
+    };
+  },
   computed: mapState(['landingPage', 'kits']),
   created() {
     this.fetchLandingPage({
