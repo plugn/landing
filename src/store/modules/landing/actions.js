@@ -23,6 +23,9 @@ export default {
       }
     }
   },
+  addKitId({ commit }, kitId) {
+    commit(types.ADD_KIT_ID, kitId);
+  },
   // goods kit
   async fetchGoodsKit({ commit/* getters */ }, {
     landingId,
@@ -44,7 +47,7 @@ export default {
     limit = 10,
     offset = 0,
   }) {
-    commit(types.LOAD_MORE_GOODS_KIT_REQUEST);
+    commit(types.LOAD_MORE_GOODS_KIT_REQUEST, id);
     try {
       const response = await api.get(
         `/goods/v1.0/items/?goodskit_id=${id}&limit=${limit}&offset=${offset}&currency=${CURRENCY}`,

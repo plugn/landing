@@ -26,27 +26,38 @@
     </div>
     <div
       v-if="kit.count > kit.good_list.length"
-      v-t="'loadMore'"
       class="goods-kit__load-more"
       role="button"
       @click="handleLoadMore"
-    />
+    >
+      <div
+        v-if="!kitsId[kit.id]"
+        v-t="'loadMore'"
+        class="text-center"
+      />
+      <div v-if="kitsId[kit.id]">
+        <Loader />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+// import find from 'lodash.find';
 import { createNamespacedHelpers } from 'vuex';
 
 import ProductCard from '@/components/shared/ProductCard';
 import Banner from '@/pages/Home/Banner';
+import Loader from '@/components/shared/Loader';
 
-const { mapActions } = createNamespacedHelpers('landing');
+const { mapActions, mapState } = createNamespacedHelpers('landing');
 
 export default {
   name: 'GoodsKit',
   components: {
     ProductCard,
     Banner,
+    Loader,
   },
   props: {
     kit: {
@@ -62,7 +73,12 @@ export default {
     return {
       limit: 10,
       offset: 0,
+      // isLoading,
     };
+  },
+  computed: mapState(['kitsId']),
+  created() {
+    this.addKitId(this.kit.id);
   },
   methods: {
     handleLoadMore() {
@@ -71,7 +87,7 @@ export default {
         offset: this.offset += this.limit,
       });
     },
-    ...mapActions(['loadMoreGoodsKit']),
+    ...mapActions(['loadMoreGoodsKit', 'addKitId']),
   },
 };
 </script>

@@ -16,6 +16,7 @@ import {
   LOAD_MORE_GOODS_KIT_REQUEST,
   LOAD_MORE_GOODS_KIT_SUCCESS,
   LOAD_MORE_GOODS_KIT_FAILURE,
+  ADD_KIT_ID,
   // Landing page
   LANDING_PAGE_REQUEST,
   LANDING_PAGE_SUCCESS,
@@ -58,10 +59,17 @@ export default {
     state.kits.isLoaded = false;
     state.kits.error = err;
   },
-  [LOAD_MORE_GOODS_KIT_REQUEST](/* state, name */) {
-    // if (!has(state.kits, name)) {
-    //   state.isLoaded = false;
-    // }
+  [ADD_KIT_ID](state, kitId) {
+    state.kitsId = {
+      ...state.kitsId,
+      [kitId]: false,
+    };
+  },
+  [LOAD_MORE_GOODS_KIT_REQUEST](state, kitId) {
+    state.kitsId = {
+      ...state.kitsId,
+      [kitId]: true,
+    };
   },
   [LOAD_MORE_GOODS_KIT_SUCCESS](state, { id, goodsKit }) {
     const index = findIndex(state.kits.goodsKit, k => k.id === id);
@@ -71,6 +79,10 @@ export default {
         ...kit.good_list,
         ...goodsKit.items,
       ];
+      state.kitsId = {
+        ...state.kitsId,
+        [id]: false,
+      };
     }
   },
   [LOAD_MORE_GOODS_KIT_FAILURE](/* state, err */) {
