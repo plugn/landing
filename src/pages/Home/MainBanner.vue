@@ -2,10 +2,10 @@
   <div class="main-banner">
     <div class="main-banner__content">
       <picture
-        v-show="isLoad"
         class="main-banner__image-wrapper"
       >
         <img
+          v-show="isLoad"
           :srcset="`
             ${mainBanner.banner.image.image_1920x300} 1920w,
             ${mainBanner.banner.mobile_image.image_360x240} 360w,
@@ -20,13 +20,13 @@
           @load="handleLoad"
           @error="handleError"
         >
+        <div
+          v-if="!isLoad"
+          class="main-banner__loader"
+        >
+          <Loader />
+        </div>
       </picture>
-      <div
-        v-if="!isLoad"
-        class="text-center"
-      >
-        <Loader />
-      </div>
     </div>
     <h3 class="main-banner__row-title text-center">
       {{ mainBanner.title }}
@@ -102,6 +102,7 @@ export default {
 
     @include element(content) {
       margin-bottom: px-to-rem(20);
+      position: relative;
 
       @include media($md) {
         margin-bottom: px-to-rem(40);
@@ -127,6 +128,11 @@ export default {
       height: 100%;
       object-fit: cover;
       width: 100%;
+    }
+
+    @include element(loader) {
+      margin: 1rem 0;
+      text-align: center;
     }
 
     @include element(discount-title) {
