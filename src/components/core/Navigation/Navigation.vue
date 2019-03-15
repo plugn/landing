@@ -23,16 +23,15 @@
           @onClose="handleBurgerClick"
         />
       </div>
-      <router-link
-        class="logo"
-        to="/"
+      <a href="/"
+        class="logo no-decoration"
       >
         <img
-          style="height: 30px"
+          style="height: 30px; border: none;"
           class="logo__img"
-          src="/static/svg/icons/alabom-logo-beta.svg"
+          src="/static/svg/icons/alabom-logo-new3.svg"
         >
-      </router-link>
+      </a>
       <div
         v-click-outside="handleOutsideClick"
       >
@@ -279,6 +278,10 @@ export default {
       margin-right: px-to-rem(20);
       width: px-to-rem(170);
     }
+  }
+
+  a.no-decoration {
+    text-decoration: none;
   }
 
   .button-categories {

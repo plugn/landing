@@ -9,7 +9,7 @@
           >
             <img
               height="30"
-              src="/static/svg/icons/alabom-logo-beta.svg"
+              src="/static/svg/icons/alabom-logo-new3.svg"
             >
           </router-link>
           <a
