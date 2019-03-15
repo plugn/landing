@@ -65,17 +65,17 @@
         <ModalSearch />
       </div>
       <div
-        v-if="false"
+        v-if="true"
         class="navigation__cart"
       >
-        <DropdownCart />
+        <DropdownCart count="15"></DropdownCart>
       </div>
       <div
         v-if="true"
         class="navigation__right-item"
       >
         <DropdownAuth />
-<!--
+        <!--
         <DropdownEmpty
           icon="enter-black"
           :text="profile ? userName : $t('signIn')"
@@ -88,7 +88,7 @@
             class="dropdown-icon"
           >
         </DropdownEmpty>
--->
+        -->
       </div>
     </div>
     <!-- <button @click="handleLoginClick">
@@ -107,8 +107,8 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import InputSearch from 'components/base/InputSearch';
-import Dropdown from 'components/base/Dropdown';
-import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
+// import Dropdown from 'components/base/Dropdown';
+// import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
 import Modal from 'components/shared/Modal';
 import LoginForm from 'components/shared/LoginForm/_LoginForm';
 import clickOutside from 'directives/clickOutside';
@@ -128,8 +128,8 @@ export default {
     clickOutside,
   },
   components: {
-    Dropdown,
-    DropdownEmpty,
+    // Dropdown,
+    // DropdownEmpty,
     Categories,
     InputSearch,
     Modal,

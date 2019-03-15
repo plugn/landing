@@ -13,10 +13,11 @@
     >
 
     <div
-      slot="count"
+      v-if="String(count)"
+      slot="counter"
       class="cart-counter"
     >
-      2
+      {{ count }}
     </div>
     <div>
       Your shopping cart is still empty
@@ -36,9 +37,29 @@ export default {
   components: {
     Dropdown,
   },
+  props: {
+    count: {
+      type: [String, Number],
+      default: '',
+    },
+  },
 };
 </script>
 
 <style>
-
+.cart-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -5px;
+    margin-right: -10px;
+    padding-top: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 50px;
+    background-color: #0a5bf0;
+    color: #fff;
+    font-size: 11px;
+    line-height: 17px
+}
 </style>
