@@ -7,7 +7,7 @@
     <figure class="navigation-element__image-wrapper">
       <img
         v-show="isImageLoaded"
-        class="navigation-element__image"
+        class="navigation-element__image content-image"
         :src="cat.image.image_98x98"
         :alt="cat.kit"
         @load="handleImageLoad"
@@ -21,7 +21,7 @@
       </figcaption>
       <div
         v-if="!isImageLoaded"
-        class="navigation-element__laoder"
+        class="navigation-element__loader content-image"
       >
         <Loader />
       </div>
@@ -78,12 +78,13 @@ export default {
     }
     @include element(image-wrapper) {
       margin: 0;
+      @include aspect-ratio(98, 98);
     }
 
     @include element(image) {
       border: 1px solid var(--black-01);
       border-radius: 50%;
-      width: px-to-rem(98);
+      // width: px-to-rem(98);
     }
 
     @include element(text) {
