@@ -98,25 +98,18 @@
         v-if="true"
         class="navigation__right-item"
       >
-        <Dropdown
+        <DropdownEmpty
           icon="enter-black"
           :text="profile ? userName : $t('signIn')"
           hide-text-mobile
+          @handle-click="goAuth"
         >
           <img
-            v-if="profile"
             slot="icon"
-            src="/static/svg/icons/user-black.svg"
+            :src="`/static/svg/icons/${profile ? 'user': 'enter'}-black.svg`"
             class="dropdown-icon"
           >
-          <img
-            v-if="!profile"
-            slot="icon"
-            src="/static/svg/icons/enter-black.svg"
-            class="dropdown-icon"
-            @click="goAuth"
-          >
-        </Dropdown>
+        </DropdownEmpty>
       </div>
     </div>
     <!-- <button @click="handleLoginClick">
@@ -136,6 +129,7 @@ import { createNamespacedHelpers } from 'vuex';
 
 import InputSearch from 'components/base/InputSearch';
 import Dropdown from 'components/base/Dropdown';
+import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
 import Modal from 'components/shared/Modal';
 import LoginForm from 'components/shared/LoginForm/_LoginForm';
 import clickOutside from 'directives/clickOutside';
@@ -154,6 +148,7 @@ export default {
   },
   components: {
     Dropdown,
+    DropdownEmpty,
     Categories,
     InputSearch,
     Modal,
@@ -183,6 +178,10 @@ export default {
   },
   methods: {
     goAuth() {
+      // eslint-disable-next-line
+      console.info('goAuth()', this.profile);
+
+      if (this.profile) { return; }
       // eslint-disable-next-line
       localStorage.setItem('LANDING_URL', location.href);
       localStorage.setItem('LANDING_ACTION', 'auth');
