@@ -2,30 +2,31 @@
   <div class="main-banner">
     <div class="main-banner__content">
       <picture
+        v-show="isLoad"
         class="main-banner__image-wrapper"
       >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="XL"
-        >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="LG"
-        >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="MD"
-        >
-        <source
-          :srcset="mainBanner.banner.mobile_image.original"
-          :media="SM"
-        >
         <img
-          class="main-banner__image"
+          :srcset="`
+            ${mainBanner.banner.image.image_1920x300} 1920w,
+            ${mainBanner.banner.mobile_image.image_360x240} 360w,
+          `"
+          :sizes="`
+            ${LG} 100vw
+            ${SM} 100vw
+            `
+          "
           :src="mainBanner.banner.mobile_image.original"
-          alt="banner 1"
+          class="main-banner__image"
+          @load="handleLoad"
+          @error="handleError"
         >
       </picture>
+      <div
+        v-if="!isLoad"
+        class="text-center"
+      >
+        <Loader />
+      </div>
     </div>
     <h3 class="main-banner__row-title text-center">
       {{ mainBanner.title }}
@@ -37,6 +38,9 @@
 </template>
 
 <script>
+// import vueloadImage from 'vue-load-image';
+
+import Loader from '@/components/shared/Loader';
 
 import {
   XL,
@@ -47,12 +51,16 @@ import {
 
 export default {
   name: 'MainBanner',
+  components: {
+    // vueloadImage,
+    Loader,
+  },
   props: {
     mainBanner: {
       type: Object,
       default() {
         return {
-          isLoaded: false,
+          // isLoaded: false,
         };
       },
     },
@@ -63,7 +71,22 @@ export default {
       LG,
       MD,
       SM,
+      isLoad: false,
     };
+  },
+  created() {
+    this.loadImg();
+  },
+  methods: {
+    loadImg() {
+      this.isLoad = false;
+    },
+    handleLoad() {
+      this.isLoad = true;
+    },
+    handleError() {
+      this.isLoad = false;
+    },
   },
 };
 </script>

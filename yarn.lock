@@ -1830,6 +1830,11 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
+center-it@^1.1.1:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/center-it/-/center-it-1.1.3.tgz#562108ac3071ea6c577d3ff0b2332a17d43434a0"
+  integrity sha512-cxpj8WPF2iwpepbRMZtet8i4KmBdTKhdXZfHNZm8KdgvtnzqShWIi0At4UiziZAevdL77QhnTedRbXIBwXUgOw==
+
 chai@^4.1.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
@@ -8622,6 +8627,11 @@ stable@~0.1.6:
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
   integrity sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==
 
+stackblur-canvas@^1.4.0:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/stackblur-canvas/-/stackblur-canvas-1.4.1.tgz#849aa6f94b272ff26f6471fa4130ed1f7e47955b"
+  integrity sha1-hJqm+UsnL/JvZHH6QTDtH35HlVs=
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/static-extend/-/static-extend-0.1.2.tgz#60809c39cbff55337226fd5e0b520f341f1fb5c6"
@@ -9395,10 +9405,23 @@ vue-i18n@8.9.0:
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.9.0.tgz#5f084001fe5b4c7ad8c00ee5f11396a88ff2e55b"
   integrity sha512-8wr/D9yU8CLC8ne9stdQn/N58E7GRSUSO75bCucj2AIFTDyjGfoze5RxFvh2w3e7yxgnz5x+ooOIcoX59PHguQ==
 
+vue-img-loader@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-img-loader/-/vue-img-loader-1.0.0.tgz#f6b34c4dbe0d86302643e73d96df6eab52a2260c"
+  integrity sha512-W0VbITm9CELlVKq9L4eAynk5xmJ5L8WUSU9U5D0OMDZgQN5qMV3NTw7DI82KlV6k+gJA1SPC+OTCx8/sM61Rtw==
+  dependencies:
+    center-it "^1.1.1"
+    stackblur-canvas "^1.4.0"
+
 vue-line-clamp@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/vue-line-clamp/-/vue-line-clamp-1.3.2.tgz#004b6399d9093c1955d961fd50d0ba122aad6330"
   integrity sha512-SuZlRDBKsTlMOSLsJsceJPM7Sd2wcaKayyMEsf65b33chuK1zgTIU1RqlbAXSxO2R+FOQV5rYHLiAopdwVjroQ==
+
+vue-load-image@0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/vue-load-image/-/vue-load-image-0.1.7.tgz#93f19a1301f1de0cc8b70213847205912fe0f816"
+  integrity sha512-nFPh1tdynSqBfzYigLkkUfFLjhcjp8XrZF2tnbVUNlXZlc9sNa+ywI6q867GIPG/1naJ4TIeadmFKpeP7vh8RQ==
 
 vue-loader@15.6.2:
   version "15.6.2"
