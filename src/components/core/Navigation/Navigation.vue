@@ -23,7 +23,8 @@
           @onClose="handleBurgerClick"
         />
       </div>
-      <a href="/"
+      <a
+        href="/"
         class="logo no-decoration"
       >
         <img

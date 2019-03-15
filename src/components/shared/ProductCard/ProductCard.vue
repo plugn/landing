@@ -6,7 +6,10 @@
     <h2 class="sr-only">
       {{ product.brand }}
     </h2>
-    <div class="product-card__wrapper">
+    <a
+      :href="`https://alabom.com/${LANG}/goods/${product.id}`"
+      class="product-card__wrapper"
+    >
       <div class="product-card__cover">
         <div
           v-if="product.discount"
@@ -25,22 +28,31 @@
         </div>
         <div class="product-card__image-container">
           <img
-            v-if="isNil(product.image)"
+            v-show="isImageLoaded && isNil(product.image)"
             src="/static/img/product-placeholder.jpg"
             alt="product placeholder"
             class="product-card__image"
+            @load="handleImageLoad"
+            @error="handleImageError"
           >
           <img
-            v-if="!isNil(product.image)"
+            v-show="isImageLoaded && !isNil(product.image)"
             :srcset="`
               ${product.image.image_216x216_url} 2x,
               ${product.image.image_216x216_non_retina_url} 1x,
             `"
             :src="product.image_216x216_url"
             class="product-card__image"
+            @load="handleImageLoad"
+            @error="handleImageError"
           >
+          <div
+            v-if="!isImageLoaded"
+            class="product-card__image-preloader"
+          >
+            <Loader />
+          </div>
         </div>
-        <div class="product-card__image-preloader" />
       </div>
       <InfoCard
         :has-discount="product.discount"
@@ -48,7 +60,7 @@
         :old-price="product.min_price_before_discount"
         :rating="product.rating"
       />
-    </div>
+    </a>
     <div
       v-line-clamp:21="2"
       class="product-card__bottom"
@@ -65,14 +77,14 @@ import isNil from 'lodash.isnil';
 import { LANG } from '@/constants';
 import tFrom from '@/utils/tFrom';
 
-// import Loader from '@/components/shared/Loader';
+import Loader from '@/components/shared/Loader';
 import InfoCard from './InfoCard';
 
 export default {
   name: 'ProductCard',
   components: {
     InfoCard,
-    // Loader,
+    Loader,
   },
   props: {
     product: {
@@ -94,7 +106,12 @@ export default {
   data() {
     return {
       title: '',
+      isImageLoaded: false,
+      LANG,
     };
+  },
+  created() {
+    this.loadImg();
   },
   mounted() {
     const { title } = tFrom(['title'], this.product);
@@ -107,6 +124,15 @@ export default {
       const { id } = this.product;
       const url = `https://alabom.com/${LANG}/goods/${id}`;
       window.location.href = url;
+    },
+    loadImg() {
+      this.isImageLoaded = false;
+    },
+    handleImageLoad() {
+      this.isImageLoaded = true;
+    },
+    handleImageError() {
+      this.isImageLoaded = false;
     },
   },
 };
@@ -131,7 +157,6 @@ export default {
     margin-bottom: px-to-rem(20);
     margin-top: px-to-rem(-10);
     padding: px-to-rem(10);
-    text-decoration: none;
     transition: all .15s ease-in-out;
     &:hover {
       background-color: var(--white);
@@ -152,6 +177,10 @@ export default {
     @include media($md) {
       height: px-to-rem(310);
       min-height: initial;
+    }
+
+    @include element(wrapper) {
+      text-decoration: none !important;
     }
 
     @include element(cover) {
@@ -194,8 +223,6 @@ export default {
       height: 0;
       padding-bottom: calc(214 / 214 * 100%);
       position: relative;
-      // height: 214px;
-      // width: 214px;
     }
 
     @include element(image) {

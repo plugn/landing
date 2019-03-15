@@ -4,27 +4,28 @@
       <picture
         class="main-banner__image-wrapper"
       >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="XL"
-        >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="LG"
-        >
-        <source
-          :srcset="mainBanner.banner.image.original"
-          :media="MD"
-        >
-        <source
-          :srcset="mainBanner.banner.mobile_image.original"
-          :media="SM"
-        >
         <img
-          class="main-banner__image"
+          v-show="isLoad"
+          :srcset="`
+            ${mainBanner.banner.image.image_1920x300} 1920w,
+            ${mainBanner.banner.mobile_image.image_360x240} 360w,
+          `"
+          :sizes="`
+            ${LG} 100vw
+            ${SM} 100vw
+            `
+          "
           :src="mainBanner.banner.mobile_image.original"
-          alt="banner 1"
+          class="main-banner__image"
+          @load="handleImageLoad"
+          @error="handleImageError"
         >
+        <div
+          v-if="!isLoad"
+          class="main-banner__loader"
+        >
+          <Loader />
+        </div>
       </picture>
     </div>
     <h3 class="main-banner__row-title text-center">
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import Loader from '@/components/shared/Loader';
 
 import {
   XL,
@@ -47,12 +49,15 @@ import {
 
 export default {
   name: 'MainBanner',
+  components: {
+    Loader,
+  },
   props: {
     mainBanner: {
       type: Object,
       default() {
         return {
-          isLoaded: false,
+          // isLoaded: false,
         };
       },
     },
@@ -63,7 +68,22 @@ export default {
       LG,
       MD,
       SM,
+      isLoad: false,
     };
+  },
+  created() {
+    this.loadImg();
+  },
+  methods: {
+    loadImg() {
+      this.isLoad = false;
+    },
+    handleImageLoad() {
+      this.isLoad = true;
+    },
+    handleImageError() {
+      this.isLoad = false;
+    },
   },
 };
 </script>
@@ -79,6 +99,7 @@ export default {
 
     @include element(content) {
       margin-bottom: px-to-rem(20);
+      position: relative;
 
       @include media($md) {
         margin-bottom: px-to-rem(40);
@@ -104,6 +125,11 @@ export default {
       height: 100%;
       object-fit: cover;
       width: 100%;
+    }
+
+    @include element(loader) {
+      margin: 1rem 0;
+      text-align: center;
     }
 
     @include element(discount-title) {

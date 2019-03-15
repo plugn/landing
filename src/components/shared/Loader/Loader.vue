@@ -25,7 +25,7 @@ export default {
   name: 'Loader',
   props: {
     size: {
-      default: 75,
+      default: 35,
       type: Number,
     },
   },
