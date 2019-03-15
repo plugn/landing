@@ -17,8 +17,8 @@
           "
           :src="mainBanner.banner.mobile_image.original"
           class="main-banner__image"
-          @load="handleLoad"
-          @error="handleError"
+          @load="handleImageLoad"
+          @error="handleImageError"
         >
         <div
           v-if="!isLoad"
@@ -38,8 +38,6 @@
 </template>
 
 <script>
-// import vueloadImage from 'vue-load-image';
-
 import Loader from '@/components/shared/Loader';
 
 import {
@@ -52,7 +50,6 @@ import {
 export default {
   name: 'MainBanner',
   components: {
-    // vueloadImage,
     Loader,
   },
   props: {
@@ -81,10 +78,10 @@ export default {
     loadImg() {
       this.isLoad = false;
     },
-    handleLoad() {
+    handleImageLoad() {
       this.isLoad = true;
     },
-    handleError() {
+    handleImageError() {
       this.isLoad = false;
     },
   },
