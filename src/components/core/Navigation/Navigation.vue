@@ -68,36 +68,14 @@
         v-if="false"
         class="navigation__cart"
       >
-        <Dropdown
-          icon="cart-black"
-          :text="$t('shoppingCart')"
-          hide-text-mobile
-        >
-          <img
-            slot="icon"
-            src="/static/svg/icons/cart-black.svg"
-            class="dropdown-icon"
-          >
-
-          <div
-            slot="count"
-            class="cart-counter"
-          >
-            2
-          </div>
-          <div>
-            Your shopping cart is still empty
-          </div>
-          <div>
-            Choose a product and order it for a few
-            minutes
-          </div>
-        </Dropdown>
+        <DropdownCart />
       </div>
       <div
         v-if="true"
         class="navigation__right-item"
       >
+        <DropdownAuth />
+<!--
         <DropdownEmpty
           icon="enter-black"
           :text="profile ? userName : $t('signIn')"
@@ -110,6 +88,7 @@
             class="dropdown-icon"
           >
         </DropdownEmpty>
+-->
       </div>
     </div>
     <!-- <button @click="handleLoginClick">
@@ -136,6 +115,8 @@ import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
 import ModalSearch from './ModalSearch';
+import DropdownCart from './DropdownCart';
+import DropdownAuth from './DropdownAuth';
 
 const { mapActions } = createNamespacedHelpers('modal');
 const profileJson = localStorage.getItem('LANDING_PROFILE');
@@ -154,6 +135,8 @@ export default {
     Modal,
     LoginForm,
     ModalSearch,
+    DropdownCart,
+    DropdownAuth,
   },
   data() {
     return {
@@ -326,7 +309,7 @@ export default {
     align-items: center;
     background-color: #f7f8fa;
     border-radius: 4px;
-    color: var(--light-black);
+    color: var(--black-08);
     cursor: pointer;
     display: none;
     height: px-to-rem(40);

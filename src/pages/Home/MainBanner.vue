@@ -89,6 +89,7 @@ export default {
     @include element(image-wrapper) {
       display: block;
       height: initial;
+      margin: 0 auto;
       max-width: 100%;
       overflow: hidden;
 
@@ -100,16 +101,9 @@ export default {
     }
 
     @include element(image) {
-      height: initial;
-      object-fit: initial;
-      width: initial;
-
-      @include media($md) {
-        height: 100%;
-        object-fit: cover;
-        width: 100%;
-      }
-
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
     }
 
     @include element(discount-title) {

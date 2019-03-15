@@ -5,8 +5,7 @@
     :id="`kit-${kit.id}`"
   >
     <Banner
-      :url-id="`${kit.id}`"
-      :name="`${kit.id}`"
+      :kit-id="`${kit.id}`"
     />
     <h3 class="goods-kit__row-title">
       {{ kit.title }}
@@ -91,7 +90,7 @@ export default {
       align-items: center;
       background: #F7F9FA;
       border-radius: px-to-rem(4);
-      color: var(--light-text);
+      color: var(--black-06);
       cursor: pointer;
       display: flex;
       height: px-to-rem(50);

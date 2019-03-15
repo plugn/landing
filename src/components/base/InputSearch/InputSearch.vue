@@ -43,6 +43,12 @@ export default {
   directives: {
     selectOnEnter,
   },
+  props: {
+    maxNumResults: {
+      type: [String, Number],
+      default: 5,
+    },
+  },
   data() {
     return {
       searchQuery: '',
@@ -71,7 +77,7 @@ export default {
               ));
             } */
           });
-          resolve(items);
+          resolve(items.slice(0, this.maxNumResults));
         });
       });
     },
@@ -99,13 +105,11 @@ export default {
     div.suggestions {
       // box-shadow: 0 20px 30px 0 rgba(24,25,32,.05), 0 0 0 1px hsla(0,0%,100%,.5);
       max-height: 30rem;
-      overflow-y: scroll;
-      top: 39px;
     }
 
     ul.items {
       border-bottom: none;
-      border-top: 1px solid rgba(24, 25, 32, 0.1);
+      border-top: 1px solid var(--black-01);
     }
 
     @include element(input) {
@@ -119,6 +123,10 @@ export default {
       padding: 9px 50px 9px 14px;
       transition: all .1s ease-in-out;
       width: 100%;
+      &:focus {
+        border-color: var(--input-focus) !important;
+      }
+
     }
 
     @include element(icon) {
