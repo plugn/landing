@@ -9,12 +9,9 @@
           :srcset="`
             ${mainBanner.banner.image.image_1920x300} 1920w,
             ${mainBanner.banner.mobile_image.original} 425w,
-            ${mainBanner.banner.mobile_image.image_360x240} 320w,
           `"
           :sizes="`
-            (min-width: ${LG}) 100vw
-            (min-width: ${MD}) 100vw
-            (min-width: ${SM}) 100vw
+            (max-width: ${SM}) 50vw, 100vw
             `
           "
           :src="mainBanner.banner.mobile_image.image_360x240"
@@ -43,9 +40,6 @@
 import Loader from '@/components/shared/Loader';
 
 import {
-  XL,
-  LG,
-  MD,
   SM,
 } from 'constants';
 
@@ -66,9 +60,6 @@ export default {
   },
   data() {
     return {
-      XL,
-      LG,
-      MD,
       SM,
       isLoad: false,
     };
