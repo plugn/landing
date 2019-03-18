@@ -22,8 +22,8 @@
           ${banner.mobile_image.image_360x240} 360w,
         `"
         :sizes="`
-          ${LG} 100vw
-          ${SM} 100vw
+          min-width: ${LG} 100vw
+          min-width: ${SM} 100vw
           `
         "
         :src="banner.mobile_image.original"

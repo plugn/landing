@@ -31,7 +31,7 @@ export const ACCOUNT_UNKNOWN = 'Пользователь не найден.';
 export const VK_AUTH_TYPE = 'VKAuthType';
 
 // Screen sizes
-export const XL = '(min-width: 1200px)';
-export const LG = '(min-width: 992px)';
-export const MD = '(min-width: 768px)';
-export const SM = '(min-width: 576px)';
+export const XL = '1200px';
+export const LG = '992px';
+export const MD = '768px';
+export const SM = '576px';

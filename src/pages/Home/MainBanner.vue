@@ -12,12 +12,12 @@
             ${mainBanner.banner.mobile_image.image_360x240} 320w,
           `"
           :sizes="`
-            ${LG} 100vw
-            ${MD} 100vw
-            ${SM} 100vw
+            min-width: ${LG} 100vw
+            min-width: ${MD} 100vw
+            min-width: ${SM} 100vw
             `
           "
-          :src="mainBanner.banner.mobile_image.original"
+          :src="mainBanner.banner.mobile_image.image_360x240"
           class="main-banner__image"
           @load="handleImageLoad"
           @error="handleImageError"
