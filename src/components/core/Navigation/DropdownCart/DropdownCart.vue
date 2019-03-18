@@ -2,6 +2,7 @@
 
 <template>
   <Dropdown
+    :has-popup="!String(count)"
     icon="cart-black"
     :text="$t('shoppingCart')"
     hide-text-mobile
@@ -19,12 +20,10 @@
     >
       {{ count }}
     </div>
-    <div>
-      Your shopping cart is still empty
-    </div>
-    <div>
+    <div v-else>
+      Your shopping cart is still empty. <br>
       Choose a product and order it for a few
-      minutes
+      minutes.
     </div>
   </Dropdown>
 </template>
@@ -61,5 +60,8 @@ export default {
     color: #fff;
     font-size: 11px;
     line-height: 17px
+}
+.dropdown-icon {
+  opacity: 0.3;
 }
 </style>

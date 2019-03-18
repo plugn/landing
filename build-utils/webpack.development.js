@@ -34,6 +34,12 @@ module.exports = (env) => {
        */
       historyApiFallback: true,
       hot: true,
+      writeToDisk: true,
+      disableHostCheck: true,
+      allowedHosts: [
+        '.racoon.local',
+        '.alabom.com',
+      ],
     },
 
     plugins: [

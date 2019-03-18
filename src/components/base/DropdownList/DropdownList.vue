@@ -4,9 +4,10 @@
       Drowdown Navigation
     </h2>
     <div
-      v-for="item in items"
+      v-for="(item, index) in items"
       :key="item.id"
       class="dropdown-list__item"
+      :class="index === items.length-1 ? 'dropdown-list__item--danger' : ''"
       @click="handleClick(item)"
     >
       {{ item.text }}
@@ -56,6 +57,9 @@ export default {
       transition: all .1s ease-in-out;
       &:hover {
         background: rgba(45, 82, 218, .05);
+      }
+      @include modifier(danger) {
+        color: #f34;
       }
     }
   }

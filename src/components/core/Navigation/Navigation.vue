@@ -68,32 +68,15 @@
         v-if="true"
         class="navigation__cart"
       >
-        <DropdownCart count="15"></DropdownCart>
+        <DropdownCart count="78" />
       </div>
       <div
-        v-if="true"
         class="navigation__right-item"
       >
         <DropdownAuth />
-        <!--
-        <DropdownEmpty
-          icon="enter-black"
-          :text="profile ? userName : $t('signIn')"
-          hide-text-mobile
-          @handle-click="goAuth"
-        >
-          <img
-            slot="icon"
-            :src="`/static/svg/icons/${profile ? 'user': 'enter'}-black.svg`"
-            class="dropdown-icon"
-          >
-        </DropdownEmpty>
-        -->
       </div>
     </div>
-    <!-- <button @click="handleLoginClick">
-      text
-    </button> -->
+
     <Modal
       :is-open="isLoginFormOpened"
       @on-close="handleLoginClick"

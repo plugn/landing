@@ -26,6 +26,7 @@
       </div>
     </div>
     <div
+      v-if="hasPopup"
       class="dropdown__list"
       :class="{'dropdown__list--open': isOpen}"
     >
@@ -52,6 +53,10 @@ export default {
       default: '',
     },
     hideTextMobile: {
+      type: Boolean,
+      default: false,
+    },
+    hasPopup: {
       type: Boolean,
       default: false,
     },
@@ -115,7 +120,6 @@ export default {
     @include element(icon) {
       margin-right: 0;
       min-width: px-to-rem(24);
-      opacity: 0.3;
       width: px-to-rem(24);
 
       @include modifier(no-margin) {
