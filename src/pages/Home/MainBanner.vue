@@ -1,17 +1,19 @@
 <template>
   <div class="main-banner">
     <div class="main-banner__content">
-      <picture
+      <figure
         class="main-banner__image-wrapper"
       >
         <img
           v-show="isLoad"
           :srcset="`
             ${mainBanner.banner.image.image_1920x300} 1920w,
-            ${mainBanner.banner.mobile_image.image_360x240} 360w,
+            ${mainBanner.banner.mobile_image.original} 425w,
+            ${mainBanner.banner.mobile_image.image_360x240} 320w,
           `"
           :sizes="`
             ${LG} 100vw
+            ${MD} 100vw
             ${SM} 100vw
             `
           "
@@ -26,7 +28,7 @@
         >
           <Loader />
         </div>
-      </picture>
+      </figure>
     </div>
     <h3 class="main-banner__row-title text-center">
       {{ mainBanner.title }}
