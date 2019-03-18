@@ -29,13 +29,13 @@
         @load="handleImageLoad"
         @error="handleImageError"
       >
-      <div
-        v-if="!isImageLoaded"
-        class="banner__loader"
-      >
-        <Loader />
-      </div>
     </picture>
+    <div
+      v-if="!isImageLoaded"
+      class="banner__loader"
+    >
+      <Loader />
+    </div>
   </div>
 </template>
 

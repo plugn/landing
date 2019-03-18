@@ -17,13 +17,13 @@
           @load="handleImageLoad"
           @error="handleImageError"
         >
-        <div
-          v-if="!isLoad"
-          class="main-banner__loader"
-        >
-          <Loader />
-        </div>
       </picture>
+      <div
+        v-if="!isLoad"
+        class="main-banner__loader"
+      >
+        <Loader />
+      </div>
     </div>
     <h3 class="main-banner__row-title text-center">
       {{ mainBanner.title }}
