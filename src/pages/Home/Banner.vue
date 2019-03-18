@@ -14,20 +14,18 @@
         {{ description }}
       </div>
     </div>
-    <picture>
-      <img
-        v-show="isImageLoaded"
+    <picture
+      v-show="isImageLoaded"
+    >
+      <source
+        :media="`(min-width: ${MD})`"
         :srcset="`
-          ${banner.image.image_1160x200} 1160w,
-          ${banner.mobile_image.image_360x240} 360w,
+          ${banner.image.image_1160x200}
         `"
-        :sizes="`
-          (min-width: ${LG}) 100vw
-          (min-width: ${SM}) 100vw
-          `
-        "
+      >
+      <img
         :src="banner.mobile_image.original"
-        class="img-fluid"
+        class="banner__image"
         @load="handleImageLoad"
         @error="handleImageError"
       >
@@ -126,12 +124,12 @@ export default {
     margin-bottom: px-to-rem(40);
     overflow: hidden;
     position: relative;
-    border-top-right-radius: px-to-rem(4);
-    border-bottom-right-radius: px-to-rem(4);
+    // border-top-right-radius: px-to-rem(4);
+    // border-bottom-right-radius: px-to-rem(4);
 
     @include media($xl) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      // border-top-right-radius: 0;
+      // border-bottom-right-radius: 0;
     }
 
     @include element(text) {
@@ -145,6 +143,10 @@ export default {
         left: px-to-rem(74);
       }
     }
+
+     @include element(image) {
+       width: 100%;
+     }
 
     @include element(title) {
       font-weight: 900;
