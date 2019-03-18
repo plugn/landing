@@ -1,19 +1,17 @@
 <template>
   <div class="main-banner">
     <div class="main-banner__content">
-      <figure
+      <picture
+        v-show="isLoad"
         class="main-banner__image-wrapper"
       >
-        <img
-          v-show="isLoad"
+        <source
+          :media="`(min-width: ${MD})`"
           :srcset="`
-            ${mainBanner.banner.image.image_1920x300} 1920w,
-            ${mainBanner.banner.mobile_image.original} 425w,
+            ${mainBanner.banner.image.image_1920x300}
           `"
-          :sizes="`
-            (max-width: ${SM}) 50vw, 100vw
-            `
-          "
+        >
+        <img
           :src="mainBanner.banner.mobile_image.image_360x240"
           class="main-banner__image"
           @load="handleImageLoad"
@@ -25,7 +23,7 @@
         >
           <Loader />
         </div>
-      </figure>
+      </picture>
     </div>
     <h3 class="main-banner__row-title text-center">
       {{ mainBanner.title }}
@@ -40,7 +38,7 @@
 import Loader from '@/components/shared/Loader';
 
 import {
-  SM,
+  MD,
 } from 'constants';
 
 export default {
@@ -60,7 +58,7 @@ export default {
   },
   data() {
     return {
-      SM,
+      MD,
       isLoad: false,
     };
   },
