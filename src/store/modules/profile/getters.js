@@ -1,5 +1,7 @@
+import isEmpty from 'lodash.isempty';
+
 export default {
-  isLogged(state) {
-    return state.isLogged;
+  isLoggedIn(state) {
+    return !isEmpty(state, 'userProfile');
   },
 };
