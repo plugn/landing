@@ -5,7 +5,18 @@
     "parser": "babel-eslint"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["components", "./src/components/"],
+          ["directives", "./src/directives/"]
+        ],
+          "extensions": [
+            ".vue", ".ts", ".js", ".jsx", ".json"
+        ]
+      }
+    }
   },
   "extends": [
     "airbnb-base",
@@ -16,12 +27,38 @@
     "vue"
   ],
   "rules": {
-    "indent": ["error", 2, { "SwitchCase": 1 }],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "semi": ["error", "always"],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
     "no-param-reassign": "off",
-    "func-names": ["warn", "as-needed"],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "func-names": [
+      "warn",
+      "as-needed"
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ]
   }
 }

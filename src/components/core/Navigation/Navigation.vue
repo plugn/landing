@@ -103,10 +103,18 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import InputSearch from '@/components/base/InputSearch';
+<<<<<<< HEAD
 import Dropdown from '@/components/base/Dropdown';
 import Modal from '@/components/shared/Modal';
 import LoginForm from '@/components/shared/LoginForm/_LoginForm';
 import clickOutside from '@/directives/clickOutside';
+=======
+// import Dropdown from 'components/base/Dropdown';
+// import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
+import Modal from '@/components/shared/Modal';
+import LoginForm from 'components/shared/LoginForm/_LoginForm';
+import clickOutside from 'directives/clickOutside';
+>>>>>>> 890c7e9... chore(eslint): aliases, formatting
 
 import Categories from './Categories';
 import ModalSearch from './ModalSearch';
