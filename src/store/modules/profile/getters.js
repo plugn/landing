@@ -9,7 +9,7 @@ export default {
     return !isEmpty(getters.userCart);
   },
   cartCount(state, getters) {
-    return getters.hasCart ? get(getters.userCart, 'count', '') : '';
+    return getters.hasCart ? getters.userCart : '';
   },
   userProfile(state) {
     return get(state, 'userProfile');
