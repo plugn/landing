@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 import categories from './modules/categories';
 import modal from './modules/modal';
 import landing from './modules/landing';
+import profile from './modules/profile';
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ const store = new Vuex.Store({
     categories,
     modal,
     landing,
+    profile,
   },
 });
 
