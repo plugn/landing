@@ -84,7 +84,10 @@ export default {
     @include element(image) {
       border: 1px solid var(--black-01);
       border-radius: 50%;
-      width: px-to-rem(98);
+      width: px-to-rem(96);
+      @include media($md) {
+        width: px-to-rem(98);
+      }
     }
 
     @include element(text) {
