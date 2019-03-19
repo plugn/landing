@@ -14,11 +14,11 @@
     >
 
     <div
-      v-if="String(count)"
+      v-if="String(cartCount)"
       slot="counter"
       class="cart-counter"
     >
-      {{ count }}
+      {{ cartCount }}
     </div>
     <div v-else>
       Your shopping cart is still empty. <br>
@@ -30,6 +30,9 @@
 
 <script>
 import Dropdown from '@/components/base/Dropdown';
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapGetters, mapActions } = createNamespacedHelpers('profile');
 
 export default {
   name: 'DropdownCart',
@@ -41,6 +44,23 @@ export default {
       type: [String, Number],
       default: '',
     },
+  },
+  computed: {
+    ...mapGetters([
+      'isLoggedIn',
+      'hasCart',
+      'cartCount',
+    ]),
+  },
+  mounted() {
+    if (this.isLoggedIn && !this.hasCart) {
+      this.getCart();
+    }
+  },
+  methods: {
+    ...mapActions([
+      'getCart',
+    ]),
   },
 };
 </script>

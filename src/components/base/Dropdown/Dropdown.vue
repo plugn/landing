@@ -68,7 +68,11 @@ export default {
   },
   methods: {
     handleClick() {
-      this.isOpen = !this.isOpen;
+      if (!this.hasPopup) {
+        this.$emit('on-click');
+      } else {
+        this.isOpen = !this.isOpen;
+      }
     },
     handleOutsideClick() {
       if (this.isOpen) {

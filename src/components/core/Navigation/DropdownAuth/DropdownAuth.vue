@@ -4,8 +4,9 @@
   <Dropdown
     icon="enter-black"
     :text="title"
-    :has-popup="true"
+    :has-popup="isLoggedIn"
     hide-text-mobile
+    @on-click="onEnter"
   >
     <img
       slot="icon"
@@ -26,7 +27,7 @@ import { createNamespacedHelpers } from 'vuex';
 import Dropdown from '@/components/base/Dropdown';
 import DropdownList from '@/components/base/DropdownList';
 
-const { mapGetters } = createNamespacedHelpers('profile');
+const { mapGetters, mapActions } = createNamespacedHelpers('profile');
 
 export default {
   name: 'DropdownAuth',
@@ -67,6 +68,16 @@ export default {
     },
   },
   methods: {
+    ...mapActions([
+      'doLogout',
+    ]),
+    onEnter() {
+      // eslint-disable-next-line
+      console.log('onEnter() -> doLogin', this.isLoggedIn);
+      if (!this.isLoggedIn) {
+        this.doLogin();
+      }
+    },
     handleClick(item) {
       // eslint-disable-next-line
       console.log('item', item);
@@ -74,9 +85,9 @@ export default {
         // eslint-disable-next-line no-restricted-globals
         location.href = item.href;
       } else if (item.action) {
-        if (item.action === 'login') {
-          this.doLogin();
-        } else {
+        if (item.action === 'logout') {
+          // eslint-disable-next-line
+          console.log('doLogout');
           this.doLogout();
         }
       }

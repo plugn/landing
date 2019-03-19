@@ -19,6 +19,7 @@ import { parseHttpHeaders, getCookie } from './http';
  */
 
 function xhr(url, data, method, props) {
+  // eslint-disable-next-line
   // console.log('xhr() ', {url, data, method, props});
 
   return new Promise((resolve, reject) => {
@@ -42,15 +43,23 @@ function xhr(url, data, method, props) {
     instance.open(method, url);
 
     instance.setRequestHeader('Accept', 'application/json, text/javascript, */*');
-    instance.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    // instance.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
-    if (props.csrfTokenCookieName && !/^(https?:)?\/\//.test(url)) {
-      instance.setRequestHeader('X-CSRFToken', getCookie(props.csrfTokenCookieName));
-    }
     if (method !== 'GET') {
       instance.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
     }
     if (props) {
+      if (props.csrfTokenCookieName && !/^(https?:)?\/\//.test(url)) {
+        instance.setRequestHeader('X-CSRFToken', getCookie(props.csrfTokenCookieName));
+      }
+      if (props.authTokenCookieName) {
+        const authToken = getCookie(props.authTokenCookieName);
+        // eslint-disable-next-line
+        if (authToken) {
+          instance.setRequestHeader('Authorization', `Bearer ${authToken}`);
+        }
+      }
+
       let headers = [];
       if (typeof props.headersText === 'string') {
         headers = parseHttpHeaders(props.headersText);

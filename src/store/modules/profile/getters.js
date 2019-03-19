@@ -2,6 +2,15 @@ import isEmpty from 'lodash.isempty';
 import get from 'lodash.get';
 
 export default {
+  userCart(state) {
+    return get(state, 'userCart');
+  },
+  hasCart(state, getters) {
+    return !isEmpty(getters.userCart);
+  },
+  cartCount(state, getters) {
+    return getters.hasCart ? get(getters.userCart, 'count', '') : '';
+  },
   userProfile(state) {
     return get(state, 'userProfile');
   },
@@ -13,5 +22,4 @@ export default {
     // eslint-disable-next-line no-mixed-operators
     return profile && (profile.first_name || profile.last_name || profile.email) || 'Гость';
   },
-
 };
