@@ -1,4 +1,4 @@
-import categories from 'assets/json/categories.json';
+import categories from '@/assets/json/categories.json';
 import * as types from './actionTypes';
 
 export default {

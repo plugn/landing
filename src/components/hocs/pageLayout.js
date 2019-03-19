@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Header from 'core/Header';
-import Footer from 'core/Footer';
-import FooterMobile from 'core/FooterMobile';
+import Header from '@/components/core/Header';
+import Footer from '@/components/core/Footer';
+import FooterMobile from '@/components/core/FooterMobile';
 
 export default function pageLayout(Component,
   { container } = { container: true }) {

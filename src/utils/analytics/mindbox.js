@@ -1,6 +1,6 @@
 /* global mindbox */
 
-import { getQuery, modifyQuery } from 'utils/helpers';
+import { getQuery, modifyQuery } from '@/utils/helpers';
 
 function roundPrice(price) {
   // ну у js немного странная работа со всем этим, кмк так надежнее

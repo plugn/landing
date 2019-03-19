@@ -9,8 +9,15 @@
       "alias": {
         "map": [
           ["@", "./src"],
+          ["api", "./src/api/"],
+          ["assets", "./src/assets/"],
           ["components", "./src/components/"],
-          ["directives", "./src/directives/"]
+          ["constants", "./src/constants/"],
+          ["directives", "./src/directives/"],
+          ["pages", "./src/pages/"],
+          ["services", "./src/services/"],
+          ["store", "./src/store/"],
+          ["utils", "./src/utils/"]
         ],
           "extensions": [
             ".vue", ".ts", ".js", ".jsx", ".json"
