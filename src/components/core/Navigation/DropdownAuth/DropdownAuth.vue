@@ -22,12 +22,11 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import Dropdown from '@/components/base/Dropdown';
 import DropdownList from '@/components/base/DropdownList';
-// import { apiLogout } from '@/api/api';
 
-const profileJson = localStorage.getItem('LANDING_PROFILE');
-const userProfile = profileJson ? JSON.parse(profileJson) : null;
+const { mapGetters } = createNamespacedHelpers('profile');
 
 export default {
   name: 'DropdownAuth',
@@ -37,8 +36,6 @@ export default {
   },
   data() {
     return {
-      profile: userProfile,
-      isLoggedIn: Boolean(userProfile),
       items: [
         {
           id: 0,
@@ -60,11 +57,13 @@ export default {
     };
   },
   computed: {
-    userName() {
-      return this.profile ? (this.profile.first_name || this.profile.last_name || this.profile.email || 'Гость') : 'Гость';
-    },
+    ...mapGetters([
+      'userName',
+      'userProfile',
+      'isLoggedIn',
+    ]),
     title() {
-      return this.profile ? this.userName : this.$t('signIn');
+      return this.isLoggedIn ? this.userName : this.$t('signIn');
     },
   },
   methods: {
@@ -84,9 +83,9 @@ export default {
     },
     doLogin() {
       // eslint-disable-next-line
-      console.info('DropdownAuth::doLogin()', this.profile);
+      console.info('DropdownAuth::doLogin()', this.userProfile);
 
-      if (this.profile) { return; }
+      if (this.userProfile) { return; }
       // eslint-disable-next-line
       localStorage.setItem('LANDING_URL', location.href);
       localStorage.setItem('LANDING_ACTION', 'auth');

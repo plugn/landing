@@ -27,6 +27,7 @@ module.exports = (env) => {
       // but you can modify this to another directory
       contentBase: paths.src,
       compress: true,
+      host: '0.0.0.0',
       port: PORT,
       /**
        * Basically tells the dev-server "hey! if you don't match something here,

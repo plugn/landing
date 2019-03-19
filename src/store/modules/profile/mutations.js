@@ -1,9 +1,10 @@
 import {
-  AUTH_USER_REQUEST,
+  SET_USER_PROFILE,
 } from './actionTypes';
 
 export default {
   // eslint-disable-next-line no-unused-vars
-  [AUTH_USER_REQUEST](state) {
+  [SET_USER_PROFILE](state, payload) {
+    state.userProfile = payload;
   },
 };
