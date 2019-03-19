@@ -89,10 +89,10 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import InputSearch from 'components/base/InputSearch';
+import InputSearch from '@/components/base/InputSearch';
 // import Dropdown from 'components/base/Dropdown';
 // import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
-import Modal from 'components/shared/Modal';
+import Modal from '@/components/shared/Modal';
 import LoginForm from 'components/shared/LoginForm/_LoginForm';
 import clickOutside from 'directives/clickOutside';
 
