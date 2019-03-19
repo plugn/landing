@@ -135,7 +135,11 @@ export default {
       margin: 0 auto;
       margin-bottom: px-to-rem(40);
       max-width: px-to-rem(924);
+      padding: 0 1rem;
       text-align: center;
+      @include media($md) {
+        padding: 0;
+      }
     }
   }
 </style>
