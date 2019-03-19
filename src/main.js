@@ -2,7 +2,7 @@ import Vue from 'vue';
 import vueSmoothScroll from 'vue2-smooth-scroll';
 import vueLineClamp from 'vue-line-clamp';
 
-import App from 'core/App';
+import App from '@/components/core/App';
 
 import store from 'store';
 import { router } from './router';

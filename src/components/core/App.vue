@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Layout from 'core/Layout';
+import Layout from '@/components/core/Layout';
 
 export default {
   name: 'App',

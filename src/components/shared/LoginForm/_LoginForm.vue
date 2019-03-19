@@ -232,7 +232,7 @@ import {
 } from 'services/AuthService';
 // import * as STATUS from 'constants';
 import { VK_AUTH_TYPE } from 'constants';
-import AuthMixin from 'core/Auth/AuthMixin';
+import AuthMixin from '@/components/core/Auth/AuthMixin';
 
 const labels = {
   login: {
