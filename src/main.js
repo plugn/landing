@@ -8,7 +8,7 @@ import store from 'store';
 import { router } from './router';
 import i18n from './i18n';
 
-Vue.config.devtools = true;
+// Vue.config.devtools = true;
 // Vue.config.debug = true;
 
 Vue.use(vueSmoothScroll);

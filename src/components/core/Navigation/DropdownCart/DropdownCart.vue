@@ -2,7 +2,7 @@
 
 <template>
   <Dropdown
-    :has-popup="!String(count)"
+    :has-popup="!cartCount"
     icon="cart-black"
     :text="$t('shoppingCart')"
     hide-text-mobile
@@ -15,7 +15,7 @@
     >
 
     <div
-      v-if="String(cartCount)"
+      v-if="Number(cartCount)"
       slot="counter"
       class="cart-counter"
     >
@@ -39,12 +39,6 @@ export default {
   name: 'DropdownCart',
   components: {
     Dropdown,
-  },
-  props: {
-    count: {
-      type: [String, Number],
-      default: '',
-    },
   },
   computed: {
     ...mapGetters([

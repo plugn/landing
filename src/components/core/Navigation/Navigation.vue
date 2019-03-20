@@ -68,7 +68,7 @@
         v-if="true"
         class="navigation__cart"
       >
-        <DropdownCart count="5" />
+        <DropdownCart />
       </div>
       <div
         class="navigation__right-item"
