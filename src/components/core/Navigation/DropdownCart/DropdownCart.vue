@@ -6,6 +6,7 @@
     icon="cart-black"
     :text="$t('shoppingCart')"
     hide-text-mobile
+    @on-click="handleClick"
   >
     <img
       slot="icon"
@@ -61,6 +62,10 @@ export default {
     ...mapActions([
       'getCart',
     ]),
+    handleClick() {
+      // eslint-disable-next-line
+      location.href = '/cart/';
+    },
   },
 };
 </script>
