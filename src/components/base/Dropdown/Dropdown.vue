@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import clickOutside from 'directives/clickOutside';
+import clickOutside from '@/directives/clickOutside';
 
 export default {
   name: 'Dropdown',
