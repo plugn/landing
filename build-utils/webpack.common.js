@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,11 +7,6 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 const { setupPath } = require('./helpers');
 const paths = require('./paths');
-
-const progressHandler = (percentage, message, ...args) => {
-  // eslint-disable-next-line no-console
-  console.info(percentage, message, ...args);
-};
 
 module.exports = (mode) => {
   const prodMode = mode === 'production';
@@ -111,7 +106,7 @@ module.exports = (mode) => {
     },
     plugins: [
       new VueLoaderPlugin(),
-      new webpack.ProgressPlugin(progressHandler),
+      // new webpack.ProgressPlugin(progressHandler),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
