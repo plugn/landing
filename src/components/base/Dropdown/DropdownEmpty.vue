@@ -1,6 +1,5 @@
 <template>
   <div
-    v-click-outside="handleOutsideClick"
     class="dropdown"
   >
     <div
@@ -25,24 +24,12 @@
         {{ text }}
       </div>
     </div>
-    <div
-      v-if="hasPopup"
-      class="dropdown__list"
-      :class="{'dropdown__list--open': isOpen}"
-    >
-      <slot />
-    </div>
   </div>
 </template>
 
 <script>
-import clickOutside from '@/directives/clickOutside';
-
 export default {
-  name: 'Dropdown',
-  directives: {
-    clickOutside,
-  },
+  name: 'DropdownEmpty',
   props: {
     icon: {
       type: String,
@@ -56,10 +43,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasPopup: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
@@ -68,16 +51,7 @@ export default {
   },
   methods: {
     handleClick() {
-      if (!this.hasPopup) {
-        this.$emit('on-click');
-      } else {
-        this.isOpen = !this.isOpen;
-      }
-    },
-    handleOutsideClick() {
-      if (this.isOpen) {
-        this.isOpen = false;
-      }
+      this.$emit('handle-click');
     },
   },
 };
@@ -124,6 +98,7 @@ export default {
     @include element(icon) {
       margin-right: 0;
       min-width: px-to-rem(24);
+      opacity: 0.3;
       width: px-to-rem(24);
 
       @include modifier(no-margin) {
@@ -145,8 +120,8 @@ export default {
     @include element(list) {
       background-color: #fff;
       border-radius: px-to-rem(4);
-      border: 1px none var(--black-01);
-      box-shadow: 0 5px 20px 0 var(--black-01), 0 0 0 1px hsla(0, 0%, 100%, 0.5);
+      border: 1px none rgba(24, 25, 32, 0.1);
+      box-shadow: 0 5px 20px 0 rgba(24, 25, 32, 0.1), 0 0 0 1px hsla(0, 0%, 100%, 0.5);
       color: #181920;
       display: none;
       margin-top: px-to-rem(70);

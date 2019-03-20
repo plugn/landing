@@ -65,31 +65,18 @@
         <ModalSearch />
       </div>
       <div
-        v-if="false"
+        v-if="true"
         class="navigation__cart"
       >
-        <DropdownCart />
+        <DropdownCart count="5" />
       </div>
       <div
-        v-if="false"
         class="navigation__right-item"
       >
-        <Dropdown
-          icon="enter-black"
-          :text="$t('signIn')"
-          hide-text-mobile
-        >
-          <img
-            slot="icon"
-            src="/static/svg/icons/enter-black.svg"
-            class="dropdown-icon"
-          >
-        </Dropdown>
+        <DropdownAuth />
       </div>
     </div>
-    <!-- <button @click="handleLoginClick">
-      text
-    </button> -->
+
     <Modal
       :is-open="isLoginFormOpened"
       @on-close="handleLoginClick"
@@ -103,14 +90,16 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import InputSearch from '@/components/base/InputSearch';
-import Dropdown from '@/components/base/Dropdown';
+// import Dropdown from 'components/base/Dropdown';
+// import DropdownEmpty from 'components/base/Dropdown/DropdownEmpty';
 import Modal from '@/components/shared/Modal';
-import LoginForm from '@/components/shared/LoginForm/_LoginForm';
-import clickOutside from '@/directives/clickOutside';
+import LoginForm from 'components/shared/LoginForm/_LoginForm';
+import clickOutside from 'directives/clickOutside';
 
 import Categories from './Categories';
 import ModalSearch from './ModalSearch';
 import DropdownCart from './DropdownCart';
+import DropdownAuth from './DropdownAuth';
 
 const { mapActions } = createNamespacedHelpers('modal');
 const profileJson = localStorage.getItem('LANDING_PROFILE');
@@ -122,13 +111,15 @@ export default {
     clickOutside,
   },
   components: {
-    Dropdown,
+    // Dropdown,
+    // DropdownEmpty,
     Categories,
     InputSearch,
     Modal,
     LoginForm,
     ModalSearch,
     DropdownCart,
+    DropdownAuth,
   },
   data() {
     return {
@@ -146,7 +137,23 @@ export default {
       profile: userProfile,
     };
   },
+  computed: {
+    userName() {
+      return this.profile ? (this.profile.first_name || this.profile.last_name || this.profile.email || 'Гость') : 'Гость';
+    },
+  },
   methods: {
+    goAuth() {
+      // eslint-disable-next-line
+      console.info('goAuth()', this.profile);
+
+      if (this.profile) { return; }
+      // eslint-disable-next-line
+      localStorage.setItem('LANDING_URL', location.href);
+      localStorage.setItem('LANDING_ACTION', 'auth');
+      // eslint-disable-next-line
+      location.href = '/';
+    },
     handleLoginClick() {
       this.isLoginFormOpened = !this.isLoginFormOpened;
     },

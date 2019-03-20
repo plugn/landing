@@ -4,9 +4,13 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-
 const { setupPath } = require('./helpers');
 const paths = require('./paths');
+
+const progressHandler = (percentage, message, ...args) => {
+  // eslint-disable-next-line no-console
+  console.info(percentage, message, ...args);
+};
 
 module.exports = ({ mode }) => {
   // eslint-disable-next-line global-require
@@ -34,6 +38,7 @@ module.exports = ({ mode }) => {
     },
 
     plugins: [
+      new Webpack.ProgressPlugin(progressHandler),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
         // eslint-disable-next-line
