@@ -9,6 +9,6 @@ try {
 }
 
 export default {
-  userCart: null,
+  userCart: {},
   userProfile,
 };

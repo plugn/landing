@@ -72,30 +72,21 @@ export default {
       'doLogout',
     ]),
     onEnter() {
-      // eslint-disable-next-line
-      console.log('onEnter() -> doLogin', this.isLoggedIn);
       if (!this.isLoggedIn) {
         this.doLogin();
       }
     },
     handleClick(item) {
-      // eslint-disable-next-line
-      console.log('item', item);
       if (item.href) {
         // eslint-disable-next-line no-restricted-globals
         location.href = item.href;
       } else if (item.action) {
         if (item.action === 'logout') {
-          // eslint-disable-next-line
-          console.log('doLogout');
           this.doLogout();
         }
       }
     },
     doLogin() {
-      // eslint-disable-next-line
-      console.info('DropdownAuth::doLogin()', this.userProfile);
-
       if (this.userProfile) { return; }
       // eslint-disable-next-line
       localStorage.setItem('LANDING_URL', location.href);
@@ -103,11 +94,6 @@ export default {
       // eslint-disable-next-line
       location.href = '/';
     },
-  },
-  doLogout() {
-    // eslint-disable-next-line
-    console.info('DropdownAuth::doLogout()');
-    // apiLogout();
   },
 };
 </script>

@@ -1,6 +1,9 @@
 import isEmpty from 'lodash.isempty';
 import get from 'lodash.get';
 
+const calcCartCounter = cartData => (cartData && Array.isArray(cartData.goods)
+  ? cartData.goods.reduce((acc = 0, v) => acc + Number(v.count), 0) : 0);
+
 export default {
   userCart(state) {
     return get(state, 'userCart');
@@ -9,7 +12,7 @@ export default {
     return !isEmpty(getters.userCart);
   },
   cartCount(state, getters) {
-    return getters.hasCart ? getters.userCart : '';
+    return getters.hasCart ? calcCartCounter(getters.userCart) : '';
   },
   userProfile(state) {
     return get(state, 'userProfile');

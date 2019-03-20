@@ -18,9 +18,13 @@ import { parseHttpHeaders, getCookie } from './http';
  * @returns Promise<XMLHttpRequest>
  */
 
-function xhr(url, data, method, props) {
+const options = { json: false };
+
+function xhr(url, data, method, params = {}) {
   // eslint-disable-next-line
   // console.log('xhr() ', {url, data, method, props});
+
+  const props = { ...options, ...params };
 
   return new Promise((resolve, reject) => {
     const instance = new XMLHttpRequest();
@@ -34,7 +38,13 @@ function xhr(url, data, method, props) {
     instance.onreadystatechange = () => {
       if (instance.readyState === XMLHttpRequest.DONE) {
         setTimeout(() => {
-          resolve(instance);
+          try {
+            const result = props.json ? JSON.parse(instance.responseText) : instance.responseText;
+            resolve(result);
+          } catch (exception) {
+            const error = new Error('Cannot parse HTTP response: ', instance.responseText);
+            reject(error);
+          }
         }, 0);
       }
     };
