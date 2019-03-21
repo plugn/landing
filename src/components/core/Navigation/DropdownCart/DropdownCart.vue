@@ -22,9 +22,10 @@
       {{ cartCount }}
     </div>
     <div v-else>
-      Your shopping cart is still empty. <br>
-      Choose a product and order it for a few
-      minutes.
+      <div style="margin-bottom: 10px; font-weight: 500;">
+        {{ $t('yourShoppingCartIsStillEmpty') }}
+      </div>
+      <div>{{ $t('chooseAProductAndOrderIt') }}</div>
     </div>
   </Dropdown>
 </template>
