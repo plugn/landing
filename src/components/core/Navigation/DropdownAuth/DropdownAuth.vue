@@ -90,6 +90,7 @@ export default {
       if (this.userProfile) { return; }
       // eslint-disable-next-line
       localStorage.setItem('LANDING_URL', location.href);
+      localStorage.removeItem('LANDING_ACTION_SHOWN');
       localStorage.setItem('LANDING_ACTION', 'auth');
       // eslint-disable-next-line
       location.href = '/';
