@@ -7,7 +7,7 @@
       {{ product.brand }}
     </h2>
     <a
-      :href="`https://alabom.com/${LANG}/goods/${product.id}`"
+      :href="`https://${domain}/${LANG}/goods/${product.id}`"
       class="product-card__wrapper"
     >
       <div class="product-card__cover">
@@ -108,6 +108,7 @@ export default {
       title: '',
       isImageLoaded: false,
       LANG,
+      domain: window.location.hostname,
     };
   },
   created() {
@@ -122,7 +123,7 @@ export default {
     tFrom,
     handleClick() {
       const { id } = this.product;
-      const url = `https://alabom.com/${LANG}/goods/${id}`;
+      const url = `https://${this.domain}/${LANG}/goods/${id}`;
       window.location.href = url;
     },
     loadImg() {
