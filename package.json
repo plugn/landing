@@ -81,7 +81,7 @@
     "vue-style-loader": "4.1.2",
     "vue-template-compiler": "2.6.6",
     "webpack": "4.29.0",
-    "webpack-bundle-analyzer": "3.0.3",
+    "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.2.1",
     "webpack-dev-server": "3.1.14",
     "webpack-dll-bundles-plugin": "1.0.0-beta.5",
